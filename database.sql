@@ -15,7 +15,7 @@ CREATE EXTENSION IF NOT EXISTS citext;
 
 CREATE TABLE "staff" (
   "id" SERIAL PRIMARY KEY,
-  "email_address" varchar  NOT NULL,
+  "email_address"  citext  NOT NULL,
   "password" varchar  NOT NULL,
   "auth_level" auth DEFAULT 'user' NOT NULL
 );
@@ -23,8 +23,7 @@ CREATE TABLE "staff" (
 CREATE TABLE "events" (
   "id" SERIAL PRIMARY KEY,
   "place" varchar,
-  "time" varchar,
-  "date" date
+ "timestamp" varchar
 );
 
 CREATE TABLE "requests" (
@@ -39,9 +38,9 @@ CREATE TABLE "drawings" (
   "name" varchar NOT NULL,
   "email_address" citext NOT NULL,
   "instagram" varchar,
-  "prompt" varchar,
   "description" varchar,
   "image_url" varchar,
   "timestamp" timestamp DEFAULT Now(),
   "approved" BOOLEAN DEFAULT 'false'
 );
+
