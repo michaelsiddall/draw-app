@@ -16,8 +16,8 @@ function Nav(props) {
                 <div className="nav-div">
                     <ul className="nav-list">
                         <li className="inline-li"><Link className="nav-link-li" to="/events">Events</Link></li>
-                        <li className="inline-li"><Link className="nav-link-li" to="/approved">Appro</Link></li>
-                        <li className="inline-li"><Link className="nav-link-li" to="/drawings">Account</Link></li>
+                        <li className="inline-li"><Link className="nav-link-li" to="/approved">Approved</Link></li>
+                        <li className="inline-li"><Link className="nav-link-li" to="/drawings">Drawings</Link></li>
                         <li className="inline-li"><Link className="nav-link-li" to="/home" onClick={() => props.dispatch({ type: 'LOGOUT' })}>Log Out</Link></li>
                     </ul>
                 </div>
