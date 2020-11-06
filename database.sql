@@ -3,37 +3,44 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+CREATE TABLE "user"
+(
+  "id" SERIAL PRIMARY KEY,
+  "username" VARCHAR (80) UNIQUE NOT NULL,
+  "password" VARCHAR (1000) NOT NULL
 );
 
 --BELOW THIS IS THE NEW SQL CODE FOR OUR DBs
-CREATE TYPE auth AS ENUM ('user', 'admin', 'superAdmin');
-CREATE EXTENSION IF NOT EXISTS citext;
+CREATE TYPE auth AS ENUM
+('user', 'admin', 'superAdmin');
+CREATE EXTENSION
+IF NOT EXISTS citext;
 
-CREATE TABLE "staff" (
+CREATE TABLE "staff"
+(
   "id" SERIAL PRIMARY KEY,
-  "email_address"  citext UNIQUE NOT NULL,
-  "password" varchar  NOT NULL,
+  "username" citext UNIQUE NOT NULL,
+  "password" varchar NOT NULL,
   "auth_level" auth DEFAULT 'user' NOT NULL
 );
 
-CREATE TABLE "events" (
+CREATE TABLE "events"
+(
   "id" SERIAL PRIMARY KEY,
   "place" varchar,
- "timestamp" varchar
+  "timestamp" varchar
 );
 
-CREATE TABLE "requests" (
+CREATE TABLE "requests"
+(
   "id" SERIAL PRIMARY KEY,
   "table_number" varchar,
   "artist_count" numeric,
   "event_id" INT
 );
 
-CREATE TABLE "drawings" (
+CREATE TABLE "drawings"
+(
   "id" SERIAL PRIMARY KEY,
   "name" varchar NOT NULL,
   "email_address" citext NOT NULL,
