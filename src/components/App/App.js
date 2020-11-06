@@ -19,6 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import EventAdminApproved from '../EventAdminApproved/EventAdminApproved';
+import EventAdminEvents from '../EventAdminEvents/EventAdminEvents';
+import EventAdminPending from '../EventAdminPending/EventAdminPending';
+import EventAdminQueue from '../EventAdminQueue/EventAdminQueue';
 
 import './App.css';
 
@@ -61,6 +65,36 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/events"
+              component={EventAdminEvents}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/events"
+              component={EventAdminQueue}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/pending"
+              component={EventAdminPending}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/approved"
+              component={EventAdminApproved}
+            />
+
+
 
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
