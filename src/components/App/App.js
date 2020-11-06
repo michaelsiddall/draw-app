@@ -20,6 +20,18 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import UserDrawingSubmit from '../User/UserDrawingSubmit/UserDrawingSubmit';
+import UserGallery from '../User/UserGallery/UserGallery';
+import UserLandingPage from '../User/UserLandingPage/UserLandingPage';
+import UserMaterialRequest from '../User/UserMaterialRequest/UserMaterialRequest';
+
+import EventAdminApproved from '../EventAdmin/EventAdminApproved/EventAdminApproved';
+import EventAdminEvents from '../EventAdmin/EventAdminEvents/EventAdminEvents';
+import EventAdminPending from '../EventAdmin/EventAdminPending/EventAdminPending';
+import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
+
+import AppAdmin from '../AppAdmin/AppAdmin';
+
 import './App.css';
 
 class App extends Component {
@@ -34,8 +46,40 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            <Redirect exact from="/" to="/userhome" />
 
+
+            {/* USER ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+            <Route
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/userhome"
+              component={UserLandingPage}
+            />
+
+            <Route
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/submit"
+              component={UserDrawingSubmit}
+            />
+
+            <Route
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/request"
+              component={UserMaterialRequest}
+            />
+
+            <Route
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/gallery"
+              component={UserGallery}
+            />
+
+
+            {/* EVENT ADMIN ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
             {/* Visiting localhost:3000/about will show the about page. */}
             <Route
               // shows AboutPage at all times (logged in or not)
@@ -60,6 +104,41 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/events"
+              component={EventAdminEvents}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/queue"
+              component={EventAdminQueue}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/pending"
+              component={EventAdminPending}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/approved"
+              component={EventAdminApproved}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/admin"
+              component={AppAdmin}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
