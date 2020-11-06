@@ -3,7 +3,7 @@ import { HashRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import LoginPage from "../../LoginPage"
 
 
 function Nav(props) {
@@ -12,7 +12,6 @@ function Nav(props) {
     if (loggedIn != null) {
         return (
             <HashRouter>
-                <h2 className="nav-title">COVIDaily</h2>
                 <div className="nav-div">
                     <ul className="nav-list">
                         <li className="inline-li"><Link className="nav-link-li" to="/events">Events</Link></li>
@@ -21,7 +20,6 @@ function Nav(props) {
                         <li className="inline-li"><Link className="nav-link-li" to="/home" onClick={() => props.dispatch({ type: 'LOGOUT' })}>Log Out</Link></li>
                     </ul>
                 </div>
-                <div className="nav-line"></div>
             </HashRouter>
         );
     }
@@ -29,13 +27,10 @@ function Nav(props) {
     else {
         return (
             <HashRouter>
-                <h2 className="nav-title">COVIDaily</h2>
                 <div className="nav-div">
-                    <ul className="nav-list">
-                        <li className="inline-li"><Link className="nav-link-li" to="/home">Home</Link></li>
-                    </ul>
+                    <LoginForm />
                 </div>
-                <div className="not-logged-nav-line"></div>
+
             </HashRouter>
         )
     }
