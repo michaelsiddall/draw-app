@@ -19,10 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import EventAdminApproved from '../EventAdminApproved/EventAdminApproved';
-import EventAdminEvents from '../EventAdminEvents/EventAdminEvents';
-import EventAdminPending from '../EventAdminPending/EventAdminPending';
-import EventAdminQueue from '../EventAdminQueue/EventAdminQueue';
+import EventAdminApproved from '../EventAdmin/EventAdminApproved/EventAdminApproved';
+import EventAdminEvents from '../EventAdmin/EventAdminEvents/EventAdminEvents';
+import EventAdminPending from '../EventAdmin/EventAdminPending/EventAdminPending';
+import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
 
 import './App.css';
 
@@ -66,6 +66,8 @@ class App extends Component {
               component={InfoPage}
             />
 
+
+            {/* */}
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact

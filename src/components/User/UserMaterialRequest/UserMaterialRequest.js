@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
-class EventAdminQueue extends Component {
+class UserMaterialRequest extends Component {
     state = {
         heading: 'Class Component',
     };
@@ -20,4 +20,4 @@ class EventAdminQueue extends Component {
     }
 }
 
-export default connect(mapStoreToProps)(EventAdminQueue);
+export default connect(mapStoreToProps)(UserMaterialRequest);
