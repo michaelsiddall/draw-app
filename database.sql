@@ -51,3 +51,8 @@ CREATE TABLE "drawings"
   "approved" BOOLEAN DEFAULT 'false'
 );
 
+--Sample Data inserts 
+INSERT INTO "events"("place", "timestamp") VALUES ('Surly Brewing', '1970-01-01 00:00:01');
+INSERT INTO "requests"("table_number", "artist_count", "event_id") VALUES ('1', '4', '1');
+INSERT INTO "drawings"("name", "email_address", "instagram", "description", "image_url")
+   VALUES ('John', 'john@drunkdrawing.com', 'myinstagram', 'This is a picture of this thing', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJEIMIbQgXJfvdXkcm8YzC8sbgizJf74_VGg&usqp=CAU' );
