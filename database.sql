@@ -15,7 +15,7 @@ CREATE EXTENSION IF NOT EXISTS citext;
 
 CREATE TABLE "staff" (
   "id" SERIAL PRIMARY KEY,
-  "email_address"  citext  NOT NULL,
+  "email_address"  citext UNIQUE NOT NULL,
   "password" varchar  NOT NULL,
   "auth_level" auth DEFAULT 'user' NOT NULL
 );
