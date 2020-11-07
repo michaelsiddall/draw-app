@@ -27,7 +27,7 @@ CREATE TABLE "staff"
 CREATE TABLE "events"
 (
   "id" SERIAL PRIMARY KEY,
-  "place" VARCHAR (500),
+  "location" VARCHAR (500),
   "timestamp" TIMESTAMP
 );
 
