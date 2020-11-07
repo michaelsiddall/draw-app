@@ -4,7 +4,7 @@ import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import { HashRouter, Link } from 'react-router-dom';
 
 
-import EventsDelete from "../EventsDelete/EventsDelete";
+import EventsComplete from "../EventsComplete/EventsComplete";
 import EventsEdit from "../EventsEdit/EventsEdit";
 
 
@@ -29,7 +29,7 @@ class EventsItem extends Component {
                         <td>{this.props.item.timestamp}</td>
                         <td><Link to="/request"><Button>Material Request Queue</Button></Link></td>
                         <td><EventsEdit/></td>
-                        <td><EventsDelete/></td>
+                        <td><EventsComplete/></td>
                     </tr>
             </HashRouter>
         );
