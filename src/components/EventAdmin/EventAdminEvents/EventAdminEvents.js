@@ -30,7 +30,7 @@ class EventAdminEvents extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.store.eventsReducer.map((item, i)=>
+                            {this.props.store.eventReducer.map((item, i)=>
                             <EventsItem 
                             key={i}
                             item={item}

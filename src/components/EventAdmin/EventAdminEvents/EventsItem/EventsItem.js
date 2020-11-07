@@ -11,11 +11,11 @@ class EventsItem extends Component {
         this.setState({
             hide: !this.state.hide
         })
-    } //end ondelete 
+    } //end toggleHidden
 
     render() {
         return (
-        <tr id=""> 
+        <tr> 
             <td>{this.props.item.location}</td>
             <td>{this.props.item.timestamp}</td>
             <td>{this.props.item.materials}</td>
