@@ -18,7 +18,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 //get specific event 
-router.get('/:id', rejectUnauthenticated, (req, res) => {
+router.get('/details/:id', rejectUnauthenticated, (req, res) => {
       console.log('EVENT ID', req.params.id);
       const queryText = `SELECT * FROM "events" WHERE "id" = $1`;
       pool.query(queryText, [req.params.id])
