@@ -4,14 +4,14 @@ import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import EventsEdit from "../EventsEdit/EventsEdit";
 
 class EventsItem extends Component {
-    state={
-        hide: false
-    }
-    toggleHidden=()=>{
-        this.setState({
-            hide: !this.state.hide
-        })
-    } //end toggleHidden
+
+    delete=()=>{
+         this.props.dispatch({
+            type: "DELETE_EVENT",
+            payload: this.props.item.id
+          })
+          window.location.reload();
+    } //end delete
 
     render() {
         return (
@@ -20,7 +20,7 @@ class EventsItem extends Component {
             <td>{this.props.item.timestamp}</td>
             <td>{this.props.item.materials}</td>
             <td><EventsEdit/></td>
-            <td><Button onClick={this.toggleHidden} id={this.state.hide ? "hide-me":""}>Hide</Button></td>
+            <td><Button onClick={this.delete}>Delete</Button></td>
         </tr>
 
         );

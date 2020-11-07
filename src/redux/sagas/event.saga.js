@@ -21,7 +21,7 @@ function * getEvents (action) {
 function * getEventDetails (action) {
     console.log('GET EVENT DETAILS SAGA', action);
     let response= yield axios.get(`/api/event/details/${action.payload}`);
-    console.log('GETDETAILS for editLogsaga', response.data);
+    console.log('GET EVENT DETAILS', response.data);
     yield put ({
         type: "SET_DETAILS",
         payload: response.data
@@ -69,6 +69,9 @@ function* updateEvent (action) {
         url: `/api/event/edit/${action.payload.id}`,
         data: action.payload
     });
+    yield put({
+        type: "FETCH_EVENTS"
+    })
 }
 
 
