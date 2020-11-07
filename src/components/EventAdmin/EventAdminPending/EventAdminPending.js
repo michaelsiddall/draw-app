@@ -7,14 +7,11 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 // the component name TemplateClass with the name for the new
 // component.
 class EventAdminPending extends Component {
-    state = {
-        heading: 'Class Component',
-    };
 
     render() {
         return (
             <div>
-                <h2>{this.state.heading}</h2>
+
             </div>
         );
     }
