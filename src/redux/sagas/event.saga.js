@@ -75,7 +75,7 @@ function* updateEvent (action) {
 }
 
 
-function* dailyLoggerSaga() {
+function* eventSaga() {
     yield takeLatest('FETCH_EVENTS', getEvents);
     yield takeLatest('EVENT_DETAILS', getEventDetails);
     yield takeLatest('POST_EVENT', postEvent);
@@ -83,4 +83,4 @@ function* dailyLoggerSaga() {
     yield takeLatest('UPDATE_EVENT', updateEvent);
 }
 
-export default dailyLoggerSaga;
+export default eventSaga;
