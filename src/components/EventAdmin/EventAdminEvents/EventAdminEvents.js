@@ -5,11 +5,11 @@ import EventsCreate from "./EventsCreate/EventsCreate";
 import EventsItem from "./EventsItem/EventsItem";
 
 class EventAdminEvents extends Component {
-    componentDidMount=()=>{
-        this.props.dispatch({
-            type: 'FETCH_EVENTS' //grabs only uncompleted events
-        })
-    };//end componentDidMount
+        componentDidMount=()=>{
+            this.props.dispatch({
+                type: 'FETCH_EVENTS' //grabs only uncompleted events
+            })
+        };//end componentDidMount
 
     render() {
         return (

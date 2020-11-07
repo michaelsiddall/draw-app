@@ -20,12 +20,6 @@ class EventsItem extends Component {
                 })
             };//end componentDidMount
 
-            delete=()=>{
-                this.props.dispatch({
-                    type: "DELETE_EVENT",
-                    payload: this.props.item.id
-                })
-            } //end delete
 
     render() {
         return (
