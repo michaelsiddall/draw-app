@@ -20,7 +20,7 @@ function * getEvents (action) {
 function * getCompletedEvents (action) {
     console.log('GET COMPLETED EVENTS SAGA', action);
     let response= yield axios.get(`/api/event/completed`);
-    console.log('GET EVENTS', response.data);
+    console.log('GET COMPLETED EVENTS', response.data);
     yield put ({
         type: "SET_COMPLETED",
         payload: response.data
