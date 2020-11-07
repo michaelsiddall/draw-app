@@ -7,17 +7,17 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // the component name TemplateClass with the name for the new
 // component.
 class AppAdmin extends Component {
-    state = {
-        heading: 'Class Component',
-    };
+  state = {
+    heading: 'Class Component',
+  };
 
-    render() {
-        return (
-            <div>
-                <h2>{this.state.heading}</h2>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <h2>Users and Permissions</h2>
+      </div>
+    );
+  }
 }
 
 export default connect(mapStoreToProps)(AppAdmin);
