@@ -71,7 +71,7 @@ function* deleteEvent(action) {
     })
 }
 
-//update event
+//update specific event
 //event.router line 76
 // '/edit/:id'
 function* updateEvent (action) {

@@ -1,6 +1,6 @@
 //attached to event.saga.js LINE 5
 //attached to event.router line 7
-const eventReducer = (state = [], action) => {
+const eventsReducer = (state = [], action) => {
     console.log('EVENT REDUCER', action.payload);
     
     switch (action.type) {
@@ -11,4 +11,4 @@ const eventReducer = (state = [], action) => {
     }
 }
 
-export default eventReducer;
+export default eventsReducer;

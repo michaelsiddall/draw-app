@@ -59,7 +59,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         });
 });
 
-//delete specific event
+//delete specific event in case of making a mistake
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
       console.log('EVENT DELETE', req.body);
       const queryText = `DELETE FROM "events" WHERE "id" = $1`;
@@ -73,7 +73,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         });
 });
 
-//edit specific event ID
+//edit specific event ID in case of making a mistake
 router.put('/edit/:id', rejectUnauthenticated, (req, res) => {
       let e=req.body
       console.log('EDIT EVENT', req.body);

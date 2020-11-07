@@ -7,7 +7,7 @@ import EventsItem from "./EventsItem/EventsItem";
 class EventAdminEvents extends Component {
     componentDidMount=()=>{
         this.props.dispatch({
-            type: 'FETCH_EVENTS'
+            type: 'FETCH_EVENTS' //grabs only uncompleted events
         })
     };//end componentDidMount
 
