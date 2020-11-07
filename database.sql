@@ -28,7 +28,8 @@ CREATE TABLE "events"
 (
   "id" SERIAL PRIMARY KEY,
   "location" VARCHAR (500),
-  "timestamp" TIMESTAMP
+  "timestamp" TIMESTAMP,
+  "completed" BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE "requests"
@@ -36,7 +37,8 @@ CREATE TABLE "requests"
   "id" SERIAL PRIMARY KEY,
   "table_number" varchar,
   "artist_count" numeric,
-  "event_id" INT
+  "event_id" INT REFERENCES "events",
+  "completed" BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE "drawings"
