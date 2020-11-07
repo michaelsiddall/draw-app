@@ -8,7 +8,7 @@ import {
 
 import { connect } from 'react-redux';
 
-import Nav from '../Nav/Nav2';
+import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -18,8 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
-// import RegisterPage from '../RegisterPage/RegisterPage';
-import RegisterForm from "../RegisterForm/RegisterForm2";
+import RegisterPage from '../RegisterPage/RegisterPage';
 
 import UserDrawingSubmit from '../User/UserDrawingSubmit/UserDrawingSubmit';
 import UserGallery from '../User/UserGallery/UserGallery';
@@ -160,7 +159,7 @@ class App extends Component {
               // - else shows RegisterPage at "/registration"
               exact
               path="/registration"
-              component={RegisterForm}
+              component={RegisterPage}
               authRedirect="/user"
             />
             <ProtectedRoute
