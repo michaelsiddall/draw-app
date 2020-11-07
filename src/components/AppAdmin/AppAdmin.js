@@ -11,6 +11,11 @@ class AppAdmin extends Component {
     heading: 'Class Component',
   };
 
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_USERS',
+    });
+  };
   render() {
     return (
       <div>
