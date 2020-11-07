@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 
-function EventsEdit(props) {
+function EventsDelete(props) {
 
   const [heading, setHeading] = useState('Functional Component');
 
@@ -13,4 +13,4 @@ function EventsEdit(props) {
   );
 }
 
-export default connect(mapStoreToProps)(EventsEdit);
+export default connect(mapStoreToProps)(EventsDelete);
