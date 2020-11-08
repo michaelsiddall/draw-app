@@ -21,7 +21,7 @@ router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
   //TODO NEED TO CHANGE THE QUERY TO CURRENT DB SETTINGS AND PROTECT THESE ROUTERS
-  const queryText = `INSERT INTO "staff" (username, password)
+  const queryText = `INSERT INTO "user" (username, password)
     VALUES ($1, $2) RETURNING id`;
   pool
     .query(queryText, [username, password])
