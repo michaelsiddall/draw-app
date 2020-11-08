@@ -8,7 +8,7 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 // component.
 class EventAdminQueue extends Component {
     state = {
-        heading: 'Class Component',
+        heading: 'Queue',
     };
 
     render() {

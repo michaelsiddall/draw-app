@@ -12,24 +12,18 @@ import Button from '@material-ui/core/Button';
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
-class EventAdminPending extends Component {
+class EventAdminPendingCard extends Component {
     state = {
         heading: 'Pending',
     };
 
-    componentDidMount() {
-        const action = { type: 'GET_PENDING_DRAWINGS' };
-        this.props.dispatch(action);
-    };
-
     render() {
         return (
-            <div>
+            <Card>
                 <h2>{this.state.heading}</h2>
-                {JSON.stringify(this.props.store.drawing)}
-            </div>
+            </Card>
         );
     }
 }
 
-export default connect(mapStoreToProps)(EventAdminPending);
+export default connect(mapStoreToProps)(EventAdminPendingCard);

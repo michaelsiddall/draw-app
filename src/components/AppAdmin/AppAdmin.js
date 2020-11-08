@@ -8,7 +8,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // component.
 class AppAdmin extends Component {
     state = {
-        heading: 'Class Component',
+        heading: 'App Admin',
     };
 
     render() {

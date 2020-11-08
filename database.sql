@@ -42,7 +42,7 @@ CREATE TABLE "drawings"
   "description" varchar,
   "image_url" varchar,
   "timestamp" timestamp DEFAULT Now(),
-  "approved" BOOLEAN DEFAULT 'false'
+  "approved" BOOLEAN DEFAULT NULL
 );
 
 --Sample Data inserts 
