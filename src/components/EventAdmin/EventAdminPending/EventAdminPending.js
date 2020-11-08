@@ -11,6 +11,11 @@ class EventAdminPending extends Component {
     state = {
         heading: 'Pending',
     };
+    componentDidMount() {
+        //this.props.dispatch({ type: 'FETCH_USER' });
+        this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
+
+    }
 
     render() {
         return (
