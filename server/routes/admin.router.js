@@ -18,7 +18,25 @@ router.get('/', (req, res) => {
     res.send(result.rows);
   });
 });
+//Get data from a specific ID for editing permissions
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('making a specific auth ID GET request');
 
+  let queryString = ` SELECT "id","username","auth_level" from "staff"
+    WHERE "id"  = $1;
+   `;
+  pool
+    .query(queryString, [req.params.id])
+    .then((result) => {
+      console.log('results from get', result.rows[0]);
+
+      res.send(result.rows[0]);
+    })
+    .catch((error) => {
+      console.log('We have an error in auth ID GET', error);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */
