@@ -23,6 +23,20 @@ class EventAdminPendingCard extends Component {
             isClicked: !this.state.isClicked
         });
     }
+    onApprove = () => {
+        console.log('approve image with id of ', this.props.drawing.id);
+        this.props.dispatch({
+            type: 'APPROVE_DRAWING',
+            payload: this.props.drawing.id
+        });
+    }
+    onDisapprove = () => {
+        console.log('disapprove image with id of ', this.props.drawing.id);
+        this.props.dispatch({
+            type: 'DISAPPROVE_DRAWING',
+            payload: this.props.drawing.id
+        });
+    }
 
     render() {
         return (
@@ -36,8 +50,8 @@ class EventAdminPendingCard extends Component {
                     </div>
 
                     <CardActions>
-                        <Button size="medium" color="primary">approve</Button>
-                        <Button size="medium" color="primary">disapprove</Button>
+                        <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
+                        <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
                     </CardActions>
                 </Card>
             </div>

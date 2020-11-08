@@ -25,9 +25,37 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         });
 });
 
-/**
- * POST route template
- */
+
+router.put('/approve/:id', (req, res) => {
+    console.log('req.params.id', req.params.id);
+    const queryText = `UPDATE "drawings" 
+    SET "approved" = TRUE WHERE "id"=$1;`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        // catch for query
+        .catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
+});
+
+router.put('/disapprove/:id', (req, res) => {
+    console.log('req.params.id', req.params.id);
+    const queryText = `UPDATE "drawings" 
+    SET "approved" = FALSE WHERE "id"=$1;`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        // catch for query
+        .catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
+});
+
 router.post('/', (req, res) => {
     // POST route code here
 });
