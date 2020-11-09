@@ -8,10 +8,11 @@ function* addRequest(action) {
     url: "/api/request",
     data: action.payload,
   });
-  yield put({
-    type: "SET_REQUEST",
-    payload: response.data,
-  });
+
+  //   yield put({
+  //     type: "SET_REQUEST",
+  //     payload: response.data,
+  //   });
 }
 
 function* requestSaga() {

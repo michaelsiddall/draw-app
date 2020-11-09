@@ -1,0 +1,22 @@
+.centered {
+  /* height: 100vh; Magic here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputCentered {
+  width: 90px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-size: 10px;
+}
+
+.buttonCentered {
+  display: block;
+  margin: 0 auto;
+}
+
+.inputSize {
+}
