@@ -1,8 +1,19 @@
+<<<<<<< HEAD
+=======
+
+-- USER is a reserved keyword with Postgres
+-- You must use double quotes in every query that user is in:
+-- ex. SELECT * FROM "user";
+-- Otherwise you will have errors!
+
+--BELOW THIS IS THE NEW SQL CODE FOR OUR DBs
+>>>>>>> 45b5b9cadf063928c372078347fc59412c34119c
 CREATE TYPE auth AS ENUM
 ('user', 'admin', 'superAdmin');
-CREATE EXTENSION IF NOT EXISTS citext;
+CREATE EXTENSION
+IF NOT EXISTS citext;
 
-CREATE TABLE "staff"
+CREATE TABLE "user"
 (
   "id" SERIAL PRIMARY KEY,
   "username" citext UNIQUE NOT NULL,
@@ -36,11 +47,19 @@ CREATE TABLE "drawings"
   "description" varchar,
   "image_url" varchar,
   "timestamp" timestamp DEFAULT Now(),
-  "approved" BOOLEAN DEFAULT 'false'
+  "approved" BOOLEAN DEFAULT NULL
 );
 
 --Sample Data inserts 
-INSERT INTO "events"("place", "timestamp") VALUES ('Surly Brewing', '1970-01-01 19:00:00');
-INSERT INTO "requests"("table_number", "artist_count", "event_id") VALUES ('1', '4', '1');
-INSERT INTO "drawings"("name", "email_address", "instagram", "description", "image_url")
-   VALUES ('John', 'john@drunkdrawing.com', 'myinstagram', 'This is a picture of this thing', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJEIMIbQgXJfvdXkcm8YzC8sbgizJf74_VGg&usqp=CAU' );
+INSERT INTO "events"
+  ("place", "timestamp")
+VALUES
+  ('Surly Brewing', '1970-01-01 19:00:00');
+INSERT INTO "requests"
+  ("table_number", "artist_count", "event_id")
+VALUES
+  ('1', '4', '1');
+INSERT INTO "drawings"
+  ("name", "email_address", "instagram", "description", "image_url")
+VALUES
+  ('John', 'john@drunkdrawing.com', 'myinstagram', 'This is a picture of this thing', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJEIMIbQgXJfvdXkcm8YzC8sbgizJf74_VGg&usqp=CAU' );

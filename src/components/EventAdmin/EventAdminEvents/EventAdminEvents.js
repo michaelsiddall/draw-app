@@ -5,17 +5,21 @@ import EventsCreate from "./EventsCreate/EventsCreate";
 import EventsItem from "./EventsItem/EventsItem";
 
 class EventAdminEvents extends Component {
-        componentDidMount=()=>{
-            this.props.dispatch({
-                type: 'FETCH_EVENTS' //grabs only uncompleted events
-            })
-        };//end componentDidMount
+    componentDidMount = () => {
+        this.props.dispatch({
+            type: 'FETCH_EVENTS' //grabs only uncompleted events
+        })
+    };//end componentDidMount
+
+    state = {
+        heading: 'Events',
+    };
 
     render() {
         return (
             <div id="events-container">
                 <div id="event-create">
-                    <EventsCreate/>
+                    <EventsCreate />
                 </div>
 
                 <div id="events-main">
@@ -30,11 +34,11 @@ class EventAdminEvents extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.store.eventsReducer.map((item, i)=>
-                            <EventsItem 
-                            key={i}
-                            item={item}
-                            />)}
+                            {this.props.store.eventsReducer.map((item, i) =>
+                                <EventsItem
+                                    key={i}
+                                    item={item}
+                                />)}
                         </tbody>
                     </table>
                 </div>

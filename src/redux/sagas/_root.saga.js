@@ -1,7 +1,11 @@
 import { all } from 'redux-saga/effects';
+import appAdmin from './appAdmin.saga';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
+//import eventsSaga from './events.saga';
+//import requestSaga from './request.saga';
+import drawingSaga from './drawing.saga';
 
 import eventSaga from "./event.saga"
 
@@ -17,6 +21,10 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    eventSaga()
+    eventSaga(),
+    appAdmin(),
+    //eventsSaga(),
+    //requestSaga(),
+    drawingSaga(),
   ]);
 }

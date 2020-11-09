@@ -7,17 +7,46 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // the component name TemplateClass with the name for the new
 // component.
 class AppAdmin extends Component {
+
     state = {
-        heading: 'Class Component',
+        heading: 'App Admin',
     };
 
-    render() {
-        return (
-            <div>
-                <h2>{this.state.heading}</h2>
-            </div>
-        );
-    }
-}
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_USERS',
+    });
+  };
 
-export default connect(mapStoreToProps)(AppAdmin);
+  editAuth = (id) => {
+    console.log('edit auth for user: ', id);
+
+    this.props.dispatch({
+      type: 'EDIT_USER',
+      url: `/api/admin/${id}`,
+    });
+    this.props.history.push(`/api/admin/edit/${id}`);
+  };
+
+  render() {
+    return (
+      <div>
+        <h2>Users and Permissions</h2>
+        {this.props.auth.map((auth) => (
+          <div>
+            <p>Id: {auth.id}</p>
+            <p>username: {auth.username}</p>
+            <p>auth level: {auth.auth_level}</p>
+            <button onClick={() => this.editAuth(auth.id)}>Edit</button>
+          </div>
+        ))}
+        ;
+      </div>
+    );
+  }
+}
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(AppAdmin);
