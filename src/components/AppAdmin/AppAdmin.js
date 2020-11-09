@@ -7,9 +7,10 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // the component name TemplateClass with the name for the new
 // component.
 class AppAdmin extends Component {
-  state = {
-    heading: 'Class Component',
-  };
+
+    state = {
+        heading: 'App Admin',
+    };
 
   componentDidMount = () => {
     this.props.dispatch({
