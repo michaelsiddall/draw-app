@@ -3,7 +3,7 @@ import { HashRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import LoginPage from "../../LoginPage"
+import LoginPage from "../LoginPage/LoginPage";
 
 
 function Nav(props) {
@@ -27,10 +27,7 @@ function Nav(props) {
     else {
         return (
             <HashRouter>
-                <div className="nav-div">
-                    <LoginForm />
-                </div>
-
+                    <LoginPage />
             </HashRouter>
         )
     }
