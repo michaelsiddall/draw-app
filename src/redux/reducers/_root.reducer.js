@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux';
-import errors from './errors.reducer';
-import user from './user.reducer';
-import auth from './auth.reducer';
-import authEditReducer from './authEdit.reducer';
-import drawing from './drawing.reducer';
+import { combineReducers } from "redux";
+import errors from "./errors.reducer";
+import user from "./user.reducer";
+import auth from "./auth.reducer";
+import authEditReducer from "./authEdit.reducer";
+import drawing from "./drawing.reducer";
 //import events from './events.reducer';
-//import request from './request.reducer';
+import request from "./request.reducer";
 
 import eventsReducer from "./event.uncompleted.reducer";
 import eventsCompletedReducer from "./event.completed.reducer";
@@ -20,6 +20,7 @@ import eventSpecific from "./event.specific.reducer";
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
+  request,
   eventsReducer,
   eventsCompletedReducer,
   eventSpecific,

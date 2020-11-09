@@ -1,20 +1,19 @@
-const express = require('express');
-require('dotenv').config();
+const express = require("express");
+require("dotenv").config();
 
 const app = express();
-const bodyParser = require('body-parser');
-const sessionMiddleware = require('./modules/session-middleware');
+const bodyParser = require("body-parser");
+const sessionMiddleware = require("./modules/session-middleware");
 
-const passport = require('./strategies/user.strategy');
+const passport = require("./strategies/user.strategy");
 
 // Route includes
-const userRouter = require('./routes/user.router');
+const userRouter = require("./routes/user.router");
 
-const adminRouter = require('./routes/admin.router');
-const drawingRouter = require('./routes/drawing.router');
-const eventRouter = require('./routes/event.router');
-const requestRouter = require('./routes/request.router');
-
+const adminRouter = require("./routes/admin.router");
+const drawingRouter = require("./routes/drawing.router");
+const eventRouter = require("./routes/event.router");
+const requestRouter = require("./routes/request.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -28,15 +27,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* Routes */
-app.use('/api/user', userRouter);
+app.use("/api/user", userRouter);
 
-app.use('/api/admin', adminRouter);
-app.use('/api/drawing', drawingRouter);
-app.use('/api/event', eventRouter);
-app.use('/api/event', requestRouter);
+app.use("/api/admin", adminRouter);
+app.use("/api/drawing", drawingRouter);
+app.use("/api/event", eventRouter);
+app.use("/api/request", requestRouter);
 
 // Serve static files
-app.use(express.static('build'));
+app.use(express.static("build"));
 
 // App Set //
 const PORT = process.env.PORT || 5000;
