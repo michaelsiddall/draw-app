@@ -1,7 +1,15 @@
 import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
+import auth from "./auth.reducer";
+import authEditReducer from "./authEdit.reducer";
+import drawing from "./drawing.reducer";
+//import events from './events.reducer';
 import request from "./request.reducer";
+
+import eventsReducer from "./event.uncompleted.reducer";
+import eventsCompletedReducer from "./event.completed.reducer";
+import eventSpecific from "./event.specific.reducer";
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -13,6 +21,14 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   request,
+  eventsReducer,
+  eventsCompletedReducer,
+  eventSpecific,
+  auth, //this is the reducer for the auth permissions control
+  authEditReducer, //this is the auth info for a specific user ID to edit
+  drawing,
+  //events,
+  //request
 });
 
 export default rootReducer;

@@ -1,4 +1,4 @@
-const requestReducer = (state = {}, action) => {
+const requestReducer = (state = [], action) => {
   console.log("in requestReducer", action.payload);
 
   switch (action.type) {

@@ -1,0 +1,16 @@
+.pendingGrid{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.imageText, .galleryItem img{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    object-fit: cover;
+    margin: auto;
+}
+  

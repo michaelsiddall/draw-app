@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
@@ -5,6 +7,7 @@
 -- Otherwise you will have errors!
 
 --BELOW THIS IS THE NEW SQL CODE FOR OUR DBs
+>>>>>>> 45b5b9cadf063928c372078347fc59412c34119c
 CREATE TYPE auth AS ENUM
 ('user', 'admin', 'superAdmin');
 CREATE EXTENSION
@@ -21,8 +24,9 @@ CREATE TABLE "user"
 CREATE TABLE "events"
 (
   "id" SERIAL PRIMARY KEY,
-  "place" varchar,
-  "timestamp" varchar
+  "location" VARCHAR (500),
+  "timestamp" TIMESTAMP,
+  "completed" BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE "requests"
@@ -30,26 +34,27 @@ CREATE TABLE "requests"
   "id" SERIAL PRIMARY KEY,
   "table_number" varchar,
   "artist_count" numeric,
-  "event_id" INT
+  "event_id" INT REFERENCES "events",
+  "completed" BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE "drawings"
 (
   "id" SERIAL PRIMARY KEY,
   "name" varchar NOT NULL,
-  "email_address" citext NOT NULL,
+  "email_address" citext,
   "instagram" varchar,
   "description" varchar,
   "image_url" varchar,
   "timestamp" timestamp DEFAULT Now(),
-  "approved" BOOLEAN DEFAULT 'false'
+  "approved" BOOLEAN DEFAULT NULL
 );
 
 --Sample Data inserts 
 INSERT INTO "events"
   ("place", "timestamp")
 VALUES
-  ('Surly Brewing', '1970-01-01 00:00:01');
+  ('Surly Brewing', '1970-01-01 19:00:00');
 INSERT INTO "requests"
   ("table_number", "artist_count", "event_id")
 VALUES
