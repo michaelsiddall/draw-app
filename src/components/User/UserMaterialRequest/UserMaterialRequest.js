@@ -27,6 +27,12 @@ class UserMaterialRequest extends Component {
 
   onSubmit = () => {
     console.log("This is the materials request", this.state.materialRequest);
+    console.log("redux state is", this.props.store);
+
+    this.props.dispatch({
+      type: "ADD_REQUEST",
+      payload: this.state.materialRequest,
+    });
   };
 
   render() {
@@ -35,8 +41,11 @@ class UserMaterialRequest extends Component {
         <h2>Material Request</h2>
 
         <h5>Location</h5>
-        <select onChange={(event) => this.onChange(event, "location")}>
-          <option value="" disabled selected hidden>
+        <select
+          defaultValue={"DEFAULT"}
+          onChange={(event) => this.onChange(event, "location")}
+        >
+          <option value="DEFAULT" disabled>
             Select Event
           </option>
           <option>Surly Brewing</option>
