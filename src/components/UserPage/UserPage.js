@@ -4,6 +4,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class UserPage extends Component {
+  componentDidMount() {
+    //this.props.dispatch({ type: 'FETCH_USER' });
+    this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
+
+  }
   // this component doesn't do much to start, just renders some user info to the DOM
   render() {
     return (
