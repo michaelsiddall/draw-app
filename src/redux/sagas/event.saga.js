@@ -72,6 +72,17 @@ function* updateEvent (action) {
     })
 }
 
+function* completeEvent (action) {
+    console.log('COMPLETE EVENT SAGA', action);
+    yield axios({
+        method: 'PUT',
+        url: `/api/event/completed`,
+        data: action.payload
+    });
+    yield put({
+        type: "FETCH_EVENTS"
+    })
+}
 
 function* eventSaga() {
     yield takeLatest('FETCH_EVENTS', getEvents);
@@ -79,6 +90,7 @@ function* eventSaga() {
     yield takeLatest('POST_EVENT', postEvent);
     yield takeLatest('DELETE_EVENT', deleteEvent);
     yield takeLatest('UPDATE_EVENT', updateEvent);
+    yield takeLatest('COMPLETE_EVENT', completeEvent);
 }
 
 export default eventSaga;

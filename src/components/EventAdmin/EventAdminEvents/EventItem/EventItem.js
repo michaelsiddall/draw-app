@@ -37,7 +37,9 @@ class EventItem extends Component {
                                 matchID={this.props.item.id}
                                 item={this.props.item}
                         /></td>
-                        <td><EventComplete/></td>
+                        <td><EventComplete
+                                item={this.props.item}
+                        /></td>
                     </tr>
             </HashRouter>
         );
