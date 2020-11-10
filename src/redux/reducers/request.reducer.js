@@ -1,14 +1,6 @@
-const requestReducer = (state = [], action) => {
-  console.log("in requestReducer", action.payload);
+const requestReducer = (state = {}, action) => {
 
-  switch (action.type) {
-    case "SET_REQUEST":
-      return action.payload;
-    default:
-      return state;
-  }
 };
 
-// user will be on the redux state at:
-// state.artist
+
 export default requestReducer;
