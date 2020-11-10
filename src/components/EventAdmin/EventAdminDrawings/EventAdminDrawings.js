@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import EventAdminDrawingsCard from './EventAdminDrawingsCard';
 import './EventAdminDrawings.css';
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import { makeStyles } from '@material-ui/core/styles';
+
+
 class EventAdminDrawings extends Component {
     state = {
         heading: 'Drawings',
-        data: null
+        showDrawings: "pending"
     };
 
     componentDidMount() {
@@ -22,6 +25,15 @@ class EventAdminDrawings extends Component {
         //     this.setState({ data: data }))
 
     }
+
+    handleChange = (event) => {
+        this.setState({
+            ...this.state,
+            showDrawings: event.target.value || null
+        })
+        console.log('state is:', this.state);
+    }
+
 
     // async loadData() {
     //     this.props.dispatch({ type: 'GET_DRAWINGS' });
@@ -35,13 +47,38 @@ class EventAdminDrawings extends Component {
         return (
             <div>
                 <h2>{this.state.heading}</h2>
+                <FormControl >
+                    <InputLabel id="drawing-dropdown-label">Select Drawings to View</InputLabel>
+                    <Select
+                        style={{ width: `300px` }}
+                        labelId="drawing-dropdown-label"
+                        id="drawing-dropdown"
+                        onChange={(event) => this.handleChange(event)}
+                        displayEmpty
+                    >
+                        <MenuItem value={"pending"}>Drawings Pending Approval</MenuItem>
+                        <MenuItem value={"approved"}>Approved Drawings</MenuItem>
+                        <MenuItem value={"disapproved"}>Disapproved Drawings</MenuItem>
+                    </Select>
+                </FormControl>
+
                 {/* {JSON.stringify(this.props.store.drawing)} */}
                 <div className="pendingGrid">
-                    {this.props.store.pending.map((drawing) => {
-                        return (<EventAdminDrawingsCard drawing={drawing} />);
-                    })}
+
+                    {this.state.showDrawings === "pending" &&
+                        this.props.store.pending.map((drawing) => {
+                            return (<EventAdminDrawingsCard drawing={drawing} />);
+                        })}
+                    {this.state.showDrawings === "approved" &&
+                        this.props.store.approved.map((drawing) => {
+                            return (<EventAdminDrawingsCard drawing={drawing} />);
+                        })}
+                    {this.state.showDrawings === "disapproved" &&
+                        this.props.store.disapproved.map((drawing) => {
+                            return (<EventAdminDrawingsCard drawing={drawing} />);
+                        })}
                 </div>
-            </div>
+            </div >
         );
     }
 }

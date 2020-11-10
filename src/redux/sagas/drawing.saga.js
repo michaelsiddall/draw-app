@@ -54,6 +54,8 @@ function* approveDrawing(action) {
     console.log(response.data);
     //take the info acquired from the database and set it as redux state
     yield put({ type: 'GET_PENDING_DRAWINGS', });
+    yield put({ type: 'GET_APPROVED_DRAWINGS', });
+    yield put({ type: 'GET_DISAPPROVED_DRAWINGS', });
 }
 function* disapproveDrawing(action) {
     console.log('in drawing disapprove with action.payload of', action.payload);
@@ -66,6 +68,8 @@ function* disapproveDrawing(action) {
 
     //take the info acquired from the database and set it as redux state
     yield put({ type: 'GET_PENDING_DRAWINGS', });
+    yield put({ type: 'GET_APPROVED_DRAWINGS', });
+    yield put({ type: 'GET_DISAPPROVED_DRAWINGS', });
 }
 
 function* drawingSaga() {
