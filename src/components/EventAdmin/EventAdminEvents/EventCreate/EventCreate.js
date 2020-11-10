@@ -11,12 +11,11 @@ class EventCreate extends Component {
                 time: '',
                 location: '',
                 timestamp: '',
-                error: '',
+                error: false,
                 helperText: ''
             }
             onSubmit = (event) => {
                     event.preventDefault();
-                    
                       if (this.state.location.length>1 && this.state.date !=='' && this.state.time !=='') 
                       {
                             this.props.dispatch({
@@ -25,7 +24,7 @@ class EventCreate extends Component {
                                 payload: this.state
                             });
                             this.clearInputFields();
-                            window.location.reload();
+                            //window.location.reload();
                       } else {
                             this.setState({
                               helperText: 'Required',
@@ -40,7 +39,7 @@ class EventCreate extends Component {
                             time: '',
                             location: '',
                             timestamp: '',
-                            error: '',
+                            error: false,
                             helperText: ''
                     })
             }// end clearInputFields

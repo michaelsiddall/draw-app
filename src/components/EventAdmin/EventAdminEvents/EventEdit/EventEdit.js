@@ -18,9 +18,8 @@ class EventEdit extends Component {
                         time: '',
                         location: '',
                         timestamp: '',
-                        error: '',
-                        helperText: '',
-                        id:''
+                        id:'',
+                        button: true
             }
 
             updateSpecificEvent=()=>{
@@ -33,12 +32,9 @@ class EventEdit extends Component {
                                     open: false
                         });
                   }
-                  else {
+                  else 
+                  {
                         this.setState({
-                              timestamp: this.props.item.timestamp,
-                              date: this.props.item.date,
-                              time: this.props.item.time,
-                              location: this.props.item.location,
                               open: false
                         })
                   }
@@ -62,7 +58,8 @@ class EventEdit extends Component {
                         this.setState({
                         ...this.state,
                         [propertyName]: event.target.value,
-                        timestamp: String(this.state.date) + " " + String(this.state.time)
+                        timestamp: String(this.state.date) + " " + String(this.state.time),
+                        button: false
                         });
                   }; //end handleInputChange
 
@@ -78,8 +75,6 @@ class EventEdit extends Component {
                               <DialogContent>
                                     <InputLabel htmlFor="event-create-location">Location</InputLabel>
                                           <TextField 
-                                                error={this.state.error}
-                                                helperText={this.state.helperText}
                                                 name="location"
                                                 required
                                                 variant="outlined"
@@ -91,8 +86,6 @@ class EventEdit extends Component {
 
                                     <InputLabel htmlFor="event-create-date">Date</InputLabel>
                                           <TextField 
-                                                error={this.state.error}
-                                                helperText={this.state.helperText}
                                                 name="date"
                                                 required
                                                 type="date"
@@ -105,8 +98,6 @@ class EventEdit extends Component {
 
                                     <InputLabel htmlFor="event-create-time">Time</InputLabel>
                                           <TextField 
-                                                error={this.state.error}
-                                                helperText={this.state.helperText}
                                                 name="time"
                                                 required
                                                 type="time"
@@ -120,7 +111,7 @@ class EventEdit extends Component {
                         </DialogContent>
                   <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.updateSpecificEvent} color="primary">Submit Changes</Button>
+                        <Button onClick={this.updateSpecificEvent} color="primary" disabled={this.state.button}>Submit Changes</Button>
                   </DialogActions>
             </Dialog>
       </div>

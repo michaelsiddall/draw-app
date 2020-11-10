@@ -31,10 +31,10 @@ function * getCompletedEvents (action) {
 //post new event
 //event.router line 47
 function* postEvent(action) {
-    console.log('POST EVENT', action);
+    console.log('POST EVENT', action.payload);
     yield axios({
         method: 'POST',
-        url: `/api/event`,
+        url: '/api/event',
         data: action.payload
     });
     yield put ({
@@ -60,7 +60,6 @@ function* deleteEvent(action) {
 
 //update specific event
 //event.router line 76
-// '/edit/:id'
 function* updateEvent (action) {
     console.log('UPDATE EVENT SAGA', action);
     yield axios({

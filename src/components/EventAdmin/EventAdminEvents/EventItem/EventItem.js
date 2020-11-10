@@ -24,9 +24,8 @@ class EventItem extends Component {
     render() {
         let t = new Date (this.props.item.timestamp)
         console.log('t', t);
-        
         let time = t.toLocaleTimeString('en-US')
-        
+
         return (
             <HashRouter>
                     <tr> 
