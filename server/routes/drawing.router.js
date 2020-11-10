@@ -11,8 +11,35 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', rejectUnauthenticated, (req, res) => {
-    const queryText = `SELECT * FROM "drawings";`;
+router.get('/pending', rejectUnauthenticated, (req, res) => {
+    const queryText = `SELECT * FROM "drawings"
+    WHERE "approved" IS NULL;`;
+    pool.query(queryText)
+        .then((result) => {
+            res.send(result.rows);
+        })
+        // catch for query
+        .catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
+});
+router.get('/approved', rejectUnauthenticated, (req, res) => {
+    const queryText = `SELECT * FROM "drawings"
+    WHERE "approved" IS TRUE;`;
+    pool.query(queryText)
+        .then((result) => {
+            res.send(result.rows);
+        })
+        // catch for query
+        .catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
+});
+router.get('/disapproved', rejectUnauthenticated, (req, res) => {
+    const queryText = `SELECT * FROM "drawings"
+    WHERE "approved" IS FALSE;`;
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);

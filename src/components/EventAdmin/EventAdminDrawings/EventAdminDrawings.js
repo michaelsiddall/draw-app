@@ -14,26 +14,30 @@ class EventAdminDrawings extends Component {
     };
 
     componentDidMount() {
-        this.loadData().then(data =>
-            this.setState({ data: data }))
+        this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
+        this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
+        this.props.dispatch({ type: 'GET_DISAPPROVED_DRAWINGS' });
+
+        // this.loadData().then(data =>
+        //     this.setState({ data: data }))
 
     }
 
-    async loadData() {
-        this.props.dispatch({ type: 'GET_DRAWINGS' });
+    // async loadData() {
+    //     this.props.dispatch({ type: 'GET_DRAWINGS' });
 
-    }
+    // }
 
     render() {
-        if (this.state.data === null) {
-            return <div><h1>loading...</h1></div>
-        }
+        // if (this.state.data === null) {
+        //     return <div><h1>loading...</h1></div>
+        // }
         return (
             <div>
                 <h2>{this.state.heading}</h2>
                 {/* {JSON.stringify(this.props.store.drawing)} */}
                 <div className="pendingGrid">
-                    {this.props.store.drawing.map((drawing) => {
+                    {this.props.store.pending.map((drawing) => {
                         return (<EventAdminDrawingsCard drawing={drawing} />);
                     })}
                 </div>
