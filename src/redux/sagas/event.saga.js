@@ -27,19 +27,6 @@ function * getCompletedEvents (action) {
     })  
 }
 
-//get specific event
-//event.router line 33
-// '/:id'
-function * getSpecificEvent (action) {
-    console.log('GET SPECIFIC EVENT SAGA', action);
-    let response= yield axios.get(`/api/event/${action.payload}`);
-    console.log('GET SPECIFIC EVENT', response.data);
-    yield put ({
-        type: "SET_SPECIFIC",
-        payload: response.data
-    })
-    
-}
 
 //post new event
 //event.router line 47
@@ -78,7 +65,7 @@ function* updateEvent (action) {
     console.log('UPDATE EVENT SAGA', action);
     yield axios({
         method: 'PUT',
-        url: `/api/event/edit/${action.payload.id}`,
+        url: `/api/event/`,
         data: action.payload
     });
     yield put({
@@ -90,7 +77,6 @@ function* updateEvent (action) {
 function* eventSaga() {
     yield takeLatest('FETCH_EVENTS', getEvents);
     yield takeLatest('FETCH_COMPLETED', getCompletedEvents);
-    yield takeLatest('FETCH_SPECIFIC', getSpecificEvent);
     yield takeLatest('POST_EVENT', postEvent);
     yield takeLatest('DELETE_EVENT', deleteEvent);
     yield takeLatest('UPDATE_EVENT', updateEvent);

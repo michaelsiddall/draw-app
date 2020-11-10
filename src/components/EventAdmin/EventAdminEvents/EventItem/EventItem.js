@@ -10,7 +10,7 @@ import EventEdit from "../EventEdit/EventEdit";
 
 //materialUI and styling
 import Button from '@material-ui/core/Button';
-import "./EventsItem.css"
+import "./EventItem.css"
 
 
 class EventItem extends Component {
