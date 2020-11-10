@@ -4,6 +4,7 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import Swal from 'sweetalert2';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -34,6 +35,30 @@ class EventAdminDrawingsCard extends Component {
             payload: this.props.drawing.id
         });
     }
+    onDelete = () => {
+        console.log('delete image with id of ', this.props.drawing.id);
+
+        Swal.fire({
+            title: 'are you sure you want to delete this drawing?',
+            text: "you won't be able to undo this action!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#9dac68',
+            cancelButtonColor: '#e26d5c',
+            confirmButtonText: 'yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.props.dispatch({
+                    type: 'DELETE_DRAWING',
+                    payload: this.props.drawing.id
+                });
+                Swal.fire('buh-bye!', '', 'success');
+
+            }
+        });
+
+
+    }
 
     render() {
         return (
@@ -51,7 +76,7 @@ class EventAdminDrawingsCard extends Component {
                             <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button> :
                             <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
                         }
-                        <Button size="medium" color="primary" >delete</Button>
+                        <Button size="medium" color="primary" onClick={this.onDelete}>delete</Button>
 
                     </CardActions>
                 </Card>

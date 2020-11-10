@@ -82,6 +82,20 @@ router.put('/disapprove/:id', (req, res) => {
         });
 });
 
+router.delete('/:id', (req, res) => {
+    console.log('req.params.id', req.params.id);
+    const queryText = `DELETE FROM "drawings"  WHERE "id"=$1;`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        // catch for query
+        .catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
+});
+
 router.post('/', (req, res) => {
     // POST route code here
 });
