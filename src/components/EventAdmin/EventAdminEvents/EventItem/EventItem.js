@@ -19,14 +19,20 @@ class EventItem extends Component {
                     type: 'FETCH_EVENTS' //grabs only uncompleted events
                 })
             };//end componentDidMount
-
+            
 
     render() {
+        let t = new Date (this.props.item.timestamp)
+        console.log('t', t);
+        
+        let time = t.toLocaleTimeString('en-US')
+        
         return (
             <HashRouter>
                     <tr> 
                         <td>{this.props.item.location}</td>
-                        <td>{this.props.item.timestamp}</td>
+                        <td>{this.props.item.timestamp.split('T')[0]}</td>
+                        <td>{time}</td>
                         <td><Link to="/request/:id"><Button>Queue</Button></Link></td>
                         <td><EventEdit
                                 matchID={this.props.item.id}
