@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-=======
-
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
-
---BELOW THIS IS THE NEW SQL CODE FOR OUR DBs
->>>>>>> 45b5b9cadf063928c372078347fc59412c34119c
 CREATE TYPE auth AS ENUM
 ('user', 'admin', 'superAdmin');
 CREATE EXTENSION
@@ -52,7 +42,7 @@ CREATE TABLE "drawings"
 
 --Sample Data inserts 
 INSERT INTO "events"
-  ("place", "timestamp")
+  ("location", "timestamp")
 VALUES
   ('Surly Brewing', '1970-01-01 19:00:00');
 INSERT INTO "requests"

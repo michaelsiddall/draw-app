@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
+import Swal from 'sweetalert2';
 
 class UserMaterialRequest extends Component {
   state = {
@@ -30,6 +31,16 @@ class UserMaterialRequest extends Component {
     });
   };
 
+  // resetForm = () => {
+  //   this.setState({
+  //     materialRequest: {
+  //       location: '',
+  //       tableNumber: '',
+  //       artistNumber: '',
+  //     },
+  //   });
+  // };
+
   onSubmit = () => {
     console.log('This is the materials request', this.state.materialRequest);
 
@@ -37,21 +48,25 @@ class UserMaterialRequest extends Component {
       type: 'ADD_REQUEST',
       payload: this.state.materialRequest,
     });
+    Swal.fire({
+      text: 'Drawing Materials will be  delivered to your table shortly!',
+    });
   };
 
   render() {
     console.log('redux state is', this.props.store);
     return (
-      <div>
+      <form>
         <h2 className='centered'>Material Request</h2>
 
         <h5 className='centered'>Location</h5>
         <select
+          required
           className='selectCentered'
-          defaultValue={'DEFAULT'}
+          defaultValue={''}
           onChange={(event) => this.onChange(event, 'location')}
         >
-          <option value='DEFAULT' disabled>
+          <option value='' disabled>
             Select Event
           </option>
           {this.props.store.eventsReducer.map((event) => {
@@ -71,6 +86,7 @@ class UserMaterialRequest extends Component {
           min='1'
           max='99'
           onChange={(event) => this.onChange(event, 'tableNumber')}
+          required
         ></input>
 
         <h5 className='centered'>Number of Artists</h5>
@@ -81,12 +97,13 @@ class UserMaterialRequest extends Component {
           min='1'
           max='15'
           onChange={(event) => this.onChange(event, 'artistNumber')}
+          required
         ></input>
         <br></br>
         <button className='buttonCentered' onClick={this.onSubmit}>
           Request Drawing Materials
         </button>
-      </div>
+      </form>
     );
   }
 }

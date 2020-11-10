@@ -1,5 +1,4 @@
 .centered {
-  /* height: 100vh; Magic here */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +23,4 @@
 .buttonCentered {
   display: block;
   margin: 0 auto;
-}
-
-.inputSize {
 }
