@@ -6,7 +6,7 @@ import { HashRouter, Link } from 'react-router-dom';
 
 import EventComplete from "../EventComplete/EventComplete";
 import EventEdit from "../EventEdit/EventEdit";
-
+import EventDeleteConfirm from "../EventConfirm/EventDeleteConfirm";
 
 //materialUI and styling
 import Button from '@material-ui/core/Button';
@@ -32,6 +32,11 @@ class EventItem extends Component {
                         /></td>
                         <td><EventComplete
                                 item={this.props.item}
+                        /></td>
+                        <td><EventDeleteConfirm
+                                item={this.props.item}
+                                date={this.props.item.timestamp.split('T')[0]}
+                                time={time}
                         /></td>
                     </tr>
             </HashRouter>

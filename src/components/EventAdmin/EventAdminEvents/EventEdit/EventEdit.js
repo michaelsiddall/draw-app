@@ -109,7 +109,6 @@ class EventEdit extends Component {
                                                 id="event-create-time"
                                                 onChange={this.handleInputChangeFor('time')}
                                           />
-                              <Button>Delete Event</Button>
                         </DialogContent>
                   <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>

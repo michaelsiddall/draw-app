@@ -43,9 +43,8 @@ function* postEvent(action) {
 function* deleteEvent(action) {
     yield axios({
         method: 'DELETE',
-        url: `/api/event/${action.payload}`,
-        data: {
-            id: action.payload}
+        url: `/api/event/`,
+        data: action.payload
     });
     yield put({
         type: "FETCH_EVENTS"

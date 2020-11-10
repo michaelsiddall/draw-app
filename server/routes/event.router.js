@@ -47,9 +47,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 //delete specific event in case of making a mistake
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
+router.delete('/', rejectUnauthenticated, (req, res) => {
   const queryText = `DELETE FROM "events" WHERE "id" = $1`;
-  pool.query(queryText, [req.params.id])
+  pool.query(queryText, [req.body.id])
     .then((response) => {
       res.send(response.rows);
     })
