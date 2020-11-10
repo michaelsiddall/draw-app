@@ -32,7 +32,7 @@ app.use('/api/user', userRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/drawing', drawingRouter);
 app.use('/api/event', eventRouter);
-app.use('/api/event', requestRouter);
+app.use('/api/request', requestRouter);
 
 //s3 dropzone uploader image upload route
 app.use(

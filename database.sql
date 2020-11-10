@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 -- USER is a reserved keyword with Postgres
 -- You must use double quotes in every query that user is in:
@@ -5,6 +7,7 @@
 -- Otherwise you will have errors!
 
 --BELOW THIS IS THE NEW SQL CODE FOR OUR DBs
+>>>>>>> 45b5b9cadf063928c372078347fc59412c34119c
 CREATE TYPE auth AS ENUM
 ('user', 'admin', 'superAdmin');
 CREATE EXTENSION
