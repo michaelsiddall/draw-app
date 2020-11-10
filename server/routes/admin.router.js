@@ -10,7 +10,7 @@ const {
  */
 router.get('/', (req, res) => {
   // GET route code here
-  let queryString = ` SELECT "id","username","auth_level" from "staff"
+  let queryString = ` SELECT "id","username","auth_level" from "user"
    `;
   pool.query(queryString).then((result) => {
     console.log('results from get', result.rows);
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   console.log('making a specific auth ID GET request');
 
-  let queryString = ` SELECT "id","username","auth_level" from "staff"
+  let queryString = ` SELECT "id","username","auth_level" from "user"
     WHERE "id"  = $1;
    `;
   pool
