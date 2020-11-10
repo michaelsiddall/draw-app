@@ -27,8 +27,11 @@ class EventsItem extends Component {
                     <tr> 
                         <td>{this.props.item.location}</td>
                         <td>{this.props.item.timestamp}</td>
-                        <td><Link to="/request"><Button>Material Request Queue</Button></Link></td>
-                        <td><EventsEdit/></td>
+                        <td><Link to="/request/:id"><Button>Queue</Button></Link></td>
+                        <td><EventsEdit
+                                matchID={this.props.item.id}
+                                item={this.props.item}
+                        /></td>
                         <td><EventsComplete/></td>
                     </tr>
             </HashRouter>

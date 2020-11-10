@@ -11,9 +11,6 @@ class EventAdminEvents extends Component {
         })
     };//end componentDidMount
 
-    state = {
-        heading: 'Events',
-    };
 
     render() {
         return (
