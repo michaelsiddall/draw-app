@@ -22,7 +22,6 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   eventsReducer,
   eventsCompletedReducer,
-  eventSpecific,
   auth, //this is the reducer for the auth permissions control
   authEditReducer, //this is the auth info for a specific user ID to edit
   drawing,
