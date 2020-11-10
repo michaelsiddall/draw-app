@@ -14,7 +14,7 @@ const adminRouter = require('./routes/admin.router');
 const drawingRouter = require('./routes/drawing.router');
 const eventRouter = require('./routes/event.router');
 const requestRouter = require('./routes/request.router');
-
+const imageRouter = require('./routes/image-url.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,6 +35,7 @@ app.use('/api/event', eventRouter);
 app.use('/api/request', requestRouter);
 
 //s3 dropzone uploader image upload route
+app.use('/api/imageUrl', imageRouter);
 app.use(
   '/s3',
   UploaderS3Router({
