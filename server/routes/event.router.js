@@ -65,7 +65,7 @@ router.delete('/', rejectUnauthenticated, (req, res) => {
 router.put('/', rejectUnauthenticated, (req, res) => {
   let e = req.body
   console.log('EDIT EVENT', req.body);
-  const queryText = `UPDATE "events" SET "location"=$1, timestamp"=$2 WHERE "id"=$3`;
+  const queryText = `UPDATE "events" SET "location"=$1, "timestamp" = $2 WHERE "id" =$3;`;
   pool.query(queryText, [e.location, e.timestamp, e.id])
     .then((response) => {
       res.send(response.rows);
