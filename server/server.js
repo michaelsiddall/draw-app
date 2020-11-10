@@ -33,7 +33,7 @@ app.use('/api/user', userRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/drawing', drawingRouter);
 app.use('/api/event', eventRouter);
-app.use('/api/event', requestRouter);
+app.use('/api/request', requestRouter);
 
 // Serve static files
 app.use(express.static('build'));

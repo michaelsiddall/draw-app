@@ -5,7 +5,7 @@ import auth from './auth.reducer';
 import authEditReducer from './authEdit.reducer';
 import drawing from './drawing.reducer';
 //import events from './events.reducer';
-//import request from './request.reducer';
+import request from './request.reducer';
 
 import eventsReducer from "./event.uncompleted.reducer";
 import eventsCompletedReducer from "./event.completed.reducer";
@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
   authEditReducer, //this is the auth info for a specific user ID to edit
   drawing,
   //events,
-  //request
+  request
 });
 
 export default rootReducer;
