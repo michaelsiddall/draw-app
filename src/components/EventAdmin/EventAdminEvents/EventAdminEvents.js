@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import EventsCreate from "./EventsCreate/EventsCreate";
-import EventsItem from "./EventsItem/EventsItem";
+import EventsCreate from "./EventCreate/EventCreate";
+import EventItem from "./EventItem/EventItem";
 
 class EventAdminEvents extends Component {
     componentDidMount = () => {
@@ -32,7 +32,7 @@ class EventAdminEvents extends Component {
                         </thead>
                         <tbody>
                             {this.props.store.eventsReducer.map((item, i) =>
-                                <EventsItem
+                                <EventItem
                                     key={i}
                                     item={item}
                                 />)}

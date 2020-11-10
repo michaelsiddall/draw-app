@@ -4,7 +4,7 @@ import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 
-function EventsComplete(props) {
+function EventComplete(props) {
 
   
 
@@ -15,4 +15,4 @@ function EventsComplete(props) {
   );
 }
 
-export default connect(mapStoreToProps)(EventsComplete);
+export default connect(mapStoreToProps)(EventComplete);

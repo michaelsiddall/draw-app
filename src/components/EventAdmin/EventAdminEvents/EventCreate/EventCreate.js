@@ -5,7 +5,7 @@ import {Button, TextField} from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
 
 
-class EventsCreate extends Component {
+class EventCreate extends Component {
             state = {
                 date: '',
                 time: '',
@@ -106,4 +106,4 @@ class EventsCreate extends Component {
     }
 }
 
-export default connect(mapStoreToProps)(EventsCreate);
+export default connect(mapStoreToProps)(EventCreate);

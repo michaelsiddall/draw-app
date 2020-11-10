@@ -11,7 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 
-class EventsEdit extends Component {
+class EventEdit extends Component {
             state = {
                         open: false,
                         date: '',
@@ -128,4 +128,4 @@ class EventsEdit extends Component {
       }
 }
 
-export default connect(mapStoreToProps)(EventsEdit);
+export default connect(mapStoreToProps)(EventEdit);
