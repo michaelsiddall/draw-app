@@ -13,19 +13,12 @@ import Button from '@material-ui/core/Button';
 import "./EventItem.css"
 
 
+
 class EventItem extends Component {
-            componentDidMount=()=>{
-                this.props.dispatch({
-                    type: 'FETCH_EVENTS' //grabs only uncompleted events
-                })
-            };//end componentDidMount
-            
 
     render() {
-        let t = new Date (this.props.item.timestamp)
-        console.log('t', t);
-        let time = t.toLocaleTimeString('en-US')
-
+            let t = new Date (this.props.item.timestamp)
+            let time = t.toLocaleTimeString('en-US')
         return (
             <HashRouter>
                     <tr> 

@@ -5,9 +5,7 @@ import { takeLatest , put} from 'redux-saga/effects';
 //get all uncompleted events
 //event.router line 7
 function * getEvents (action) {
-    console.log('GET UNCOMPLETED EVENTS SAGA', action);
     let response= yield axios.get(`/api/event`);
-    console.log('GET EVENTS', response.data);
     yield put ({
         type: "SET_EVENTS",
         payload: response.data
@@ -18,9 +16,7 @@ function * getEvents (action) {
 //event.router line 20
 // '/completed'
 function * getCompletedEvents (action) {
-    console.log('GET COMPLETED EVENTS SAGA', action);
     let response= yield axios.get(`/api/event/completed`);
-    console.log('GET COMPLETED EVENTS', response.data);
     yield put ({
         type: "SET_COMPLETED",
         payload: response.data
@@ -31,10 +27,9 @@ function * getCompletedEvents (action) {
 //post new event
 //event.router line 47
 function* postEvent(action) {
-    console.log('POST EVENT', action.payload);
     yield axios({
         method: 'POST',
-        url: '/api/event',
+        url: '/api/event/',
         data: action.payload
     });
     yield put ({
@@ -46,7 +41,6 @@ function* postEvent(action) {
 //event.router line 62
 // '/:id'
 function* deleteEvent(action) {
-    console.log('DELETE EVENT', action);
     yield axios({
         method: 'DELETE',
         url: `/api/event/${action.payload}`,
@@ -61,7 +55,6 @@ function* deleteEvent(action) {
 //update specific event
 //event.router line 76
 function* updateEvent (action) {
-    console.log('UPDATE EVENT SAGA', action);
     yield axios({
         method: 'PUT',
         url: `/api/event/`,
@@ -73,11 +66,9 @@ function* updateEvent (action) {
 }
 
 function* completeEvent (action) {
-    console.log('COMPLETE EVENT SAGA', action);
     yield axios({
         method: 'PUT',
-        url: `/api/event/completed`,
-        data: action.payload
+        url: action.url
     });
     yield put({
         type: "FETCH_EVENTS"

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import {Button, TextField} from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
+import EventCreateConfim from '../EventConfirm/EventCreateConfim';
 
 
 class EventCreate extends Component {
@@ -11,45 +12,15 @@ class EventCreate extends Component {
                 time: '',
                 location: '',
                 timestamp: '',
-                error: false,
-                helperText: ''
+                button: true
             }
-            onSubmit = (event) => {
-                    event.preventDefault();
-                      if (this.state.location.length>1 && this.state.date !=='' && this.state.time !=='') 
-                      {
-                            this.props.dispatch({
-                                type: 'POST_EVENT',
-                                url: '/api/event',
-                                payload: this.state
-                            });
-                            this.clearInputFields();
-                            //window.location.reload();
-                      } else {
-                            this.setState({
-                              helperText: 'Required',
-                              error: true
-                            })
-                      }
-            }; // end onSubmit
-            
-            clearInputFields = () =>{
-                    this.setState({
-                            date: '',
-                            time: '',
-                            location: '',
-                            timestamp: '',
-                            error: false,
-                            helperText: ''
-                    })
-            }// end clearInputFields
-
 
             handleInputChangeFor = (propertyName) => (event) => {  
                     this.setState({
                         ...this.state,
-                            [propertyName]: event.target.value,
-                            timestamp: String(this.state.date) + " " + String(this.state.time)
+                        [propertyName]: event.target.value,
+                        timestamp: this.state.date + " " + this.state.time,
+                        button: false
                     });
             }; //end handleInputChange
 
@@ -58,22 +29,9 @@ class EventCreate extends Component {
         console.log('EventCreate State:', this.state)
         return (
             <>
-            <InputLabel htmlFor="event-create-location">Location</InputLabel>
-                <TextField 
-                        error={this.state.error}
-                        helperText={this.state.helperText}
-                        name="location"
-                        required
-                        variant="outlined"
-                        value={this.state.location}
-                        size="small"
-                        id="event-create-location"
-                        onChange={this.handleInputChangeFor('location')}
-                    />
 
             <InputLabel htmlFor="event-create-date">Date</InputLabel>
                     <TextField 
-                        error={this.state.error}
                         helperText={this.state.helperText}
                         name="date"
                         required
@@ -87,7 +45,6 @@ class EventCreate extends Component {
 
             <InputLabel htmlFor="event-create-time">Time</InputLabel>
                     <TextField 
-                        error={this.state.error}
                         helperText={this.state.helperText}
                         name="time"
                         required
@@ -98,8 +55,21 @@ class EventCreate extends Component {
                         id="event-create-time"
                         onChange={this.handleInputChangeFor('time')}
                     />
+            
+            <InputLabel htmlFor="event-create-location">Location</InputLabel>
+                <TextField 
+                        helperText={this.state.helperText}
+                        name="location"
+                        required
+                        variant="outlined"
+                        value={this.state.location}
+                        size="small"
+                        id="event-create-location"
+                        onChange={this.handleInputChangeFor('location')}
+                    />
 
-            <Button onClick={this.onSubmit}>Create Event</Button>
+
+            <Button disabled={this.state.button}><EventCreateConfim item={this.state}/></Button>
                 </>
         )
     }

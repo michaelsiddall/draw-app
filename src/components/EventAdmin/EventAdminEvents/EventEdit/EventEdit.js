@@ -24,6 +24,9 @@ class EventEdit extends Component {
 
             updateSpecificEvent=()=>{
                   if (this.state.date !=="" && this.state.time !== "" && this.state.location !== "" ){
+                        this.setState({
+                                    timestamp: this.state.date + " " + this.state.time,
+                        });
                         this.props.dispatch({
                                     type: 'UPDATE_EVENT', 
                                     payload: this.state
@@ -58,15 +61,14 @@ class EventEdit extends Component {
                         this.setState({
                         ...this.state,
                         [propertyName]: event.target.value,
-                        timestamp: String(this.state.date) + " " + String(this.state.time),
-                        button: false
+                        button: false,
+                        timestamp: this.state.date + " " + this.state.time,
                         });
                   }; //end handleInputChange
 
 
       render(){
-            console.log('EventEdit PROPS ITEM', this.props.item)
-            console.log('EventEdit STATE', this.state)
+            
             return (
                   <div>
                   <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>Edit</Button>

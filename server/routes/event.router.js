@@ -34,12 +34,11 @@ router.get('/completed', rejectUnauthenticated, (req, res) => {
 //post event
 router.post('/', rejectUnauthenticated, (req, res) => {
   const e = req.body;
-  console.log('EVENT POST', req.body)
   const queryText = `INSERT INTO "events" ("location", "timestamp") VALUES ($1, $2);`
-
+  console.log('EVENT POST', req.body)
   pool.query(queryText, [e.location, e.timestamp])
     .then((result) => {
-      res.send(result.rows);
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.error('Error completing EVENT POST', err);
@@ -48,10 +47,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 //delete specific event in case of making a mistake
-router.delete('/', rejectUnauthenticated, (req, res) => {
-  console.log('EVENT DELETE', req.body);
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `DELETE FROM "events" WHERE "id" = $1`;
-  pool.query(queryText, [req.body.id])
+  pool.query(queryText, [req.params.id])
     .then((response) => {
       res.send(response.rows);
     })
@@ -64,7 +62,7 @@ router.delete('/', rejectUnauthenticated, (req, res) => {
 //edit specific event ID in case of making a mistake
 router.put('/', rejectUnauthenticated, (req, res) => {
   let e = req.body
-  console.log('EDIT EVENT', req.body);
+  console.log('EDIT EVENT', req.body)
   const queryText = `UPDATE "events" SET "location"=$1, "timestamp" = $2 WHERE "id" =$3;`;
   pool.query(queryText, [e.location, e.timestamp, e.id])
     .then((response) => {
@@ -78,9 +76,8 @@ router.put('/', rejectUnauthenticated, (req, res) => {
 
 
 //complete an event
-router.put('/completed', rejectUnauthenticated, (req, res) => {
-  let e = req.body
-  console.log('COMPLETE EVENT', req.body);
+router.put('/completed/:id', rejectUnauthenticated, (req, res) => {
+  let e = req.params
   const queryText = `UPDATE "events" SET "completed"='TRUE' WHERE "id" =$1;`;
   pool.query(queryText, [e.id])
     .then((response) => {
