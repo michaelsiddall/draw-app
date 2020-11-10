@@ -24,8 +24,6 @@ class EventCompleteConfirm extends Component {
 
             };//end confirmComplete
            
-            
-
             handleClickOpen = () => {
                         this.setState({
                               open: true,

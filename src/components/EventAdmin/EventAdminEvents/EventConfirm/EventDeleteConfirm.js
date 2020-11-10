@@ -56,7 +56,7 @@ class EventDeleteConfirm extends Component {
                             </DialogContent>
                   <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.confirmDeleteEvent} color="primary">Create</Button>
+                        <Button onClick={this.confirmDeleteEvent} color="primary">Delete</Button>
                   </DialogActions>
             </Dialog>
       </div>
