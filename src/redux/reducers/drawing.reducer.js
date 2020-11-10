@@ -1,6 +1,6 @@
 const drawingReducer = (state = {}, action) => {
     switch (action.type) {
-        case 'SET_PENDING_DRAWINGS':
+        case 'SET_DRAWINGS':
             return action.payload;
         default:
             return state;

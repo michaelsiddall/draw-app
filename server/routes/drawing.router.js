@@ -12,8 +12,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const queryText = `SELECT * FROM "drawings"
-    WHERE "approved" IS NULL;`;
+    const queryText = `SELECT * FROM "drawings";`;
     pool.query(queryText)
         .then((result) => {
             res.send(result.rows);

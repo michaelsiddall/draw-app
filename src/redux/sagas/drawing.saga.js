@@ -1,7 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* getPending(action) {
+function* getDrawings(action) {
     //send the get request to the server so it makes a database request
     let response = yield axios({
         method: 'GET',
@@ -11,7 +11,7 @@ function* getPending(action) {
 
     //take the info acquired from the database and set it as redux state
     yield put({
-        type: 'SET_PENDING_DRAWINGS',
+        type: 'SET_DRAWINGS',
         payload: response.data
     });
 }
@@ -41,7 +41,7 @@ function* disapproveDrawing(action) {
 }
 
 function* drawingSaga() {
-    yield takeLatest('GET_PENDING_DRAWINGS', getPending);
+    yield takeLatest('GET_DRAWINGS', getDrawings);
     yield takeLatest('APPROVE_DRAWING', approveDrawing);
     yield takeLatest('DISAPPROVE_DRAWING', disapproveDrawing);
 }
