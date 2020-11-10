@@ -12,8 +12,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 class EventDeleteConfirm extends Component {
             state = {
-                        open: false,
-                        helperText: ''
+                        open: false
             }
 
             confirmDeleteEvent=()=>{
@@ -44,7 +43,7 @@ class EventDeleteConfirm extends Component {
           console.log('EVENT DELETE', this.props.item)
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}>Delete Event</Button>
+                  <Button variant="outlined" onClick={this.handleClickOpen}>Delete</Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
                         <DialogTitle>Delete Event</DialogTitle>
                             <DialogContent>

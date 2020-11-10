@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import { HashRouter, Link } from 'react-router-dom';
 
-
-import EventComplete from "../EventComplete/EventComplete";
+import EventCompleteConfirm from '../EventConfirm/EventCompleteConfirm';
 import EventEdit from "../EventEdit/EventEdit";
 import EventDeleteConfirm from "../EventConfirm/EventDeleteConfirm";
 
 //materialUI and styling
 import Button from '@material-ui/core/Button';
 import "./EventItem.css"
+
 
 
 
@@ -30,8 +30,10 @@ class EventItem extends Component {
                                 matchID={this.props.item.id}
                                 item={this.props.item}
                         /></td>
-                        <td><EventComplete
+                        <td><EventCompleteConfirm
                                 item={this.props.item}
+                                date={this.props.item.timestamp.split('T')[0]}
+                                time={time}
                         /></td>
                         <td><EventDeleteConfirm
                                 item={this.props.item}
