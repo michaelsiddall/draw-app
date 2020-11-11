@@ -31,28 +31,37 @@ class UserMaterialRequest extends Component {
     });
   };
 
-  // resetForm = () => {
-  //   this.setState({
-  //     materialRequest: {
-  //       location: '',
-  //       tableNumber: '',
-  //       artistNumber: '',
-  //     },
-  //   });
-  // };
-
-  onSubmit = () => {
-    console.log('This is the materials request', this.state.materialRequest);
-
-    this.props.dispatch({
-      type: 'ADD_REQUEST',
-      payload: this.state.materialRequest,
-    });
-    Swal.fire({
-      text: 'Drawing Materials will be  delivered to your table shortly!',
+  resetForm = () => {
+    this.setState({
+      materialRequest: {
+        location: '',
+        tableNumber: '',
+        artistNumber: '',
+      },
     });
   };
 
+  onSubmit = () => {
+    console.log('This is the materials request', this.state.materialRequest);
+    Swal.fire({
+      title: 'Are you ready to submit your materials request?',
+      text: "you won't be able to undo this action!",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#9dac68',
+      cancelButtonColor: '#e26d5c',
+      confirmButtonText: 'Yes, send request!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.props.dispatch({
+          type: 'ADD_REQUEST',
+          payload: this.state.materialRequest,
+        });
+        Swal.fire('success', '', 'buh-bye!');
+      }
+    });
+    this.resetForm();
+  };
   render() {
     console.log('redux state is', this.props.store);
     return (
