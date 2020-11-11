@@ -3,7 +3,6 @@ import appAdmin from './appAdmin.saga';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
-import eventsSaga from './events.saga';
 import requestSaga from './request.saga';
 import drawingSaga from './drawing.saga';
 import imageInfoSaga from './imageInfo.saga';
@@ -21,9 +20,8 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    eventSaga(),
     appAdmin(),
-    eventsSaga(),
+    eventSaga(),
     requestSaga(),
     drawingSaga(),
     imageInfoSaga(),
