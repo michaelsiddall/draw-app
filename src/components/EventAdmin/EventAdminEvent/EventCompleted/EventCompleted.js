@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../../redux/mapStoreToProps';
-import EventsCreate from "./EventCreate/EventCreate";
-import EventItem from "./EventItem/EventItem";
+import mapStoreToProps from '../../../../redux/mapStoreToProps';
+import EventCompletedItem from "../EventCompletedItem/EventCompleteItem"
 import { HashRouter, Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 
-class EventAdminEvent extends Component {
+class EventCompleted extends Component {
     componentDidMount = () => {
         this.props.dispatch({
-            type: 'FETCH_EVENTS' //grabs only uncompleted events
+            type: 'FETCH_COMPLETED' //grabs only completed events
         })
     };//end componentDidMount
 
@@ -18,28 +17,21 @@ class EventAdminEvent extends Component {
     render() {
         return (
             <HashRouter>
-                <div id="events-container">
-                    <Button><Link to="/events/completed">Completed Events</Link></Button>
-                        <div id="event-create">
-                            <EventsCreate />
-                        </div>
-
-                        <div id="events-main">
+                <div>
+                    <Button><Link to="/events">Back to Events</Link></Button>
+                        <div>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Location</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Material Request</th>
-                                        <th>Edit</th>
-                                        <th>Complete</th>
-                                        <th>Delete</th>
+                                        <th>Artists</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.props.store.eventReducer.map((item, i) =>
-                                        <EventItem
+                                    {this.props.store.eventCompletedReducer.map((item, i) =>
+                                        <EventCompletedItem
                                             key={i}
                                             item={item}
                                         />)}
@@ -52,4 +44,4 @@ class EventAdminEvent extends Component {
     }
 }
 
-export default connect(mapStoreToProps)(EventAdminEvent);
+export default connect(mapStoreToProps)(EventCompleted);

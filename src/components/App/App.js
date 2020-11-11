@@ -29,6 +29,7 @@ import EventAdminApproved from '../EventAdmin/EventAdminApproved/EventAdminAppro
 import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
 import EventAdminPending from '../EventAdmin/EventAdminPending/EventAdminPending';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
+import EventCompleted from "../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted";
 
 import AppAdmin from '../AppAdmin/AppAdmin';
 
@@ -113,6 +114,13 @@ class App extends Component {
               exact
               path="/events"
               component={EventAdminEvent}
+            />
+
+             <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/events/completed"
+              component={EventCompleted}
             />
 
             <ProtectedRoute
