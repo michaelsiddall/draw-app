@@ -54,10 +54,10 @@ class EventEdit extends Component {
 
             handleInputChangeFor = (propertyName) => (event) => {  
                         this.setState({
-                        ...this.state,
-                        [propertyName]: event.target.value,
-                        button: false,
-                        timestamp: this.state.date + " " + this.state.time,
+                              ...this.state,
+                              [propertyName]: event.target.value,
+                              button: false,
+                              timestamp: this.state.date + " " + this.state.time,
                         });
                   }; //end handleInputChange
 

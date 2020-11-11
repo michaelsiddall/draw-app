@@ -24,7 +24,6 @@ function * getCompletedEvents (action) {
 
 //post new event
 function* postEvent(action) {
-    console.log('TESTING POST SAGA')
     yield axios({
         method: 'POST',
         url: '/api/event/',
