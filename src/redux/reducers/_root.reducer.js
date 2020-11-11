@@ -6,18 +6,9 @@ import authEditReducer from './authEdit.reducer';
 import drawing from './drawing.reducer';
 
 import request from './request.reducer';
-<<<<<<< HEAD
-
-import eventsReducer from "./event.uncompleted.reducer";
-import eventsCompletedReducer from "./event.completed.reducer";
-
-=======
 import imageUrlReducer from './imageUrl.reducer';
-import eventsReducer from './event.uncompleted.reducer';
-import eventsCompletedReducer from './event.completed.reducer';
-import eventSpecific from './event.specific.reducer';
->>>>>>> ac52f8af8896a3ede21f49526e8e85b4f90156fc
-
+import eventReducer from './event.uncompleted.reducer';
+import eventCompletedReducer from './event.completed.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -27,8 +18,8 @@ import eventSpecific from './event.specific.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  eventsReducer,
-  eventsCompletedReducer,
+  eventReducer,
+  eventCompletedReducer,
   auth, //this is the reducer for the auth permissions control
   authEditReducer, //this is the auth info for a specific user ID to edit
   drawing,
