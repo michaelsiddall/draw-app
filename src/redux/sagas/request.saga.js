@@ -1,22 +1,17 @@
-import axios from "axios";
-import { put, takeLatest } from "redux-saga/effects";
+import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
 
 function* addRequest(action) {
-    console.log("in addRequest Saga", action.payload);
-    yield axios({
-        method: "POST",
-        url: "/api/request",
-        data: action.payload,
-    });
-
-    //   yield put({
-    //     type: "SET_REQUEST",
-    //     payload: response.data,
-    //   });
+  console.log('in addRequest Saga', action.payload);
+  yield axios({
+    method: 'POST',
+    url: '/api/request',
+    data: action.payload,
+  });
 }
 
 function* requestSaga() {
-    yield takeLatest("ADD_REQUEST", addRequest);
+  yield takeLatest('ADD_REQUEST', addRequest);
 }
 
 export default requestSaga;
