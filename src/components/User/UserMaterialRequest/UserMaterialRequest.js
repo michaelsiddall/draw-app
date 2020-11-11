@@ -40,7 +40,7 @@ class UserMaterialRequest extends Component {
     ) {
       Swal.fire({
         title: 'Are you ready to submit your materials request?',
-        text: this.state.materialRequest.location,
+        // text: this.state.materialRequest.location,
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#9dac68',
@@ -52,7 +52,11 @@ class UserMaterialRequest extends Component {
             type: 'ADD_REQUEST',
             payload: this.state.materialRequest,
           });
-          Swal.fire('success');
+          Swal.fire({
+            title: 'Drawing materials will be delivered to your table shortly!',
+            showConfirmButton: false,
+            timer: 3000,
+          });
         }
       });
     }
