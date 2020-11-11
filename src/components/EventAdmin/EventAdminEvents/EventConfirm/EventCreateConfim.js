@@ -12,8 +12,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 class EventCreateConfirm extends Component {
             state = {
-                        open: false,
-                        helperText: ''
+                        open: false
             }
 
             confirmCreateEvent=()=>{
@@ -49,6 +48,9 @@ class EventCreateConfirm extends Component {
                   };
 
       render(){
+            let t = new Date (this.props.item.timestamp)
+            let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            
             return (
                   <div>
                   <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>Create Event</Button>
@@ -59,7 +61,7 @@ class EventCreateConfirm extends Component {
                                 <ul>
                                     <li>Location: {this.props.item.location}</li>
                                     <li>Date: {this.props.item.date}</li>
-                                    <li>Time: {this.props.item.time}</li>
+                                    <li>Time: {time}</li>
                                 </ul>
                             </DialogContent>
                   <DialogActions>

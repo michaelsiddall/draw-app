@@ -10,6 +10,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
+import EditIcon from '@material-ui/icons/Edit';
 
 class EventEdit extends Component {
             state = {
@@ -71,7 +72,7 @@ class EventEdit extends Component {
             
             return (
                   <div>
-                  <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>Edit</Button>
+                  <Button variant="outlined" color="primary" onClick={this.handleClickOpen}><EditIcon/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true} maxWidth="md">
                         <DialogTitle>Edit Event</DialogTitle>
                               <DialogContent>
@@ -112,7 +113,7 @@ class EventEdit extends Component {
                         </DialogContent>
                   <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.updateSpecificEvent} color="primary" disabled={this.state.button}>Submit Changes</Button>
+                        <Button onClick={this.updateSpecificEvent} color="primary" disabled={this.state.button}>Edit Event</Button>
                   </DialogActions>
             </Dialog>
       </div>

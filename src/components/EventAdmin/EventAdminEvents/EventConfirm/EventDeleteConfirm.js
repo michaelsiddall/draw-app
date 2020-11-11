@@ -8,6 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 class EventDeleteConfirm extends Component {
@@ -43,7 +44,7 @@ class EventDeleteConfirm extends Component {
           console.log('EVENT DELETE', this.props.item)
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}>Delete</Button>
+                  <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
                         <DialogTitle>Delete Event</DialogTitle>
                             <DialogContent>
@@ -56,7 +57,7 @@ class EventDeleteConfirm extends Component {
                             </DialogContent>
                   <DialogActions>
                         <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.confirmDeleteEvent} color="primary">Delete</Button>
+                        <Button onClick={this.confirmDeleteEvent} color="primary">Delete Event</Button>
                   </DialogActions>
             </Dialog>
       </div>

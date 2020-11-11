@@ -11,9 +11,6 @@ import EventDeleteConfirm from "../EventConfirm/EventDeleteConfirm";
 import Button from '@material-ui/core/Button';
 import "./EventItem.css"
 
-
-
-
 class EventItem extends Component {
 
     render() {
