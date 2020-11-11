@@ -16,21 +16,13 @@ class EventCreateConfirm extends Component {
             }
 
             confirmCreateEvent=()=>{
-                    if (this.props.item.location !=='' && this.props.item.date !=='' && this.props.item.time !=='') 
-                        {
-                            this.props.dispatch({
+                        this.props.dispatch({
                                 type: 'POST_EVENT',
                                 url: '/api/event',
                                 payload: this.props.item
                         });
-
                         this.handleClose();
                             //window.location.reload();
-                    } else {
-                            this.setState({
-                              helperText: 'Required'
-                            })
-                      }
             };//end confirmCreate
            
             
@@ -54,7 +46,7 @@ class EventCreateConfirm extends Component {
             return (
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}>Create Event</Button>
-                        <Dialog open={this.state.open} onClose={this.handleClose}>
+                  <Dialog open={this.state.open} onClose={this.handleClose}>
                         <DialogTitle>Create Event</DialogTitle>
                             <DialogContent>
                                 Please Confirm Event Creation
@@ -68,7 +60,7 @@ class EventCreateConfirm extends Component {
                         <Button onClick={this.handleClose}>Cancel</Button>
                         <Button onClick={this.confirmCreateEvent}>Create</Button>
                   </DialogActions>
-            </Dialog>
+                  </Dialog>
       </div>
       );
       }

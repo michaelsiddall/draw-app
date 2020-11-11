@@ -38,7 +38,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('EVENT POST', req.body)
   pool.query(queryText, [e.location, e.timestamp])
     .then((result) => {
-      res.sendStatus(200);
+      res.sendStatus(201);
     })
     .catch((err) => {
       console.error('Error completing EVENT POST', err);
