@@ -50,10 +50,10 @@ class EventCreateConfirm extends Component {
       render(){
             let t = new Date (this.props.item.timestamp)
             let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-            
+
             return (
                   <div>
-                  <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>Create Event</Button>
+                  <Button variant="outlined" onClick={this.handleClickOpen}>Create Event</Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
                         <DialogTitle>Create Event</DialogTitle>
                             <DialogContent>
@@ -65,8 +65,8 @@ class EventCreateConfirm extends Component {
                                 </ul>
                             </DialogContent>
                   <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.confirmCreateEvent} color="primary">Create</Button>
+                        <Button onClick={this.handleClose}>Cancel</Button>
+                        <Button onClick={this.confirmCreateEvent}>Create</Button>
                   </DialogActions>
             </Dialog>
       </div>

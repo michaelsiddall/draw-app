@@ -72,7 +72,7 @@ class EventEdit extends Component {
             
             return (
                   <div>
-                  <Button variant="outlined" color="primary" onClick={this.handleClickOpen}><EditIcon/></Button>
+                  <Button variant="outlined" onClick={this.handleClickOpen}><EditIcon/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true} maxWidth="md">
                         <DialogTitle>Edit Event</DialogTitle>
                               <DialogContent>
@@ -112,8 +112,8 @@ class EventEdit extends Component {
                                           />
                         </DialogContent>
                   <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.updateSpecificEvent} color="primary" disabled={this.state.button}>Edit Event</Button>
+                        <Button onClick={this.handleClose}>Cancel</Button>
+                        <Button onClick={this.updateSpecificEvent} disabled={this.state.button}>Edit Event</Button>
                   </DialogActions>
             </Dialog>
       </div>

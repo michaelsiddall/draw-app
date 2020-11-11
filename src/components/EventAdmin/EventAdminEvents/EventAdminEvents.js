@@ -28,7 +28,7 @@ class EventAdminEvents extends Component {
                                 <th>Time</th>
                                 <th>Material Request</th>
                                 <th>Edit</th>
-                                <th>Completed</th>
+                                <th>Complete</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
