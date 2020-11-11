@@ -24,7 +24,6 @@ const rootReducer = combineReducers({
   authEditReducer, //this is the auth info for a specific user ID to edit
   drawing,
   imageUrlReducer, //reducer to store the image URL from imageUploader
-  //events,
   request,
 });
 
