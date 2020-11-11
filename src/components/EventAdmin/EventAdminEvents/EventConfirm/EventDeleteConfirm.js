@@ -45,20 +45,20 @@ class EventDeleteConfirm extends Component {
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
-                        <DialogTitle>Delete Event</DialogTitle>
-                            <DialogContent>
-                                Please Confirm Event Deletion
-                                <ul>
-                                    <li>Location: {this.props.item.location}</li>
-                                    <li>Date: {this.props.date}</li>
-                                    <li>Time: {this.props.time}</li>
-                                </ul>
-                            </DialogContent>
-                  <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.confirmDeleteEvent} color="primary">Delete Event</Button>
-                  </DialogActions>
-            </Dialog>
+                              <DialogTitle>Delete Event</DialogTitle>
+                                    <DialogContent>
+                                          Please Confirm Event Deletion
+                                          <ul>
+                                                <li>Location: {this.props.item.location}</li>
+                                                <li>Date: {this.props.date}</li>
+                                                <li>Time: {this.props.time}</li>
+                                          </ul>
+                                    </DialogContent>
+                                    <DialogActions>
+                                          <Button onClick={this.handleClose} color="primary">Cancel</Button>
+                                          <Button onClick={this.confirmDeleteEvent} color="primary">Delete Event</Button>
+                                    </DialogActions>
+                        </Dialog>
       </div>
       );
       }

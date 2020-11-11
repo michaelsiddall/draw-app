@@ -67,9 +67,11 @@ class EventCreate extends Component {
                         id="event-create-location"
                         onChange={this.handleInputChangeFor('location')}
                     />
-            <Button disabled={this.state.button}><EventCreateConfim 
-                                    item={this.state} date={this.state.date}/>
-            </Button>
+
+            <EventCreateConfim 
+                            disabled={this.state.button}
+                            item={this.state} date={this.state.date}/>
+
                 </>
         )
     }

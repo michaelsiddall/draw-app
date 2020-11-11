@@ -41,21 +41,21 @@ class EventCompleteConfirm extends Component {
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}><CheckCircleIcon/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
-                        <DialogTitle>Complete Event</DialogTitle>
-                            <DialogContent>
-                                Please Confirm Event Completion
-                                <ul>
-                                    <li>Location: {this.props.item.location}</li>
-                                    <li>Date: {this.props.date}</li>
-                                    <li>Time: {this.props.time}</li>
-                                </ul>
-                            </DialogContent>
-                  <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.confirmCompleteEvent} color="primary">Complete Event</Button>
-                  </DialogActions>
-            </Dialog>
-      </div>
+                              <DialogTitle>Complete Event</DialogTitle>
+                                    <DialogContent>
+                                          Please Confirm Event Completion
+                                          <ul>
+                                                <li>Location: {this.props.item.location}</li>
+                                                <li>Date: {this.props.date}</li>
+                                                <li>Time: {this.props.time}</li>
+                                          </ul>
+                                    </DialogContent>
+                                    <DialogActions>
+                                          <Button onClick={this.handleClose} color="primary">Cancel</Button>
+                                          <Button onClick={this.confirmCompleteEvent} color="primary">Complete Event</Button>
+                                    </DialogActions>
+                        </Dialog>
+                  </div>
       );
       }
 }

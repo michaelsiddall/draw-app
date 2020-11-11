@@ -22,7 +22,6 @@ class EventCreateConfirm extends Component {
                                 payload: this.props.item
                         });
                         this.handleClose();
-                            //window.location.reload();
             };//end confirmCreate
            
             
@@ -42,24 +41,24 @@ class EventCreateConfirm extends Component {
       render(){
             let t = new Date (this.props.item.timestamp)
             let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-
+            
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}>Create Event</Button>
+                  <Button variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button>
                   <Dialog open={this.state.open} onClose={this.handleClose}>
-                        <DialogTitle>Create Event</DialogTitle>
-                            <DialogContent>
-                                Please Confirm Event Creation
-                                <ul>
-                                    <li>Location: {this.props.item.location}</li>
-                                    <li>Date: {this.props.item.date}</li>
-                                    <li>Time: {time}</li>
-                                </ul>
-                            </DialogContent>
-                  <DialogActions>
-                        <Button onClick={this.handleClose}>Cancel</Button>
-                        <Button onClick={this.confirmCreateEvent}>Create</Button>
-                  </DialogActions>
+                              <DialogTitle>Create Event</DialogTitle>
+                                    <DialogContent>
+                                          Please Confirm Event Creation
+                                          <ul>
+                                                <li>Location: {this.props.item.location}</li>
+                                                <li>Date: {this.props.item.date}</li>
+                                                <li>Time: {time}</li>
+                                          </ul>
+                                    </DialogContent>
+                                    <DialogActions>
+                                          <Button onClick={this.handleClose}>Cancel</Button>
+                                          <Button onClick={this.confirmCreateEvent}>Create</Button>
+                                    </DialogActions>
                   </Dialog>
       </div>
       );

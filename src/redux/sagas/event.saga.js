@@ -3,7 +3,7 @@ import { takeLatest , put} from 'redux-saga/effects';
 
 
 //get all uncompleted events
-//event.router line 7
+
 function * getEvents (action) {
     let response= yield axios.get(`/api/event`);
     yield put ({
@@ -13,8 +13,6 @@ function * getEvents (action) {
 }
 
 //get all completed events
-//event.router line 20
-// '/completed'
 function * getCompletedEvents (action) {
     let response= yield axios.get(`/api/event/completed`);
     yield put ({
@@ -25,7 +23,6 @@ function * getCompletedEvents (action) {
 
 
 //post new event
-//event.router line 47
 function* postEvent(action) {
     console.log('TESTING POST SAGA')
     yield axios({
@@ -39,8 +36,6 @@ function* postEvent(action) {
 }
 
 //delete specific event
-//event.router line 62
-// '/:id'
 function* deleteEvent(action) {
     yield axios({
         method: 'DELETE',
@@ -53,7 +48,6 @@ function* deleteEvent(action) {
 }
 
 //update specific event
-//event.router line 76
 function* updateEvent (action) {
     yield axios({
         method: 'PUT',
@@ -65,6 +59,7 @@ function* updateEvent (action) {
     })
 }
 
+//update event to be completed
 function* completeEvent (action) {
     yield axios({
         method: 'PUT',
