@@ -6,10 +6,10 @@ import authEditReducer from './authEdit.reducer';
 import drawing from './drawing.reducer';
 //import events from './events.reducer';
 import request from './request.reducer';
-
-import eventsReducer from "./event.uncompleted.reducer";
-import eventsCompletedReducer from "./event.completed.reducer";
-import eventSpecific from "./event.specific.reducer";
+import imageUrlReducer from './imageUrl.reducer';
+import eventsReducer from './event.uncompleted.reducer';
+import eventsCompletedReducer from './event.completed.reducer';
+import eventSpecific from './event.specific.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -26,8 +26,9 @@ const rootReducer = combineReducers({
   auth, //this is the reducer for the auth permissions control
   authEditReducer, //this is the auth info for a specific user ID to edit
   drawing,
+  imageUrlReducer, //reducer to store the image URL from imageUploader
   //events,
-  request
+  request,
 });
 
 export default rootReducer;
