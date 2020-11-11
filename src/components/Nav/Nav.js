@@ -34,11 +34,8 @@ const Nav = (props) => {
             <Link className="nav-link" to="/events">
               Events
             </Link>
-            <Link className="nav-link" to="/pending">
-              Pending Drawings
-            </Link>
-            <Link className="nav-link" to="/approved">
-              Approved Drawings
+            <Link className="nav-link" to="/drawings">
+              Drawings
             </Link>
             <LogOutButton className="nav-link" />
           </>

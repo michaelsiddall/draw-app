@@ -3,8 +3,9 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import auth from './auth.reducer';
 import authEditReducer from './authEdit.reducer';
-import drawing from './drawing.reducer';
-
+import pending from './drawing.pending.reducer';
+import approved from './drawing.approved.reducer';
+import disapproved from './drawing.disapproved.reducer';
 import request from './request.reducer';
 import imageUrlReducer from './imageUrl.reducer';
 import eventReducer from './event.uncompleted.reducer';
@@ -22,9 +23,11 @@ const rootReducer = combineReducers({
   eventCompletedReducer,
   auth, //this is the reducer for the auth permissions control
   authEditReducer, //this is the auth info for a specific user ID to edit
-  drawing,
   imageUrlReducer, //reducer to store the image URL from imageUploader
-  request,
+  pending,
+  approved,
+  disapproved,
+  request
 });
 
 export default rootReducer;
