@@ -1,3 +1,4 @@
+
 CREATE TYPE auth AS ENUM
 ('user', 'admin', 'superAdmin');
 CREATE EXTENSION

@@ -25,10 +25,13 @@ import UserGallery from '../User/UserGallery/UserGallery';
 import UserLandingPage from '../User/UserLandingPage/UserLandingPage';
 import UserMaterialRequest from '../User/UserMaterialRequest/UserMaterialRequest';
 
+
 import EventAdminApproved from '../EventAdmin/EventAdminApproved/EventAdminApproved';
-import EventAdminEvents from '../EventAdmin/EventAdminEvents/EventAdminEvents';
+import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
 import EventAdminPending from '../EventAdmin/EventAdminPending/EventAdminPending';
+import EventAdminDrawings from '../EventAdmin/EventAdminDrawings/EventAdminDrawings';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
+import EventCompleted from "../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted";
 
 import AppAdmin from '../AppAdmin/AppAdmin';
 
@@ -112,7 +115,14 @@ class App extends Component {
               // logged in shows InfoPage else shows LoginPage
               exact
               path="/events"
-              component={EventAdminEvents}
+              component={EventAdminEvent}
+            />
+
+             <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/events/completed"
+              component={EventCompleted}
             />
 
             <ProtectedRoute
@@ -125,15 +135,8 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/pending"
-              component={EventAdminPending}
-            />
-
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/approved"
-              component={EventAdminApproved}
+              path="/drawings"
+              component={EventAdminDrawings}
             />
 
             <ProtectedRoute

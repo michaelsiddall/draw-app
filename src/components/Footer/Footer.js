@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageUpload from '../ImageUpload/ImageUpload';
 import './Footer.css';
 
 // This is one of our simplest components
