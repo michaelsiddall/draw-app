@@ -5,8 +5,17 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-  // GET route code here
+router.get('/', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT * FROM "requests" WHERE "completed"='FALSE'`; //AND "event_id"=$1
+  pool
+    .query(queryText, [req.body.location])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
 });
 
 /**

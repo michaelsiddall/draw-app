@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import UserMaterialRequest from '../../User/UserMaterialRequest/UserMaterialRequest';
+import EventAdminQueueItem from '../EventAdminQueueItem/EventAdminQueueItem';
 
 class EventAdminQueue extends Component {
   state = {};
 
-  //   componentDidMount () => {
-  //       this.props.dispatch({
-
-  //       })
-  //   }
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_REQUEST', //grabs only uncompleted requests
+    });
+  }; //end componentDidMount
 
   render() {
     return (
-      // console.log('request reducer is', this.props.store.requestReducer);
-
       <div>
-        {/* <Button>
-          <Link to='/events'>Back to Events</Link>
-        </Button> */}
         <div>
           <table>
             <thead>
@@ -30,7 +25,9 @@ class EventAdminQueue extends Component {
               </tr>
             </thead>
             <tbody>
-              <EventAdminQueueItem materialRequest={request} />;
+              {this.props.store.requestReducer.map((item, i) => (
+                <EventAdminQueueItem key={i} item={item} />
+              ))}
             </tbody>
           </table>
         </div>

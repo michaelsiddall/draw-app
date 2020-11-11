@@ -10,8 +10,17 @@ function* addRequest(action) {
   });
 }
 
+function* getRequest(action) {
+  let response = yield axios.get(`/api/request`);
+  yield put({
+    type: 'SET_REQUEST',
+    payload: response.data,
+  });
+}
+
 function* requestSaga() {
   yield takeLatest('ADD_REQUEST', addRequest);
+  yield takeLatest('FETCH_REQUEST', getRequest);
 }
 
 export default requestSaga;
