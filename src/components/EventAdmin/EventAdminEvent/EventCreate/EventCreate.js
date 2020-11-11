@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
-import {Button, TextField} from '@material-ui/core';
+import { TextField} from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
 import EventCreateConfim from '../EventConfirm/EventCreateConfim';
 

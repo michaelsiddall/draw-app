@@ -26,7 +26,7 @@ import UserLandingPage from '../User/UserLandingPage/UserLandingPage';
 import UserMaterialRequest from '../User/UserMaterialRequest/UserMaterialRequest';
 
 import EventAdminApproved from '../EventAdmin/EventAdminApproved/EventAdminApproved';
-import EventAdminEvents from '../EventAdmin/EventAdminEvents/EventAdminEvents';
+import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
 import EventAdminPending from '../EventAdmin/EventAdminPending/EventAdminPending';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
 
@@ -112,7 +112,7 @@ class App extends Component {
               // logged in shows InfoPage else shows LoginPage
               exact
               path="/events"
-              component={EventAdminEvents}
+              component={EventAdminEvent}
             />
 
             <ProtectedRoute

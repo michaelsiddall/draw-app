@@ -24,8 +24,6 @@ class EventCreateConfirm extends Component {
                         this.handleClose();
             };//end confirmCreate
            
-            
-
             handleClickOpen = () => {
                         this.setState({
                               open: true,
@@ -41,7 +39,7 @@ class EventCreateConfirm extends Component {
       render(){
             let t = new Date (this.props.item.timestamp)
             let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-            
+
             return (
                   <div>
                   <Button variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button>

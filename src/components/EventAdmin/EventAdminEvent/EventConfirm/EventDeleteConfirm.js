@@ -26,8 +26,6 @@ class EventDeleteConfirm extends Component {
 
             };//end confirmDelete
            
-            
-
             handleClickOpen = () => {
                         this.setState({
                               open: true,

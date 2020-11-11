@@ -29,10 +29,14 @@ class EventEdit extends Component {
                                     payload: this.state
                         })
                         this.setState({
-                                    open: false
+                                    open: false,
+                                    date: '',
+                                    time: '',
+                                    location: '',
+                                    timestamp: '',
+                                    id:'',
+                                    button: true
                         });
-
-
             };//end update specific event
 
             handleClickOpen = () => {
@@ -66,17 +70,6 @@ class EventEdit extends Component {
                         <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true} maxWidth="md">
                         <DialogTitle>Edit Event</DialogTitle>
                               <DialogContent>
-                                    <InputLabel htmlFor="event-create-location">Location</InputLabel>
-                                          <TextField 
-                                                name="location"
-                                                required
-                                                variant="outlined"
-                                                value={this.state.location}
-                                                size="small"
-                                                id="event-create-location"
-                                                onChange={this.handleInputChangeFor('location')}
-                                          />
-
                                     <InputLabel htmlFor="event-create-date">Date</InputLabel>
                                           <TextField 
                                                 name="date"
@@ -88,7 +81,6 @@ class EventEdit extends Component {
                                                 id="event-create-date"
                                                 onChange={this.handleInputChangeFor('date')}
                                           />
-
                                     <InputLabel htmlFor="event-create-time">Time</InputLabel>
                                           <TextField 
                                                 name="time"
@@ -99,6 +91,16 @@ class EventEdit extends Component {
                                                 size="small"
                                                 id="event-create-time"
                                                 onChange={this.handleInputChangeFor('time')}
+                                          />
+                                    <InputLabel htmlFor="event-create-location">Location</InputLabel>
+                                          <TextField 
+                                                name="location"
+                                                required
+                                                variant="outlined"
+                                                value={this.state.location}
+                                                size="small"
+                                                id="event-create-location"
+                                                onChange={this.handleInputChangeFor('location')}
                                           />
                         </DialogContent>
                   <DialogActions>
