@@ -24,10 +24,6 @@ class EventEdit extends Component {
             }
 
             updateSpecificEvent=()=>{
-                  if (this.state.date !=="" && this.state.time !== "" && this.state.location !== "" ){
-                        this.setState({
-                                    timestamp: this.state.date + " " + this.state.time,
-                        });
                         this.props.dispatch({
                                     type: 'UPDATE_EVENT', 
                                     payload: this.state
@@ -35,13 +31,7 @@ class EventEdit extends Component {
                         this.setState({
                                     open: false
                         });
-                  }
-                  else 
-                  {
-                        this.setState({
-                              open: false
-                        })
-                  }
+
 
             };//end update specific event
 

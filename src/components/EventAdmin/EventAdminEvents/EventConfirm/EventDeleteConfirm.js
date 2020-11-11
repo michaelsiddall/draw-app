@@ -24,7 +24,7 @@ class EventDeleteConfirm extends Component {
                         });
                         this.handleClose();
 
-            };//end confirmCreate
+            };//end confirmDelete
            
             
 
@@ -41,7 +41,6 @@ class EventDeleteConfirm extends Component {
                   };
 
       render(){
-          console.log('EVENT DELETE', this.props.item)
             return (
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
