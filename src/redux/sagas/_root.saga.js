@@ -7,7 +7,7 @@ import eventsSaga from './events.saga';
 import requestSaga from './request.saga';
 import drawingSaga from './drawing.saga';
 
-import eventSaga from "./event.saga"
+import eventSaga from './event.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
