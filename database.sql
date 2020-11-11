@@ -1,10 +1,4 @@
 
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
-
---BELOW THIS IS THE NEW SQL CODE FOR OUR DBs
 CREATE TYPE auth AS ENUM
 ('user', 'admin', 'superAdmin');
 CREATE EXTENSION
