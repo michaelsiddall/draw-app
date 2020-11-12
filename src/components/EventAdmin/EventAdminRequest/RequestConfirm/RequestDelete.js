@@ -11,7 +11,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
-class QueueDelete extends Component {
+class RequestDelete extends Component {
             state = {
                         open: false
             }
@@ -61,4 +61,4 @@ class QueueDelete extends Component {
       }
 }
 
-export default connect(mapStoreToProps)(QueueDelete);
+export default connect(mapStoreToProps)(RequestDelete);

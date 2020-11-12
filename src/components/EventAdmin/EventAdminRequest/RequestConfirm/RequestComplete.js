@@ -10,7 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
-class QueueComplete extends Component {
+class RequestComplete extends Component {
             state = {
                         open: false,
                         id: ''
@@ -60,4 +60,4 @@ class QueueComplete extends Component {
       }
 }
 
-export default connect(mapStoreToProps)(QueueComplete);
+export default connect(mapStoreToProps)(RequestComplete);

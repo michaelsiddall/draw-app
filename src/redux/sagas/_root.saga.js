@@ -7,6 +7,7 @@ import requestSaga from './request.saga';
 import drawingSaga from './drawing.saga';
 import imageInfoSaga from './imageInfo.saga';
 import eventSaga from './event.saga';
+import queueSaga from "./queue.saga";
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     requestSaga(),
     drawingSaga(),
     imageInfoSaga(),
+    queueSaga(),
   ]);
 }

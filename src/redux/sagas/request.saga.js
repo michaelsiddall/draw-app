@@ -21,15 +21,6 @@ function* addRequest(action) {
     })
 }
 
-function* getByEventID(action) {
-  let response = yield axios.get(`/api/request/${action.payload}`);
-  console.log('getByEventID', response.data)
-  yield put({
-    type: 'REQUEST_BY_EVENT',
-    payload: response.data,
-  });
-}
-
 
 //update request to be completed
 function* completeRequest (action) {
@@ -56,7 +47,6 @@ function* deleteRequest(action) {
 
 function* requestSaga() {
   yield takeLatest('ADD_REQUEST', addRequest);
-  yield takeLatest('FETCH_BY_EVENT', getByEventID);
   yield takeLatest('FETCH_REQUEST', getRequest);
   yield takeLatest('COMPLETE_REQUEST', completeRequest);
   yield takeLatest('DELETE_REQUEST', deleteRequest);

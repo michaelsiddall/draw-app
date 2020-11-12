@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
-import QueueComplete from "../QueueConfirm/QueueComplete";
-import QueueDelete from "../QueueConfirm/QueueDelete";
+import RequestComplete from "../RequestConfirm/RequestComplete";
+import RequestDelete from "../RequestConfirm/RequestDelete";
 
-class EventAdminQueueItem extends Component {
+class RequestItem extends Component {
 
 
   render() {
@@ -14,12 +14,12 @@ class EventAdminQueueItem extends Component {
         <tr>
           <td>{this.props.item.table_number}</td>
           <td>{this.props.item.artist_count}</td>
-          <td><QueueComplete
+          <td><RequestComplete
               tableNumber= {this.props.item.table_number}
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
           /></td>
-          <td><QueueDelete
+          <td><RequestDelete
               tableNumber= {this.props.item.table_number}
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
@@ -31,4 +31,4 @@ class EventAdminQueueItem extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(EventAdminQueueItem);
+export default connect(mapStoreToProps)(RequestItem);
