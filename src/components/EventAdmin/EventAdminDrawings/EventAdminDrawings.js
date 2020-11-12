@@ -13,19 +13,21 @@ import { makeStyles } from '@material-ui/core/styles';
 class EventAdminDrawings extends Component {
     state = {
         heading: 'Drawings',
-        showDrawings: "pending"
+        showDrawings: "pending",
+        data: false
     };
 
     componentDidMount() {
-        this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
-        this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
-        this.props.dispatch({ type: 'GET_DISAPPROVED_DRAWINGS' });
+        // this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
+        // this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
+        // this.props.dispatch({ type: 'GET_DISAPPROVED_DRAWINGS' });
 
-        // this.loadData().then(data =>
-        //     this.setState({ data: data }))
+        this.loadData().then(data =>
+            this.setState({ data: data }))
 
     }
 
+    //handleChange for dropdown menu
     handleChange = (event) => {
         this.setState({
             ...this.state,
@@ -35,15 +37,17 @@ class EventAdminDrawings extends Component {
     }
 
 
-    // async loadData() {
-    //     this.props.dispatch({ type: 'GET_DRAWINGS' });
+    async loadData() {
+        this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
+        this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
+        this.props.dispatch({ type: 'GET_DISAPPROVED_DRAWINGS' });
 
-    // }
+    }
 
     render() {
-        // if (this.state.data === null) {
-        //     return <div><h1>loading...</h1></div>
-        // }
+        if (this.state.data === false) {
+            return <div><h1>loading...</h1></div>
+        }
         return (
             <div>
                 <h2>{this.state.heading}</h2>
