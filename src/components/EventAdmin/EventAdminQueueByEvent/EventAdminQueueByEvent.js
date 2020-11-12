@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import QueueComplete from "../EventAdminQueue/QueueConfirm/QueueComplete";
-import QueueDelete from "../EventAdminQueue/QueueConfirm/QueueDelete";
+import QueueByEventItem from './QueueByEventItem/QueueByEventItem';
 
 
 class EventAdminQueueByEvent extends Component {
@@ -29,20 +28,9 @@ class EventAdminQueueByEvent extends Component {
               </tr>
             </thead>
             <tbody>
-                <tr>
-                      <td>{this.props.store.queueReducer.table_number}</td>
-                      <td>{this.props.store.queueReducer.artist_count}</td>
-                      <td><QueueComplete
-                            tableNumber= {this.props.store.queueReducer.table_number}
-                            artistCount = {this.props.store.queueReducer.artist_count}
-                            item={this.props.store.queueReducer}
-                      /></td>
-                      <td><QueueDelete
-                            tableNumber= {this.props.store.queueReducer.table_number}
-                            artistCount = {this.props.store.queueReducer.artist_count}
-                            item={this.props.store.queueReducer}
-                      /></td>
-                </tr>
+                {this.props.store.queueReducer.map((item, i) => (
+                <QueueByEventItem key={i} item={item} />
+              ))}
             </tbody>
           </table>
         </div>

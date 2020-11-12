@@ -1,4 +1,4 @@
-const queueReducer = (state = {}, action) => {
+const queueReducer = (state = [], action) => {
     console.log("Queue Reducer", action.payload);
 
     switch (action.type) {
