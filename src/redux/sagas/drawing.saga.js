@@ -87,6 +87,20 @@ function* deleteDrawing(action) {
     yield put({ type: 'GET_DISAPPROVED_DRAWINGS', });
 }
 
+function* postDrawing(action) {
+    console.log('in drawing delete with action.payload of', action.payload);
+    //send the get request to the server so it makes a database request
+    let response = yield axios({
+        method: 'POST',
+        url: `/api/drawing/`,
+        data: action.payload
+    });
+    console.log(response.data);
+
+    //take the info acquired from the database and set it as redux state
+    yield put({ type: 'GET_PENDING_DRAWINGS', });
+}
+
 function* drawingSaga() {
     yield takeLatest('GET_PENDING_DRAWINGS', getPending);
     yield takeLatest('GET_APPROVED_DRAWINGS', getApproved);
@@ -94,6 +108,8 @@ function* drawingSaga() {
     yield takeLatest('APPROVE_DRAWING', approveDrawing);
     yield takeLatest('DISAPPROVE_DRAWING', disapproveDrawing);
     yield takeLatest('DELETE_DRAWING', deleteDrawing);
+    yield takeLatest('POST_DRAWING', postDrawing);
+
 
 }
 

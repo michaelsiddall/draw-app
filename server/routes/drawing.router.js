@@ -97,7 +97,18 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    // POST route code here
+    console.log('req.params.id', req.params.id);
+    const queryText = `INSERT INTO "drawings" ("name", "email_address", "instagram", "description", "image_url")
+  VALUES ($1, $2, $3, $4, $5);`;
+    pool.query(queryText, [req.body.name, req.body.email, req.body.instagram, req.body.aboutDrawing, req.body.imageUrl])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        // catch for query
+        .catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
 });
 
 module.exports = router;

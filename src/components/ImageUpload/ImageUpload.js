@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 
-const dropStyles = {
-  height: '50px',
-  width: '200px',
-  border: '1px solid black',
-  'background-color': '#dddddd',
-};
+// const dropStyles = {
+//   height: '50px',
+//   width: '200px',
+//   //border: '1px solid black',
+//   'background-color': '#dddddd',
+// };
 
 class ImageUpload extends Component {
   handleFinishedUpload = (info) => {
@@ -34,10 +34,10 @@ class ImageUpload extends Component {
     );
     return (
       <DropzoneS3Uploader
-        children={innerDropElement}
+        //children={innerDropElement}
         onFinish={this.handleFinishedUpload}
         s3Url={s3Url}
-        style={dropStyles}
+        //style={dropStyles}
         maxSize={1024 * 1024 * 5}
         upload={uploadOptions}
       />
