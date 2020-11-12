@@ -28,9 +28,9 @@ import UserMaterialRequest from '../User/UserMaterialRequest/UserMaterialRequest
 
 import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
 import EventAdminDrawings from '../EventAdmin/EventAdminDrawings/EventAdminDrawings';
-import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
+import EventAdminRequest from "../EventAdmin/EventAdminRequest/EventAdminRequest";
 import EventCompleted from "../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted";
-import EventAdminQueueByEvent from '../EventAdmin/EventAdminQueueByEvent/EventAdminQueueByEvent';
+import EventAdminQueue from "../EventAdmin/EventAdminQueue/EventAdminQueue";
 
 import AppAdmin from '../AppAdmin/AppAdmin';
 
@@ -128,13 +128,13 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               path="/queue/:id"
-              component={EventAdminQueueByEvent}
+              component={EventAdminQueue}
             />
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
               path="/allrequests"
-              component={EventAdminQueue}
+              component={EventAdminRequest}
             />
 
             <ProtectedRoute

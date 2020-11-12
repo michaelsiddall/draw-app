@@ -23,8 +23,7 @@ class RequestItem extends Component {
               tableNumber= {this.props.item.table_number}
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
-          />
-          </td>
+          /></td>
         </tr>
       </>
     );
