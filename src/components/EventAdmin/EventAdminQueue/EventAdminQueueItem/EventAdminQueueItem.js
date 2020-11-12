@@ -5,6 +5,8 @@ import QueueComplete from "../QueueConfirm/QueueComplete";
 import QueueDelete from "../QueueConfirm/QueueDelete";
 
 class EventAdminQueueItem extends Component {
+
+
   render() {
     console.log('EVENT ADMIN ITEM', this.props.item)
     return (

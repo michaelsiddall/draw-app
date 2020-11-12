@@ -3,11 +3,9 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated, } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
+//get ALL uncompleted requests
 router.get('/', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM "requests" WHERE "completed"='FALSE'`; //AND "event_id"=$1
+  const queryText = `SELECT * FROM "requests" WHERE "completed"='FALSE'`;
   pool
     .query(queryText)
     .then((response) => {
@@ -19,11 +17,23 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
+//get uncompleted requests BY EVENT ID
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('REQUEST GET EVENT ID REQ PARAMS', req.params)
+  const queryText = `SELECT * FROM "requests" WHERE "completed"='FALSE' AND "event_id"=$1`;
+  pool
+    .query(queryText, [req.params.id])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+// POST route template
 router.post('/', (req, res) => {
-  // POST route code here
   const queryText = `INSERT INTO "requests" ("table_number", "artist_count", "event_id")
     VALUES ($1, $2, $3)`;
   pool

@@ -18,6 +18,16 @@ function* getRequest(action) {
   });
 }
 
+function* getByEventID(action) {
+  let response = yield axios.get(`/api/request/`);
+  console.log('getByEventID', response.data)
+  yield put({
+    type: 'REQUEST_BY_EVENT',
+    payload: response.data,
+  });
+}
+
+
 //update request to be completed
 function* completeRequest (action) {
     yield axios({
@@ -46,6 +56,7 @@ function* requestSaga() {
   yield takeLatest('FETCH_REQUEST', getRequest);
   yield takeLatest('COMPLETE_REQUEST', completeRequest);
   yield takeLatest('DELETE_REQUEST', deleteRequest);
+  yield takeLatest('FETCH_BY_EVENT', getByEventID);
 }
 
 export default requestSaga;

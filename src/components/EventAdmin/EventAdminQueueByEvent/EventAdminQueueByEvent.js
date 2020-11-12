@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import EventAdminQueueItem from './EventAdminQueueItem/EventAdminQueueItem';
-import QueueRequest from "./QueueRequest/QueueRequest";
+import QueueByEventItem from "./QueueByEventItem/QueueByEventItem";
 
-class EventAdminQueue extends Component {
+class EventAdminQueueByEvent extends Component {
 
     componentDidMount = () => {
       this.props.dispatch({
-        type: 'FETCH_REQUEST', //grabs only uncompleted requests
+        type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event
+        payload: this.props.match.params.id
       });
     }; //end componentDidMount
 
   render() {
+      console.log('QUEUE BY EVENT', this.props.store.queueReducer)
     return (
       <div>
         <div>
@@ -26,9 +27,9 @@ class EventAdminQueue extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.store.requestReducer.map((item, i) => (
-                <EventAdminQueueItem key={i} item={item} />
-              ))}
+              {this.props.store.queueReducer.map((item, i) => (
+                <QueueByEventItem key={i} item={item} />
+              ))} 
             </tbody>
           </table>
         </div>
@@ -37,4 +38,4 @@ class EventAdminQueue extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(EventAdminQueue);
+export default connect(mapStoreToProps)(EventAdminQueueByEvent);

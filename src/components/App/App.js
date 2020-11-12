@@ -30,10 +30,12 @@ import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
 import EventAdminDrawings from '../EventAdmin/EventAdminDrawings/EventAdminDrawings';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
 import EventCompleted from "../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted";
+import EventAdminQueueByEvent from '../EventAdmin/EventAdminQueueByEvent/EventAdminQueueByEvent';
 
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
+
 
 class App extends Component {
   componentDidMount() {
@@ -125,8 +127,13 @@ class App extends Component {
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
+              path="/queue/:id"
+              component={EventAdminQueueByEvent}
+            />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
               exact
-              path="/queue"
+              path="/queue/all"
               component={EventAdminQueue}
             />
 
