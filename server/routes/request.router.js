@@ -9,7 +9,7 @@ const { rejectUnauthenticated, } = require('../modules/authentication-middleware
 router.get('/', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM "requests" WHERE "completed"='FALSE'`; //AND "event_id"=$1
   pool
-    .query(queryText, [req.body.location])
+    .query(queryText)
     .then((response) => {
       res.send(response.rows);
     })
