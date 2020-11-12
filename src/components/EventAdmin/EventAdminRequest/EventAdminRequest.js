@@ -26,7 +26,7 @@ class EventAdminRequest extends Component {
                                 </tr>
                               </thead>
                               <tbody>
-                                  {this.props.store.queueReducer.map((item, i) => (
+                                  {this.props.store.requestReducer.map((item, i) => (
                                   <RequestItem key={i} item={item} />
                                 ))}
                               </tbody>
