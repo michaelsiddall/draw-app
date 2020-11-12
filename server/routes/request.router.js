@@ -41,4 +41,20 @@ router.post('/', (req, res) => {
     });
 });
 
+//complete an event
+router.put('/completed/:id', rejectUnauthenticated, (req, res) => {
+  let e = req.params
+  const queryText = `UPDATE "requests" SET "completed"='TRUE' WHERE "id" =$1;`;
+  pool.query(queryText, [e.id])
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
 module.exports = router;

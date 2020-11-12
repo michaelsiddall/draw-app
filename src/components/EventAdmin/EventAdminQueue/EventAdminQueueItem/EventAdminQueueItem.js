@@ -12,7 +12,9 @@ class EventAdminQueueItem extends Component {
           <td>{this.props.item.table_number}</td>
           <td>{this.props.item.artist_count}</td>
           <td><QueueComplete
-              
+              tableNumber= {this.props.item.table_number}
+              artistCount = {this.props.item.artist_count}
+              item={this.props.item}
           /></td>
         </tr>
       </>

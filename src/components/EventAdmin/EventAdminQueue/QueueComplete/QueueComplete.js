@@ -12,13 +12,14 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 class QueueComplete extends Component {
             state = {
-                        open: false
+                        open: false,
+                        id: ''
             }
 
             confirmCompleteQueue=()=>{
                     this.props.dispatch({
-                                type: 'COMPLETE_EVENT',
-                                url: `/api/event/completed/${this.props.item.id}`
+                                type: 'COMPLETE_REQUEST',
+                                url: `/api/request/completed/${this.props.item.id}`
                     });
                         this.handleClose();
 
