@@ -14,28 +14,38 @@ class EventAdminQueueByEvent extends Component {
     }; //end componentDidMount
 
   render() {
-      console.log('QUEUE BY EVENT', this.props.store.queueReducer)
-    return (
-      <div>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Table Number</th>
-                <th>Number of Artists</th>
-                <th>Request Fulfilled</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-                {this.props.store.queueReducer.map((item, i) => (
-                <QueueByEventItem key={i} item={item} />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    );
+     if (this.props.store.queueReducer.length >0) {
+              return (
+                    <div>
+                      <div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Table Number</th>
+                              <th>Number of Artists</th>
+                              <th>Request Fulfilled</th>
+                              <th>Delete</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {this.props.store.queueReducer.map((item, i) => (
+                              <QueueByEventItem key={i} item={item} />
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                );
+     }
+
+     else if (this.props.store.queueReducer.length ===0){
+       return (
+         <div>
+           <h4>Sorry, there are no requests!</h4>
+         </div>
+       )
+     }
+    
   }
 }
 

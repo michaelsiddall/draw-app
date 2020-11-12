@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 
 
-class EventAdminQueueItem extends Component {
-
+class QueueByEventItem extends Component {
 
   render() {
-    console.log('EVENT ADMIN ITEM', this.props.item)
     return (
       <>
         <tr>
@@ -16,7 +14,8 @@ class EventAdminQueueItem extends Component {
         </tr>
       </>
     );
+
   }
 }
 
-export default connect(mapStoreToProps)(EventAdminQueueItem);
+export default connect(mapStoreToProps)(QueueByEventItem);
