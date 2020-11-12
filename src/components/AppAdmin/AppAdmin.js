@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+
+import AuthEdit from './AuthEdit';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
 class AppAdmin extends Component {
-
-    state = {
-        heading: 'App Admin',
-    };
+  state = {
+    heading: 'App Admin',
+  };
 
   componentDidMount = () => {
     this.props.dispatch({
@@ -38,6 +38,8 @@ class AppAdmin extends Component {
             <p>username: {auth.username}</p>
             <p>auth level: {auth.auth_level}</p>
             <button onClick={() => this.editAuth(auth.id)}>Edit</button>
+
+            <AuthEdit user={auth} />
           </div>
         ))}
         ;
