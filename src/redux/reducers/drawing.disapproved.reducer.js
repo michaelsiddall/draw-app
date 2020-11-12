@@ -1,4 +1,4 @@
-const disapprovedReducer = (state = {}, action) => {
+const disapprovedReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_DISAPPROVED_DRAWINGS':
             return action.payload;
