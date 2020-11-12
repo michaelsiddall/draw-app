@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
-import QueueComplete from "../QueueComplete/QueueComplete";
+import QueueComplete from "../QueueConfirm/QueueComplete";
+import QueueDelete from "../QueueConfirm/QueueDelete";
 
 class EventAdminQueueItem extends Component {
   render() {
@@ -16,6 +17,12 @@ class EventAdminQueueItem extends Component {
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
           /></td>
+          <td><QueueDelete
+              tableNumber= {this.props.item.table_number}
+              artistCount = {this.props.item.artist_count}
+              item={this.props.item}
+          />
+          </td>
         </tr>
       </>
     );

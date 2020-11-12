@@ -41,13 +41,26 @@ router.post('/', (req, res) => {
     });
 });
 
-//complete an event
+//complete a request
 router.put('/completed/:id', rejectUnauthenticated, (req, res) => {
   let e = req.params
   const queryText = `UPDATE "requests" SET "completed"='TRUE' WHERE "id" =$1;`;
   pool.query(queryText, [e.id])
     .then((response) => {
       res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+//delete specific request in case of making a mistake
+router.delete('/', rejectUnauthenticated, (req, res) => {
+  const queryText = `DELETE FROM "requests" WHERE "id" = $1`;
+  pool.query(queryText, [req.body.id])
+    .then((response) => {
+      res.send(response.rows);
     })
     .catch((err) => {
       console.warn(err);

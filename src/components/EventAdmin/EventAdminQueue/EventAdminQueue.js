@@ -22,6 +22,7 @@ class EventAdminQueue extends Component {
                 <th>Table Number</th>
                 <th>Number of Artists</th>
                 <th>Request Fulfilled</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>

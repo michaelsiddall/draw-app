@@ -29,10 +29,23 @@ function* completeRequest (action) {
     })
 }
 
+//delete specific event
+function* deleteRequest(action) {
+    yield axios({
+        method: 'DELETE',
+        url: `/api/request/`,
+        data: action.payload
+    });
+    yield put({
+        type: "FETCH_REQUEST"
+    })
+}
+
 function* requestSaga() {
   yield takeLatest('ADD_REQUEST', addRequest);
   yield takeLatest('FETCH_REQUEST', getRequest);
   yield takeLatest('COMPLETE_REQUEST', completeRequest);
+  yield takeLatest('DELETE_REQUEST', deleteRequest);
 }
 
 export default requestSaga;
