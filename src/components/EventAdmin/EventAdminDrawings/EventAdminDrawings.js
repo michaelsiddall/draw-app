@@ -16,7 +16,7 @@ class EventAdminDrawings extends Component {
         showDrawings: "pending",
     };
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.dispatch({ type: 'GET_PENDING_DRAWINGS' });
         this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
         this.props.dispatch({ type: 'GET_DISAPPROVED_DRAWINGS' });
