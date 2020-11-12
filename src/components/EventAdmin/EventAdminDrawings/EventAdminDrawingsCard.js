@@ -72,10 +72,16 @@ class EventAdminDrawingsCard extends Component {
                     </div>
 
                     <CardActions>
-                        {this.props.drawing.approved ?
-                            <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button> :
-                            <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
+                        {this.props.drawing.approved === null ?
+                            <div>
+                                <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
+                                <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
+                            </div> :
+                            (this.props.drawing.approved ?
+                                <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button> :
+                                <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>)
                         }
+
                         <Button size="medium" color="primary" onClick={this.onDelete}>delete</Button>
 
                     </CardActions>
