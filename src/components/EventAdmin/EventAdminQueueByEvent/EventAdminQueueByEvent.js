@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import QueueByEventItem from './QueueByEventItem/QueueByEventItem';
+import QueueComplete from "../EventAdminQueue/QueueConfirm/QueueComplete";
+import QueueDelete from "../EventAdminQueue/QueueConfirm/QueueDelete";
 
 
 class EventAdminQueueByEvent extends Component {
 
     componentDidMount = () => {
       this.props.dispatch({
-        type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event
+        type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
         payload: this.props.match.params.id
       });
     }; //end componentDidMount
@@ -29,9 +30,18 @@ class EventAdminQueueByEvent extends Component {
             </thead>
             <tbody>
                 <tr>
-                    {this.props.store.queueReducer.map((item, i) => (
-                      <QueueByEventItem key={i} item={item} />
-                      ))} 
+                      <td>{this.props.store.queueReducer.table_number}</td>
+                      <td>{this.props.store.queueReducer.artist_count}</td>
+                      <td><QueueComplete
+                            tableNumber= {this.props.store.queueReducer.table_number}
+                            artistCount = {this.props.store.queueReducer.artist_count}
+                            item={this.props.store.queueReducer}
+                      /></td>
+                      <td><QueueDelete
+                            tableNumber= {this.props.store.queueReducer.table_number}
+                            artistCount = {this.props.store.queueReducer.artist_count}
+                            item={this.props.store.queueReducer}
+                      /></td>
                 </tr>
             </tbody>
           </table>
