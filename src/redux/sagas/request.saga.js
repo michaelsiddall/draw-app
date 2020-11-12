@@ -19,7 +19,7 @@ function* getRequest(action) {
 }
 
 function* getByEventID(action) {
-  let response = yield axios.get(`/api/request/`);
+  let response = yield axios.get(`/api/request/${action.payload}`);
   console.log('getByEventID', response.data)
   yield put({
     type: 'REQUEST_BY_EVENT',

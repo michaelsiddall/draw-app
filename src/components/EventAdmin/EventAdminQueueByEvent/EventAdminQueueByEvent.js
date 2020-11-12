@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import QueueByEventItem from "./QueueByEventItem/QueueByEventItem";
+import QueueByEventItem from './QueueByEventItem/QueueByEventItem';
+
 
 class EventAdminQueueByEvent extends Component {
 
@@ -27,9 +28,11 @@ class EventAdminQueueByEvent extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.store.queueReducer.map((item, i) => (
-                <QueueByEventItem key={i} item={item} />
-              ))} 
+                <tr>
+                    {this.props.store.queueReducer.map((item, i) => (
+                      <QueueByEventItem key={i} item={item} />
+                      ))} 
+                </tr>
             </tbody>
           </table>
         </div>

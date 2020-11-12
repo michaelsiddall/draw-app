@@ -11,8 +11,10 @@ class QueueByEventItem extends Component {
     return (
       <>
         <tr>
-          <td></td>
-          <td></td>
+          <td>{this.props.item.table_number}</td>
+          <td>{this.props.item.artist_count}</td>
+          <td>COMPLETE</td>
+          <td>DELETE</td>
         </tr>
       </>
     );
