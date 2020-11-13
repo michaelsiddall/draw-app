@@ -11,6 +11,16 @@ function* userFetchAdmin() {
     payload: response.data,
   });
 }
+
+function* userDeleteAdmin(action) {
+  let response = yield axios({
+    method: 'DELETE',
+    url: action.url,
+  });
+  yield put({
+    type: 'FETCH_USERS',
+  });
+}
 function* userEditAdmin(action) {
   console.log('PUT request for user auth');
 
@@ -26,5 +36,6 @@ function* userEditAdmin(action) {
 function* appAdmin() {
   yield takeLatest('FETCH_USERS', userFetchAdmin);
   yield takeLatest('EDIT_USER_AUTH', userEditAdmin);
+  yield takeLatest('DELETE_USER', userDeleteAdmin);
 }
 export default appAdmin;

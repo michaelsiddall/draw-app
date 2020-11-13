@@ -83,9 +83,7 @@ class AuthEdit extends Component {
               <MenuItem value={'superAdmin'}>Super Admin</MenuItem>
             </Select>
 
-            <InputLabel htmlFor='event-create-location'>
-              Email Address
-            </InputLabel>
+            <InputLabel htmlFor='event-create-location'>Username</InputLabel>
             <TextField
               name='location'
               required

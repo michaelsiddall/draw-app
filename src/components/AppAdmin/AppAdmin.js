@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AuthDeleteConfirm from './AuthDeleteConfirm';
 
 import AuthEdit from './AuthEdit';
 
@@ -24,10 +25,10 @@ class AppAdmin extends Component {
         <h2>Users and Permissions</h2>
         {this.props.auth.map((auth) => (
           <div key={auth.id}>
-            <p>Id: {auth.id}</p>
-            <p>username: {auth.username}</p>
-            <p>auth level: {auth.auth_level}</p>
+            <p>Username: {auth.username}</p>
+            <p>Auth level: {auth.auth_level}</p>
             <AuthEdit user={auth} />
+            <AuthDeleteConfirm user={auth} />
           </div>
         ))}
         ;
