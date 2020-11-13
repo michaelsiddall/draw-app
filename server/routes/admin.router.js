@@ -11,6 +11,7 @@ const {
 router.get('/', (req, res) => {
   // GET route code here
   let queryString = ` SELECT "id","username","auth_level" from "user"
+   ORDER BY "id" ASC
    `;
   pool.query(queryString).then((result) => {
     console.log('results from get', result.rows);
@@ -40,8 +41,25 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.put('/', rejectUnauthenticated, (req, res) => {
+  console.log('making a admin.user.auth PUT request', req.body);
+
+  let queryString = ` UPDATE "user"
+  SET "username" = $1,
+  "auth_level" = $2
+WHERE "id" = $3;
+   `;
+  pool
+    .query(queryString, [req.body.username, req.body.auth_level, req.body.id])
+    .then((result) => {
+      console.log('results from  auth admin PUT', result);
+
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('We have an error in events PUT', error);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;

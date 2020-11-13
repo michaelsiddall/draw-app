@@ -12,19 +12,19 @@ function* userFetchAdmin() {
   });
 }
 function* userEditAdmin(action) {
-  console.log('get (edit) request at', action.url);
+  console.log('PUT request for user auth');
 
   let response = yield axios({
-    method: 'GET',
-    url: action.url,
+    method: 'PUT',
+    url: '/api/admin',
+    data: action.payload,
   });
   yield put({
-    type: 'AUTH_TO_EDIT_DATA',
-    payload: response.data,
+    type: 'FETCH_USERS',
   });
 }
 function* appAdmin() {
   yield takeLatest('FETCH_USERS', userFetchAdmin);
-  yield takeLatest('EDIT_USER', userEditAdmin);
+  yield takeLatest('EDIT_USER_AUTH', userEditAdmin);
 }
 export default appAdmin;

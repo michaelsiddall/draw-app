@@ -18,27 +18,15 @@ class AppAdmin extends Component {
     });
   };
 
-  editAuth = (id) => {
-    console.log('edit auth for user: ', id);
-
-    this.props.dispatch({
-      type: 'EDIT_USER',
-      url: `/api/admin/${id}`,
-    });
-    this.props.history.push(`/api/admin/edit/${id}`);
-  };
-
   render() {
     return (
       <div>
         <h2>Users and Permissions</h2>
         {this.props.auth.map((auth) => (
-          <div>
+          <div key={auth.id}>
             <p>Id: {auth.id}</p>
             <p>username: {auth.username}</p>
             <p>auth level: {auth.auth_level}</p>
-            <button onClick={() => this.editAuth(auth.id)}>Edit</button>
-
             <AuthEdit user={auth} />
           </div>
         ))}

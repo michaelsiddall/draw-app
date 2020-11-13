@@ -10,30 +10,29 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import EditIcon from '@material-ui/icons/Edit';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class AuthEdit extends Component {
   state = {
     open: false,
-    date: '',
-    time: '',
-    location: '',
-    timestamp: '',
-    id: '',
+    id: this.props.user.id,
+    username: this.props.user.username,
+    auth_level: this.props.user.auth_level,
     button: true,
   };
 
   updateSpecificEvent = () => {
     this.props.dispatch({
-      type: 'UPDATE_EVENT',
-      payload: this.state,
+      type: 'EDIT_USER_AUTH',
+      payload: {
+        id: this.state.id,
+        username: this.state.username,
+        auth_level: this.state.auth_level,
+      },
     });
     this.setState({
       open: false,
-      date: '',
-      time: '',
-      location: '',
-      timestamp: '',
-      id: '',
       button: true,
     });
   }; //end update specific event
@@ -41,7 +40,6 @@ class AuthEdit extends Component {
   handleClickOpen = () => {
     this.setState({
       open: true,
-      id: this.props.matchID,
     });
   };
 
@@ -56,7 +54,6 @@ class AuthEdit extends Component {
       ...this.state,
       [propertyName]: event.target.value,
       button: false,
-      timestamp: this.state.date + ' ' + this.state.time,
     });
   }; //end handleInputChange
 
@@ -74,37 +71,29 @@ class AuthEdit extends Component {
         >
           <DialogTitle>Edit User's Permissions</DialogTitle>
           <DialogContent>
-            <InputLabel htmlFor='event-create-date'>Date</InputLabel>
-            <TextField
-              name='date'
-              required
-              type='date'
-              variant='outlined'
-              value={this.state.date}
-              size='small'
-              id='event-create-date'
-              onChange={this.handleInputChangeFor('date')}
-            />
-            <InputLabel htmlFor='event-create-time'>Time</InputLabel>
-            <TextField
-              name='time'
-              required
-              type='time'
-              variant='outlined'
-              value={this.state.time}
-              size='small'
-              id='event-create-time'
-              onChange={this.handleInputChangeFor('time')}
-            />
-            <InputLabel htmlFor='event-create-location'>Location</InputLabel>
+            <InputLabel htmlFor='event-create-date'>Auth Level</InputLabel>
+            <Select
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
+              value={this.state.auth_level}
+              onChange={this.handleInputChangeFor('auth_level')}
+            >
+              <MenuItem value={'user'}>User</MenuItem>
+              <MenuItem value={'admin'}>Admin</MenuItem>
+              <MenuItem value={'superAdmin'}>Super Admin</MenuItem>
+            </Select>
+
+            <InputLabel htmlFor='event-create-location'>
+              Email Address
+            </InputLabel>
             <TextField
               name='location'
               required
               variant='outlined'
-              value={this.state.location}
+              value={this.state.username}
               size='small'
               id='event-create-location'
-              onChange={this.handleInputChangeFor('location')}
+              onChange={this.handleInputChangeFor('username')}
             />
           </DialogContent>
           <DialogActions>
@@ -113,7 +102,7 @@ class AuthEdit extends Component {
               onClick={this.updateSpecificEvent}
               disabled={this.state.button}
             >
-              Edit Event
+              Edit User
             </Button>
           </DialogActions>
         </Dialog>
