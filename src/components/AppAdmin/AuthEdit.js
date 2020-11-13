@@ -78,7 +78,7 @@ class AuthEdit extends Component {
               value={this.state.auth_level}
               onChange={this.handleInputChangeFor('auth_level')}
             >
-              <MenuItem value={'user'}>User</MenuItem>
+              <MenuItem value={'uusser'}>User</MenuItem>
               <MenuItem value={'admin'}>Admin</MenuItem>
               <MenuItem value={'superAdmin'}>Super Admin</MenuItem>
             </Select>
