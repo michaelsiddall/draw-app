@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
+import { withRouter } from "react-router-dom";
 
 //material UI
 import Button from '@material-ui/core/Button';
@@ -13,15 +14,15 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 class QueueComplete extends Component {
             state = {
                         open: false
+                        
             }
 
-            confirmCompleteQueue=()=>{
-                    this.props.dispatch({
-                                type: 'COMPLETE_QUEUE',
+            confirmComplete=(event)=>{
+                  this.props.dispatch({
+                                type: 'COMPLETE_REQUEST',
                                 url: `/api/request/completed/${this.props.item.id}`
                     });
                         this.handleClose();
-
             };//end confirmComplete
            
             handleClickOpen = () => {
@@ -51,7 +52,7 @@ class QueueComplete extends Component {
                                     </DialogContent>
                                     <DialogActions>
                                           <Button onClick={this.handleClose}>Cancel</Button>
-                                          <Button onClick={this.confirmCompleteQueue}>Complete Request</Button>
+                                          <Button onClick={this.confirmComplete}>Complete Request</Button>
                                     </DialogActions>
                         </Dialog>
                   </div>
@@ -59,4 +60,6 @@ class QueueComplete extends Component {
       }
 }
 
-export default connect(mapStoreToProps)(QueueComplete);
+export default withRouter(connect(mapStoreToProps)(QueueComplete));
+
+

@@ -4,9 +4,10 @@ import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import QueueComplete from "../QueueConfirm/QueueComplete";
 import QueueDelete from "../QueueConfirm/QueueDelete";
 
-class QueueByEventItem extends Component {
+class QueueItem extends Component {
 
   render() {
+
     return (
       <>
         <tr>
@@ -16,11 +17,13 @@ class QueueByEventItem extends Component {
               tableNumber= {this.props.item.table_number}
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
+              eventID = {this.props.eventID}
           /></td>
           <td><QueueDelete
               tableNumber= {this.props.item.table_number}
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
+              eventID = {this.props.eventID}
           /></td>
         </tr>
       </>
@@ -29,4 +32,4 @@ class QueueByEventItem extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(QueueByEventItem);
+export default connect(mapStoreToProps)(QueueItem);

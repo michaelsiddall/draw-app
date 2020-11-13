@@ -10,7 +10,6 @@ function* getRequest(action) {
 }
 
 function* addRequest(action) {
-  console.log('in addRequest Saga', action.payload);
   yield axios({
     method: 'POST',
     url: '/api/request',

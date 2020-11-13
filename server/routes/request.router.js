@@ -68,6 +68,7 @@ router.put('/completed/:id', rejectUnauthenticated, (req, res) => {
 //delete specific request in case of making a mistake
 router.delete('/', rejectUnauthenticated, (req, res) => {
   const queryText = `DELETE FROM "requests" WHERE "id" = $1`;
+  console.log('DELETE', req.body.id)
   pool.query(queryText, [req.body.id])
     .then((response) => {
       res.send(response.rows);

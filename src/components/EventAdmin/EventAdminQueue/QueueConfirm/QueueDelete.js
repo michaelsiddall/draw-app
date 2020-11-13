@@ -15,15 +15,13 @@ class QueueDelete extends Component {
             state = {
                         open: false
             }
-
             confirmDeleteEvent=()=>{
                         this.props.dispatch({
-                                type: 'DELETE_QUEUE',
+                                type: 'DELETE_REQUEST',
                                 url: '/api/request',
                                 payload: this.props.item
                         });
                         this.handleClose();
-
             };//end confirmDelete
            
             handleClickOpen = () => {

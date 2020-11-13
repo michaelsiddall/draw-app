@@ -11,31 +11,10 @@ function* getByEventID(action) {
   });
 }
 
-function* completeQueue (action) {
-    yield axios({
-        method: 'PUT',
-        url: action.url
-    });
-    yield put({
-        type: "FETCH_BY_EVENT"
-    })
-}
 
-function* deleteQueue(action) {
-    yield axios({
-        method: 'DELETE',
-        url: `/api/request/`,
-        data: action.payload
-    });
-    yield put({
-        type: "FETCH_BY_EVENT"
-    })
-}
-
-function* requestSaga() {
+function* queueSaga() {
   yield takeLatest('FETCH_BY_EVENT', getByEventID);
-  yield takeLatest('COMPLETE_QUEUE', completeQueue);
-  yield takeLatest('DELETE_QUEUE', deleteQueue);
+
 }
 
-export default requestSaga;
+export default queueSaga;

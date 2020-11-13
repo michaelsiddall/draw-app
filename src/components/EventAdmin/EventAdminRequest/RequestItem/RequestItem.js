@@ -8,7 +8,6 @@ class RequestItem extends Component {
 
 
   render() {
-    console.log('EVENT ADMIN ITEM', this.props.item)
     return (
       <>
         <tr>
