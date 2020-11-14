@@ -14,22 +14,6 @@ class EventAdminQueue extends Component {
      
     }; //end componentDidMount
     
-    state= {
-      queueReducer: this.props.store.queueReducer,
-    }
- 
-    componentDidUpdate(prevProps) {
- 
-      if (this.props.store.queueReducer.length !== prevProps.store.queueReducer.length) {
-        this.props.dispatch({
-            type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
-            payload: this.props.match.params.id
-          });
-      }
-      else {
-        return null
-      }
-}
 
   render() {
      if (this.props.store.queueReducer.length >0) {

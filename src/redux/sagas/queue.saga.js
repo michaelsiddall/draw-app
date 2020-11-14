@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* getByEventID(action) {
   
-  let response = yield axios.get(`/api/request/${action.payload}`);
+  let response = yield axios.get(`/api/request/event/${action.payload}`);
   console.log('getByEventID', response.data)
   yield put({
     type: 'REQUEST_BY_EVENT',
@@ -12,13 +12,14 @@ function* getByEventID(action) {
   });
 }
 
+//complete requests
 function* completeQueue (action) {
   console.log('COMPLETE QUEUE:', action.payload)
     yield axios({
         method: 'PUT',
         url: action.url
     });
-    let response = yield axios.get(`/api/request/${action.payload}`);
+    let response = yield axios.get(`/api/request/event/${action.payload}`);
     yield put({
       type: 'REQUEST_BY_EVENT',
       payload: response.data,
@@ -32,7 +33,7 @@ function* deleteQueue(action) {
         method: 'DELETE',
         url: action.url
     });
-    let response = yield axios.get(`/api/request/${action.payload}`);
+    let response = yield axios.get(`/api/request/event/${action.payload}`);
     yield put({
       type: 'REQUEST_BY_EVENT',
       payload: response.data,
