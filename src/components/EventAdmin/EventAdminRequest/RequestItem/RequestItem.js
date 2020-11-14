@@ -8,9 +8,14 @@ class RequestItem extends Component {
 
 
   render() {
+    let t = new Date (this.props.item.timestamp)
+    let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
     return (
       <>
         <tr>
+          <td>{this.props.item.location}</td>
+          <td>{this.props.item.timestamp.split('T')[0]}</td>
+          <td>{time}</td>
           <td>{this.props.item.table_number}</td>
           <td>{this.props.item.artist_count}</td>
           <td><RequestComplete
