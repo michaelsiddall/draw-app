@@ -6,7 +6,7 @@ const { rejectUnauthenticated, } = require('../modules/authentication-middleware
 //get ALL uncompleted requests joined to events table for location/timestamp
 router.get('/', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT "table_number", "artist_count", "event_id", "location", "timestamp", "requests"."completed" FROM "requests" JOIN "events" ON
-"requests"."event_id" = "events"."id" WHERE "requests"."completed" = 'FALSE';`;
+"requests"."event_id" = "events"."id" WHERE "requests"."completed" = 'FALSE' ORDER BY "timestamp";`;
   pool
     .query(queryText)
     .then((response) => {
@@ -67,10 +67,11 @@ router.put('/completed/:id', rejectUnauthenticated, (req, res) => {
 });
 
 //delete specific request in case of making a mistake
-router.delete('/', rejectUnauthenticated, (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  let e = req.params
   const queryText = `DELETE FROM "requests" WHERE "id" = $1`;
-  console.log('DELETE', req.body.id)
-  pool.query(queryText, [req.body.id])
+  console.log('DELETE', e.id)
+  pool.query(queryText, [e.id])
     .then((response) => {
       res.send(response.rows);
     })

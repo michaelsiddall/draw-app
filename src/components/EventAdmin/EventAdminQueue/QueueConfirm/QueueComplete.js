@@ -19,14 +19,12 @@ class QueueComplete extends Component {
 
             confirmComplete=(event)=>{
                   this.props.dispatch({
-                                type: 'COMPLETE_REQUEST',
-                                url: `/api/request/completed/${this.props.item.id}`
+                                type: 'COMPLETE_QUEUE',
+                                url: `/api/request/completed/${this.props.item.id}`,
+                                payload: this.props.eventID
                     });
                   this.handleClose();
-                  this.props.dispatch({
-                        type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
-                        payload: this.props.eventID
-                  });
+
             };//end confirmComplete
            
             handleClickOpen = () => {
