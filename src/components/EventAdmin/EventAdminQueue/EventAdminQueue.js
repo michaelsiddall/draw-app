@@ -46,9 +46,9 @@ class EventAdminQueue extends Component {
                             </tr>
                           </thead>
                           <tbody>
-                              {this.props.store.queueReducer.map((item, i) => (
+                              {this.props.store.queueReducer.map(item => (
                               <QueueItem 
-                                  key={i} 
+                                  key={item.id} 
                                   item={item} 
                                   eventID = {this.props.match.params.id}/>
                             ))}
