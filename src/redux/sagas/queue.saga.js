@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+//linked to requests by event 
 
 function* getByEventID(action) {
   

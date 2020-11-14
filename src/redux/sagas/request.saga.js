@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+//linked to all requests tab
+
 function* getRequest(action) {
   let response = yield axios.get(`/api/request`);
   yield put({

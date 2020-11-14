@@ -4,6 +4,8 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import QueueItem from './QueueItem/QueueItem';
 
 
+//requests queue by event
+
 class EventAdminQueue extends Component {
 
     componentDidMount = () => {
