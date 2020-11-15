@@ -13,12 +13,24 @@ import InputLabel from '@material-ui/core/InputLabel';
 import EditIcon from '@material-ui/icons/Edit';
 
 class EventEdit extends Component {
+
+      componentDidUpdate(prevProps, prevState){
+            console.log("COMPONENT DID UPDATE", prevState)
+            if (this.state.date !== prevState.date || this.state.time !== prevState.time){
+                  this.setState({
+                        date: this.state.date,
+                        time: this.state.time,
+                        timestamp: this.state.date + " " + this.state.time,
+                  })
+            }
+      }
+
             state = {
                         open: false,
                         date: this.props.date,
                         time: this.props.time,
                         location: this.props.item.location,
-                        timestamp: '',
+                        timestamp: this.props.item.timestamp,
                         id:'',
                         button: true
             }
@@ -28,15 +40,7 @@ class EventEdit extends Component {
                                     type: 'UPDATE_EVENT', 
                                     payload: this.state
                         })
-                        this.setState({
-                                    open: false,
-                                    date: '',
-                                    time: '',
-                                    location: '',
-                                    timestamp: '',
-                                    id:'',
-                                    button: true
-                        });
+                        this.handleClose();
             };//end update specific event
 
             handleClickOpen = () => {
@@ -63,7 +67,7 @@ class EventEdit extends Component {
 
 
       render(){
-            console.log('TESTING', this.props.time)
+            console.log("TIME, DATE", this.state.date + " " + this.state.time)
             return (
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}><EditIcon/></Button>
