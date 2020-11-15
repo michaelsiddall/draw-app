@@ -16,11 +16,10 @@ class RequestDelete extends Component {
                         open: false
             }
 
-            confirmDeleteEvent=()=>{
+            confirmDeleteRequest=()=>{
                         this.props.dispatch({
                                 type: 'DELETE_REQUEST',
-                                url: '/api/request',
-                                payload: this.props.item
+                                url: `/api/request/${this.props.item.request_id}`,
                         });
                         this.handleClose();
 
@@ -39,6 +38,7 @@ class RequestDelete extends Component {
                   };
 
       render(){
+            console.log("TESTING", this.props.item)
             return (
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
@@ -53,7 +53,7 @@ class RequestDelete extends Component {
                                     </DialogContent>
                                     <DialogActions>
                                           <Button onClick={this.handleClose}>Cancel</Button>
-                                          <Button onClick={this.confirmDeleteEvent}>Delete Request</Button>
+                                          <Button onClick={this.confirmDeleteRequest}>Delete Request</Button>
                                     </DialogActions>
                         </Dialog>
       </div>

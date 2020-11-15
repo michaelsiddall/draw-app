@@ -5,8 +5,9 @@ const { rejectUnauthenticated, } = require('../modules/authentication-middleware
 
 //get ALL uncompleted requests joined to events table for location/timestamp
 router.get('/', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT "table_number", "artist_count", "event_id", "location", "timestamp", "requests"."completed" FROM "requests" JOIN "events" ON
-"requests"."event_id" = "events"."id" WHERE "requests"."completed" = 'FALSE' ORDER BY "timestamp";`;
+  const queryText = `SELECT "table_number", "artist_count", "event_id", "location", "timestamp", "requests"."completed", 
+      "requests"."id" as "request_id" FROM "requests" JOIN "events" ON "requests"."event_id" = "events"."id" 
+      WHERE "requests"."completed" = 'FALSE' ORDER BY "timestamp";`;
   pool
     .query(queryText)
     .then((response) => {
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
       req.body.location,
     ])
     .then((results) => {
-      res.sendStatus(201);
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.error(`POST /Request Materials failed`, err);
@@ -58,7 +59,7 @@ router.put('/completed/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `UPDATE "requests" SET "completed"='TRUE' WHERE "id" =$1;`;
   pool.query(queryText, [e.id])
     .then((response) => {
-      res.sendStatus(201);
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.warn(err);
@@ -73,7 +74,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('DELETE', e.id)
   pool.query(queryText, [e.id])
     .then((response) => {
-      res.send(response.rows);
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.warn(err);

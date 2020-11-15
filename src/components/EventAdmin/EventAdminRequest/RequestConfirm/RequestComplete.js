@@ -19,7 +19,7 @@ class RequestComplete extends Component {
             confirmCompleteQueue=()=>{
                     this.props.dispatch({
                                 type: 'COMPLETE_REQUEST',
-                                url: `/api/request/completed/${this.props.item.id}`
+                                url: `/api/request/completed/${this.props.item.request_id}`
                     });
                         this.handleClose();
 

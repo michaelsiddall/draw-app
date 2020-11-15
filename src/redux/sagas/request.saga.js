@@ -38,8 +38,7 @@ function* completeRequest (action) {
 function* deleteRequest(action) {
     yield axios({
         method: 'DELETE',
-        url: `/api/request/`,
-        data: action.payload
+        url: action.url
     });
     yield put({
         type: "FETCH_REQUEST"
