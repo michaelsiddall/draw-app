@@ -26,7 +26,7 @@ class EventCompleted extends Component {
                                         <th>Location</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Artists</th>
+                                        <th>Total Artists</th>
                                     </tr>
                                 </thead>
                                 <tbody>

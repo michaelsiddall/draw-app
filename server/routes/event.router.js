@@ -19,7 +19,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //get all completed events
 router.get('/completed', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM "events" WHERE "completed"='TRUE' ORDER BY "timestamp";`;
+  const queryText = `SELECT SUM("artist_count") as "total_artists", "events"."id", "location", "timestamp" FROM "events" JOIN "requests" ON
+"requests"."event_id" = "events"."id" WHERE "events"."completed" = 'TRUE' GROUP BY "events"."id" ORDER BY "timestamp";`;
   pool.query(queryText)
     .then((response) => {
       res.send(response.rows);

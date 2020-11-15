@@ -18,9 +18,11 @@ class EventAdminQueue extends Component {
     
 
   render() {
+    
      if (this.props.store.queueReducer.length >0) {
               return (
                     <div>
+                      <h4></h4>
                       <div>
                         <table>
                           <thead>

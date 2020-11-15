@@ -15,9 +15,9 @@ import EditIcon from '@material-ui/icons/Edit';
 class EventEdit extends Component {
             state = {
                         open: false,
-                        date: '',
-                        time: '',
-                        location: '',
+                        date: this.props.date,
+                        time: this.props.time,
+                        location: this.props.item.location,
                         timestamp: '',
                         id:'',
                         button: true
@@ -63,7 +63,7 @@ class EventEdit extends Component {
 
 
       render(){
-            
+            console.log('TESTING', this.props.time)
             return (
                   <div>
                   <Button variant="outlined" onClick={this.handleClickOpen}><EditIcon/></Button>
@@ -73,7 +73,7 @@ class EventEdit extends Component {
                                     <InputLabel htmlFor="event-create-date">Date</InputLabel>
                                           <TextField 
                                                 name="date"
-                                                required
+                                                required={true}
                                                 type="date"
                                                 variant="outlined"
                                                 value={this.state.date}
@@ -84,7 +84,7 @@ class EventEdit extends Component {
                                     <InputLabel htmlFor="event-create-time">Time</InputLabel>
                                           <TextField 
                                                 name="time"
-                                                required
+                                                required={true}
                                                 type="time"
                                                 variant="outlined"
                                                 value={this.state.time}
@@ -95,7 +95,7 @@ class EventEdit extends Component {
                                     <InputLabel htmlFor="event-create-location">Location</InputLabel>
                                           <TextField 
                                                 name="location"
-                                                required
+                                                required={true}
                                                 variant="outlined"
                                                 value={this.state.location}
                                                 size="small"

@@ -17,16 +17,19 @@ class EventItem extends Component {
     render() {
             let t = new Date (this.props.item.timestamp)
             let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            let timeForEdit = t.toTimeString().split(' G')[0]
         return (
             <HashRouter>
                     <tr> 
                         <td>{this.props.item.location}</td>
                         <td>{this.props.item.timestamp.split('T')[0]}</td>
                         <td>{time}</td>
-                        <td><Link to={`queue/${this.props.item.id}`}><Button>Queue</Button></Link></td>
+                        <td><Link to={`event/${this.props.item.id}/requests`}><Button>Queue</Button></Link></td>
                         <td><EventEdit
                                 matchID={this.props.item.id}
                                 item={this.props.item}
+                                time={timeForEdit}
+                                date={this.props.item.timestamp.split('T')[0]}
                         /></td>
                         <td><EventCompleteConfirm
                                 item={this.props.item}
