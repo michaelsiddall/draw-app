@@ -7,6 +7,18 @@ import EventCreateConfim from '../EventConfirm/EventCreateConfim';
 
 
 class EventCreate extends Component {
+      componentDidUpdate(prevProps, prevState){
+          console.log("COMPONENT DID UPDATE", prevState)
+            if (this.state.date !== prevState.date || this.state.time !== prevState.time || this.state.location !== prevState.location){
+                  this.setState({
+                        location: this.state.location,
+                        date: this.state.date,
+                        time: this.state.time,
+                        timestamp: this.state.date + " " + this.state.time,
+                  })
+            }
+      }
+
             state = {
                 date: '',
                 time: '',
@@ -20,13 +32,10 @@ class EventCreate extends Component {
                         ...this.state,
                         [propertyName]: event.target.value,
                         timestamp: this.state.date + " " + this.state.time,
-                        button: false
                     });
             }; //end handleInputChange
 
-
     render() {
-        console.log('EventCreate State:', this.state)
         return (
             <>
 
@@ -34,7 +43,6 @@ class EventCreate extends Component {
                     <TextField 
                         helperText={this.state.helperText}
                         name="date"
-                        required
                         type="date"
                         variant="outlined"
                         value={this.state.date}
@@ -47,7 +55,6 @@ class EventCreate extends Component {
                     <TextField 
                         helperText={this.state.helperText}
                         name="time"
-                        required
                         type="time"
                         variant="outlined"
                         value={this.state.time}
@@ -60,7 +67,6 @@ class EventCreate extends Component {
                 <TextField 
                         helperText={this.state.helperText}
                         name="location"
-                        required
                         variant="outlined"
                         value={this.state.location}
                         size="small"
@@ -70,7 +76,7 @@ class EventCreate extends Component {
 
             <EventCreateConfim 
                             disabled={this.state.button}
-                            item={this.state} date={this.state.date}/>
+                            item={this.state}/>
 
                 </>
         )

@@ -18,7 +18,7 @@ class QueueItem extends Component {
               item={this.props.item}
               eventID = {this.props.eventID}
           /></td>
-          <td><QueueDelete onClick= {this.refresh}
+          <td><QueueDelete
               tableNumber= {this.props.item.table_number}
               artistCount = {this.props.item.artist_count}
               item={this.props.item}
