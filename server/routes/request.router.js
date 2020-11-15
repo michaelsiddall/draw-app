@@ -3,11 +3,12 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated, } = require('../modules/authentication-middleware');
 
-//get ALL uncompleted requests joined to events table for location/timestamp
+//get ALL uncompleted requests and joined to uncompleted events table for location/timestamp
 router.get('/', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT "table_number", "artist_count", "event_id", "location", "timestamp", "requests"."completed", 
-      "requests"."id" as "request_id" FROM "requests" JOIN "events" ON "requests"."event_id" = "events"."id" 
-      WHERE "requests"."completed" = 'FALSE' ORDER BY "timestamp";`;
+  const queryText = `SELECT "table_number", "artist_count", "event_id", "location", 
+    "timestamp", "requests"."completed" as "completed_request", "requests"."id" as "request_id" 
+    FROM "requests" JOIN "events" ON "requests"."event_id" = "events"."id" WHERE "requests"."completed" 
+    = 'FALSE' AND "events"."completed" = 'FALSE' ORDER BY "timestamp";`;
   pool
     .query(queryText)
     .then((response) => {
