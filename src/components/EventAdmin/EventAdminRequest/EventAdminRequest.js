@@ -25,7 +25,7 @@ class EventAdminRequest extends Component {
                                   <th>Table Number</th>
                                   <th>Number of Artists</th>
                                   <th>Complete Request</th>
-                                  <th>Delete</th>
+                                  <th>Delete Request</th>
                                 </tr>
                               </thead>
                               <tbody>

@@ -10,8 +10,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
-
-
 class EventCreateConfirm extends Component {
             state = {
                         open: false
@@ -25,27 +23,27 @@ class EventCreateConfirm extends Component {
                         });
                         this.handleClose();
             };//end confirmCreate
-           
-            handleClickOpen = () => {
-                        this.setState({
-                              open: true,
+
+
+            handleClickOpen= () => {
+                    this.setState({
+                              open: true
                         });
-                  };
+            }
 
             handleClose = () => {
                         this.setState({
                               open: false
                         });
-                  };
+            };
 
       render(){
             let t = new Date (this.props.item.timestamp)
             let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-
             return (
                   <div>
-                  <Button variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button>
-                  <Dialog open={this.state.open} onClose={this.handleClose}>
+                  <Button variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button> 
+                        <Dialog open={this.state.open} onClose={this.handleClose}>
                               <DialogTitle>Create Event</DialogTitle>
                                     <DialogContent>
                                           Please Confirm Event Creation
@@ -59,9 +57,9 @@ class EventCreateConfirm extends Component {
                                           <Button onClick={this.handleClose}>Cancel</Button>
                                           <Button onClick={this.confirmCreateEvent}>Create</Button>
                                     </DialogActions>
-                  </Dialog>
-      </div>
-      );
+                        </Dialog>
+                  </div>
+                  );
       }
 }
 
