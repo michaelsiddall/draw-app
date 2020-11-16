@@ -69,6 +69,7 @@ class UserDrawingSubmit extends Component {
                         showConfirmButton: false,
                         timer: 3000,
                     });
+                    this.props.history.push('/userhome');
                     this.props.dispatch({ type: 'UNSET_IMAGE_URL' });
                 }
             });
