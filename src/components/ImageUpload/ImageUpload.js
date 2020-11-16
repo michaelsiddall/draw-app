@@ -22,7 +22,7 @@ class ImageUpload extends Component {
 
   render() {
     const uploadOptions = {
-      server: 'http://localhost:5000',
+      server: 'https://sleepy-tundra-70247.herokuapp.com',
       signingUrlQueryParams: { uploadType: 'avatar' },
     };
 
