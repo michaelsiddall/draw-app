@@ -31,7 +31,8 @@ class UserMaterialRequest extends Component {
     });
   };
 
-  onSubmit = () => {
+  onSubmit = (event) => {
+    event.preventDefault();
     console.log('This is the materials request', this.state.materialRequest);
     if (
       this.state.materialRequest.location !== null &&
@@ -58,6 +59,12 @@ class UserMaterialRequest extends Component {
             timer: 3000,
           });
         }
+      });
+    } else {
+      Swal.fire({
+        title: 'Please fill out all fields',
+        showConfirmButton: false,
+        timer: 3000,
       });
     }
   };
