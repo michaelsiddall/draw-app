@@ -31,42 +31,49 @@ class UserMaterialRequest extends Component {
         });
     };
 
-    onSubmit = (event) => {
-        event.preventDefault();
-        console.log('This is the materials request', this.state.materialRequest);
-        if (
-            this.state.materialRequest.location !== null &&
-            this.state.materialRequest.tableNumber !== null &&
-            this.state.materialRequest.artistNumber !== null
-        ) {
-            Swal.fire({
-                title: 'Are you ready to submit your materials request?',
-                // text: this.state.materialRequest.location,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#9dac68',
-                cancelButtonColor: '#e26d5c',
-                confirmButtonText: 'Yes, send request!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    this.props.dispatch({
-                        type: 'ADD_REQUEST',
-                        payload: this.state.materialRequest,
-                    });
-                    Swal.fire({
-                        title: 'Drawing materials will be delivered to your table shortly!',
-                        showConfirmButton: false,
-                        timer: 3000,
-                    });
-                }
-            });
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    console.log('This is the materials request', this.state.materialRequest);
+    if (
+      this.state.materialRequest.location !== null &&
+      this.state.materialRequest.tableNumber !== null &&
+      this.state.materialRequest.artistNumber !== null
+    ) {
+      Swal.fire({
+        title: 'Are you ready to submit your materials request?',
+        // text: this.state.materialRequest.location,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#9dac68',
+        cancelButtonColor: '#e26d5c',
+        confirmButtonText: 'Yes, send request!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.props.dispatch({
+            type: 'ADD_REQUEST',
+            payload: this.state.materialRequest,
+          });
+          Swal.fire({
+            title: 'Drawing materials will be delivered to your table shortly!',
+            showConfirmButton: false,
+            timer: 3000,
+          });
         }
-    };
-    render() {
-        console.log('redux state is', this.props.store);
-        return (
-            <form>
-                <h2 className='centered'>Material Request</h2>
+      });
+    } else {
+      Swal.fire({
+        title: 'Please fill out all fields',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+  };
+  render() {
+    console.log('redux state is', this.props.store);
+    return (
+      <form>
+        <h2 className='centered'>Material Request</h2>
 
                 <h5 className='centered'>Location</h5>
                 <select
