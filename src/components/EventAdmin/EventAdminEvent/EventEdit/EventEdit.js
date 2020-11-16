@@ -13,31 +13,37 @@ import InputLabel from '@material-ui/core/InputLabel';
 import EditIcon from '@material-ui/icons/Edit';
 
 class EventEdit extends Component {
-  state = {
-    open: false,
-    date: '',
-    time: '',
-    location: '',
-    timestamp: '',
-    id: '',
-    button: true,
-  };
 
-  updateSpecificEvent = () => {
-    this.props.dispatch({
-      type: 'UPDATE_EVENT',
-      payload: this.state,
-    });
-    this.setState({
-      open: false,
-      date: '',
-      time: '',
-      location: '',
-      timestamp: '',
-      id: '',
-      button: true,
-    });
-  }; //end update specific event
+
+      componentDidUpdate(prevProps, prevState){
+            if (this.state.date !== prevState.date || this.state.time !== prevState.time || this.state.location !== prevState.location){
+                  this.setState({
+                        location: this.state.location,
+                        date: this.state.date,
+                        time: this.state.time,
+                        timestamp: this.state.date + " " + this.state.time,
+                  })
+            }
+      }
+
+            state = {
+                        open: false,
+                        date: this.props.date,
+                        time: this.props.time,
+                        location: this.props.item.location,
+                        timestamp: this.props.item.timestamp,
+                        id:'',
+                        button: true
+            }
+
+            updateSpecificEvent=()=>{
+                        this.props.dispatch({
+                                    type: 'UPDATE_EVENT', 
+                                    payload: this.state
+                        })
+                        this.handleClose();
+            };//end update specific event
+
 
   handleClickOpen = () => {
     this.setState({
@@ -61,63 +67,48 @@ class EventEdit extends Component {
     });
   }; //end handleInputChange
 
-  render() {
-    return (
-      <div>
-        <Button variant='outlined' onClick={this.handleClickOpen}>
-          <EditIcon />
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          fullWidth={true}
-          maxWidth='md'
-        >
-          <DialogTitle>Edit Event</DialogTitle>
-          <DialogContent>
-            <InputLabel htmlFor='event-create-date'>Date</InputLabel>
-            <TextField
-              name='date'
-              required
-              type='date'
-              variant='outlined'
-              value={this.state.date}
-              size='small'
-              id='event-create-date'
-              onChange={this.handleInputChangeFor('date')}
-            />
-            <InputLabel htmlFor='event-create-time'>Time</InputLabel>
-            <TextField
-              name='time'
-              required
-              type='time'
-              variant='outlined'
-              value={this.state.time}
-              size='small'
-              id='event-create-time'
-              onChange={this.handleInputChangeFor('time')}
-            />
-            <InputLabel htmlFor='event-create-location'>Location</InputLabel>
-            <TextField
-              name='location'
-              required
-              variant='outlined'
-              value={this.state.location}
-              size='small'
-              id='event-create-location'
-              onChange={this.handleInputChangeFor('location')}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose}>Cancel</Button>
-            <Button
-              onClick={this.updateSpecificEvent}
-              disabled={this.state.button}
-            >
-              Edit Event
-            </Button>
-          </DialogActions>
-        </Dialog>
+      render(){
+            return (
+                  <div>
+                  <Button variant="outlined" onClick={this.handleClickOpen}><EditIcon/></Button>
+                        <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true} maxWidth="md">
+                        <DialogTitle>Edit Event</DialogTitle>
+                              <DialogContent>
+                                    <InputLabel htmlFor="event-create-date">Date</InputLabel>
+                                          <TextField 
+                                                name="date"
+                                                type="date"
+                                                variant="outlined"
+                                                value={this.state.date}
+                                                size="small"
+                                                id="event-create-date"
+                                                onChange={this.handleInputChangeFor('date')}
+                                          />
+                                    <InputLabel htmlFor="event-create-time">Time</InputLabel>
+                                          <TextField 
+                                                name="time"
+                                                type="time"
+                                                variant="outlined"
+                                                value={this.state.time}
+                                                size="small"
+                                                id="event-create-time"
+                                                onChange={this.handleInputChangeFor('time')}
+                                          />
+                                    <InputLabel htmlFor="event-create-location">Location</InputLabel>
+                                          <TextField 
+                                                name="location"
+                                                variant="outlined"
+                                                value={this.state.location}
+                                                size="small"
+                                                id="event-create-location"
+                                                onChange={this.handleInputChangeFor('location')}
+                                          />
+                        </DialogContent>
+                  <DialogActions>
+                        <Button onClick={this.handleClose}>Cancel</Button>
+                        <Button onClick={this.updateSpecificEvent} disabled={this.state.button}>Edit Event</Button>
+                  </DialogActions>
+            </Dialog>
       </div>
     );
   }

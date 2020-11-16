@@ -6,10 +6,11 @@ import authEditReducer from './authEdit.reducer';
 import pending from './drawing.pending.reducer';
 import approved from './drawing.approved.reducer';
 import disapproved from './drawing.disapproved.reducer';
-import request from './request.reducer';
+import requestReducer from './request.reducer';
 import imageUrlReducer from './imageUrl.reducer';
 import eventReducer from './event.uncompleted.reducer';
 import eventCompletedReducer from './event.completed.reducer';
+import queueReducer from "./queue.reducer"
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
   pending,
   approved,
   disapproved,
-  request
+  requestReducer, //reducer that grabs all uncompleted requests
+  queueReducer, //reducer that grabs all uncompleted requests by Event ID
 });
 
 export default rootReducer;

@@ -1,5 +1,5 @@
 const requestReducer = (state = [], action) => {
-    console.log("in requestReducer", action.payload);
+    console.log("REQUEST Reducer", action.payload);
 
     switch (action.type) {
         case "SET_REQUEST":
@@ -9,6 +9,4 @@ const requestReducer = (state = [], action) => {
     }
 };
 
-// user will be on the redux state at:
-// state.artist
 export default requestReducer;

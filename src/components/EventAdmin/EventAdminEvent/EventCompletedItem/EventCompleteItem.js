@@ -14,7 +14,7 @@ class EventCompletedItem extends Component {
                         <td>{this.props.item.location}</td>
                         <td>{this.props.item.timestamp.split('T')[0]}</td>
                         <td>{time}</td>
-                        <td>TESTING</td>
+                        <td>{this.props.item.total_artists}</td>
                     </tr>
             </>
         );

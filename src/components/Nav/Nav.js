@@ -34,6 +34,9 @@ const Nav = (props) => {
             <Link className="nav-link" to="/events">
               Events
             </Link>
+            <Link className="nav-link" to="/allrequests">
+              All Requests
+            </Link>
             <Link className="nav-link" to="/drawings">
               Drawings
             </Link>

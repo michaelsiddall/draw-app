@@ -8,59 +8,57 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
-class EventCreateConfirm extends Component {
+class RequestDelete extends Component {
             state = {
                         open: false
             }
 
-            confirmCreateEvent=()=>{
+            confirmDeleteRequest=()=>{
                         this.props.dispatch({
-                                type: 'POST_EVENT',
-                                url: '/api/event',
-                                payload: this.props.item
+                                type: 'DELETE_REQUEST',
+                                url: `/api/request/${this.props.item.request_id}`,
                         });
                         this.handleClose();
-            };//end confirmCreate
 
-
-            handleClickOpen= () => {
-                    this.setState({
-                              open: true
+            };//end confirmDelete
+           
+            handleClickOpen = () => {
+                        this.setState({
+                              open: true,
                         });
-            }
+                  };
 
             handleClose = () => {
                         this.setState({
                               open: false
                         });
-            };
+                  };
 
       render(){
-            let t = new Date (this.props.item.timestamp)
-            let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            console.log("TESTING", this.props.item)
             return (
                   <div>
-                  <Button variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button> 
+                  <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
-                              <DialogTitle>Create Event</DialogTitle>
+                              <DialogTitle>Delete Request</DialogTitle>
                                     <DialogContent>
-                                          Please Confirm Event Creation
+                                          Please Confirm Request Deletion
                                           <ul>
-                                                <li>Location: {this.props.item.location}</li>
-                                                <li>Date: {this.props.item.date}</li>
-                                                <li>Time: {time}</li>
+                                                <li>Table Number: {this.props.tableNumber}</li>
+                                                <li>Artist Count: {this.props.artistCount}</li>
                                           </ul>
                                     </DialogContent>
                                     <DialogActions>
                                           <Button onClick={this.handleClose}>Cancel</Button>
-                                          <Button onClick={this.confirmCreateEvent}>Create</Button>
+                                          <Button onClick={this.confirmDeleteRequest}>Delete Request</Button>
                                     </DialogActions>
                         </Dialog>
-                  </div>
-                  );
+      </div>
+      );
       }
 }
 
-export default connect(mapStoreToProps)(EventCreateConfirm);
+export default connect(mapStoreToProps)(RequestDelete);

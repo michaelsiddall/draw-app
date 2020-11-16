@@ -4,15 +4,29 @@ import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import { TextField} from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
 import EventCreateConfim from '../EventConfirm/EventCreateConfim';
+import Button from '@material-ui/core/Button';
+
 
 
 class EventCreate extends Component {
+        componentDidUpdate(prevProps, prevState){
+            if (this.state.date !== prevState.date || this.state.time !== prevState.time || this.state.location !== prevState.location){
+                  this.setState({
+                        location: this.state.location,
+                        date: this.state.date,
+                        time: this.state.time,
+                        timestamp: this.state.date + " " + this.state.time,
+                  })
+            }
+        }
+
             state = {
                 date: '',
                 time: '',
                 location: '',
                 timestamp: '',
-                button: true
+                button: true,
+                open: false
             }
 
             handleInputChangeFor = (propertyName) => (event) => {  
@@ -20,22 +34,23 @@ class EventCreate extends Component {
                         ...this.state,
                         [propertyName]: event.target.value,
                         timestamp: this.state.date + " " + this.state.time,
-                        button: false
                     });
+                    if (this.state.date !=='' && this.state.time !=='' && this.state.location !==''){
+                        this.setState({
+                            button: false
+                        })
+                    }
             }; //end handleInputChange
 
-
     render() {
-        console.log('EventCreate State:', this.state)
         return (
             <>
 
             <InputLabel htmlFor="event-create-date">Date</InputLabel>
                     <TextField 
-                        helperText={this.state.helperText}
                         name="date"
-                        required
                         type="date"
+                        required={true}
                         variant="outlined"
                         value={this.state.date}
                         size="small"
@@ -44,10 +59,9 @@ class EventCreate extends Component {
                     />
 
             <InputLabel htmlFor="event-create-time">Time</InputLabel>
-                    <TextField 
-                        helperText={this.state.helperText}
+                    <TextField
                         name="time"
-                        required
+                        required={true}
                         type="time"
                         variant="outlined"
                         value={this.state.time}
@@ -58,9 +72,8 @@ class EventCreate extends Component {
             
             <InputLabel htmlFor="event-create-location">Location</InputLabel>
                 <TextField 
-                        helperText={this.state.helperText}
                         name="location"
-                        required
+                        required={true}
                         variant="outlined"
                         value={this.state.location}
                         size="small"
@@ -70,7 +83,7 @@ class EventCreate extends Component {
 
             <EventCreateConfim 
                             disabled={this.state.button}
-                            item={this.state} date={this.state.date}/>
+                            item={this.state}/>
 
                 </>
         )
