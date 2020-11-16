@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AuthDeleteConfirm from './AuthDeleteConfirm';
-
+import Nav from '../Nav/Nav';
 import AuthEdit from './AuthEdit';
 
 // Basic class component structure for React with default state
@@ -22,6 +22,8 @@ class AppAdmin extends Component {
   render() {
     return (
       <div>
+        <Nav />
+
         <h2>Users and Permissions</h2>
         {this.props.auth.map((auth) => (
           <div key={auth.id}>
