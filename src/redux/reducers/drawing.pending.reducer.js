@@ -1,4 +1,4 @@
-const drawingReducer = (state = {}, action) => {
+const pendingReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_PENDING_DRAWINGS':
             return action.payload;
@@ -7,4 +7,4 @@ const drawingReducer = (state = {}, action) => {
     }
 };
 
-export default drawingReducer;
+export default pendingReducer;

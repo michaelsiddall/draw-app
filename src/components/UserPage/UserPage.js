@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import ImageUpload from '../ImageUpload/ImageUpload';
+import Nav from '../Nav/Nav';
 class UserPage extends Component {
   componentDidMount() {
     //this.props.dispatch({ type: 'FETCH_USER' });
@@ -13,6 +14,7 @@ class UserPage extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
         <p>Your ID is: {this.props.store.user.id}</p>
         <LogOutButton className="log-in" />

@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
@@ -25,14 +24,17 @@ import UserGallery from '../User/UserGallery/UserGallery';
 import UserLandingPage from '../User/UserLandingPage/UserLandingPage';
 import UserMaterialRequest from '../User/UserMaterialRequest/UserMaterialRequest';
 
-import EventAdminApproved from '../EventAdmin/EventAdminApproved/EventAdminApproved';
-import EventAdminEvents from '../EventAdmin/EventAdminEvents/EventAdminEvents';
-import EventAdminPending from '../EventAdmin/EventAdminPending/EventAdminPending';
-import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
+
+import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
+import EventAdminDrawings from '../EventAdmin/EventAdminDrawings/EventAdminDrawings';
+import EventAdminRequest from "../EventAdmin/EventAdminRequest/EventAdminRequest";
+import EventCompleted from "../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted";
+import EventAdminQueue from "../EventAdmin/EventAdminQueue/EventAdminQueue";
 
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
+
 
 class App extends Component {
   componentDidMount() {
@@ -45,7 +47,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          {/* <Nav /> */}
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/userhome" />
@@ -112,28 +114,33 @@ class App extends Component {
               // logged in shows InfoPage else shows LoginPage
               exact
               path="/events"
-              component={EventAdminEvents}
+              component={EventAdminEvent}
             />
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/queue"
+              path="/events/completed"
+              component={EventCompleted}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              path="/event/:id/requests"
               component={EventAdminQueue}
             />
-
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/pending"
-              component={EventAdminPending}
+              path="/allrequests"
+              component={EventAdminRequest}
             />
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/approved"
-              component={EventAdminApproved}
+              path="/drawings"
+              component={EventAdminDrawings}
             />
 
             <ProtectedRoute
