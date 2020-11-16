@@ -31,7 +31,7 @@ class UserMaterialRequest extends Component {
         });
     };
 
-    onSubmit = () => {
+    onSubmit = (event) => {
         event.preventDefault();
         console.log('This is the materials request', this.state.materialRequest);
         if (

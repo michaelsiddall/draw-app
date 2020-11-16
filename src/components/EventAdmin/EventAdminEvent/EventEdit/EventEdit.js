@@ -14,6 +14,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 class EventEdit extends Component {
 
+
       componentDidUpdate(prevProps, prevState){
             if (this.state.date !== prevState.date || this.state.time !== prevState.time || this.state.location !== prevState.location){
                   this.setState({
@@ -43,28 +44,28 @@ class EventEdit extends Component {
                         this.handleClose();
             };//end update specific event
 
-            handleClickOpen = () => {
-                        this.setState({
-                              open: true,
-                              id: this.props.matchID
-                        });
-                  };
 
-            handleClose = () => {
-                        this.setState({
-                              open: false
-                        });
-                  };
+  handleClickOpen = () => {
+    this.setState({
+      open: true,
+      id: this.props.matchID,
+    });
+  };
 
-            handleInputChangeFor = (propertyName) => (event) => {  
-                        this.setState({
-                              ...this.state,
-                              [propertyName]: event.target.value,
-                              button: false,
-                              timestamp: this.state.date + " " + this.state.time,
-                        });
-                  }; //end handleInputChange
+  handleClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
 
+  handleInputChangeFor = (propertyName) => (event) => {
+    this.setState({
+      ...this.state,
+      [propertyName]: event.target.value,
+      button: false,
+      timestamp: this.state.date + ' ' + this.state.time,
+    });
+  }; //end handleInputChange
 
       render(){
             return (
@@ -109,8 +110,8 @@ class EventEdit extends Component {
                   </DialogActions>
             </Dialog>
       </div>
-      );
-      }
+    );
+  }
 }
 
 export default connect(mapStoreToProps)(EventEdit);
