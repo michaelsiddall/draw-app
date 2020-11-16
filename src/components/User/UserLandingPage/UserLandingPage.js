@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-
+import drawlogo from '../DrawLogo.png';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
@@ -23,13 +23,13 @@ class UserLandingPage extends Component {
   render() {
     return (
       <div>
+        <img src={drawlogo} alt='draw logo' />
         <h2 className='centered'>About Draw</h2>
         <p>
-          Lorem ipsum dolor sit amet, causae voluptua sed ex, nonumy labitur
-          erroribus pro id. Intellegat concludaturque an mel, quas dicunt
-          persius ei nec. Ei viris affert ocurreret vel. An aliquip deterruisset
-          eum, at eos idque blandit commune. Percipit erroribus elaboraret et
-          eam.
+          Draw is a community color therapy initiative inspired by Charles Moertel, who wanted to make a children’s book, but passed away before having the opportunity to achieve his goal
+
+          Draw partners with local organizations to host coloring days where people express creativity, share stories, and grow community by adding pages to the ever-growing children’s book.
+
         </p>
         <div>
           <button className='buttonCentered' onClick={this.viewDrawing}>
