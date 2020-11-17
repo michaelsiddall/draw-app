@@ -6,14 +6,17 @@ import QueueDelete from '../QueueConfirm/QueueDelete';
 
 class QueueItem extends Component {
   componentDidMount = () => {
-    console.log('in componentDidMount');
+    console.log('in componentDidUpdate');
 
     // page reloads every minute to allow EventAdmin to see new Material Requests
-    window.setInterval(this.refresh, 60000);
+    setInterval(this.refresh, 10000);
   };
   // Refresh or reload page.
   refresh = () => {
-    window.location.reload();
+    this.props.dispatch({
+      type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
+      payload: this.props.eventID,
+    });
   };
 
   render() {
