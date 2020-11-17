@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
 import Swal from 'sweetalert2';
+import '../UserStyles.css';
 
 class UserMaterialRequest extends Component {
     state = {

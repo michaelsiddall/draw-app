@@ -1,0 +1,43 @@
+body{
+    background-color: peachpuff;
+}
+
+.centered {
+    display: flex;
+    flex-wrap: wrap ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+/* .inputCentered {
+    width: 90px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 10px;
+}
+  
+.selectCentered {
+    width: 120px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 10px;
+} */
+  
+.buttonDiv {
+    display: block;
+    margin: 10px ;
+}
+
+.drawLogo{
+    /* outline: tomato dashed 2px; */
+    width: 80%;
+    margin: auto;
+}
+
+.copytext{
+    width: 80%;
+    margin: auto;
+}
