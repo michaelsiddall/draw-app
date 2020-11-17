@@ -32,9 +32,10 @@ CREATE TABLE "requests"
 CREATE TABLE "drawings"
 (
   "id" SERIAL PRIMARY KEY,
-  "name" varchar NOT NULL,
+  "name" varchar,
   "email_address" citext,
   "instagram" varchar,
+  "location" varchar,
   "description" varchar,
   "image_url" varchar,
   "timestamp" timestamp DEFAULT Now(),
