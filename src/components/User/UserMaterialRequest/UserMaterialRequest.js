@@ -64,8 +64,7 @@ class UserMaterialRequest extends Component {
             });
 
         }
-      });
-    } else {
+     else {
       Swal.fire({
         title: 'Please fill out all fields',
         showConfirmButton: false,
