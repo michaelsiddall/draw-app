@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-
+import HomeIcon from '@material-ui/icons/Home';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
 import Swal from 'sweetalert2';
@@ -60,6 +60,10 @@ class UserMaterialRequest extends Component {
         });
     };
 
+    goHome = () => {
+        this.props.history.push('/userhome');
+    };
+
     onSubmit = (event) => {
         event.preventDefault();
         console.log('This is the materials request', this.state.materialRequest);
@@ -98,8 +102,12 @@ class UserMaterialRequest extends Component {
         return (
             <form className="centered">
                 <MuiThemeProvider theme={theme}>
-
-                    <h2 className='title'>Material Request</h2>
+                    <HomeIcon
+                        fontSize="large"
+                        style={{ color: '#577590' }}
+                        onClick={this.goHome}
+                    />
+                    <h2 className='title'>Get Drawing Materials!</h2>
                     <div className='centered'>
                         <h5 className='smallerTitle'>Location</h5>
                         <InputLabel id="location">Where is your event?</InputLabel>

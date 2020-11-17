@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import Input from '@material-ui/core/Input';
 import '../UserStyles.css';
-import Container from '@material-ui/core/Container';
+import HomeIcon from '@material-ui/icons/Home';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -33,6 +33,10 @@ class UserDrawingSubmit extends Component {
                 [property]: event.target.value,
             },
         });
+    };
+
+    goHome = () => {
+        this.props.history.push('/userhome');
     };
 
     onSubmit = (event) => {
@@ -84,6 +88,11 @@ class UserDrawingSubmit extends Component {
     render() {
         return (
             <div>
+                <HomeIcon
+                    fontSize="large"
+                    style={{ color: '#577590' }}
+                    onClick={this.goHome}
+                />
                 <form onSubmit={this.onSubmit}>
                     <h5 className='centered title'>Name</h5>
                     <input

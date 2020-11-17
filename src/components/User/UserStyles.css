@@ -81,10 +81,14 @@ body{
 
 .smallerTitle{
     font-family: 'Work Sans', sans-serif;
-    font-size: 2em;
-    margin: 3%;
+    font-size: 1.5em;
+    margin: 8%;
     color: #577590;
     text-align: center;
+}
+
+.submitBtn{
+    margin: 100px;
 }
 
 a{

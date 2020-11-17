@@ -86,11 +86,9 @@ class UserLandingPage extends Component {
           </Button>
             </div>
 
-            <div className="buttonDiv">
+            <div className="submitBtn">
               <a href='https://www.givemn.org/story/Draw' target='_blank'>
-                <Button size="large" className='noUnderlineCentered'>
-                  Donate to Draw!
-            </Button>
+                <Button size="large" >Donate to Draw!</Button>
               </a>
             </div>
           </MuiThemeProvider>
