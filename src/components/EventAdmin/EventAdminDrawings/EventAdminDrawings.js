@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Nav from '../../Nav/Nav';
 
 class EventAdminDrawings extends Component {
     state = {
@@ -39,6 +39,8 @@ class EventAdminDrawings extends Component {
     render() {
         return (
             <div>
+                <Nav />
+
                 <h2>{this.state.heading}</h2>
                 <FormControl >
                     <InputLabel id="drawing-dropdown-label">Select Drawings to View</InputLabel>

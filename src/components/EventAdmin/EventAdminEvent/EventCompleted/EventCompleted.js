@@ -4,7 +4,7 @@ import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import EventCompletedItem from "../EventCompletedItem/EventCompleteItem"
 import { HashRouter, Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-
+import Nav from '../../../Nav/Nav';
 
 class EventCompleted extends Component {
     componentDidMount = () => {
@@ -18,26 +18,27 @@ class EventCompleted extends Component {
         return (
             <HashRouter>
                 <div>
+                    <Nav />
                     <Button><Link to="/events">Back to Events</Link></Button>
-                        <div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Location</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Total Artists</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {this.props.store.eventCompletedReducer.map((item, i) =>
-                                        <EventCompletedItem
-                                            key={i}
-                                            item={item}
-                                        />)}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Total Artists</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.props.store.eventCompletedReducer.map((item, i) =>
+                                    <EventCompletedItem
+                                        key={i}
+                                        item={item}
+                                    />)}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </HashRouter>
         );

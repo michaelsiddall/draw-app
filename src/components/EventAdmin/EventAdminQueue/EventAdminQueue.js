@@ -3,20 +3,31 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import QueueItem from './QueueItem/QueueItem';
 
+import Nav from '../../Nav/Nav';
+
+
 //requests queue by event
 
 class EventAdminQueue extends Component {
+
+
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
-      payload: this.props.match.params.id,
+      payload: this.props.match.params.id
     });
+
   }; //end componentDidMount
 
+
   render() {
+
     if (this.props.store.queueReducer.length > 0) {
       return (
         <div>
+          <Nav />
+
+
           <h4></h4>
           <div>
             <table>
@@ -29,25 +40,33 @@ class EventAdminQueue extends Component {
                 </tr>
               </thead>
               <tbody>
+
                 {this.props.store.queueReducer.map((item) => (
                   <QueueItem
                     key={item.id}
                     item={item}
                     eventID={this.props.match.params.id}
                   />
+
                 ))}
               </tbody>
             </table>
           </div>
         </div>
       );
-    } else if (this.props.store.queueReducer.length === 0) {
+
+    }
+
+    else if (this.props.store.queueReducer.length === 0) {
       return (
         <div>
+          <Nav />
           <h4>Sorry, there are no requests for this event!</h4>
         </div>
-      );
+      )
     }
+
+
   }
 }
 
