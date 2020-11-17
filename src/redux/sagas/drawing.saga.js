@@ -103,17 +103,18 @@ function* deleteDrawing(action) {
 }
 
 function* postDrawing(action) {
-  console.log('in drawing delete with action.payload of', action.payload);
+  //   console.log('in drawing Post with action.payload of', action.payload);
   //send the get request to the server so it makes a database request
   let response = yield axios({
     method: 'POST',
     url: `/api/drawing/`,
     data: action.payload,
   });
-  console.log(response.data);
+  //   console.log(response.data);
 
   //take the info acquired from the database and set it as redux state
-  yield put({ type: 'GET_PENDING_DRAWINGS' });
+  // yield put({ type: 'GET_PENDING_DRAWINGS', });
+  //Commented this out as I dont think we need this
 }
 
 function* drawingSaga() {

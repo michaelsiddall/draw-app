@@ -118,8 +118,8 @@ router.delete('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   console.log('req.params.id', req.params.id);
-  const queryText = `INSERT INTO "drawings" ("name", "email_address", "instagram", "description", "image_url")
-  VALUES ($1, $2, $3, $4, $5);`;
+  const queryText = `INSERT INTO "drawings" ("name", "email_address", "instagram", "description", "image_url", "location")
+  VALUES ($1, $2, $3, $4, $5, $6);`;
   pool
     .query(queryText, [
       req.body.name,
@@ -127,6 +127,7 @@ router.post('/', (req, res) => {
       req.body.instagram,
       req.body.aboutDrawing,
       req.body.imageUrl,
+      req.body.location,
     ])
     .then((result) => {
       res.sendStatus(200);

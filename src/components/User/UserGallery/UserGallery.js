@@ -11,7 +11,6 @@ import './UserGallery.css';
 class UserGallery extends Component {
   state = {
     heading: 'Gallery',
-    location: null,
   };
 
   //   componentWillMount() {
@@ -62,7 +61,7 @@ class UserGallery extends Component {
         </select>
 
         <div className='pendingGrid'>
-          {this.props.store.approved.map((drawing) => {
+          {this.props.store.eventDrawingByIdReducer.map((drawing) => {
             return <UserGalleryCard drawing={drawing} />;
           })}
         </div>

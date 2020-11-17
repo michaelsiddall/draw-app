@@ -18,7 +18,14 @@ class UserDrawingSubmit extends Component {
       instagram: null,
       aboutDrawing: null,
       imageUrl: null,
+      location: null,
     },
+  };
+  componentDidMount = () => {
+    console.log('in componentDidMount');
+    this.props.dispatch({
+      type: 'FETCH_EVENTS',
+    });
   };
 
   onChange = (event, property) => {
@@ -34,18 +41,19 @@ class UserDrawingSubmit extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log('This is the materials request', this.state.drawingSubmit);
-    console.log(
-      'this.props.store.imageUrlReducer is',
-      this.props.store.imageUrlReducer
-    );
-
-    if (this.props.store.imageUrlReducer === null) {
-      Swal.fire('Hold on!', 'Please upload a drawing file.', 'warning');
-      //This check is not working and I can't figure out why.........
-      //It never hits this if statement even though I'm unsetting the image url in the reducer
-      //Every time there is a successful image upload.
-    } else {
+    if (
+      Object.keys(this.props.store.imageUrlReducer).length == 0 ||
+      undefined
+    ) {
+      Swal.fire(
+        'Hold on!',
+        'Please upload a picture of your drawing.',
+        'warning'
+      );
+    } //This check is not working and I can't figure out why.........
+    //It never hits this if statement even though I'm unsetting the image url in the reducer
+    //Every time there is a successful image upload.
+    else {
       Swal.fire({
         title: 'Are you sure your drawing is ready to submit?',
         icon: 'question',
@@ -63,6 +71,7 @@ class UserDrawingSubmit extends Component {
               instagram: this.state.drawingSubmit.instagram,
               aboutDrawing: this.state.drawingSubmit.aboutDrawing,
               imageUrl: this.props.store.imageUrlReducer,
+              location: this.state.drawingSubmit.location,
             },
           });
           Swal.fire({
@@ -81,6 +90,24 @@ class UserDrawingSubmit extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
+          <h5 className='centered'>Event</h5>
+          <select
+            required
+            className='selectCentered'
+            defaultValue={''}
+            onChange={(event) => this.onChange(event, 'location')}
+          >
+            <option value='' disabled>
+              Select Event
+            </option>
+            {this.props.store.eventReducer.map((event) => {
+              return (
+                <option key={event.id} value={event.id}>
+                  {event.location}
+                </option>
+              );
+            })}
+          </select>
           <h5 className='centered'>Name</h5>
           <input
             className='inputCentered'

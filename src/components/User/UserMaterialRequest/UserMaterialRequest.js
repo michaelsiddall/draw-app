@@ -85,7 +85,6 @@ class UserMaterialRequest extends Component {
           <option value='' disabled>
             Select Event
           </option>
-
           {this.props.store.eventReducer.map((event) => {
             return (
               <option key={event.id} value={event.id}>
