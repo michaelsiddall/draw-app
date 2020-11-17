@@ -1,10 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input';
 
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
 import Swal from 'sweetalert2';
 import '../UserStyles.css';
+import { InputLabel, MenuItem } from '@material-ui/core';
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiButton: {
+            // Name of the rule
+            text: {
+                // Some CSS
+                background: '#f9c74f',
+                borderRadius: 3,
+                border: 1,
+                borderColor: '#90BE6D',
+                color: '#577590',
+                fontFamily: 'Work Sans',
+                textTransform: 'none',
+                height: 48,
+                padding: '0 30px',
+                //boxShadow: '0 3px 3px 2px #577590',
+            },
+        },
+    },
+});
 
 class UserMaterialRequest extends Component {
     state = {
@@ -14,6 +40,8 @@ class UserMaterialRequest extends Component {
             artistNumber: null,
         },
     };
+
+
 
     componentDidMount = () => {
         console.log('in componentDidMount');
@@ -68,56 +96,62 @@ class UserMaterialRequest extends Component {
     render() {
         console.log('redux state is', this.props.store);
         return (
-            <form>
-                <h2 className='centered'>Material Request</h2>
+            <form className="centered">
+                <MuiThemeProvider theme={theme}>
 
-                <h5 className='centered'>Location</h5>
-                <select
-                    required
-                    className='selectCentered'
-                    defaultValue={''}
-                    onChange={(event) => this.onChange(event, 'location')}
-                >
-                    <option value='' disabled>
-                        Select Event
-          </option>
+                    <h2 className='title'>Material Request</h2>
+                    <div className='centered'>
+                        <h5 className='smallerTitle'>Location</h5>
+                        <InputLabel id="location">Where is your event?</InputLabel>
+                        <Select
+                            required
+                            id="location"
+                            className='selectCentered'
+                            defaultValue={''}
+                            style={{ minWidth: 200 }}
+                            onChange={(event) => this.onChange(event, 'location')}
+                        >
+                            <MenuItem value='' disabled>
+                                Select Event </MenuItem>
+                            {this.props.store.eventReducer.map((event) => {
+                                return (
+                                    <MenuItem key={event.id} value={event.id}>
+                                        {event.location}
+                                    </MenuItem>
+                                );
+                            })}
+                        </Select>
+                    </div>
 
-                    <option value='1' >event 1</option>
-                    <option value='2' >event 2</option>
-                    {this.props.store.eventReducer.map((event) => {
-                        return (
-                            <option key={event.id} value={event.id}>
-                                {event.location}
-                            </option>
-                        );
-                    })}
-                </select>
+                    <div className='centered'>
+                        <h5 className='centered smallerTitle'>Table Number</h5>
+                        <Input
+                            className='inputCentered'
+                            type='number'
+                            placeholder='Table Number'
+                            onChange={(event) => this.onChange(event, 'tableNumber')}
+                            required
+                        ></Input>
+                    </div>
 
-                <h5 className='centered'>Table Number</h5>
-                <input
-                    className='inputCentered'
-                    type='number'
-                    placeholder='Select a Table'
-                    min='1'
-                    max='99'
-                    onChange={(event) => this.onChange(event, 'tableNumber')}
-                    required
-                ></input>
+                    <div className='centered'>
+                        <h5 className='smallerTitle'>Number of Participants</h5>
+                        <Input
+                            className='inputCentered'
+                            type='number'
+                            placeholder='Select a Number'
+                            onChange={(event) => this.onChange(event, 'artistNumber')}
+                            required
+                        ></Input>
+                    </div>
+                    <div className='buttonDiv'>
+                        <Button className='buttonCentered' size="large" onClick={this.onSubmit}>
+                            Request Drawing Materials
+                    </Button>
 
-                <h5 className='centered'>Number of Artists</h5>
-                <input
-                    className='inputCentered'
-                    type='number'
-                    placeholder='Select a Number'
-                    min='1'
-                    max='15'
-                    onChange={(event) => this.onChange(event, 'artistNumber')}
-                    required
-                ></input>
-                <br></br>
-                <button className='buttonCentered' onClick={this.onSubmit}>
-                    Request Drawing Materials
-        </button>
+                    </div>
+
+                </MuiThemeProvider>
             </form>
         );
     }

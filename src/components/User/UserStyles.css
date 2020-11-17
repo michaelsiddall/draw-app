@@ -26,6 +26,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 4%;
 }
   
 /* .inputCentered {
@@ -46,7 +47,7 @@ body{
   
 .buttonDiv {
     display: block;
-    margin: 10px ;
+    margin: 6% ;
 }
 
 .drawLogo{
@@ -77,6 +78,15 @@ body{
     text-align: center;
 
 }
+
+.smallerTitle{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 2em;
+    margin: 3%;
+    color: #577590;
+    text-align: center;
+}
+
 a{
     text-decoration: none;
 }

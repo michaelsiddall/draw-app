@@ -85,7 +85,7 @@ class UserDrawingSubmit extends Component {
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
-                    <h5 className='centered'>Name</h5>
+                    <h5 className='centered title'>Name</h5>
                     <input
                         className='inputCentered'
                         type='text'
