@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 import '../UserStyles.css';
 import HomeIcon from '@material-ui/icons/Home';
-
+import TextField from '@material-ui/core/TextField';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
@@ -12,6 +12,28 @@ import HomeIcon from '@material-ui/icons/Home';
 import '../UserMaterialRequest/UserMaterialRequest.css';
 import Swal from 'sweetalert2';
 import ImageUpload from '../../ImageUpload/ImageUpload';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiButton: {
+            // Name of the rule
+            text: {
+                // Some CSS
+                background: '#f9844a',
+                borderRadius: 3,
+                border: 1,
+                borderColor: '#90BE6D',
+                color: 'white',
+                fontFamily: 'Work Sans',
+                textTransform: 'none',
+                height: 48,
+                padding: '0 30px',
+                //boxShadow: '0 3px 3px 2px #577590',
+            },
+        },
+    },
+});
 
 class UserDrawingSubmit extends Component {
     state = {
@@ -87,56 +109,75 @@ class UserDrawingSubmit extends Component {
 
     render() {
         return (
-            <div>
-                <HomeIcon
-                    fontSize="large"
-                    style={{ color: '#577590' }}
-                    onClick={this.goHome}
-                />
-                <form onSubmit={this.onSubmit}>
-                    <h5 className='centered title'>Name</h5>
-                    <input
-                        className='inputCentered'
-                        type='text'
-                        placeholder='name'
-                        onChange={(event) => this.onChange(event, 'name')}
-                    ></input>
-                    <h5 className='centered'>
-                        Email (if you'd like to learn about future Draw events)
-          </h5>
-                    <input
-                        className='inputCentered'
-                        type='text'
-                        placeholder='email'
-                        onChange={(event) => this.onChange(event, 'email')}
-                    ></input>
-                    <h5 className='centered'>
-                        Instagram Handle (if you'd like credit for your work if we post it!)
-          </h5>
-                    <input
-                        className='inputCentered'
-                        type='text'
-                        placeholder='instagram handle'
-                        onChange={(event) => this.onChange(event, 'instagram')}
-                    ></input>
-                    <h5 className='centered'>
-                        About your drawing... add some info if you'd like!
-          </h5>
-                    <input
-                        className='inputCentered'
-                        type='text'
-                        placeholder='about'
-                        onChange={(event) => this.onChange(event, 'aboutDrawing')}
-                    ></input>
-                    <br></br>
-                    <div className='inputCentered'>
-                        <ImageUpload />
-                    </div>
+            <div className="centered">
+                <MuiThemeProvider theme={theme}>
 
-                    <button type='submit' className='buttonCentered'>
-                        Submit Drawing!
-          </button>
-                </form>
+                    <HomeIcon
+                        fontSize="large"
+                        style={{ color: '#577590' }}
+                        onClick={this.goHome}
+                    />
+                    <h2 className='title'>Submit Drawing !</h2>
+
+                    <form onSubmit={this.onSubmit} className="centered">
+                        <div className='centered'>
+                            <h5 className='smallerTitle'>Name</h5>
+                            <TextField
+                                type='text'
+                                placeholder='name'
+                                onChange={(event) => this.onChange(event, 'name')}
+                            ></TextField>
+                        </div>
+
+                        <div className='centered'>
+                            <h5 className='smallerTitle'>
+                                Email
+                            </h5>
+                            <TextField
+                                helperText="If you'd like to learn about future Draw events"
+
+                                type='text'
+                                placeholder='email'
+                                onChange={(event) => this.onChange(event, 'email')}
+                            ></TextField>
+                        </div>
+
+                        <div className='centered'>
+                            <h5 className='smallerTitle'>
+                                Instagram Handle
+                        </h5>
+                            <TextField
+                                helperText="We'll credit you if we post your art!"
+                                type='text'
+                                placeholder='instagram handle'
+                                onChange={(event) => this.onChange(event, 'instagram')}
+                            ></TextField>
+                        </div>
+                        <div className='centered'>
+                            <h5 className='smallerTitle'>
+                                About your drawing
+                        </h5>
+                            <TextField
+                                multiline={true}
+                                helperText="Add whatever background you like!"
+                                type='text'
+                                placeholder='about'
+                                onChange={(event) => this.onChange(event, 'aboutDrawing')}
+                            ></TextField>
+                        </div>
+
+                        <br></br>
+                        <div className='centered'>
+                            <ImageUpload />
+                        </div>
+                        <div className='submitBtn'>
+                            <Button type='submit' className='buttonCentered'>
+                                Submit Drawing!
+                            </Button>
+                        </div>
+
+                    </form>
+                </MuiThemeProvider>
             </div>
         );
     }

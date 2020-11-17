@@ -17,11 +17,11 @@ const theme = createMuiTheme({
             // Name of the rule
             text: {
                 // Some CSS
-                background: '#f9c74f',
+                background: '#f9844a',
                 borderRadius: 3,
                 border: 1,
                 borderColor: '#90BE6D',
-                color: '#577590',
+                color: 'white',
                 fontFamily: 'Work Sans',
                 textTransform: 'none',
                 height: 48,
@@ -114,7 +114,6 @@ class UserMaterialRequest extends Component {
                         <Select
                             required
                             id="location"
-                            className='selectCentered'
                             defaultValue={''}
                             style={{ minWidth: 200 }}
                             onChange={(event) => this.onChange(event, 'location')}
@@ -134,7 +133,6 @@ class UserMaterialRequest extends Component {
                     <div className='centered'>
                         <h5 className='centered smallerTitle'>Table Number</h5>
                         <Input
-                            className='inputCentered'
                             type='number'
                             placeholder='Table Number'
                             onChange={(event) => this.onChange(event, 'tableNumber')}
@@ -145,14 +143,13 @@ class UserMaterialRequest extends Component {
                     <div className='centered'>
                         <h5 className='smallerTitle'>Number of Participants</h5>
                         <Input
-                            className='inputCentered'
                             type='number'
                             placeholder='Select a Number'
                             onChange={(event) => this.onChange(event, 'artistNumber')}
                             required
                         ></Input>
                     </div>
-                    <div className='buttonDiv'>
+                    <div className='submitBtn'>
                         <Button className='buttonCentered' size="large" onClick={this.onSubmit}>
                             Request Drawing Materials
                     </Button>

@@ -19,11 +19,11 @@ const theme = createMuiTheme({
       // Name of the rule
       text: {
         // Some CSS
-        background: '#f9c74f',
+        background: '#577590',
         borderRadius: 3,
         border: 1,
         borderColor: '#90BE6D',
-        color: '#577590',
+        color: 'white',
         fontFamily: 'Work Sans',
         textTransform: 'none',
         height: 48,
@@ -86,9 +86,9 @@ class UserLandingPage extends Component {
           </Button>
             </div>
 
-            <div className="submitBtn">
+            <div className="buttonDiv">
               <a href='https://www.givemn.org/story/Draw' target='_blank'>
-                <Button size="large" >Donate to Draw!</Button>
+                <Button size="large" >Donate!</Button>
               </a>
             </div>
           </MuiThemeProvider>
