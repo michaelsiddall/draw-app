@@ -62,13 +62,22 @@ class UserMaterialRequest extends Component {
 
                 }
             });
+
         }
-    };
-    render() {
-        console.log('redux state is', this.props.store);
-        return (
-            <form>
-                <h2 className='centered'>Material Request</h2>
+      });
+    } else {
+      Swal.fire({
+        title: 'Please fill out all fields',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+  };
+  render() {
+    console.log('redux state is', this.props.store);
+    return (
+      <form>
+        <h2 className='centered'>Material Request</h2>
 
                 <h5 className='centered'>Location</h5>
                 <select

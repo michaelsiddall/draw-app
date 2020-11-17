@@ -21,12 +21,11 @@ class ImageUpload extends Component {
   };
 
   render() {
-    const uploadOptions = {
-      server: 'http://localhost:5000',
-      signingUrlQueryParams: { uploadType: 'avatar' },
-    };
+    console.log('ENV', process.env.REACT_APP_S3_URL);
 
-    const s3Url = 'https://drawbyyoubucket.s3.amazonaws.com';
+    const uploadOptions = {};
+
+    const s3Url = process.env.REACT_APP_S3_URL;
     const innerDropElement = (
       <div>
         <p>Click or Drop File Here</p>
