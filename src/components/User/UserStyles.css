@@ -1,6 +1,24 @@
+/* Object */
+/* {"Red Salsa":"f94144",
+    "Orange Red":"f3722c",
+    "Yellow Orange Color Wheel":"f8961e",
+    "Mango Tango":"f9844a",
+    "Maize Crayola":"f9c74f",
+    "Pistachio":"90be6d",
+    "Zomp":"43aa8b",
+    "Cadet Blue":"4d908e",
+    "Queen Blue":"577590",
+    "CG Blue":"277da1"} */
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Knewave&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Work+Sans&display=swap');
+
 body{
-    background-color: peachpuff;
+    background-color: white;
 }
+
+
 
 .centered {
     display: flex;
@@ -33,11 +51,32 @@ body{
 
 .drawLogo{
     /* outline: tomato dashed 2px; */
+    text-align: center;
+    display: block;
     width: 80%;
+    margin: auto;
+}
+.logo{
+    /* display: block; */
+    text-align: center;
     margin: auto;
 }
 
 .copytext{
     width: 80%;
-    margin: auto;
+    margin: 0px auto 4% auto;
+    font-family: 'Work Sans', sans-serif;
+    font-size: larger;
+    text-align: center;
+}
+
+.title{
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 5em;
+    color: #577590;
+    text-align: center;
+
+}
+a{
+    text-decoration: none;
 }
