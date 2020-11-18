@@ -94,6 +94,7 @@ class UserDrawingSubmit extends Component {
               instagram: this.state.drawingSubmit.instagram,
               aboutDrawing: this.state.drawingSubmit.aboutDrawing,
               imageUrl: this.props.store.imageUrlReducer,
+              location: this.state.drawingSubmit.location,
             },
           });
           Swal.fire({
