@@ -1,35 +1,68 @@
 
-# EDA Project
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# Description
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+Duration:  2 week sprint
 
-## Use the Template for This Repository (Don't Clone) 
+Draw is a community color therapy initiative inspired by Charles Moertel, who wanted to make a children’s book, but passed away before having the opportunity to achieve his goal.Draw partners with local organizations to host coloring days where people express creativity, share stories, and grow community by adding pages to the ever-growing children’s book.
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account.
+This mobile app was created to allow users at a Draw event to scan a QR code which brings them to a landing page allowing them to request drawing materials to be delivered to their table. Upon completion of drawing, user are able submit their image via upload & sent to an approval queue.  Once images arevapproved by Event Admins, users can view all the approved images along with artist info in gallery of their specific event.  Event Admins are able to log in and view material requests for each table.  Once request fulfilled, Event Admins can mark requests as complete or delete them.  As user submit uploaded images, Event Admins can approve, disapprove, or delete images.  Approved images will then be availabel for all users to view.  Event Admins are able to create new events & delete past events.  App Admins have the ability to perform all functions of Event Admins in addition to be able to create, authorize, and remove Event Admins.  
 
 
 ## Prerequisites
 
-Before you get started, make sure you have the following software installed on your computer:
+- This version uses React, Redux, Node,  Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
 
 ## Create database and table
 
-Create a new database called `prime_app` and create a `user` table:
+Create a new database called `draw` and create a the following tables:
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+```CREATE TYPE auth AS ENUM
+('user', 'admin', 'superAdmin');
+CREATE EXTENSION
+IF NOT EXISTS citext;
+
+CREATE TABLE "user"
+(
+  "id" SERIAL PRIMARY KEY,
+  "username" citext UNIQUE NOT NULL,
+  "password" varchar NOT NULL,
+  "auth_level" auth DEFAULT 'user' NOT NULL
 );
+
+CREATE TABLE "events"
+(
+  "id" SERIAL PRIMARY KEY,
+  "location" VARCHAR (500),
+  "timestamp" TIMESTAMP,
+  "completed" BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE "requests"
+(
+  "id" SERIAL PRIMARY KEY,
+  "table_number" varchar,
+  "artist_count" numeric,
+  "event_id" INT REFERENCES "events",
+  "completed" BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE "drawings"
+(
+  "id" SERIAL PRIMARY KEY,
+  "name" varchar,
+  "email_address" citext,
+  "instagram" varchar,
+  "location" varchar,
+  "description" varchar,
+  "image_url" varchar,
+  "timestamp" timestamp DEFAULT Now(),
+  "approved" BOOLEAN DEFAULT NULL
+);
+
 ```
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+If you would like to name your database something else, you will need to change `draw` to the name of your new database name in `server/modules/pool.js`
 
 ## Development Setup Instructions
 
