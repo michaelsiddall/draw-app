@@ -44,7 +44,7 @@ class EventCreate extends Component {
     render() {
         return (
             <div id="event-create-div-container">
-                <h3>Create an Event</h3>
+                <h2>Create an Event</h2>
                 <p>
                     Create an event with date, time and location. Submit button is disabled until all fields are filled.
                 </p>
@@ -56,7 +56,7 @@ class EventCreate extends Component {
                                         label="Date"
                                         type="date"
                                         required={true}
-                                        variant="outlined"
+                                        variant="filled"
                                         value={this.state.date}
                                         size="small"
                                         color="primary"
@@ -71,7 +71,7 @@ class EventCreate extends Component {
                                         label="Time"
                                         required={true}
                                         type="time"
-                                        variant="outlined"
+                                        variant="filled"
                                         value={this.state.time}
                                         size="small"
                                         color="primary"
@@ -84,7 +84,7 @@ class EventCreate extends Component {
                                         InputLabelProps={{shrink: true}}
                                         label="Location"
                                         required={true}
-                                        variant="outlined"
+                                        variant="filled"
                                         value={this.state.location}
                                         size="small"
                                         color="primary"

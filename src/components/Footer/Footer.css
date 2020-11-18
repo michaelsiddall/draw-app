@@ -1,26 +1,22 @@
 #footer-container {
-  background-color: rgba(77, 77, 77, 0.623);
-  width: 100vw;
-  height: 8vh;
-  position: relative;
+  background-color: rgb(115, 115, 115);
   bottom: 0;
-  top: 80vh;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 0;
+  width: 100vw;
+  position: fixed;
+  height: 7vh;
 }
 
 
 #footer-icon{
-  color: white;
-  padding-right: 3vw;
-  padding-left: 3vw;
-  margin-top: 3vh;
+  color: #ffffff;
 }
 
 #footer-icon:hover {
   color: rgb(24, 255, 217)
 }
 
+
+#bottom-nav{
+  padding-top: 3vh;
+}
 

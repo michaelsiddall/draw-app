@@ -43,7 +43,7 @@ class RegisterForm extends Component {
                             });
                       } else {
                             this.setState({
-                              helperText: 'Must be 5 characters or more',
+                              helperText: 'Must be 4 characters or more',
                               error: true
                             })
                             this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
@@ -59,7 +59,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <div id="register-div">
-        <h2 id="register-h2">Register User</h2>
+        <h1 id="register-h1">Register User</h1>
         {this.props.store.errors.registrationMessage && (
           <p className="alert" role="alert">
             {this.props.store.errors.registrationMessage}
@@ -79,6 +79,7 @@ class RegisterForm extends Component {
               id="register-textfield"
               onChange={this.handleInputChangeFor('username')}
               fullWidth
+              color="secondary"
             />
         </div>
         <div className="textfield-div">
@@ -95,6 +96,7 @@ class RegisterForm extends Component {
               id="register-textfield"
               onChange={this.handleInputChangeFor('password')}
               fullWidth
+              color="secondary"
             />
         </div>
         <div className="reg-log-btn-div">

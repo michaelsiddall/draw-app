@@ -9,23 +9,26 @@
     padding-right: 5vw;
     padding-top: 3vh;
     padding-bottom: 3vh;
-    background-color: rgba(249, 67, 70, 0.85);
-    color: #ffffff;
+    background-image: linear-gradient(50deg, #ec0206d3, #fbb614ce);
+    color: white;
 
 }
 
-#event-create-div-container h3{
+#event-create-div-container h2{
     color: #ffffff;
 }
 
 #event-create-date{
-    color: white;
+    color: #a60019;
+    background-color: rgb(255, 255, 255);
 }
 
 #event-create-time{
-    color: white;
+    color: #a60019;
+    background-color: rgb(255, 255, 255);
 }
 
 #event-create-location{
-    color: white;
+    color: #a60019;
+    background-color: rgb(255, 255, 255);
 }

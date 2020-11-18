@@ -17,12 +17,10 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <div>
-        <Nav />
-
+      <div id="landing-page-container">
         <Grid container spacing={0} justify="center" alignItems="center">
-          <Grid item xs><RegisterForm /></Grid>
-          <Grid item xs><LoginForm/></Grid>
+          <Grid item xs id="reg-grid"><RegisterForm /></Grid>
+          <Grid item xs id="login-grid"><LoginForm/></Grid>
         </Grid>
       </div>
     );

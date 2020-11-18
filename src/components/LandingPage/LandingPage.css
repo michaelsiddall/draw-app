@@ -1,25 +1,12 @@
-/* --------------------------------------------------------------------------------
-Grid
--------------------------------------------------------------------------------- */
-
-.grid {
-  display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* defaults to 'flex-start' */
-  justify-content: flex-start;
-  align-items: flex-start;
+#landing-page-container {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  width: 100vw;
 }
 
-.grid-col {
-  flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
-  box-sizing: border-box;
+#reg-grid{
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+  width: 50vw;
+  padding-top: 30vh;
 }
-
-.grid-col_1 {
-  flex-basis: auto;
-}
-
