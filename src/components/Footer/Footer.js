@@ -7,6 +7,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import "./Footer.css"
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
 
 
 
@@ -24,12 +25,17 @@ class Footer extends Component {
     window.open('https://www.instagram.com/draw_by_you/','_blank');
   }
 
+  donate = () =>{
+    window.open('https://www.givemn.org/story/Draw','_blank');
+  }
+
   render() {
     return (
       <BottomNavigation id="footer-container">
-            <BottomNavigationAction id="bottom-nav" icon={<FacebookIcon id="footer-icon"/>} onClick={this.facebook}></BottomNavigationAction>
-            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} onClick={this.mail}></BottomNavigationAction>
-            <BottomNavigationAction id="bottom-nav" icon={<InstagramIcon id="footer-icon"/>} onClick={this.instagram}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<FacebookIcon id="footer-icon"/>} label="Facebook" onClick={this.facebook}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} label="Mail"  nClick={this.mail}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<InstagramIcon id="footer-icon"/>} label="Instagram" onClick={this.instagram}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<CreditCardIcon id="footer-icon"/>} label="Donate" onClick={this.donate}></BottomNavigationAction>
       </BottomNavigation>
     );
   }
