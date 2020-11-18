@@ -5,7 +5,8 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import MailIcon from '@material-ui/icons/Mail';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import "./Footer.css"
-
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
 
 
@@ -13,11 +14,11 @@ class Footer extends Component {
 
   render() {
     return (
-      <div id="footer-container">
-            <a href="https://www.facebook.com/drawbyyou" target="_blank" rel="noopener noreferrer"><FacebookIcon id="footer-icon"/></a>
-            <a href="mailto:steve@drawbyyou.com" target="_blank" rel="noopener noreferrer"><MailIcon id="footer-icon"/></a>
-            <a href="https://www.instagram.com/draw_by_you/" target="_blank" rel="noopener noreferrer"><InstagramIcon id="footer-icon"/></a> 
-      </div>
+      <BottomNavigation id="footer-container">
+           <a href="https://www.facebook.com/drawbyyou" target="_blank" rel="noopener noreferrer"><BottomNavigationAction icon={<FacebookIcon id="footer-icon"/>}></BottomNavigationAction></a> 
+          <a href="mailto:steve@drawbyyou.com" target="_blank" rel="noopener noreferrer"><BottomNavigationAction icon={<MailIcon id="footer-icon"/>}></BottomNavigationAction></a>
+           <a href="https://www.instagram.com/draw_by_you/" target="_blank" rel="noopener noreferrer"><BottomNavigationAction icon={<InstagramIcon id="footer-icon"/>}></BottomNavigationAction></a> 
+      </BottomNavigation>
     );
   }
 }

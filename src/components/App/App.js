@@ -73,8 +73,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <MuiThemeProvider theme={theme}>
+       
+          <MuiThemeProvider theme={theme}> 
+          <div id="app-container">
             {/* <Nav /> */}
             <Switch>
               {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -211,9 +212,10 @@ class App extends Component {
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
             </Switch>
+            </div>
             <Footer />
           </MuiThemeProvider>
-        </div>
+        
       </Router>
     );
   }
