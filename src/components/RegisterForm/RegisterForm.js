@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
+import "./RegisterForm.css"
 
 class RegisterForm extends Component {
   state = {
@@ -29,8 +30,8 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <div className="formPanel">
-        <h2>Register User</h2>
+      <div id="register-div">
+        <h2 id="register-h2">Register User</h2>
         {this.props.store.errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.registrationMessage}
@@ -61,7 +62,7 @@ class RegisterForm extends Component {
           </label>
         </div>
         <div>
-          <Button onClick={this.registerUser}>Register</Button>
+          <Button id="register-btn" onClick={this.registerUser}>Register</Button>
         </div>
       </div>
     );

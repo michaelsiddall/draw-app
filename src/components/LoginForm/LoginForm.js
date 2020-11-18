@@ -2,28 +2,36 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
+import "./LoginForm.css"
+import { TextField} from '@material-ui/core';
 
 class LoginForm extends Component {
   state = {
     username: '',
     password: '',
+    helperText: '',
+    error: false
   };
 
-  login = (event) => {
-    event.preventDefault();
+              login = (event) => {
+                      event.preventDefault();
 
-    if (this.state.username && this.state.password) {
-      this.props.dispatch({
-        type: 'LOGIN',
-        payload: {
-          username: this.state.username,
-          password: this.state.password,
-        },
-      });
-    } else {
-      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
-    }
-  }; // end login
+                      if (this.state.username.length>2 && this.state.password.length>2) {
+                            this.props.dispatch({
+                              type: 'LOGIN',
+                              payload: {
+                                username: this.state.username,
+                                password: this.state.password,
+                              },
+                            });
+                      } else {
+                            this.setState({
+                              helperText: 'Required',
+                              error: true
+                            })
+                            this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
+                      }
+            }; // end login
 
   handleInputChangeFor = (propertyName) => (event) => {
     this.setState({
@@ -33,39 +41,43 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="formPanel">
-        <h2>Login</h2>
+      <div id="login-div">
+        <h2 id="login-h2">Login</h2>
         {this.props.store.errors.loginMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.loginMessage}
           </h3>
         )}
         <div>
-          <label htmlFor="username">
-            Username:
-            <input
+            <TextField
               type="text"
               name="username"
-              required
+              helperText={this.state.helperText}
+              error={this.state.error}
+              variant="outlined"
+              required={true}
+              label="User Name"
+              InputLabelProps={{shrink: true}}
               value={this.state.username}
               onChange={this.handleInputChangeFor('username')}
             />
-          </label>
         </div>
         <div>
-          <label htmlFor="password">
-            Password:
-            <input
+            <TextField
               type="password"
               name="password"
-              required
+              helperText={this.state.helperText}
+              error={this.state.error}
+              variant="outlined"
+              required={true}
+              label="Password"
+              InputLabelProps={{shrink: true}}
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-          </label>
         </div>
         <div>
-          <Button onClick={this.login}>Login</Button>
+          <Button id="login-btn" onClick={this.login}>Login</Button>
         </div>
       </div>
     );

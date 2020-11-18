@@ -33,15 +33,6 @@ class EventAdminEvent extends Component {
                                             Completed events are sent to the completed events table so we can keep track of how many artists are 
                                             participating at each event.
                                         </p>
-                                        <p className="event-p">
-                                            To see all requests for an event, click on the Queue button. 
-                                        </p>
-                                        <p className="event-p">
-                                            To see all requests for all events, click on the navigation bar: Events > All Requests
-                                        </p>
-                                        <p className="event-p">
-                                            To see all completed events, click on the navigation bar: Events > Completed Events
-                                        </p>
                                     </div>
                                     <table id="events-table">
                                         <thead>
