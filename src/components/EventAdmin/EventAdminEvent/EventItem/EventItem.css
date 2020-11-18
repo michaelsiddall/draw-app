@@ -1,0 +1,17 @@
+#event-item-tr td{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+#queue-btn{
+    color: rgb(255, 255, 255);
+    background-color: #f8961ead;
+}
+
+#queue-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: #F94144;
+}
+

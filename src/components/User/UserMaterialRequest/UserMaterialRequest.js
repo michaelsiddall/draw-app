@@ -161,7 +161,6 @@ class UserMaterialRequest extends Component {
             </form>
         );
     }
-
 }
 
 export default connect(mapStoreToProps)(UserMaterialRequest);

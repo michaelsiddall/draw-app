@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import { TextField} from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
 import EventCreateConfim from '../EventConfirm/EventCreateConfim';
-import Button from '@material-ui/core/Button';
-
+import "./EventCreate.css"
+import Grid from '@material-ui/core/Grid';
 
 
 class EventCreate extends Component {
@@ -26,7 +25,7 @@ class EventCreate extends Component {
                 location: '',
                 timestamp: '',
                 button: true,
-                open: false
+                open: false,
             }
 
             handleInputChangeFor = (propertyName) => (event) => {  
@@ -44,48 +43,62 @@ class EventCreate extends Component {
 
     render() {
         return (
-            <>
-
-            <InputLabel htmlFor="event-create-date">Date</InputLabel>
-                    <TextField 
-                        name="date"
-                        type="date"
-                        required={true}
-                        variant="outlined"
-                        value={this.state.date}
-                        size="small"
-                        id="event-create-date"
-                        onChange={this.handleInputChangeFor('date')}
-                    />
-
-            <InputLabel htmlFor="event-create-time">Time</InputLabel>
-                    <TextField
-                        name="time"
-                        required={true}
-                        type="time"
-                        variant="outlined"
-                        value={this.state.time}
-                        size="small"
-                        id="event-create-time"
-                        onChange={this.handleInputChangeFor('time')}
-                    />
-            
-            <InputLabel htmlFor="event-create-location">Location</InputLabel>
-                <TextField 
-                        name="location"
-                        required={true}
-                        variant="outlined"
-                        value={this.state.location}
-                        size="small"
-                        id="event-create-location"
-                        onChange={this.handleInputChangeFor('location')}
-                    />
-
-            <EventCreateConfim 
-                            disabled={this.state.button}
-                            item={this.state}/>
-
-                </>
+            <div id="event-create-div-container">
+                <h3>Create an Event</h3>
+                <p>
+                    Create an event with date, time and location. Submit button is disabled until all fields are filled.
+                </p>
+                    <Grid container spacing={2} direction="row" justify="center" alignItems="center" id="event-create-grid-container">
+                            <Grid item xs>
+                                    <TextField 
+                                        name="date"
+                                        InputLabelProps={{shrink: true}}
+                                        label="Date"
+                                        type="date"
+                                        required={true}
+                                        variant="outlined"
+                                        value={this.state.date}
+                                        size="small"
+                                        color="primary"
+                                        id="event-create-date"
+                                        onChange={this.handleInputChangeFor('date')}
+                                    />
+                            </Grid>
+                            <Grid item xs>
+                                    <TextField
+                                        name="time"
+                                        InputLabelProps={{shrink: true}}
+                                        label="Time"
+                                        required={true}
+                                        type="time"
+                                        variant="outlined"
+                                        value={this.state.time}
+                                        size="small"
+                                        color="primary"
+                                        id="event-create-time"
+                                        onChange={this.handleInputChangeFor('time')}
+                                    /></Grid>
+                            <Grid item xs>
+                                <TextField 
+                                        name="location"
+                                        InputLabelProps={{shrink: true}}
+                                        label="Location"
+                                        required={true}
+                                        variant="outlined"
+                                        value={this.state.location}
+                                        size="small"
+                                        color="primary"
+                                        id="event-create-location"
+                                        onChange={this.handleInputChangeFor('location')}
+                                    />
+                            </Grid>
+                            <Grid item xs>
+                            <EventCreateConfim 
+                                            disabled={this.state.button}
+                                            item={this.state}/>
+                            </Grid>
+                </Grid>
+            </div>
         )
     }
 }

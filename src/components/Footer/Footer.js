@@ -1,12 +1,25 @@
-import React from 'react';
-import ImageUpload from '../ImageUpload/ImageUpload';
-import './Footer.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import MailIcon from '@material-ui/icons/Mail';
+import mapStoreToProps from '../../redux/mapStoreToProps';
+import "./Footer.css"
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
 
-const Footer = () => <footer>&copy; Draw</footer>;
 
-export default Footer;
+
+class Footer extends Component {
+
+  render() {
+    return (
+      <div id="footer-container">
+            <a href="https://www.facebook.com/drawbyyou" target="_blank" rel="noopener noreferrer"><FacebookIcon id="footer-icon"/></a>
+            <a href="mailto:steve@drawbyyou.com" target="_blank" rel="noopener noreferrer"><MailIcon id="footer-icon"/></a>
+            <a href="https://www.instagram.com/draw_by_you/" target="_blank" rel="noopener noreferrer"><InstagramIcon id="footer-icon"/></a> 
+      </div>
+    );
+  }
+}
+
+export default connect(mapStoreToProps)(Footer);

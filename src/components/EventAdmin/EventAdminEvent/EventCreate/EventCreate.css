@@ -1,0 +1,31 @@
+#event-create-grid-container{
+    max-width: 80vw;
+    margin: auto;
+}
+
+#event-create-div-container{
+    margin: auto;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    background-color: rgba(249, 67, 70, 0.85);
+    color: #ffffff;
+
+}
+
+#event-create-div-container h3{
+    color: #ffffff;
+}
+
+#event-create-date{
+    color: white;
+}
+
+#event-create-time{
+    color: white;
+}
+
+#event-create-location{
+    color: white;
+}

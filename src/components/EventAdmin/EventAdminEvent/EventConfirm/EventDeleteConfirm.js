@@ -9,7 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import "./EventConfirm.css"
 
 class EventDeleteConfirm extends Component {
             state = {
@@ -41,9 +41,9 @@ class EventDeleteConfirm extends Component {
       render(){
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
+                  <Button id="icon-btn" onClick={this.handleClickOpen}><DeleteIcon id="icon"/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
-                              <DialogTitle>Delete Event</DialogTitle>
+                              <DialogTitle><h3 id="dialog-title">Delete Event</h3></DialogTitle>
                                     <DialogContent>
                                           Please Confirm Event Deletion
                                           <ul>
@@ -53,8 +53,8 @@ class EventDeleteConfirm extends Component {
                                           </ul>
                                     </DialogContent>
                                     <DialogActions>
-                                          <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                                          <Button onClick={this.confirmDeleteEvent} color="primary">Delete Event</Button>
+                                          <Button id="confirm-cancel-btn" onClick={this.handleClose} color="primary">Cancel</Button>
+                                          <Button id="confirm-submit-btn" onClick={this.confirmDeleteEvent} color="primary">Delete Event</Button>
                                     </DialogActions>
                         </Dialog>
       </div>

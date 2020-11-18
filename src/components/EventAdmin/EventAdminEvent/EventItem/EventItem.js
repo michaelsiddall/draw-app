@@ -20,11 +20,14 @@ class EventItem extends Component {
             let timeForEdit = t.toTimeString().split(' G')[0]
         return (
             <HashRouter>
-                    <tr> 
+                    <tr id="event-item-tr"> 
                         <td>{this.props.item.location}</td>
                         <td>{this.props.item.timestamp.split('T')[0]}</td>
                         <td>{time}</td>
-                        <td><Link to={`event/${this.props.item.id}/requests`}><Button>Queue</Button></Link></td>
+                        <td><Link to={`event/${this.props.item.id}/requests`}>
+                                <Button id="queue-btn" color="secondary">Queue</Button>
+                                </Link>
+                        </td>
                         <td><EventEdit
                                 matchID={this.props.item.id}
                                 item={this.props.item}
