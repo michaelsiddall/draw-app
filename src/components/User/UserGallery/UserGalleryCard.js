@@ -18,39 +18,40 @@ import InfoIcon from '@material-ui/icons/Info';
 // the component name TemplateClass with the name for the new
 // component.
 class EventAdminDrawingsCard extends Component {
-    state = {
-        isClicked: true
-    }
-    //when image is clicked, state is updated to its current opposite
-    clickText = () => {
-        console.log("showing text");
-        this.setState({
-            isClicked: !this.state.isClicked
-        });
-    }
+  state = {
+    isClicked: true,
+  };
+  //when image is clicked, state is updated to its current opposite
+  clickText = () => {
+    console.log('showing text');
+    this.setState({
+      isClicked: !this.state.isClicked,
+    });
+  };
 
-    render() {
-        return (
-            <div>
-                <GridListTile key={this.props.drawing.id}>
-                    <img src={this.props.drawing.image_url} alt="drawing" />
-                    {(this.props.drawing.name.length != null || this.props.drawing.about.length != null) &&
-                        <GridListTileBar
-                            title={<span>By: {this.props.drawing.name} </span>}
-                            // subtitle={<span>By: {drawing.name} </span>}
-                            actionIcon={
-                                <IconButton aria-label={`info`} >
-                                    <InfoIcon />
-                                </IconButton>
-                            }
-                        />
-                    }
-
-                </GridListTile>
-            </div>
-
-        );
-    }
+  render() {
+    return (
+      <div>
+        <GridListTile key={this.props.drawing.id}>
+          <img src={this.props.drawing.image_url} alt='drawing' />
+          {
+            //         (this.props.drawing.name.length != 0 ||
+            // this.props.drawing.about.length != 0) && (
+            <GridListTileBar
+              title={<span>By: {this.props.drawing.name} </span>}
+              // subtitle={<span>By: {drawing.name} </span>}
+              actionIcon={
+                <IconButton aria-label={`info`}>
+                  <InfoIcon />
+                </IconButton>
+              }
+            />
+            //   )
+          }
+        </GridListTile>
+      </div>
+    );
+  }
 }
 
 export default connect(mapStoreToProps)(EventAdminDrawingsCard);

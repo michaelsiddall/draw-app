@@ -65,7 +65,7 @@ class UserGallery extends Component {
         </select>
         <div className='pendingGrid'>
           <GridList cellHeight={100}>
-            {this.props.store.approved.map((drawing) => {
+            {this.props.store.eventDrawingByIdReducer.map((drawing) => {
               return <UserGalleryCard drawing={drawing} />;
             })}
           </GridList>
