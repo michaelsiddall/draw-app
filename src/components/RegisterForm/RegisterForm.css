@@ -31,9 +31,9 @@
 .textfield-div{
     margin-top: 15px;
 }
-
-.reg-log-btn-div{
+.reg-log-btn-div {
     margin-top: 10px;
     position: relative;
-    left: 70%;
+    text-align: right;
 }
+
