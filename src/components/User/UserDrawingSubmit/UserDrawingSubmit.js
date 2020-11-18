@@ -13,6 +13,7 @@ import '../UserMaterialRequest/UserMaterialRequest.css';
 import Swal from 'sweetalert2';
 import ImageUpload from '../../ImageUpload/ImageUpload';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { Select, MenuItem } from '@material-ui/core';
 
 const theme = createMuiTheme({
   overrides: {
@@ -124,27 +125,31 @@ class UserDrawingSubmit extends Component {
           <h2 className='title'>Submit Drawing !</h2>
 
           <form onSubmit={this.onSubmit} className='centered'>
-            <h5 className='centered'>Event</h5>
-            <select
+            <h5 className='smallerTitle'>Event</h5>
+            <Select
               required
+              style={{ width: 200 }}
+
               className='selectCentered'
               defaultValue={''}
               onChange={(event) => this.onChange(event, 'location')}
             >
-              <option value='' disabled>
+              <MenuItem value='' disabled>
                 Select Event
-              </option>
+              </MenuItem>
               {this.props.store.eventReducer.map((event) => {
                 return (
-                  <option key={event.id} value={event.id}>
+                  <MenuItem key={event.id} value={event.id}>
                     {event.location}
-                  </option>
+                  </MenuItem>
                 );
               })}
-            </select>
+            </Select>
             <div className='centered'>
               <h5 className='smallerTitle'>Name</h5>
               <TextField
+                style={{ width: 200 }}
+
                 type='text'
                 placeholder='name'
                 onChange={(event) => this.onChange(event, 'name')}
@@ -154,6 +159,8 @@ class UserDrawingSubmit extends Component {
             <div className='centered'>
               <h5 className='smallerTitle'>Email</h5>
               <TextField
+                style={{ width: 200 }}
+
                 helperText="If you'd like to learn about future Draw events"
                 type='text'
                 placeholder='email'
@@ -164,6 +171,8 @@ class UserDrawingSubmit extends Component {
             <div className='centered'>
               <h5 className='smallerTitle'>Instagram Handle</h5>
               <TextField
+                style={{ width: 200 }}
+
                 helperText="We'll credit you if we post your art!"
                 type='text'
                 placeholder='instagram handle'
@@ -173,6 +182,8 @@ class UserDrawingSubmit extends Component {
             <div className='centered'>
               <h5 className='smallerTitle'>About your drawing</h5>
               <TextField
+                style={{ width: 200 }}
+
                 multiline={true}
                 helperText='Add whatever background you like!'
                 type='text'
