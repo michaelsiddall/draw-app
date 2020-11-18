@@ -60,7 +60,8 @@ class UserMaterialRequest extends Component {
           });
           this.props.history.push('/userhome');
         }
-     else {
+      });
+    } else {
       Swal.fire({
         title: 'Please fill out all fields',
         showConfirmButton: false,
