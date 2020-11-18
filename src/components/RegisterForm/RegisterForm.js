@@ -16,7 +16,7 @@ class RegisterForm extends Component {
               registerUser = (event) => {
                       event.preventDefault();
 
-                      if (this.state.username.length>5 && this.state.password.length>10) {
+                      if (this.state.username.length>3 && this.state.password.length>3) {
                             this.props.dispatch({
                               type: 'REGISTER',
                               payload: {
