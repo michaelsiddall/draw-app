@@ -38,27 +38,11 @@ class UserGallery extends Component {
                 />
                 <h2 className='title'>Gallery</h2>
                 <div className="pendingGrid">
-                    <GridList cellHeight={180}>
-
+                    <GridList cellHeight={100}>
 
                         {this.props.store.approved.map((drawing) => {
-                            return (
-                                <GridListTile key={drawing.id}>
-                                    <img src={drawing.image_url} alt="drawing" />
-                                    <GridListTileBar
-                                        title={drawing.name}
-                                        subtitle={<span> {drawing.about}</span>}
-                                        actionIcon={
-                                            <IconButton aria-label={`info`} >
-                                                <InfoIcon />
-                                            </IconButton>
-                                        }
-                                    />
-                                </GridListTile>
-                            );
 
-
-                            // return (<UserGalleryCard drawing={drawing} />);
+                            return (<UserGalleryCard drawing={drawing} />);
                         })}
                     </GridList>
                 </div>
