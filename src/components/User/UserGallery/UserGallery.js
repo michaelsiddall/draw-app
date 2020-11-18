@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import UserGalleryCard from './UserGalleryCard';
 import './UserGallery.css';
+import HomeIcon from '@material-ui/icons/Home';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
 class UserGallery extends Component {
-  state = {
-    heading: 'Gallery',
-  };
 
   componentDidMount = () => {
     console.log('in componentDidMount');
@@ -28,12 +33,21 @@ class UserGallery extends Component {
     });
   };
 
-  render() {
-    return (
-      <div>
-        <h2>{this.state.heading}</h2>
+    }
+    goHome = () => {
+        this.props.history.push('/userhome');
+    };
 
-        <select
+    render() {
+        return (
+            <div className="centered">
+                <HomeIcon
+                    fontSize="large"
+                    style={{ color: '#577590' }}
+                    onClick={this.goHome}
+                />
+                <h2 className='title'>Gallery</h2>
+           <select
           required
           className='selectCentered'
           defaultValue={''}
@@ -51,15 +65,18 @@ class UserGallery extends Component {
             );
           })}
         </select>
+                <div className="pendingGrid">
+                    <GridList cellHeight={100}>
 
-        <div className='pendingGrid'>
-          {this.props.store.eventDrawingByIdReducer.map((drawing) => {
-            return <UserGalleryCard drawing={drawing} />;
-          })}
-        </div>
-      </div>
-    );
-  }
+                        {this.props.store.approved.map((drawing) => {
+
+                            return (<UserGalleryCard drawing={drawing} />);
+                        })}
+                    </GridList>
+                </div>
+            </div >
+        );
+    }
 }
 
 export default connect(mapStoreToProps)(UserGallery);

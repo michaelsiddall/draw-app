@@ -25,8 +25,9 @@ router.get('/pending', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
     });
 });
-router.get('/approved', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM "drawings"
+router.get('/approved', (req, res) => {
+    const queryText = `SELECT * FROM "drawings"
+
     WHERE "approved" IS TRUE;`;
   pool
     .query(queryText)
