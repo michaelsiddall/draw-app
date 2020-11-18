@@ -1,0 +1,37 @@
+#events-main{
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+
+
+#events-table{
+    border-collapse: collapse;
+    margin: auto;
+    width: 80vw;
+    margin-top: 3vh;
+}
+
+#events-table th{
+    padding-right: 1.5vw;
+    padding-left: 1.5vw;
+    text-align: center;
+    color: #ffffff;
+}
+
+#events-table thead{
+    background-image: linear-gradient(240deg, #F94144, #F9C74F);
+    font-family: 'Cabin Sketch',cursive;
+    font-size: 20px;
+}
+
+.event-p{
+    margin: 5px;
+}
+
+#events-instructions h3{
+    color: #F94144;
+}
+

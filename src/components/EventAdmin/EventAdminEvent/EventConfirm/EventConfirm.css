@@ -1,0 +1,39 @@
+#create-event-btn{
+    color: white;
+    background-color: #f8961ead;
+}
+
+#create-event-btn:hover{
+    color: white;
+    background-color: #F94144;
+}
+
+#create-event-btn:disabled {
+    color: rgba(255, 255, 255, 0.384);
+    background-color: rgba(124, 124, 124, 0.274);
+}
+
+#confirm-cancel-btn{
+    color: white;
+    background-color: #a3a3a3;
+}
+
+#confirm-cancel-btn:hover {
+    color: white;
+    background-color: #F94144;
+}
+
+#confirm-submit-btn{
+    color: white;
+    background-color: #F8961E;
+}
+
+#confirm-submit-btn:hover{
+    color: white;
+    background-color: #F94144;
+}
+
+#confirm-submit-btn:disabled{
+    color: rgba(255, 255, 255, 0.596);
+    background-color: rgba(124, 124, 124, 0.438);
+}

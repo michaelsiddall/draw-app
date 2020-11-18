@@ -8,7 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import "./EventConfirm.css"
 
 class EventCreateConfirm extends Component {
             state = {
@@ -42,7 +42,7 @@ class EventCreateConfirm extends Component {
             let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
             return (
                   <div>
-                  <Button variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button> 
+                  <Button id="create-event-btn" variant="outlined" disabled={this.props.disabled} onClick={this.handleClickOpen}>Create Event</Button> 
                         <Dialog open={this.state.open} onClose={this.handleClose}>
                               <DialogTitle>Create Event</DialogTitle>
                                     <DialogContent>
@@ -54,8 +54,8 @@ class EventCreateConfirm extends Component {
                                           </ul>
                                     </DialogContent>
                                     <DialogActions>
-                                          <Button onClick={this.handleClose}>Cancel</Button>
-                                          <Button onClick={this.confirmCreateEvent}>Create</Button>
+                                          <Button id="confirm-cancel-btn" onClick={this.handleClose}>Cancel</Button>
+                                          <Button id="confirm-submit-btn" onClick={this.confirmCreateEvent}>Create</Button>
                                     </DialogActions>
                         </Dialog>
                   </div>

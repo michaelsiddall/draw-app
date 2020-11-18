@@ -1,0 +1,9 @@
+#user-page-container{
+    background-color: rgb(175, 175, 175);
+    border-radius: 20px;
+    text-align: center;
+    width: 50vw;
+    height: 10vw;
+    padding: 20px;
+    margin: auto;
+}

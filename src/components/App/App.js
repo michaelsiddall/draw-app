@@ -34,7 +34,36 @@ import EventAdminQueue from "../EventAdmin/EventAdminQueue/EventAdminQueue";
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+import green from '@material-ui/core/colors/green';
+import teal from '@material-ui/core/colors/teal';
+import red from '@material-ui/core/colors/red';
+import { grey } from '@material-ui/core/colors';
 
+
+const theme = createMuiTheme({
+  palette: {
+    primary:{
+      main: "#ffffff"
+    },
+    secondary: {
+      main: teal[300]
+    },
+    purple: {
+      main: purple[300]
+    },
+    green: {
+      main: green[300]
+    },
+    red: {
+      main: red[300]
+    },
+  },
+  disabledBtn:{
+    backgroundColor: grey[500]
+  }
+});
 
 class App extends Component {
   componentDidMount() {
@@ -47,6 +76,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <MuiThemeProvider theme={theme}>
           {/* <Nav /> */}
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -185,6 +215,7 @@ class App extends Component {
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <Footer />
+          </MuiThemeProvider>
         </div>
       </Router>
     );

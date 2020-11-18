@@ -9,6 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import "./EventConfirm.css"
 
 class EventCompleteConfirm extends Component {
             state = {
@@ -51,8 +52,8 @@ class EventCompleteConfirm extends Component {
                                           </ul>
                                     </DialogContent>
                                     <DialogActions>
-                                          <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                                          <Button onClick={this.confirmCompleteEvent} color="primary">Complete Event</Button>
+                                          <Button id="confirm-cancel-btn" onClick={this.handleClose} color="primary">Cancel</Button>
+                                          <Button id="confirm-submit-btn" onClick={this.confirmCompleteEvent} color="primary">Complete Event</Button>
                                     </DialogActions>
                         </Dialog>
                   </div>

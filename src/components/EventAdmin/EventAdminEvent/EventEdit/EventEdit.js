@@ -11,6 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import EditIcon from '@material-ui/icons/Edit';
+import "../EventConfirm/EventConfirm.css"
 
 class EventEdit extends Component {
 
@@ -105,8 +106,8 @@ class EventEdit extends Component {
                                           />
                         </DialogContent>
                   <DialogActions>
-                        <Button onClick={this.handleClose}>Cancel</Button>
-                        <Button onClick={this.updateSpecificEvent} disabled={this.state.button}>Edit Event</Button>
+                        <Button id="confirm-cancel-btn" onClick={this.handleClose}>Cancel</Button>
+                        <Button id="confirm-submit-btn" onClick={this.updateSpecificEvent} disabled={this.state.button}>Edit Event</Button>
                   </DialogActions>
             </Dialog>
       </div>

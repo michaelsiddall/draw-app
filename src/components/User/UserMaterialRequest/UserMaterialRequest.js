@@ -67,7 +67,9 @@ class UserMaterialRequest extends Component {
         timer: 3000,
       });
     }
-  };
+  }
+}
+  
   render() {
     console.log('redux state is', this.props.store);
     return (

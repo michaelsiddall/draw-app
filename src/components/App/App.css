@@ -3,10 +3,29 @@ body,
 #react-root {
   height: 100%;
 }
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Work+Sans&display=swap');
 
+/*
+palette: 
+#F94144
+#F3722C
+#F8961E
+#F9844A
+#F9C74F
+#90BE6D
+#43AA8B
+#4D908E
+#577590
+#277DA1
+
+text: Cabin Sketch
+body text: Work Sans
+*/
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Work Sans', sans-serif;
   margin: 0px;
+  color: black;
 }
 
 img {
@@ -39,25 +58,7 @@ Button
   cursor: pointer;
 }
 
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
 
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #008183;
-  text-decoration: none;
-}
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .btn_asLink {
@@ -70,11 +71,6 @@ Button
   color: #444;
 }
 
-.btn_asLink:hover {
-  background-color: transparent;
-  border-color: #008183;
-  color: #008183;
-}
 
 /* --------------------------------------------------------------------------------
 Alert
@@ -110,3 +106,43 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+
+a {
+  text-decoration: none;
+}
+
+a:visited{
+  color: black;
+}
+
+h1{
+  color: #277DA1;
+  font-size: 36px;
+  font-family: 'Cabin Sketch', cursive;
+}
+h2{
+  color: #277DA1;
+  font-size: 30px;
+  font-family: 'Cabin Sketch', cursive;
+}
+h3{
+  color: #277DA1;
+  font-size: 28px;
+  font-family: 'Cabin Sketch', cursive;
+}
+h4{
+  color: #277DA1;
+  font-size: 24px;
+  font-family: 'Cabin Sketch', cursive;
+}
+h5{
+  color: #277DA1;
+  font-size: 20px;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+p{
+  font-size: 18px;
+}
+
