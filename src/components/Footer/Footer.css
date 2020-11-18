@@ -1,5 +1,24 @@
-footer {
-  margin-top: 80px;
-  padding: 20px;
+#footer-container{
+  background-color: rgba(77, 77, 77, 0.623);
+  width: 100vw;
+  height: 8vh;
+  position: relative;
+  bottom: 0;
   text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 4vh;
+  display: block;
+}
+
+#footer-icon{
+  color: white
+}
+
+#footer-icon:hover {
+  color: rgb(24, 255, 217)
+}
+
+#footer-container a{
+  padding: 10px;
 }
