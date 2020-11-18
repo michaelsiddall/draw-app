@@ -36,26 +36,33 @@ const theme = createMuiTheme({
 });
 
 class UserDrawingSubmit extends Component {
-    state = {
-        drawingSubmit: {
-            name: null,
-            email: null,
-            instagram: null,
-            aboutDrawing: null,
-            imageUrl: null,
-        },
-    };
+  state = {
+    drawingSubmit: {
+      name: null,
+      email: null,
+      instagram: null,
+      aboutDrawing: null,
+      imageUrl: null,
+      location: null,
+    },
+  };
+  componentDidMount = () => {
+    console.log('in componentDidMount');
+    this.props.dispatch({
+      type: 'FETCH_EVENTS',
+    });
+  };
 
-    onChange = (event, property) => {
-        console.log('payload is', property, event.target.value);
+  onChange = (event, property) => {
+    console.log('payload is', property, event.target.value);
 
-        this.setState({
-            drawingSubmit: {
-                ...this.state.drawingSubmit,
-                [property]: event.target.value,
-            },
-        });
-    };
+    this.setState({
+      drawingSubmit: {
+        ...this.state.drawingSubmit,
+        [property]: event.target.value,
+      },
+    });
+  };
 
     goHome = () => {
         this.props.history.push('/userhome');
@@ -103,6 +110,9 @@ class UserDrawingSubmit extends Component {
                 }
             });
         }
+      });
+    }
+  };
 
 
     };
@@ -181,6 +191,7 @@ class UserDrawingSubmit extends Component {
             </div>
         );
     }
+
 }
 
 export default connect(mapStoreToProps)(UserDrawingSubmit);

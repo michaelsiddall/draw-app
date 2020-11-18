@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import QueueItem from './QueueItem/QueueItem';
+
 import Nav from '../../Nav/Nav';
+
 
 //requests queue by event
 
 class EventAdminQueue extends Component {
+
 
   componentDidMount = () => {
     this.props.dispatch({
@@ -24,6 +27,7 @@ class EventAdminQueue extends Component {
         <div>
           <Nav />
 
+
           <h4></h4>
           <div>
             <table>
@@ -36,17 +40,21 @@ class EventAdminQueue extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.store.queueReducer.map(item => (
+
+                {this.props.store.queueReducer.map((item) => (
                   <QueueItem
                     key={item.id}
                     item={item}
-                    eventID={this.props.match.params.id} />
+                    eventID={this.props.match.params.id}
+                  />
+
                 ))}
               </tbody>
             </table>
           </div>
         </div>
       );
+
     }
 
     else if (this.props.store.queueReducer.length === 0) {
@@ -57,6 +65,7 @@ class EventAdminQueue extends Component {
         </div>
       )
     }
+
 
   }
 }

@@ -33,13 +33,13 @@ const theme = createMuiTheme({
 });
 
 class UserMaterialRequest extends Component {
-    state = {
-        materialRequest: {
-            location: null,
-            tableNumber: null,
-            artistNumber: null,
-        },
-    };
+  state = {
+    materialRequest: {
+      location: null,
+      tableNumber: null,
+      artistNumber: null,
+    },
+  };
 
 
 
@@ -50,15 +50,16 @@ class UserMaterialRequest extends Component {
         });
     };
 
-    onChange = (event, property) => {
-        console.log('payload is', property, event.target.value);
-        this.setState({
-            materialRequest: {
-                ...this.state.materialRequest,
-                [property]: event.target.value,
-            },
-        });
-    };
+
+  onChange = (event, property) => {
+    console.log('payload is', property, event.target.value);
+    this.setState({
+      materialRequest: {
+        ...this.state.materialRequest,
+        [property]: event.target.value,
+      },
+    });
+  };
 
     goHome = () => {
         this.props.history.push('/userhome');
@@ -160,6 +161,7 @@ class UserMaterialRequest extends Component {
             </form>
         );
     }
+
 }
 
 export default connect(mapStoreToProps)(UserMaterialRequest);
