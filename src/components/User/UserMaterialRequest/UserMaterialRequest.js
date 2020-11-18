@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
+
 import HomeIcon from '@material-ui/icons/Home';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
@@ -26,6 +28,9 @@ const theme = createMuiTheme({
                 textTransform: 'none',
                 height: 48,
                 padding: '0 30px',
+                "&:hover": {
+                    backgroundColor: "#F3722C"
+                },
                 //boxShadow: '0 3px 3px 2px #577590',
             },
         },
@@ -33,13 +38,13 @@ const theme = createMuiTheme({
 });
 
 class UserMaterialRequest extends Component {
-  state = {
-    materialRequest: {
-      location: null,
-      tableNumber: null,
-      artistNumber: null,
-    },
-  };
+    state = {
+        materialRequest: {
+            location: null,
+            tableNumber: null,
+            artistNumber: null,
+        },
+    };
 
 
 
@@ -51,15 +56,15 @@ class UserMaterialRequest extends Component {
     };
 
 
-  onChange = (event, property) => {
-    console.log('payload is', property, event.target.value);
-    this.setState({
-      materialRequest: {
-        ...this.state.materialRequest,
-        [property]: event.target.value,
-      },
-    });
-  };
+    onChange = (event, property) => {
+        console.log('payload is', property, event.target.value);
+        this.setState({
+            materialRequest: {
+                ...this.state.materialRequest,
+                [property]: event.target.value,
+            },
+        });
+    };
 
     goHome = () => {
         this.props.history.push('/userhome');
@@ -134,6 +139,7 @@ class UserMaterialRequest extends Component {
                     <div className='centered'>
                         <h5 className='centered smallerTitle'>Table Number</h5>
                         <Input
+                            style={{ minWidth: 200 }}
                             type='number'
                             placeholder='Table Number'
                             onChange={(event) => this.onChange(event, 'tableNumber')}
@@ -144,6 +150,8 @@ class UserMaterialRequest extends Component {
                     <div className='centered'>
                         <h5 className='smallerTitle'>Number of Participants</h5>
                         <Input
+                            style={{ minWidth: 200 }}
+
                             type='number'
                             placeholder='Select a Number'
                             onChange={(event) => this.onChange(event, 'artistNumber')}

@@ -28,6 +28,9 @@ const theme = createMuiTheme({
         textTransform: 'none',
         height: 48,
         padding: '0 30px',
+        "&:hover": {
+          backgroundColor: "#277DA1"
+        },
         //boxShadow: '0 3px 3px 2px #577590',
       },
     },
