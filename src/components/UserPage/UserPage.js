@@ -4,6 +4,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import ImageUpload from '../ImageUpload/ImageUpload';
 import Nav from '../Nav/Nav';
 import "./UserPage.css"
+
+
 class UserPage extends Component {
   componentDidMount() {
     //this.props.dispatch({ type: 'FETCH_USER' });
@@ -16,8 +18,8 @@ class UserPage extends Component {
       <div>
         <Nav />
         <div id="user-page-container">        
-            <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
-            <p>Your ID is: {this.props.store.user.id}</p>
+            <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
+            <p className="user-page-p">Your ID is: {this.props.store.user.id}</p>
         </div>
       </div>
     );

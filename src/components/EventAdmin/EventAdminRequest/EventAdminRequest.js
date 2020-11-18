@@ -3,22 +3,32 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import RequestItem from "./RequestItem/RequestItem";
 import Nav from '../../Nav/Nav';
+import "./EventAdminRequest.css"
+
 class EventAdminRequest extends Component {
 
   componentDidMount = () => {
     this.props.dispatch({
-      type: 'FETCH_REQUEST', //grabs only uncompleted requests
+      type: 'FETCH_REQUEST' //grabs only uncompleted requests
     });
+
+    setInterval(this.refresh, 10000);
   }; //end componentDidMount
+
+  refresh = () => {
+    this.props.dispatch({
+      type: 'FETCH_REQUEST' //grabs only uncompleted requests
+    });
+  };
 
   render() {
     if (this.props.store.requestReducer.length > 0) {
       return (
-        <div>
+        <div >
           <Nav />
 
-          <div>
-            <table>
+          <div className="all-requests-container">
+            <table id="all-requests-table">
               <thead>
                 <tr>
                   <th>Location</th>
@@ -43,9 +53,12 @@ class EventAdminRequest extends Component {
 
     else if (this.props.store.requestReducer.length === 0) {
       return (
-        <div>
+        <div >
           <Nav />
-          <h4>Sorry, there are no requests for this event!</h4>
+          <div className="all-requests-container">
+              <h4>Sorry, there are no requests!</h4>
+          </div>
+          
         </div>
       )
     }

@@ -1,9 +1,18 @@
 #user-page-container{
-    background-color: rgb(175, 175, 175);
+    background-color: rgb(53, 67, 255);
     border-radius: 20px;
     text-align: center;
-    width: 50vw;
+    width: 40vw;
     height: 10vw;
     padding: 20px;
     margin: auto;
+    margin-top: 15vh;
+}
+
+.user-page-h1 {
+    color: white;
+}
+
+.user-page-p{
+    color: white;
 }
