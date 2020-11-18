@@ -14,8 +14,8 @@
 }
 
 #all-requests-table th {
-    padding-right: 1.5vw;
-    padding-left: 1.5vw;
+    padding-right: 1%;
+    padding-left: 1%;
     text-align: center;
     color: #ffffff;
 }
@@ -24,4 +24,13 @@
     background-image: linear-gradient(240deg, #f941f9, #4fdff9);
     font-family: 'Cabin Sketch', cursive;
     font-size: 20px;
+}
+
+.all-requests-h2{
+    color: #ff22ff;
+    text-decoration: underline;
+}
+
+.all-requests-h4{
+    color:#505050;
 }

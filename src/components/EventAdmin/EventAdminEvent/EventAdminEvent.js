@@ -27,7 +27,7 @@ class EventAdminEvent extends Component {
 
                                 <div id="events-main">
                                     <div id="events-instructions">
-                                        <h3>Upcoming Events</h3>
+                                        <h2 className="all-events-h2">Upcoming Events</h2>
                                         <p className="event-p">  
                                             Please complete events when they are finished. Do NOT delete events if they are not created by mistake.
                                             Completed events are sent to the completed events table so we can keep track of how many artists are 
@@ -47,9 +47,9 @@ class EventAdminEvent extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.props.store.eventReducer.map((item, i) =>
+                                            {this.props.store.eventReducer.map(item =>
                                                 <EventItem
-                                                    key={i}
+                                                    key={item.id}
                                                     item={item}
                                                 />)}
                                         </tbody>
@@ -66,8 +66,9 @@ class EventAdminEvent extends Component {
 
                             <div id="events-container">
                                     <EventsCreate />
-                                <div>
-                                  <h3>There are currently no upcoming events! Please plan and create some!</h3> 
+                                <div id="all-requests-div">
+                                        <h2 className="all-events-h2">Upcoming Events</h2>
+                                        <h4 className="all-events-h4">Sorry, there are no events! Please add more!</h4>
                                 </div>
                             </div>
                         </HashRouter>

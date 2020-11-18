@@ -1,6 +1,7 @@
 #event-item-tr td{
-    padding-right: 1.5vw;
-    padding-left: 1.5vw;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
     text-align: center;
 }
 

@@ -5,8 +5,6 @@
     padding-bottom: 5vh;
 }
 
-
-
 #events-table{
     border-collapse: collapse;
     margin: auto;
@@ -31,7 +29,19 @@
     margin: 5px;
 }
 
-#events-instructions h3{
-    color: #F94144;
+.all-events-h2 {
+    color: #ff2234;
+    text-decoration: underline;
 }
 
+.all-events-h4 {
+    color: #ce0071;
+}
+
+#all-requests-div{
+        text-align: center;
+        padding-right: 5vw;
+        padding-left: 5vw;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+}

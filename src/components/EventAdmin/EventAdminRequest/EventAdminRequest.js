@@ -28,6 +28,7 @@ class EventAdminRequest extends Component {
           <Nav />
 
           <div className="all-requests-container">
+            <h2 className="all-requests-h2">All Requests for All Events</h2>
             <table id="all-requests-table">
               <thead>
                 <tr>
@@ -56,7 +57,8 @@ class EventAdminRequest extends Component {
         <div >
           <Nav />
           <div className="all-requests-container">
-              <h4>Sorry, there are no requests!</h4>
+              <h2 className="all-requests-h2">All Requests for All Events</h2>
+              <h4 className="all-requests-h4">Sorry, there are no requests!</h4>
           </div>
           
         </div>
