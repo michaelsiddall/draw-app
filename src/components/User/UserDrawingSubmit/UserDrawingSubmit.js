@@ -70,13 +70,16 @@ class UserDrawingSubmit extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log('This is the materials request', this.state.drawingSubmit);
-    if (this.props.store.imageUrlReducer === null) {
-      Swal.fire('Hold on!', 'Please upload a drawing file.', 'warning');
-    } //This check is not working and I can't figure out why.........
-    //It never hits this if statement even though I'm unsetting the image url in the reducer
-    //Every time there is a successful image upload.
-    else {
+    if (
+      Object.keys(this.props.store.imageUrlReducer).length == 0 ||
+      undefined
+    ) {
+      Swal.fire(
+        'Hold on!',
+        'Please upload a picture of your drawing.',
+        'warning'
+      );
+    } else {
       Swal.fire({
         title: 'Are you sure your drawing is ready to submit?',
         icon: 'question',
