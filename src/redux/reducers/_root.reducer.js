@@ -10,7 +10,8 @@ import requestReducer from './request.reducer';
 import imageUrlReducer from './imageUrl.reducer';
 import eventReducer from './event.uncompleted.reducer';
 import eventCompletedReducer from './event.completed.reducer';
-import queueReducer from "./queue.reducer"
+import queueReducer from './queue.reducer';
+import eventDrawingByIdReducer from './drawing.event.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   disapproved,
   requestReducer, //reducer that grabs all uncompleted requests
   queueReducer, //reducer that grabs all uncompleted requests by Event ID
+  eventDrawingByIdReducer, //reducer to store the specific drawing image info for each event
 });
 
 export default rootReducer;

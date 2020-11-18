@@ -18,10 +18,20 @@ import InfoIcon from '@material-ui/icons/Info';
 // component.
 class UserGallery extends Component {
 
+  componentDidMount = () => {
+    console.log('in componentDidMount');
+    this.props.dispatch({
+      type: 'FETCH_EVENTS',
+    });
+  };
 
-    componentWillMount() {
-        this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
-
+  onChange = (event) => {
+    console.log('payload is', event.target.value);
+    this.props.dispatch({
+      type: 'FETCH_APPROVED_EVENT_DRAWINGS',
+      url: `/api/drawing/approved/${event.target.value}`,
+    });
+  };
 
     }
     goHome = () => {
@@ -37,6 +47,24 @@ class UserGallery extends Component {
                     onClick={this.goHome}
                 />
                 <h2 className='title'>Gallery</h2>
+           <select
+          required
+          className='selectCentered'
+          defaultValue={''}
+          onChange={(event) => this.onChange(event)}
+        >
+          <option value='' disabled>
+            Select Event
+          </option>
+
+          {this.props.store.eventReducer.map((event) => {
+            return (
+              <option key={event.id} value={event.id}>
+                {event.location}
+              </option>
+            );
+          })}
+        </select>
                 <div className="pendingGrid">
                     <GridList cellHeight={100}>
 
