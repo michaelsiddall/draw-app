@@ -13,10 +13,6 @@ class UserGallery extends Component {
     heading: 'Gallery',
   };
 
-  //   componentWillMount() {
-  //     this.props.dispatch({ type: 'GET_APPROVED_DRAWINGS' });
-  //   }
-
   componentDidMount = () => {
     console.log('in componentDidMount');
     this.props.dispatch({
@@ -31,10 +27,6 @@ class UserGallery extends Component {
       url: `/api/drawing/approved/${event.target.value}`,
     });
   };
-
-  ///ON CHANGE DISPATCH WITH EVENT ID AS URL PARAM TO ROUTER FOR DB REQUEST OF APPROVED
-  //   DRAWING FOR SPECIFIC EVENT ID, DB RESPONSE IS YIELD PUT INTO NEW REDUCER
-  //   WHICH WE THEN MAP THROUGH FOR GALLERY
 
   render() {
     return (
