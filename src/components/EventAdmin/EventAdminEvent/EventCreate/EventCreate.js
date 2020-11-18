@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import { TextField} from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
 import EventCreateConfim from '../EventConfirm/EventCreateConfim';
 import "./EventCreate.css"
 import Grid from '@material-ui/core/Grid';
-import { red } from '@material-ui/core/colors'
+
 
 class EventCreate extends Component {
         componentDidUpdate(prevProps, prevState){

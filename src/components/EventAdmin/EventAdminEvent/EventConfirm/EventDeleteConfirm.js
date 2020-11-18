@@ -41,9 +41,9 @@ class EventDeleteConfirm extends Component {
       render(){
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}><DeleteIcon/></Button>
+                  <Button id="icon-btn" onClick={this.handleClickOpen}><DeleteIcon id="icon"/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
-                              <DialogTitle>Delete Event</DialogTitle>
+                              <DialogTitle><h3 id="dialog-title">Delete Event</h3></DialogTitle>
                                     <DialogContent>
                                           Please Confirm Event Deletion
                                           <ul>

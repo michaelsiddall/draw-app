@@ -40,9 +40,9 @@ class EventCompleteConfirm extends Component {
       render(){
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}><CheckCircleIcon/></Button>
+                  <Button id="icon-btn" onClick={this.handleClickOpen}><CheckCircleIcon id="icon"/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose}>
-                              <DialogTitle>Complete Event</DialogTitle>
+                              <DialogTitle><h3 id="dialog-title">Complete Event</h3></DialogTitle>
                                     <DialogContent>
                                           Please Confirm Event Completion
                                           <ul>

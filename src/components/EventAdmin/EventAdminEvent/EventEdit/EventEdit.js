@@ -71,37 +71,40 @@ class EventEdit extends Component {
       render(){
             return (
                   <div>
-                  <Button variant="outlined" onClick={this.handleClickOpen}><EditIcon/></Button>
+                  <Button id="icon-btn"onClick={this.handleClickOpen}><EditIcon id="icon"/></Button>
                         <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true} maxWidth="md">
-                        <DialogTitle>Edit Event</DialogTitle>
+                        <DialogTitle><h3 id="edit-dialog-title">Edit Event</h3></DialogTitle>
                               <DialogContent>
-                                    <InputLabel htmlFor="event-create-date">Date</InputLabel>
                                           <TextField 
+                                                InputLabelProps={{shrink: true}}
+                                                label="Date"
                                                 name="date"
                                                 type="date"
                                                 variant="outlined"
                                                 value={this.state.date}
                                                 size="small"
-                                                id="event-create-date"
+                                                id="event-edit-date"
                                                 onChange={this.handleInputChangeFor('date')}
                                           />
-                                    <InputLabel htmlFor="event-create-time">Time</InputLabel>
                                           <TextField 
+                                                InputLabelProps={{shrink: true}}
+                                                label="Time"
                                                 name="time"
                                                 type="time"
                                                 variant="outlined"
                                                 value={this.state.time}
                                                 size="small"
-                                                id="event-create-time"
+                                                id="event-edit-time"
                                                 onChange={this.handleInputChangeFor('time')}
                                           />
-                                    <InputLabel htmlFor="event-create-location">Location</InputLabel>
                                           <TextField 
+                                                InputLabelProps={{shrink: true}}
+                                                label="Location"
                                                 name="location"
                                                 variant="outlined"
                                                 value={this.state.location}
                                                 size="small"
-                                                id="event-create-location"
+                                                id="event-edit-location"
                                                 onChange={this.handleInputChangeFor('location')}
                                           />
                         </DialogContent>
