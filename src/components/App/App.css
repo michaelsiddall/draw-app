@@ -23,9 +23,12 @@ text: Cabin Sketch
 body text: Work Sans
 */
 body {
-  font-family: 'Work Sans', sans-serif;
-  margin: 0px;
-  color: black;
+font-family: 'Work Sans', sans-serif;
+margin: 0px;
+color: black;
+padding-bottom: 10vh;
+height: 100vh;
+width: 100vw;
 }
 
 img {

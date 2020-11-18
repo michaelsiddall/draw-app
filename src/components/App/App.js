@@ -76,7 +76,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
           <MuiThemeProvider theme={theme}>
           {/* <Nav /> */}
           <Switch>
@@ -217,7 +216,6 @@ class App extends Component {
           </Switch>
           <Footer />
           </MuiThemeProvider>
-        </div>
       </Router>
     );
   }
