@@ -6,6 +6,16 @@ import "./RegisterForm.css"
 import { TextField} from '@material-ui/core';
 
 class RegisterForm extends Component {
+
+          componentDidUpdate(prevProps, prevState){
+            if (this.state.username !== prevState.username || this.state.password !== prevState.password ){
+                  this.setState({
+                          username: this.state.username,
+                          password: this.state.password,
+                  })
+            }
+        }
+        
   state = {
     username: '',
     password: '',
