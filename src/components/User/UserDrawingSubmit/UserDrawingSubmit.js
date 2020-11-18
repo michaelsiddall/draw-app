@@ -120,6 +120,24 @@ class UserDrawingSubmit extends Component {
           <h2 className='title'>Submit Drawing !</h2>
 
           <form onSubmit={this.onSubmit} className='centered'>
+            <h5 className='centered'>Event</h5>
+            <select
+              required
+              className='selectCentered'
+              defaultValue={''}
+              onChange={(event) => this.onChange(event, 'location')}
+            >
+              <option value='' disabled>
+                Select Event
+              </option>
+              {this.props.store.eventReducer.map((event) => {
+                return (
+                  <option key={event.id} value={event.id}>
+                    {event.location}
+                  </option>
+                );
+              })}
+            </select>
             <div className='centered'>
               <h5 className='smallerTitle'>Name</h5>
               <TextField
