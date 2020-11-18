@@ -35,33 +35,18 @@ import AppAdmin from '../AppAdmin/AppAdmin';
 import './App.css';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
 import teal from '@material-ui/core/colors/teal';
-import red from '@material-ui/core/colors/red';
-import { grey } from '@material-ui/core/colors';
+
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ffffff',
+      main: "#00d5c7"
     },
     secondary: {
-      main: teal[300],
-    },
-    purple: {
-      main: purple[300],
-    },
-    green: {
-      main: green[300],
-    },
-    red: {
-      main: red[300],
-    },
-  },
-  disabledBtn: {
-    backgroundColor: grey[500],
-  },
+      main: '#ffffff'
+    }
+  }
 });
 
 class App extends Component {

@@ -42,7 +42,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div id="login-div">
-        <h2 id="login-h2">Login</h2>
+        <h1 id="login-h1">Login</h1>
         {this.props.store.errors.loginMessage && (
           <p className="alert" role="alert">
             {this.props.store.errors.loginMessage}
@@ -62,6 +62,7 @@ class LoginForm extends Component {
               id="login-textfield"
               onChange={this.handleInputChangeFor('username')}
               fullWidth
+              color="secondary"
             />
         </div>
         <div className="textfield-div">
@@ -78,6 +79,7 @@ class LoginForm extends Component {
               id="login-textfield"
               onChange={this.handleInputChangeFor('password')}
               fullWidth
+              color="secondary"
             />
         </div>
         <div className="reg-log-btn-div">

@@ -59,7 +59,7 @@ class EventCreate extends Component {
                                         variant="outlined"
                                         value={this.state.date}
                                         size="small"
-                                        color="primary"
+                                        color="secondary"
                                         id="event-create-date"
                                         onChange={this.handleInputChangeFor('date')}
                                     />
@@ -74,7 +74,7 @@ class EventCreate extends Component {
                                         variant="outlined"
                                         value={this.state.time}
                                         size="small"
-                                        color="primary"
+                                        color="secondary"
                                         id="event-create-time"
                                         onChange={this.handleInputChangeFor('time')}
                                     /></Grid>
@@ -87,7 +87,7 @@ class EventCreate extends Component {
                                         variant="outlined"
                                         value={this.state.location}
                                         size="small"
-                                        color="primary"
+                                        color="secondary"
                                         id="event-create-location"
                                         onChange={this.handleInputChangeFor('location')}
                                     />

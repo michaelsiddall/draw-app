@@ -11,13 +11,25 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
 
 class Footer extends Component {
+  
+  facebook = ()=>{
+    window.open('https://www.facebook.com/drawbyyou','_blank');
+  }
+
+  mail = () =>{
+    window.open('mailto:steve@drawbyyou.com','_blank');
+  }
+
+  instagram = () =>{
+    window.open('https://www.instagram.com/draw_by_you/','_blank');
+  }
 
   render() {
     return (
       <BottomNavigation id="footer-container">
-           <a href="https://www.facebook.com/drawbyyou" target="_blank" rel="noopener noreferrer"><BottomNavigationAction icon={<FacebookIcon id="footer-icon"/>}></BottomNavigationAction></a> 
-          <a href="mailto:steve@drawbyyou.com" target="_blank" rel="noopener noreferrer"><BottomNavigationAction icon={<MailIcon id="footer-icon"/>}></BottomNavigationAction></a>
-           <a href="https://www.instagram.com/draw_by_you/" target="_blank" rel="noopener noreferrer"><BottomNavigationAction icon={<InstagramIcon id="footer-icon"/>}></BottomNavigationAction></a> 
+            <BottomNavigationAction id="bottom-nav" icon={<FacebookIcon id="footer-icon"/>} onClick={this.facebook}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} onClick={this.mail}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<InstagramIcon id="footer-icon"/>} onClick={this.instagram}></BottomNavigationAction>
       </BottomNavigation>
     );
   }

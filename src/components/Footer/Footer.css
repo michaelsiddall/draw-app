@@ -1,18 +1,22 @@
 #footer-container {
-  background-color: rgb(77, 77, 77);
+  background-color: rgb(115, 115, 115);
   bottom: 0;
   width: 100vw;
   position: fixed;
-
+  height: 10vh;
 }
 
 
 #footer-icon{
-  color: white;
+  color: #ffffff;
 }
 
 #footer-icon:hover {
   color: rgb(24, 255, 217)
 }
 
+
+#bottom-nav{
+  padding-top: 3vh;
+}
 
