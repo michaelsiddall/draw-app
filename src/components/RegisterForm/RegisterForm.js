@@ -3,65 +3,91 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
 import "./RegisterForm.css"
+import { TextField} from '@material-ui/core';
 
 class RegisterForm extends Component {
   state = {
     username: '',
     password: '',
+    helperText: '',
+    error: false
   };
 
-  registerUser = (event) => {
-    event.preventDefault();
+              registerUser = (event) => {
+                      event.preventDefault();
 
-    this.props.dispatch({
-      type: 'REGISTER',
-      payload: {
-        username: this.state.username,
-        password: this.state.password,
-      },
-    });
-  }; // end registerUser
+                      if (this.state.username.length>5 && this.state.password.length>10) {
+                            this.props.dispatch({
+                              type: 'REGISTER',
+                              payload: {
+                                username: this.state.username,
+                                password: this.state.password,
+                              },
+                            });
+                            this.props.dispatch({
+                              type: 'LOGIN',
+                              payload: {
+                                username: this.state.username,
+                                password: this.state.password,
+                              },
+                            });
+                      } else {
+                            this.setState({
+                              helperText: 'Must be 5 characters or more',
+                              error: true
+                            })
+                            this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
+                      }
+            }; // end registerUser
 
-  handleInputChangeFor = (propertyName) => (event) => {
-    this.setState({
-      [propertyName]: event.target.value,
-    });
-  };
+              handleInputChangeFor = (propertyName) => (event) => {
+                this.setState({
+                  [propertyName]: event.target.value,
+                });
+              };
 
   render() {
     return (
       <div id="register-div">
         <h2 id="register-h2">Register User</h2>
         {this.props.store.errors.registrationMessage && (
-          <h3 className="alert" role="alert">
+          <p className="alert" role="alert">
             {this.props.store.errors.registrationMessage}
-          </h3>
+          </p>
         )}
-        <div>
-          <label htmlFor="username">
-            Username:
-            <input
+        <div className="textfield-div">
+            <TextField
               type="text"
               name="username"
+              helperText={this.state.helperText}
+              error={this.state.error}
+              variant="outlined"
+              required={true}
+              label="User Name"
+              InputLabelProps={{shrink: true}}
               value={this.state.username}
-              required
+              id="register-textfield"
               onChange={this.handleInputChangeFor('username')}
+              fullWidth
             />
-          </label>
         </div>
-        <div>
-          <label htmlFor="password">
-            Password:
-            <input
+        <div className="textfield-div">
+            <TextField
               type="password"
               name="password"
+              helperText={this.state.helperText}
+              error={this.state.error}
+              variant="outlined"
+              required={true}
+              label="Password"
+              InputLabelProps={{shrink: true}}
               value={this.state.password}
-              required
+              id="register-textfield"
               onChange={this.handleInputChangeFor('password')}
+              fullWidth
             />
-          </label>
         </div>
-        <div>
+        <div className="reg-log-btn-div">
           <Button id="register-btn" onClick={this.registerUser}>Register</Button>
         </div>
       </div>

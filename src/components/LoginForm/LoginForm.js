@@ -13,7 +13,7 @@ class LoginForm extends Component {
     error: false
   };
 
-              login = (event) => {
+            login = (event) => {
                       event.preventDefault();
 
                       if (this.state.username.length>2 && this.state.password.length>2) {
@@ -33,22 +33,22 @@ class LoginForm extends Component {
                       }
             }; // end login
 
-  handleInputChangeFor = (propertyName) => (event) => {
-    this.setState({
-      [propertyName]: event.target.value,
-    });
-  };
+            handleInputChangeFor = (propertyName) => (event) => {
+              this.setState({
+                [propertyName]: event.target.value,
+              });
+            };
 
   render() {
     return (
       <div id="login-div">
         <h2 id="login-h2">Login</h2>
         {this.props.store.errors.loginMessage && (
-          <h3 className="alert" role="alert">
+          <p className="alert" role="alert">
             {this.props.store.errors.loginMessage}
-          </h3>
+          </p>
         )}
-        <div>
+        <div className="textfield-div">
             <TextField
               type="text"
               name="username"
@@ -59,10 +59,12 @@ class LoginForm extends Component {
               label="User Name"
               InputLabelProps={{shrink: true}}
               value={this.state.username}
+              id="login-textfield"
               onChange={this.handleInputChangeFor('username')}
+              fullWidth
             />
         </div>
-        <div>
+        <div className="textfield-div">
             <TextField
               type="password"
               name="password"
@@ -73,10 +75,12 @@ class LoginForm extends Component {
               label="Password"
               InputLabelProps={{shrink: true}}
               value={this.state.password}
+              id="login-textfield"
               onChange={this.handleInputChangeFor('password')}
+              fullWidth
             />
         </div>
-        <div>
+        <div className="reg-log-btn-div">
           <Button id="login-btn" onClick={this.login}>Login</Button>
         </div>
       </div>

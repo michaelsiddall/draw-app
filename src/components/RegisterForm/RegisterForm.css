@@ -12,3 +12,28 @@
 #register-h2 {
     color: white;
 }
+
+#register-btn {
+    background-color: white;
+    box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+}
+
+#register-btn:hover {
+    background-color: rgb(255, 174, 0);
+    box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+    color: white;
+}
+
+#register-textfield{
+    color: white;
+}
+
+.textfield-div{
+    margin-top: 15px;
+}
+
+.reg-log-btn-div{
+    margin-top: 10px;
+    position: relative;
+    left: 70%;
+}
