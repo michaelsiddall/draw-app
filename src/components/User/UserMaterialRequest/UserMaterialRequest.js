@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
+
 import HomeIcon from '@material-ui/icons/Home';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
@@ -26,6 +28,9 @@ const theme = createMuiTheme({
                 textTransform: 'none',
                 height: 48,
                 padding: '0 30px',
+                "&:hover": {
+                    backgroundColor: "#F3722C"
+                },
                 //boxShadow: '0 3px 3px 2px #577590',
             },
         },

@@ -5,15 +5,13 @@ import Button from '@material-ui/core/Button';
 import '../UserStyles.css';
 import HomeIcon from '@material-ui/icons/Home';
 import TextField from '@material-ui/core/TextField';
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+import FormControl from '@material-ui/core/FormControl';
+
 import '../UserMaterialRequest/UserMaterialRequest.css';
 import Swal from 'sweetalert2';
 import ImageUpload from '../../ImageUpload/ImageUpload';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import { Select, MenuItem } from '@material-ui/core';
+import { Select, MenuItem, InputLabel } from '@material-ui/core';
 
 const theme = createMuiTheme({
   overrides: {
@@ -30,8 +28,12 @@ const theme = createMuiTheme({
         textTransform: 'none',
         height: 48,
         padding: '0 30px',
+        "&:hover": {
+          backgroundColor: "#F3722C"
+        },
         //boxShadow: '0 3px 3px 2px #577590',
       },
+
     },
   },
 });
@@ -126,10 +128,11 @@ class UserDrawingSubmit extends Component {
 
           <form onSubmit={this.onSubmit} className='centered'>
             <h5 className='smallerTitle'>Event</h5>
+            <InputLabel id="event-location">Where is your event?</InputLabel>
             <Select
               required
               style={{ width: 200 }}
-              className='selectCentered'
+              id="event-location"
               defaultValue={''}
               onChange={(event) => this.onChange(event, 'location')}
             >
