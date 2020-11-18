@@ -146,6 +146,7 @@ class UserDrawingSubmit extends Component {
               <h5 className='smallerTitle'>Name</h5>
               <TextField
                 type='text'
+                required
                 placeholder='name'
                 onChange={(event) => this.onChange(event, 'name')}
               ></TextField>
