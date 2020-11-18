@@ -129,7 +129,6 @@ class UserDrawingSubmit extends Component {
             <Select
               required
               style={{ width: 200 }}
-
               className='selectCentered'
               defaultValue={''}
               onChange={(event) => this.onChange(event, 'location')}
