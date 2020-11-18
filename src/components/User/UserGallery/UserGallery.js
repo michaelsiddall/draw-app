@@ -17,7 +17,6 @@ import InfoIcon from '@material-ui/icons/Info';
 // the component name TemplateClass with the name for the new
 // component.
 class UserGallery extends Component {
-
   componentDidMount = () => {
     console.log('in componentDidMount');
     this.props.dispatch({
@@ -33,21 +32,20 @@ class UserGallery extends Component {
     });
   };
 
-    }
-    goHome = () => {
-        this.props.history.push('/userhome');
-    };
+  goHome = () => {
+    this.props.history.push('/userhome');
+  };
 
-    render() {
-        return (
-            <div className="centered">
-                <HomeIcon
-                    fontSize="large"
-                    style={{ color: '#577590' }}
-                    onClick={this.goHome}
-                />
-                <h2 className='title'>Gallery</h2>
-           <select
+  render() {
+    return (
+      <div className='centered'>
+        <HomeIcon
+          fontSize='large'
+          style={{ color: '#577590' }}
+          onClick={this.goHome}
+        />
+        <h2 className='title'>Gallery</h2>
+        <select
           required
           className='selectCentered'
           defaultValue={''}
@@ -65,18 +63,16 @@ class UserGallery extends Component {
             );
           })}
         </select>
-                <div className="pendingGrid">
-                    <GridList cellHeight={100}>
-
-                        {this.props.store.approved.map((drawing) => {
-
-                            return (<UserGalleryCard drawing={drawing} />);
-                        })}
-                    </GridList>
-                </div>
-            </div >
-        );
-    }
+        <div className='pendingGrid'>
+          <GridList cellHeight={100}>
+            {this.props.store.approved.map((drawing) => {
+              return <UserGalleryCard drawing={drawing} />;
+            })}
+          </GridList>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default connect(mapStoreToProps)(UserGallery);
