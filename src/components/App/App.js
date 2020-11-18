@@ -34,12 +34,14 @@ import EventAdminQueue from "../EventAdmin/EventAdminQueue/EventAdminQueue";
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
+
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import teal from '@material-ui/core/colors/teal';
 import red from '@material-ui/core/colors/red';
 import { grey } from '@material-ui/core/colors';
+import theme from '../ThemeProvider';
 
 
 const theme = createMuiTheme({
@@ -65,6 +67,8 @@ const theme = createMuiTheme({
   },
   
 });
+
+
 
 class App extends Component {
   componentDidMount() {
@@ -124,64 +128,65 @@ class App extends Component {
             />
 
             {/* For protected routes, the view could show one of several things on the same route.
+
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-            <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
-              exact
-              path="/user"
-              component={UserPage}
-            />
+              <ProtectedRoute
+                // logged in shows UserPage else shows LoginPage
+                exact
+                path="/user"
+                component={UserPage}
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/info"
-              component={InfoPage}
-            />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/info"
+                component={InfoPage}
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/events"
-              component={EventAdminEvent}
-            />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/events"
+                component={EventAdminEvent}
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/events/completed"
-              component={EventCompleted}
-            />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/events/completed"
+                component={EventCompleted}
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              path="/event/:id/requests"
-              component={EventAdminQueue}
-            />
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/allrequests"
-              component={EventAdminRequest}
-            />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                path="/event/:id/requests"
+                component={EventAdminQueue}
+              />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/allrequests"
+                component={EventAdminRequest}
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/drawings"
-              component={EventAdminDrawings}
-            />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/drawings"
+                component={EventAdminDrawings}
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/admin"
-              component={AppAdmin}
-            />
+              <ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/admin"
+                component={AppAdmin}
+              />
 
-            {/* When a value is supplied for the authRedirect prop the user will
+              {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
             <ProtectedRoute
@@ -218,6 +223,7 @@ class App extends Component {
           <Footer />
           </MuiThemeProvider>
           </div>
+
       </Router>
     );
   }
