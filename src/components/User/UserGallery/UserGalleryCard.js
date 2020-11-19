@@ -6,12 +6,11 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Swal from 'sweetalert2';
 
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+//import ImageListItem from '@material-ui/core';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -32,11 +31,11 @@ class EventAdminDrawingsCard extends Component {
   render() {
     return (
       <div>
-        <GridListTile key={this.props.drawing.id}>
+        <ImageListItem key={this.props.drawing.id}>
           <img src={this.props.drawing.image_url} alt='drawing' />
           {
 
-            <GridListTileBar
+            <ImageListItem
 
               title={<span>By: {this.props.drawing.name} </span>}
               // subtitle={<span>By: {drawing.name} </span>}
@@ -48,7 +47,7 @@ class EventAdminDrawingsCard extends Component {
             />
             //   )
           }
-        </GridListTile>
+        </ImageListItem>
       </div>
     );
   }

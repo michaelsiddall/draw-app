@@ -4,20 +4,29 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import UserGalleryCard from './UserGalleryCard';
 import './UserGallery.css';
 import HomeIcon from '@material-ui/icons/Home';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Select, MenuItem, InputLabel } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+
+
 class UserGallery extends Component {
+  getGridListCols = () => {
+    if (isWidthUp('xl', props.width)) {
+      return 4;
+    }
+
+    if (isWidthUp('lg', props.width)) {
+      return 3;
+    }
+
+    if (isWidthUp('md', props.width)) {
+      return 2;
+    }
+
+    return 1;
+  }
+
   componentDidMount = () => {
     console.log('in componentDidMount');
     this.props.dispatch({
@@ -72,11 +81,11 @@ class UserGallery extends Component {
           </Select>
         </FormControl>
         <div className='pendingGrid'>
-          <GridList cellHeight='auto' cols='1'>
+          <ImageList variant="masonry" cols={3} gap={8}>
             {this.props.store.eventDrawingByIdReducer.map((drawing) => {
               return <UserGalleryCard drawing={drawing} />;
             })}
-          </GridList>
+          </ImageList>
         </div>
       </div>
     );
