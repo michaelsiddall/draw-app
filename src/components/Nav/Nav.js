@@ -1,53 +1,86 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {HashRouter, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
-const Nav = (props) => {
-  let loginLinkData = {
-    path: '/login',
-    text: 'Login / Register',
+
+function Nav(props) {
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  if (props.store.user.id != null) {
-    loginLinkData.path = '/user';
-    loginLinkData.text = 'Home';
-  }
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-  return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Draw By You</h2>
-      </Link>
-      <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
-          {/* Show this link if they are logged in or not,
-          but call this link 'Home' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
-          {loginLinkData.text}
-        </Link>
-        {/* Show the link to the info page and the logout button if the user is logged in */}
-        {props.store.user.id && (
-          <>
-            <Link className="nav-link" to="/events">
-              Events
-            </Link>
-            <Link className="nav-link" to="/allrequests">
-              All Requests
-            </Link>
-            <Link className="nav-link" to="/drawings">
-              Drawings
-            </Link>
-            <LogOutButton className="nav-link" />
-          </>
-        )}
-        {/* Always show this link since the about page is not protected */}
+          if (props.store.user.auth_level === "user") {
+            return (
+                  <HashRouter>
+                        <h2 className="nav-title">Draw</h2>
+                            <div className="nav-div">
+                                <ul className="nav-list">
+                                  <li className ="inline-li">
+                                    <Link className="nav-link-li" to="/home">Home</Link>
+                                  </li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}>Log Out</Link></li>
+                                </ul>
+                            </div>
+                        <div className="nav-line"></div> 
+                </HashRouter>
+            );
+          }
 
-      </div>
-    </div>
-  );
-};
+          if (props.store.user.auth_level === "admin"){
+            return (
+                  <HashRouter>
+                        <h2 className="nav-title">Draw</h2>
+                            <div className="nav-div">
+                                <ul className="nav-list">
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/main">Home</Link></li>
+                                  
+                                  <li className ="inline-li" onClick={handleClick}>Events
+                                  <Menu anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}>
+                                    <Link className="nav-link-li" to="/events"><MenuItem onClick={handleClose}>Events</MenuItem></Link>
+                                    <Link className="nav-link-li" to="/allrequests"><MenuItem onClick={handleClose}>All Requests</MenuItem></Link>
+                                  </Menu>
+                                    
+                                  </li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/drawings">Drawings</Link></li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}>Log Out</Link></li>
+                                </ul>
+                            </div>
+                        <div className="nav-line"></div> 
+                </HashRouter>
+            );
+          }
+
+          if (props.store.user.auth_level === "superAdmin") {
+            return (
+                  <HashRouter>
+                        <h2 className="nav-title">Draw</h2>
+                            <div className="nav-div">
+                                <ul className="nav-list">
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/main">Home</Link></li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/events">Events</Link></li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/drawings">Drawings</Link></li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/admin">Admin</Link></li>
+                                  <li className ="inline-li"><Link className="nav-link-li" to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}>Log Out</Link></li>
+                                </ul>
+                            </div>
+                        <div className="nav-line"></div> 
+                </HashRouter>
+            );
+          }
+
+}
 
 export default connect(mapStoreToProps)(Nav);
