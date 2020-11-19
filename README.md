@@ -105,7 +105,17 @@ App Admin will have all the page authorization and functionality of Event Admins
 
 
 <img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/user_landing_page.png" height="400" width="200"/>
+<img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/user_material_request.png?raw=true height="400" width="200"/>
+<img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/user_drawing_submit.png?raw=true height="400" width="200"/>  
+<img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/event_admin_event.png?raw=true height="200" width="400"/>  
+<img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/event_admin_drawing_approval.png?raw=true height="200" width="400"/>                                                                
+                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                 
+                                                                             
+                                                                                                            
 
+                                                                                                                               
+                                                                                                                                
 
 
 ## Built With
