@@ -3,9 +3,13 @@
 
 Duration:  2 week sprint
 
-Draw is a community color therapy initiative inspired by Charles Moertel, who wanted to make a children’s book, but passed away before having the opportunity to achieve his goal.Draw partners with local organizations to host coloring days where people express creativity, share stories, and grow community by adding pages to the ever-growing children’s book.
+Draw is a community color therapy initiative inspired by Charles Moertel, who wanted to make a children’s book, but passed away before having the opportunity to achieve his goal.  Draw partners with local organizations to host coloring days where people express creativity, share stories, and grow community by adding pages to the ever-growing children’s book.
 
-This mobile app was created to allow users at a Draw event to scan a QR code which brings them to a landing page allowing them to request drawing materials to be delivered to their table. Upon completion of drawing, user are able submit their image via upload & sent to an approval queue.  Once images arevapproved by Event Admins, users can view all the approved images along with artist info in gallery of their specific event.  Event Admins are able to log in and view material requests for each table.  Once request fulfilled, Event Admins can mark requests as complete or delete them.  As user submit uploaded images, Event Admins can approve, disapprove, or delete images.  Approved images will then be availabel for all users to view.  Event Admins are able to create new events & delete past events.  App Admins have the ability to perform all functions of Event Admins in addition to be able to create, authorize, and remove Event Admins.  
+Past Draw events had participants arrive at an event, sit at a table already provided with paper and drawing materials.  Particpants would color and turn in their physical drawings at the end of the event.  After the event, Draw would then have to manually scan in each drawing and upload it to their website and socials.  This created a few problems.  First, participants in the event would often never see their works again or have to wait several days or more to view it on Draw's website or social media.  Two, the team at Draw would be required to perform time consuming, additional work after the event in order to make the images acessable online.  Third, in the age of COVID and social distancing, finding a way to deliver sanitized drawing materials upon request & reduce the amount of unnecessary Participant and Draw Staff interaction at Draw events would not only make the event safer, but also more performent.  
+
+This mobile app was created to allow users at a Draw event to scan a QR code provided at the table which brings them to a user landing page.   Thus allowing them to request drawing materials to be delivered to their table. Upon completion of drawing, participants are easilty able take a picture & submit their image via upload from their phone.  Once approved by Event Admins, participants are able to view the images in real time during the event.  Event Admins are abe to receive drawing material requests at each event in real time and distribute.  Upon receiving drawing submissions, Event Admins are able to approve, disapprove, and delete images.  All images can be instantly downloaded for use by Draw staff in other social media or promotion.  Thru use of this appplication, we hope to make Draw's events safer, more technically interactive, and create a seamless workflow for Draw pre & post events.  
+ 
+ 
 
 
 ## Prerequisites
@@ -77,78 +81,31 @@ If you would like to name your database something else, you will need to change 
 - Run `npm run client`
 - Navigate to `localhost:3000`
 
-## Debugging
+## Usage
+This app has 3 views:  Participant, Event Admin, and App Admin
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+Participant: 
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
+When at a Draw event, participant scans a QR code which brings them to a landing page allowing them to request drawing materials to be delivered to their table.  The participant will select the event they are at from a drop down menu and select the table number they are at (provided at the table) and enter the number of participants at the table. Upon completion of drawing, participants are able submit their image via upload & sent to an approval queue.  Participants will select the event they are at and the will enter a name attached to the drawing.  They will have the option to include an email addresss, Instagram username, and add informaiton about their drawig.  Once images are approved by Event Admins, participants can view all the approved images along with artist info in gallery of their specific event. Participants can also click to donate to Draw and are redirected to a 3rd party donation page.
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+Event Admin:  
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
+Material Requests: 
+Event Admins are able to register a username and password.  Once granted authorization from App Admin, logged in Event Admins are able to create, edit and delete Draw events.  At the events, Event Admins are able to navigate to an Events Page and view drawing material requests by clicking "Queue" under Material Requests. Once in the event "Queue", Event Admins will see constantly refreshed page view of all incoming material request submissions.  Upon delivery of requested drawing materials, Event Admins can mark the request as "complete" and it will remove it from the queue.  They can also permanently delete it once the event is over. 
 
-## Testing Routes with Postman
+Submitted Drawing Approval:
 
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
+Event Admins are able to view all submitted drawings.  They are able to "Approve", "Disapprove", "Delete", or "Download" each image.  Only images that have been approved will be visable in the Gallery of each event allowing Participants to view them in real time at the event.  Disapproved images will move to a separate "Disapproved" images page that will allow for "Approval" in the future.  This feature ensures that Event Admins that are uncertain about Draw's guidelines of appropriateness are not deleting images that might not have needed to be diapproved.  The "Delete" feature allows the removal of any obvious inappropriate or offensive images.  The "Download" feature allows "Draw" to download images to be used within other social apps or means for the purposes of promoting the Draw platform.  
 
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
+App Admin:  
 
-1. Start the server - `npm run server`
-2. [Import the sample routes JSON file](./PostmanPrimeSoloRoutes.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
+App Admin will have all the page authorization and functionality of Event Admins, in addition to the ability to create, edit, and remove Event Admin as well as additional App Admins. 
 
-After running the login route above, you can try any other route you've created that requires a logged in user!
 
-## Production Build
+## Built With
 
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
+-Node -Javascript -React -React Redux -Postgres -Passport -Material UI - AWS S3 - 
 
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm start`
-- Navigate to `localhost:5000`
+## Acknowledgemet
+Thanks to the Tarjan Cohort (Swing, Swing) and the Prime Instruction Team of Edan Schwartz, Dev Jana, and Casie Siekman.
 
-## Lay of the Land
-
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
-
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
-
-Directory Structure:
-
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
