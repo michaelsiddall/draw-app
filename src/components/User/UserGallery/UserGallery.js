@@ -11,26 +11,17 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 
 
 class UserGallery extends Component {
-  getGridListCols = () => {
-    if (isWidthUp('xl', props.width)) {
-      return 4;
-    }
-
-    if (isWidthUp('lg', props.width)) {
-      return 3;
-    }
-
-    if (isWidthUp('md', props.width)) {
-      return 2;
-    }
-
-    return 1;
-  }
+  state = {
+    fetchEventDrawings: false,
+  };
 
   componentDidMount = () => {
     console.log('in componentDidMount');
     this.props.dispatch({
       type: 'FETCH_EVENTS',
+    });
+    this.props.dispatch({
+      type: 'FETCH_APPROVED_DRAWINGS',
     });
   };
 
@@ -39,6 +30,9 @@ class UserGallery extends Component {
     this.props.dispatch({
       type: 'FETCH_APPROVED_EVENT_DRAWINGS',
       url: `/api/drawing/approved/${event.target.value}`,
+    });
+    this.setState({
+      fetchEventDrawings: true
     });
   };
 
@@ -82,9 +76,13 @@ class UserGallery extends Component {
         </FormControl>
         <div className='pendingGrid'>
           <ImageList variant="masonry" cols={3} gap={8}>
-            {this.props.store.eventDrawingByIdReducer.map((drawing) => {
-              return <UserGalleryCard drawing={drawing} />;
-            })}
+            {this.state.fetchEventDrawings ?
+              this.props.store.eventDrawingByIdReducer.map((drawing) => {
+                return <UserGalleryCard drawing={drawing} />;
+              }) :
+              this.props.store.approved.map((drawing) => {
+                return <UserGalleryCard drawing={drawing} />;
+              })}
           </ImageList>
         </div>
       </div>

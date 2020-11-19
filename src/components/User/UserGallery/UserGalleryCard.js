@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 //import ImageListItem from '@material-ui/core';
@@ -33,22 +34,22 @@ class EventAdminDrawingsCard extends Component {
       <div>
         <ImageListItem key={this.props.drawing.id}>
           <img src={this.props.drawing.image_url} alt='drawing' />
-          {
+          <ImageListItemBar position="below"
+            title={this.props.drawing.name}
+            subtitle={this.props.drawing.about}
 
-            <ImageListItem
 
-              title={<span>By: {this.props.drawing.name} </span>}
-              // subtitle={<span>By: {drawing.name} </span>}
-              actionIcon={
-                <IconButton aria-label={`info`}>
-                  <InfoIcon />
-                </IconButton>
-              }
-            />
-            //   )
-          }
+            actionIcon={
+              <IconButton
+                aria-label={`click for info`}
+                onClick={this.clickText}
+              >
+                <InfoIcon />
+              </IconButton>
+            }
+          />
         </ImageListItem>
-      </div>
+      </div >
     );
   }
 }
