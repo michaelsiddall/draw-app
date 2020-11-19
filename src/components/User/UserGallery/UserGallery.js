@@ -18,11 +18,12 @@ class UserGallery extends Component {
   componentDidMount = () => {
     console.log('in componentDidMount');
     this.props.dispatch({
-      type: 'FETCH_EVENTS',
+      type: 'GET_APPROVED_DRAWINGS',
     });
     this.props.dispatch({
-      type: 'FETCH_APPROVED_DRAWINGS',
+      type: 'FETCH_EVENTS',
     });
+
   };
 
   onChange = (event) => {
