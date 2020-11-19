@@ -72,7 +72,7 @@ class UserGallery extends Component {
           </Select>
         </FormControl>
         <div className='pendingGrid'>
-          <GridList cellHeight='auto' cols='1'>
+          <GridList cellHeight={300} cols='2'>
             {this.props.store.eventDrawingByIdReducer.map((drawing) => {
               return <UserGalleryCard drawing={drawing} />;
             })}
