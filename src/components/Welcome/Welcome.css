@@ -7,13 +7,9 @@
     padding: 5%;
     margin: auto;
     margin-top: 15vh;
-
-}
-
-.user-page-h1 {
     color: white;
 }
 
-.user-page-p{
-    color: white;
+#welcome-mail-icon:hover{
+    color: #18ffd9
 }

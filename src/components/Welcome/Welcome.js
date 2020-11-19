@@ -21,7 +21,7 @@ class Welcome extends Component {
                                   <p className="user-page-p">Your ID is: {this.props.store.user.id}</p>
                                   <p>Authorization Level: User</p>
                                   <p> Please speak to the site administrator about getting more access!</p>
-                                  <p>{<MailIcon onClick={this.mail}/>}</p>
+                                  <p>{<MailIcon id="welcome-mail-icon" onClick={this.mail}/>}</p>
                         </div>
                 </div>
               )
@@ -37,7 +37,7 @@ class Welcome extends Component {
                                   <p>Authorization Level: Admin</p>
                                   <p> Please speak to the site administrator about any issues you may have or 
                                     if you've forgotten your login and/or password!</p>
-                                  <p>{<MailIcon onClick={this.mail}/>}</p>
+                                  <p>{<MailIcon id="welcome-mail-icon" onClick={this.mail}/>}</p>
                         </div>
                 </div>
               )
