@@ -11,7 +11,7 @@ class LoginPage extends Component {
   render() {
     return (
       <HashRouter>
-      <div id="login-page-container" styles={{ backgroundImage:`url(${door})` }}>
+      <div id="login-page-container">
                 <div id="login-form-div">
                   <LoginForm />
                 <center>

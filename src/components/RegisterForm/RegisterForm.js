@@ -71,7 +71,7 @@ class RegisterForm extends Component {
               name="username"
               helperText={this.state.helperText}
               error={this.state.error}
-              variant="outlined"
+              variant="filled"
               required={true}
               label="User Name"
               InputLabelProps={{shrink: true}}
@@ -79,7 +79,7 @@ class RegisterForm extends Component {
               id="register-textfield"
               onChange={this.handleInputChangeFor('username')}
               fullWidth
-              color="secondary"
+              color="primary"
             />
         </div>
         <div className="textfield-div">
@@ -88,7 +88,7 @@ class RegisterForm extends Component {
               name="password"
               helperText={this.state.helperText}
               error={this.state.error}
-              variant="outlined"
+              variant="filled"
               required={true}
               label="Password"
               InputLabelProps={{shrink: true}}
@@ -96,7 +96,7 @@ class RegisterForm extends Component {
               id="register-textfield"
               onChange={this.handleInputChangeFor('password')}
               fullWidth
-              color="secondary"
+              color="primary"
             />
         </div>
         <div className="reg-log-btn-div">
