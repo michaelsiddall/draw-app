@@ -21,25 +21,22 @@ function AdminNav(props) {
 
             return (
                   <HashRouter>
-                        <h2 className="nav-title">Draw</h2>
-                            <div className="nav-div">
-                                <ul className="nav-list">
-                                  <li className ="inline-li"><Link className="nav-link-li" to="/home">Home</Link></li>
-                                  <li className ="inline-li"><Link className="nav-link-li" to="/gallery">Gallery</Link></li>
-                                  <li className ="inline-li" onClick={handleClick}>Events
-                                        <Menu anchorEl={anchorEl}
-                                              keepMounted
-                                              open={Boolean(anchorEl)}
-                                              onClose={handleClose}>
-                                          <Link className="nav-link-li" to="/events"><MenuItem onClick={handleClose}>Events</MenuItem></Link>
-                                          <Link className="nav-link-li" to="/allrequests"><MenuItem onClick={handleClose}>All Requests</MenuItem></Link>
-                                        </Menu>
-                                  </li>
-                                  <li className ="inline-li"><Link className="nav-link-li" to="/drawings">Drawings</Link></li>
-                                  <li className ="inline-li"><Link className="nav-link-li" to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}>Log Out</Link></li>
-                                </ul>
-                            </div>
-                        <div className="nav-line"></div> 
+                            <Paper square id="paper-div" variant="outlined" elevation={3}>
+                                  <Tabs id="nav-tab" centered>
+                                          <Tab label="Home" component={Link} to="/home"/>
+                                          <Tab label="Gallery" component={Link} to="/gallery"/>
+                                          <Tab label="Events" onClick={handleClick}/>
+                                                      <Menu anchorEl={anchorEl}
+                                                              keepMounted
+                                                              open={Boolean(anchorEl)}
+                                                              onClose={handleClose}>
+                                                          <MenuItem component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
+                                                          <MenuItem component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
+                                                      </Menu>
+                                          <Tab label="Drawings" component={Link} to="/drawings" />
+                                          <Tab label="Logout" component={Link} to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}/>
+                                  </Tabs>
+                              </Paper>
                 </HashRouter>
             )
 }

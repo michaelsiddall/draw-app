@@ -5,10 +5,12 @@ import Nav from '../Nav/Nav';
 import AuthEdit from './AuthEdit';
 import mapStateToProps from "../../redux/mapStoreToProps"
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+
+
+import "./AppAdmin.css"
+import Grid from '@material-ui/core/Grid';
+
+
 class AppAdmin extends Component {
   state = {
     heading: 'App Admin',
@@ -30,12 +32,14 @@ class AppAdmin extends Component {
 
                 <h2>Users and Permissions</h2>
                 {this.props.auth.map((auth) => (
-                  <div key={auth.id}>
-                    <p>Username: {auth.username}</p>
-                    <p>Auth level: {auth.auth_level}</p>
-                    <AuthEdit user={auth} />
-                    <AuthDeleteConfirm user={auth} />
-                  </div>
+                  <Grid id="grid-container">
+                        <Grid item xs key={auth.id} id="app-admin-div">
+                                <p>Username: {auth.username}</p>
+                                <p>Auth level: {auth.auth_level}</p>
+                                <AuthEdit user={auth} />
+                                <AuthDeleteConfirm user={auth} />
+                        </Grid>
+                  </Grid>
                 ))}
                 ;
               </div>
