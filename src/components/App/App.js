@@ -35,9 +35,6 @@ import AppAdmin from '../AppAdmin/AppAdmin';
 import './App.css';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import teal from '@material-ui/core/colors/teal';
-
-
 const theme = createMuiTheme({
   palette: {
     primary: {

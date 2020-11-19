@@ -17,7 +17,7 @@ class EventAdminEvent extends Component {
 
 
     render() {
-        if (this.props.store.eventReducer.length >0){
+        if (this.props.store.eventReducer.length >0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin"){
                     return (
                         <HashRouter>
                             <Nav />
@@ -59,7 +59,7 @@ class EventAdminEvent extends Component {
                         </HashRouter>
                     );
         }
-        else if (this.props.store.eventReducer.length === 0){
+        else if (this.props.store.eventReducer.length === 0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin"){
             return (
                     <HashRouter>
                             <Nav />
@@ -72,6 +72,17 @@ class EventAdminEvent extends Component {
                                 </div>
                             </div>
                         </HashRouter>
+            )
+        }
+
+
+        else if (this.props.store.user.auth_level !== "superAdmin" || this.props.store.user.auth_level !=="admin"){
+            return (
+                <div>
+                    <h2>
+                        Sorry! But you are not authorized to be here!
+                    </h2>
+                </div>
             )
         }
         

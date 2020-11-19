@@ -1,5 +1,5 @@
 #footer-container {
-  background-color: rgb(115, 115, 115);
+  background-color: rgb(131, 131, 131);
   bottom: 0;
   width: 100vw;
   position: fixed;
@@ -17,6 +17,8 @@
 
 
 #bottom-nav{
-  padding-top: 3vh;
+  padding: 0;
+  margin: auto 0;
+  color: white;
 }
 

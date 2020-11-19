@@ -4,7 +4,7 @@
     max-width: 100%;
     padding: 25px;
     margin: 0 auto 20px;
-    background-image: linear-gradient(240deg, #ac8efe, #758aff);
+    background-image: linear-gradient(240deg, #9e7aff, #4534ff);
     border-radius: 3px;
     box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
@@ -14,18 +14,21 @@
 }
 
 #login-btn{
-    background-color: white;
+    color: rgb(255, 255, 255);
+    background-color: rgb(212, 8, 69);
     box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
 #login-btn:hover {
-    background-image: linear-gradient(50deg, #ec00cc, #2a95ff);
+    background-image: linear-gradient(50deg, #00aeff, #00e00b);
     box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
     color: white;
 }
 
 #login-textfield {
-    color: white;
+    color: rgb(72, 72, 72);
+    background-color: white;
+    border-radius: 5px;
 }
 
 .textfield-div {
@@ -35,6 +38,6 @@
 .reg-log-btn-div {
     margin-top: 10px;
     position: relative;
-    left: 70%;
+    text-align: right;
 }
 

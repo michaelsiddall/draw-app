@@ -22,7 +22,7 @@ class EventAdminQueue extends Component {
 
   render() {
 
-    if (this.props.store.queueReducer.length > 0) {
+    if (this.props.store.queueReducer.length > 0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin") {
       return (
         <div>
           <Nav />
@@ -57,7 +57,7 @@ class EventAdminQueue extends Component {
 
     }
 
-    else if (this.props.store.queueReducer.length === 0) {
+    else if (this.props.store.queueReducer.length === 0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin") {
       return (
         <div>
           <Nav />
@@ -66,6 +66,16 @@ class EventAdminQueue extends Component {
       )
     }
 
+
+    else if (this.props.store.user.auth_level !== "superAdmin" || this.props.store.user.auth_level !=="admin"){
+            return (
+                <div>
+                    <h2>
+                        Sorry! But you are not authorized to be here!
+                    </h2>
+                </div>
+            )
+        }
 
   }
 }
