@@ -1,7 +1,7 @@
 .pendingGrid{
     align-items: center;
     justify-content: center;
-    display: flex;
+    
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -14,3 +14,7 @@
     margin: auto;
 }
   
+.actionDiv{
+    display: flex;
+    justify-content: space-between;
+}

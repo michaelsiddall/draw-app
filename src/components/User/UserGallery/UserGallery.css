@@ -5,12 +5,18 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.imageText, .galleryItem img{
-    width: 200px;
-    height: 200px;
-    padding: 20px;
-    object-fit: cover;
+    width: 80%;
     margin: auto;
 }
+
+.page{
+    width: 90%;
+    margin: auto;
+}
+
+ .galleryItem {
+    width: 300px;
+    padding: 20px;
+    margin: 10px;
+}
+

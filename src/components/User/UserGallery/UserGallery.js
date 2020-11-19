@@ -76,13 +76,6 @@ class UserGallery extends Component {
           </Select>
         </FormControl>
         <div className='pendingGrid'>
-<<<<<<< HEAD
-          <GridList cellHeight={300} cols='2'>
-            {this.props.store.eventDrawingByIdReducer.map((drawing) => {
-              return <UserGalleryCard drawing={drawing} />;
-            })}
-          </GridList>
-=======
           <ImageList variant="masonry" cols={2} gap={3}>
             {this.state.fetchEventDrawings ?
               this.props.store.eventDrawingByIdReducer.map((drawing) => {
@@ -92,7 +85,6 @@ class UserGallery extends Component {
                 return <UserGalleryCard drawing={drawing} />;
               })}
           </ImageList>
->>>>>>> 3c49e5eb79a2dc2c56c49d166770d5e0073d1c5f
         </div>
       </div>
     );

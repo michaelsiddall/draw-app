@@ -9,7 +9,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 import Nav from '../../Nav/Nav';
-
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
 class EventAdminDrawings extends Component {
     state = {
         heading: 'Drawings',
@@ -40,38 +41,48 @@ class EventAdminDrawings extends Component {
         return (
             <div>
                 <Nav />
+                <div className="page">
 
-                <h2>{this.state.heading}</h2>
-                <FormControl >
-                    <InputLabel id="drawing-dropdown-label">Select Drawings to View</InputLabel>
-                    <Select
-                        style={{ width: `300px` }}
-                        labelId="drawing-dropdown-label"
-                        id="drawing-dropdown"
-                        onChange={(event) => this.handleChange(event)}
-                        displayEmpty
-                    >
-                        <MenuItem value={"pending"}>Drawings Pending Approval</MenuItem>
-                        <MenuItem value={"approved"}>Approved Drawings</MenuItem>
-                        <MenuItem value={"disapproved"}>Disapproved Drawings</MenuItem>
-                    </Select>
-                </FormControl>
 
-                {/* {JSON.stringify(this.props.store.drawing)} */}
-                <div className="pendingGrid">
+                    <h2 className="centered smallerTitle">{this.state.heading}</h2>
+                    <p className="centered">click drawing for more information</p>
+                    <div className="centered">
+                        <FormControl >
+                            <InputLabel id="drawing-dropdown-label">Select Drawings to View</InputLabel>
+                            <Select
+                                style={{ width: `300px` }}
+                                labelId="drawing-dropdown-label"
+                                id="drawing-dropdown"
+                                onChange={(event) => this.handleChange(event)}
+                                displayEmpty
+                            >
+                                <MenuItem value={"pending"}>Drawings Pending Approval</MenuItem>
+                                <MenuItem value={"approved"}>Approved Drawings</MenuItem>
+                                <MenuItem value={"disapproved"}>Disapproved Drawings</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
 
-                    {this.state.showDrawings === "pending" &&
-                        this.props.store.pending.map((drawing) => {
-                            return (<EventAdminDrawingsCard drawing={drawing} />);
-                        })}
-                    {this.state.showDrawings === "approved" &&
-                        this.props.store.approved.map((drawing) => {
-                            return (<EventAdminDrawingsCard drawing={drawing} />);
-                        })}
-                    {this.state.showDrawings === "disapproved" &&
-                        this.props.store.disapproved.map((drawing) => {
-                            return (<EventAdminDrawingsCard drawing={drawing} />);
-                        })}
+
+                    {/* {JSON.stringify(this.props.store.drawing)} */}
+                    <div className="galleryGrid">
+                        <ImageList variant="masonry" cols={3} gap={3}>
+
+                            {this.state.showDrawings === "pending" &&
+                                this.props.store.pending.map((drawing) => {
+                                    return (<EventAdminDrawingsCard drawing={drawing} />);
+                                })}
+                            {this.state.showDrawings === "approved" &&
+                                this.props.store.approved.map((drawing) => {
+                                    return (<EventAdminDrawingsCard drawing={drawing} />);
+                                })}
+                            {this.state.showDrawings === "disapproved" &&
+                                this.props.store.disapproved.map((drawing) => {
+                                    return (<EventAdminDrawingsCard drawing={drawing} />);
+                                })}
+                        </ImageList>
+
+                    </div>
                 </div>
             </div >
         );

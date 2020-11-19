@@ -2,7 +2,7 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
-    color: #f2f2f2;
+    color:  #577590;
     padding-left: 10px;
 }
 
@@ -34,4 +34,16 @@
 
 .nav-right {
   float: right;
+}
+
+.title{
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 5em;
+  color: #577590;
+  text-align: center;
+
+}
+
+.title:hover{
+  color: #277DA1;
 }
