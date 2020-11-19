@@ -17,7 +17,8 @@
 
 
 #bottom-nav{
-  padding-top: 1.5vh;
+  padding: 0;
+  margin: auto 0;
   color: white;
 }
 

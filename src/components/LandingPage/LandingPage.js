@@ -15,9 +15,6 @@ import charity1 from "../../Images/Nami.png"
 import charity2 from "../../Images/Childrens.png"
 import charity3 from "../../Images/CF.png"
 
-//components
-import HomeNav from "./HomeNav/HomeNav"
-import Events from "./Events/Events";
 
 
 class LandingPage extends Component {
@@ -28,10 +25,7 @@ class LandingPage extends Component {
             <div id="header-draw">
                         <h1 id="draw-h1">Draw</h1>
             </div>
-            <div id="nav-home">
-                <HomeNav/> 
-            </div>
-                <div id="about-div">
+                <div id="about-div">            
                         <div className="p-div">
                           <h2 id="mission-h2">What is Draw's mission?</h2>
                               <p className="p-tag">To create, build, and connect communities through community color therapy.</p>

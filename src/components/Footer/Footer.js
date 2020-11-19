@@ -9,7 +9,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { HashRouter, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 
 class Footer extends Component {
@@ -33,14 +33,13 @@ class Footer extends Component {
 
   render() {
     return (
-      <HashRouter>
       <BottomNavigation showLabels={true} id="footer-container">
             <BottomNavigationAction id="bottom-nav" icon={<FacebookIcon id="footer-icon"/>} label="Facebook" onClick={this.facebook}></BottomNavigationAction>
-            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} label="Mail"  nClick={this.mail}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} label="Mail"  onClick={this.mail}></BottomNavigationAction>
             <BottomNavigationAction id="bottom-nav" icon={<InstagramIcon id="footer-icon"/>} label="Instagram" onClick={this.instagram}></BottomNavigationAction>
             <BottomNavigationAction id="bottom-nav" icon={<CreditCardIcon id="footer-icon"/>} label="Donate" onClick={this.donate}></BottomNavigationAction>
             <BottomNavigationAction id="bottom-nav" icon={<AccountCircleIcon id="footer-icon"/>} label="Login" component={Link} to="/login"></BottomNavigationAction>
-      </BottomNavigation></HashRouter>
+      </BottomNavigation>
     );
   }
 }
