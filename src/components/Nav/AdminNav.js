@@ -23,9 +23,9 @@ function AdminNav(props) {
                   <HashRouter>
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
                                   <Tabs id="nav-tab" centered>
-                                          <Tab label="Home" component={Link} to="/home"/>
-                                          <Tab label="Gallery" component={Link} to="/gallery"/>
-                                          <Tab label="Events" onClick={handleClick}/>
+                                          <Tab id="nav-tab-home" className="nav-tab" label="Home" component={Link} to="/home"/>
+                                          <Tab id="nav-tab-user" className="nav-tab" label="Participants View" component={Link} to="/userhome"/>
+                                          <Tab id="nav-tab-events" className="nav-tab" label="Events" onClick={handleClick}/>
                                                       <Menu anchorEl={anchorEl}
                                                               keepMounted
                                                               open={Boolean(anchorEl)}
@@ -33,8 +33,8 @@ function AdminNav(props) {
                                                           <MenuItem component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
                                                           <MenuItem component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
                                                       </Menu>
-                                          <Tab label="Drawings" component={Link} to="/drawings" />
-                                          <Tab label="Logout" component={Link} to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}/>
+                                          <Tab id="nav-tab-drawings" className="nav-tab" label="Drawings" component={Link} to="/drawings" />
+                                          <Tab id="nav-tab-logout" className="nav-tab" label="Logout" onClick={()=>props.dispatch({type:'LOGOUT'})}/>
                                   </Tabs>
                               </Paper>
                 </HashRouter>

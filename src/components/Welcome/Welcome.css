@@ -2,11 +2,12 @@
     background-color: rgb(53, 67, 255);
     border-radius: 20px;
     text-align: center;
-    width: 40vw;
-    height: 10vw;
-    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5%;
     margin: auto;
     margin-top: 15vh;
+
 }
 
 .user-page-h1 {

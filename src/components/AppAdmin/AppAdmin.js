@@ -48,11 +48,13 @@ class AppAdmin extends Component {
    
     else {
       return (
-        <div>
+        <div >
           <Nav />
-          <h2>
-            Sorry! But you are not authorized to be here! 
-          </h2>
+                <div className="unauthorized-h2">
+                    <h2 className="unauthorized-h2">
+                      Sorry! But you are not authorized to be here! 
+                    </h2>
+                </div>
         </div>
       )
     }

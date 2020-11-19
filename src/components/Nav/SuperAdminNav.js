@@ -12,22 +12,22 @@ import Tab from '@material-ui/core/Tab';
 
 function SuperAdminNav(props) {
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+            const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+            const handleClick = (event) => {
+              setAnchorEl(event.currentTarget);
+            };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+            const handleClose = () => {
+              setAnchorEl(null);
+            };
 
             return (
                   <HashRouter>
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
-                                  <Tabs indicatorColor="primary" className="nav-tab" centered>
+                                  <Tabs className="nav-tab" centered>
                                           <Tab id="nav-tab-home" className="nav-tab" label="Home" component={Link} to="/home"/>
-                                          <Tab id="nav-tab-gallery" className="nav-tab" label="Gallery" component={Link} to="/gallery"/>
+                                          <Tab id="nav-tab-user" className="nav-tab" label="Participants View" component={Link} to="/userhome"/>
                                           <Tab id="nav-tab-events" className="nav-tab" label="Events" onClick={handleClick}/>
                                                       <Menu anchorEl={anchorEl}
                                                               keepMounted
@@ -38,7 +38,7 @@ function SuperAdminNav(props) {
                                                       </Menu>
                                           <Tab id="nav-tab-drawings" className="nav-tab" label="Drawings" component={Link} to="/drawings" />
                                           <Tab id="nav-tab-admin" className="nav-tab" label="Admin" component={Link} to="/admin"/>
-                                          <Tab id="nav-tab-logout" className="nav-tab" label="Logout" component={Link} to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}/>
+                                          <Tab id="nav-tab-logout" className="nav-tab" label="Logout" onClick={()=>props.dispatch({type:'LOGOUT'})}/>
                                   </Tabs>
                               </Paper>
                 </HashRouter>
