@@ -4,25 +4,26 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import UserGalleryCard from './UserGalleryCard';
 import './UserGallery.css';
 import HomeIcon from '@material-ui/icons/Home';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Select, MenuItem, InputLabel } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+
+
 class UserGallery extends Component {
+  state = {
+    fetchEventDrawings: false,
+  };
+
   componentDidMount = () => {
     console.log('in componentDidMount');
     this.props.dispatch({
+      type: 'GET_APPROVED_DRAWINGS',
+    });
+    this.props.dispatch({
       type: 'FETCH_EVENTS',
     });
+
   };
 
   onChange = (event) => {
@@ -30,6 +31,9 @@ class UserGallery extends Component {
     this.props.dispatch({
       type: 'FETCH_APPROVED_EVENT_DRAWINGS',
       url: `/api/drawing/approved/${event.target.value}`,
+    });
+    this.setState({
+      fetchEventDrawings: true
     });
   };
 
@@ -72,11 +76,23 @@ class UserGallery extends Component {
           </Select>
         </FormControl>
         <div className='pendingGrid'>
+<<<<<<< HEAD
           <GridList cellHeight={300} cols='2'>
             {this.props.store.eventDrawingByIdReducer.map((drawing) => {
               return <UserGalleryCard drawing={drawing} />;
             })}
           </GridList>
+=======
+          <ImageList variant="masonry" cols={2} gap={3}>
+            {this.state.fetchEventDrawings ?
+              this.props.store.eventDrawingByIdReducer.map((drawing) => {
+                return <UserGalleryCard drawing={drawing} />;
+              }) :
+              this.props.store.approved.map((drawing) => {
+                return <UserGalleryCard drawing={drawing} />;
+              })}
+          </ImageList>
+>>>>>>> 3c49e5eb79a2dc2c56c49d166770d5e0073d1c5f
         </div>
       </div>
     );
