@@ -102,7 +102,10 @@ App Admin:
 App Admin will have all the page authorization and functionality of Event Admins, in addition to the ability to create, edit, and remove Event Admin as well as additional App Admins. 
 
 ## Screen Shots
-/Users/michaelsiddall/Prime/tier3/group_project/draw-app/public/wireframes/user_landing_page.png
+
+
+<img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/user_landing_page.png"/>
+
 
 
 ## Built With
