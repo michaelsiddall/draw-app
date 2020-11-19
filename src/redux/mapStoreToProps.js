@@ -3,6 +3,7 @@ const mapStoreToProps = (reduxState) => {
     // reduxState properties bound to "props.store"
     // ---------
     store: reduxState,
+    auth: reduxState.auth,
   };
 };
 
