@@ -76,7 +76,7 @@ class UserGallery extends Component {
           </Select>
         </FormControl>
         <div className='pendingGrid'>
-          <ImageList variant="masonry" cols={3} gap={8}>
+          <ImageList variant="masonry" cols={2} gap={3}>
             {this.state.fetchEventDrawings ?
               this.props.store.eventDrawingByIdReducer.map((drawing) => {
                 return <UserGalleryCard drawing={drawing} />;

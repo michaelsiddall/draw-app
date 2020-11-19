@@ -29,6 +29,16 @@ class EventAdminDrawingsCard extends Component {
     });
   };
 
+  infoClick = () => {
+
+    Swal.fire({
+      title: `drawing by ${this.props.drawing.name}`,
+      text: this.props.drawing.about,
+      imageUrl: this.props.drawing.image_url,
+      imageAlt: 'drawing',
+    });
+  }
+
   render() {
     return (
       <div>
@@ -42,7 +52,7 @@ class EventAdminDrawingsCard extends Component {
             actionIcon={
               <IconButton
                 aria-label={`click for info`}
-                onClick={this.clickText}
+                onClick={this.infoClick}
               >
                 <InfoIcon />
               </IconButton>
