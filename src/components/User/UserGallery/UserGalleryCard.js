@@ -35,9 +35,9 @@ class EventAdminDrawingsCard extends Component {
         <GridListTile key={this.props.drawing.id}>
           <img src={this.props.drawing.image_url} alt='drawing' />
           {
-            //         (this.props.drawing.name.length != 0 ||
-            // this.props.drawing.about.length != 0) && (
+
             <GridListTileBar
+
               title={<span>By: {this.props.drawing.name} </span>}
               // subtitle={<span>By: {drawing.name} </span>}
               actionIcon={

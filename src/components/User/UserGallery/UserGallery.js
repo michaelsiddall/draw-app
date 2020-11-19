@@ -5,7 +5,8 @@ import UserGalleryCard from './UserGalleryCard';
 import './UserGallery.css';
 import HomeIcon from '@material-ui/icons/Home';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-
+import { Select, MenuItem, InputLabel } from '@material-ui/core';
+import FormControl from '@material-ui/core/FormControl';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -45,26 +46,33 @@ class UserGallery extends Component {
           onClick={this.goHome}
         />
         <h2 className='title'>Gallery</h2>
-        <select
-          required
-          className='selectCentered'
-          defaultValue={''}
-          onChange={(event) => this.onChange(event)}
-        >
-          <option value='' disabled>
-            Select Event
-          </option>
+        <FormControl>
 
-          {this.props.store.eventReducer.map((event) => {
-            return (
-              <option key={event.id} value={event.id}>
-                {event.location}
-              </option>
-            );
-          })}
-        </select>
+
+          <InputLabel id="gallery-select">Select Event</InputLabel>
+          <Select
+            required
+            id="gallery-select"
+            style={{ width: 200 }}
+            defaultValue={''}
+            onChange={(event) => this.onChange(event)}
+            placeholder='Select Event'
+          >
+            <MenuItem value='' disabled>
+              Select Event
+          </MenuItem>
+
+            {this.props.store.eventReducer.map((event) => {
+              return (
+                <MenuItem key={event.id} value={event.id}>
+                  {event.location}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
         <div className='pendingGrid'>
-          <GridList cellHeight={100}>
+          <GridList cellHeight='auto' cols='1'>
             {this.props.store.eventDrawingByIdReducer.map((drawing) => {
               return <UserGalleryCard drawing={drawing} />;
             })}
