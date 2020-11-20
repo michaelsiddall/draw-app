@@ -52,7 +52,7 @@ class AppAdmin extends Component {
    
     else if(this.props.store.user.auth_level !=="superAdmin"){
       return (
-        <div className="app-main-container">
+        <div className="app-unauthorized-container">
           <Nav />
                 <div className="unauthorized-h2">
                     <h2 className="unauthorized-h2">

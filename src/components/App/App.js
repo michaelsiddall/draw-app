@@ -27,6 +27,7 @@ import EventAdminRequest from '../EventAdmin/EventAdminRequest/EventAdminRequest
 import EventCompleted from '../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
 
+import Error404 from "../Error404/Error404";
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
@@ -171,7 +172,7 @@ class App extends Component {
               />
 
               {/* If none of the other routes matched, we will show a 404. */}
-              <Route render={() => <h1>404</h1>} />
+              <Route render={() => <Error404/>} />
             </Switch>
           </MuiThemeProvider>
         

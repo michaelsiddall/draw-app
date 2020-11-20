@@ -40,8 +40,8 @@ function EventsMenu(props) {
                                                                 }}
                                                             getContentAnchorEl={null}
                                                             elevation={0}>
-                                                          <MenuItem id="nav-menu-item" component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
-                                                          <MenuItem id="nav-menu-item" component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
+                                                          <MenuItem id="nav-menu-item-events" component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
+                                                          <MenuItem id="nav-menu-item-events" component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
                                                       </Menu>
                                             </>
                                     );

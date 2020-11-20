@@ -42,10 +42,10 @@ function ParticipantsMenu(props) {
                                                                         getContentAnchorEl={null}
                                                                         elevation={0}>
 
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/userhome" target="_blank" onClick={handleClose}>User Home</MenuItem>
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/submit" target="_blank" onClick={handleClose}>User Submit</MenuItem>
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/request" target="_blank" onClick={handleClose}>User Request</MenuItem> 
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/gallery" target="_blank" onClick={handleClose}>User Gallery</MenuItem>   
+                                                            <MenuItem id="nav-menu-item-user" component={Link} to="/userhome" target="_blank" onClick={handleClose}>User Home</MenuItem>
+                                                            <MenuItem id="nav-menu-item-user" component={Link} to="/submit" target="_blank" onClick={handleClose}>User Submit</MenuItem>
+                                                            <MenuItem id="nav-menu-item-user" component={Link} to="/request" target="_blank" onClick={handleClose}>User Request</MenuItem> 
+                                                            <MenuItem id="nav-menu-item-user" component={Link} to="/gallery" target="_blank" onClick={handleClose}>User Gallery</MenuItem>   
                                                       </Menu>
                                             </>
                                     );
