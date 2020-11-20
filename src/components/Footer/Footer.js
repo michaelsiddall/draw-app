@@ -35,7 +35,7 @@ class Footer extends Component {
     return (
       <BottomNavigation showLabels={true} id="footer-container">
             <BottomNavigationAction id="bottom-nav" icon={<FacebookIcon id="footer-icon"/>} label="Facebook" onClick={this.facebook}></BottomNavigationAction>
-            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} label="Mail"  onClick={this.mail}></BottomNavigationAction>
+            <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon"/>} label="Email"  onClick={this.mail}></BottomNavigationAction>
             <BottomNavigationAction id="bottom-nav" icon={<InstagramIcon id="footer-icon"/>} label="Instagram" onClick={this.instagram}></BottomNavigationAction>
             <BottomNavigationAction id="bottom-nav" icon={<CreditCardIcon id="footer-icon"/>} label="Donate" onClick={this.donate}></BottomNavigationAction>
             <BottomNavigationAction id="bottom-nav" icon={<AccountCircleIcon id="footer-icon"/>} label="Login" component={Link} to="/login"></BottomNavigationAction>

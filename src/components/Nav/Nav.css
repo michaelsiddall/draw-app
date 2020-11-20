@@ -1,49 +1,60 @@
-.nav-title {
-    font-size: 24px;
-    font-weight: 700;
-    display: inline-block;
-    color:  #577590;
-    padding-left: 10px;
+#paper-div {
+  background-image: linear-gradient(40deg, #714affde, #5fb1c0);
 }
 
-.nav {
-  margin: 0 0 30px;
-  background-color: #00acb0;
-  overflow: hidden;
-}
-
-.nav-link {
-  float: left;
-  color: #f2f2f2;
-  background-color: #00acb0;
-  text-align: center;
-  padding: 24px 10px;
-  text-decoration: none;
-  font-size: 15px;
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
-  border:none;
-  cursor: pointer;
-  outline:0;
-}
-
-.nav-link:hover {
-  background-color: #008183;
-}
-
-.nav-right {
-  float: right;
-}
-
-.title{
+#nav-tab-home{
+  color:white;
   font-family: 'Cabin Sketch', cursive;
-  font-size: 5em;
-  color: #577590;
-  text-align: center;
+  font-size: 22px;
+}
+
+#nav-tab-user {
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 22px;
+}
+
+#nav-tab-events {
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 22px;
+}
+
+#nav-tab-drawings {
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 22px;
+}
+
+#nav-tab-admin{
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 22px;
+}
+
+#nav-tab-logout{
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 22px;
+}
+
+#nav-tab-home:hover {
+  background-color: rgb(0, 54, 204);
 
 }
 
-.title:hover{
-  color: #277DA1;
+#nav-tab-user:hover {
+  background-color: rgb(110, 110, 110);
+}
+
+#nav-tab-events:hover {
+  background-color: rgb(163, 0, 204);
+}
+
+#nav-tab-drawings:hover {
+  background-color: rgb(240, 0, 132);
+}
+
+#nav-tab-admin:hover {
+  background-color: rgb(255, 106, 37);
 }

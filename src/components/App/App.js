@@ -8,13 +8,11 @@ import {
 
 import { connect } from 'react-redux';
 
-import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+
+import Welcome from "../Welcome/Welcome";
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -94,12 +92,6 @@ class App extends Component {
 
               {/* EVENT ADMIN ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
               {/* Visiting localhost:3000/about will show the about page. */}
-              <Route
-                // shows AboutPage at all times (logged in or not)
-                exact
-                path='/about'
-                component={AboutPage}
-              />
 
               {/* For protected routes, the view could show one of several things on the same route.
 
@@ -109,16 +101,10 @@ class App extends Component {
               <ProtectedRoute
                 // logged in shows UserPage else shows LoginPage
                 exact
-                path='/user'
-                component={UserPage}
+                path='/welcome'
+                component={Welcome}
               />
 
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/info'
-                component={InfoPage}
-              />
 
               <ProtectedRoute
                 // logged in shows InfoPage else shows LoginPage
@@ -170,7 +156,7 @@ class App extends Component {
                 exact
                 path='/login'
                 component={LoginPage}
-                authRedirect='/user'
+                authRedirect='/welcome'
               />
               <ProtectedRoute
                 // with authRedirect:
@@ -179,16 +165,12 @@ class App extends Component {
                 exact
                 path='/registration'
                 component={RegisterPage}
-                authRedirect='/user'
+                authRedirect='/welcome'
               />
-              <ProtectedRoute
-                // with authRedirect:
-                // - if logged in, redirects to "/user"
-                // - else shows LandingPage at "/home"
+              <Route
                 exact
                 path='/home'
                 component={LandingPage}
-                authRedirect='/user'
               />
 
               {/* If none of the other routes matched, we will show a 404. */}

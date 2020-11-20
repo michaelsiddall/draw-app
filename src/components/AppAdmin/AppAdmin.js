@@ -5,10 +5,12 @@ import Nav from '../Nav/Nav';
 import AuthEdit from './AuthEdit';
 import mapStateToProps from "../../redux/mapStoreToProps"
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+
+
+import "./AppAdmin.css"
+import Grid from '@material-ui/core/Grid';
+
+
 class AppAdmin extends Component {
   state = {
     heading: 'App Admin',
@@ -25,30 +27,37 @@ class AppAdmin extends Component {
 
     if(this.props.store.user.auth_level==="superAdmin"){
        return (
-      <div>
-                <Nav />
-
-                <h2>Users and Permissions</h2>
-                {this.props.auth.map((auth) => (
-                  <div key={auth.id}>
-                    <p>Username: {auth.username}</p>
-                    <p>Auth level: {auth.auth_level}</p>
-                    <AuthEdit user={auth} />
-                    <AuthDeleteConfirm user={auth} />
-                  </div>
-                ))}
-                ;
+              <div>
+                    <Nav />
+                          <div>
+                              <h2 id="app-admin-h2">Users and Permissions</h2> 
+                              <Grid id="app-grid-container" 
+                                        container direction="row" wrap="wrap" spacing={20} justify="center"
+                                        alignItems="center">
+                                    {this.props.auth.map((auth) => (
+                                     
+                                            <Grid item xs key={auth.id} id="app-grid-item">
+                                                    <p id="app-user-p">Username: {auth.username}</p>
+                                                    <p id="app-auth-p">Authorization Level: {auth.auth_level}</p>
+                                                    <AuthEdit user={auth} />
+                                                    <AuthDeleteConfirm user={auth} />
+                                            </Grid>
+                                      
+                                    ))}</Grid>
+                          </div>
               </div>
     );
     }
    
     else {
       return (
-        <div>
+        <div >
           <Nav />
-          <h2>
-            Sorry! But you are not authorized to be here! 
-          </h2>
+                <div className="unauthorized-h2">
+                    <h2 className="unauthorized-h2">
+                      Sorry! But you are not authorized to be here! 
+                    </h2>
+                </div>
         </div>
       )
     }

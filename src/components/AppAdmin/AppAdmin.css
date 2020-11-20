@@ -1,0 +1,43 @@
+#app-grid-item {
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 5%;
+    margin-right: 3%;
+    margin-left: 3%;
+    background-image: linear-gradient(100deg, #ffffffe0, #f3f3f3d7);
+    box-shadow: 3px 6px #b3b3b3af;
+    border-radius: 20px;
+}
+
+#app-user-p {
+    color: rgb(255, 107, 21);
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#app-admin-h2{
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10vh;
+    color: rgb(238, 127, 0);
+    text-decoration: underline;
+}
+
+.admin-span{
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+#app-auth-p{
+    font-size: 14px;
+}
+
+#app-btn{
+    color: rgb(255, 166, 0);
+}
+
+#app-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 112, 60);
+}
