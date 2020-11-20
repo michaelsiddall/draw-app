@@ -14,7 +14,8 @@ class Welcome extends Component {
   render() {
             if (this.props.store.user.auth_level==="user"){
               return (
-                <div>
+                <div className="welcome-div">
+                  <div className="transluscent-welcome">
                   <Nav/>
                         <div id="user-page-container">
                                   <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
@@ -23,35 +24,40 @@ class Welcome extends Component {
                                   <p> Please speak to the site administrator about getting more access!</p>
                                   <p>{<MailIcon id="welcome-mail-icon" onClick={this.mail}/>}</p>
                         </div>
+                    </div>
                 </div>
               )
             }
 
             else if (this.props.store.user.auth_level==="admin"){
               return (
-                <div>
-                  <Nav/>
-                        <div id="user-page-container">
-                                  <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
-                                  <p className="user-page-p">Your ID is: {this.props.store.user.id}</p>
-                                  <p>Authorization Level: Admin</p>
-                                  <p> Please speak to the site administrator about any issues you may have or 
-                                    if you've forgotten your login and/or password!</p>
-                                  <p>{<MailIcon id="welcome-mail-icon" onClick={this.mail}/>}</p>
-                        </div>
+                <div className="welcome-div">
+                  <div className="transluscent-welcome">
+                    <Nav/>
+                          <div id="user-page-container">
+                                    <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
+                                    <p className="user-page-p">Your ID is: {this.props.store.user.id}</p>
+                                    <p>Authorization Level: Admin</p>
+                                    <p> Please speak to the site administrator about any issues you may have or 
+                                      if you've forgotten your login and/or password!</p>
+                                    <p>{<MailIcon id="welcome-mail-icon" onClick={this.mail}/>}</p>
+                          </div>
+                    </div>
                 </div>
               )
             }
 
             else if (this.props.store.user.auth_level==="superAdmin"){
               return (
-                <div>
-                  <Nav/>
-                        <div id="user-page-container">
-                                  <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
-                                  <p className="user-page-p">Your ID is: {this.props.store.user.id}</p>
-                                  <p>Authorization Level: Super Admin</p>
-                        </div>
+                <div className="welcome-div">
+                  <div className="transluscent-welcome">
+                      <Nav/>
+                            <div id="user-page-container">
+                                      <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
+                                      <p className="user-page-p">Your ID is: {this.props.store.user.id}</p>
+                                      <p>Authorization Level: Super Admin</p>
+                            </div>
+                    </div>
                 </div>
               )
             }

@@ -8,6 +8,7 @@ import { Select, MenuItem, InputLabel } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import Footer from '../../Footer/Footer';
 
 
 class UserGallery extends Component {
@@ -43,6 +44,7 @@ class UserGallery extends Component {
 
   render() {
     return (
+      <div id="app-container">
       <div className='centered'>
         <HomeIcon
           fontSize='large'
@@ -86,6 +88,8 @@ class UserGallery extends Component {
               })}
           </ImageList>
         </div>
+      </div>
+      <Footer/>
       </div>
     );
   }

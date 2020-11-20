@@ -26,10 +26,11 @@ class AppAdmin extends Component {
 
     if(this.props.store.user.auth_level==="superAdmin"){
        return (
-              <div>
+              <div className="app-main-container">
+                <div id="transluscent-div">
                     <Nav />
                           <div>
-                              <h2 id="app-admin-h2">Users and Permissions</h2> 
+                              <div className="h2-div"><h2 id="app-admin-h2">Users and Permissions</h2> </div>
                               <Grid id="app-grid-container" 
                                         container direction="row" wrap="wrap" spacing={20} justify="center"
                                         alignItems="center">
@@ -43,14 +44,15 @@ class AppAdmin extends Component {
                                             </Grid>
                                       
                                     ))}</Grid>
+                                    </div>
                           </div>
               </div>
     );
     }
    
-    else {
+    else if(this.props.store.user.auth_level !=="superAdmin"){
       return (
-        <div >
+        <div className="app-unauthorized-container">
           <Nav />
                 <div className="unauthorized-h2">
                     <h2 className="unauthorized-h2">

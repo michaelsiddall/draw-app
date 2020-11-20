@@ -8,10 +8,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/styles';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+import Footer from "../../Footer/Footer"
 
 
 
@@ -31,6 +28,7 @@ class UserLandingPage extends Component {
 
   render() {
     return (
+      <div id="app-container">
       <div className="parentDiv">
         {/* <div className='drawLogo' maxWidth='med'>
           <img src={drawlogo} className='logo' alt='draw logo' />
@@ -73,6 +71,8 @@ class UserLandingPage extends Component {
           </div>
         </div>
       </div >
+            <Footer/>
+      </div>
     );
   }
 }

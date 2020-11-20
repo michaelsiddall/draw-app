@@ -8,9 +8,8 @@ import {
 
 import { connect } from 'react-redux';
 
-import Footer from '../Footer/Footer';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import Welcome from "../Welcome/Welcome";
 import LandingPage from '../LandingPage/LandingPage';
@@ -28,6 +27,7 @@ import EventAdminRequest from '../EventAdmin/EventAdminRequest/EventAdminRequest
 import EventCompleted from '../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
 
+import Error404 from "../Error404/Error404";
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
@@ -55,22 +55,19 @@ class App extends Component {
       <Router>
        
           <MuiThemeProvider theme={theme}> 
-          <div id="app-container">
-            {/* <Nav /> */}
+            
             <Switch>
-              {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
               <Redirect exact from='/' to='/userhome' />
+              <Redirect exact from='/home' to='/login' />
 
               {/* USER ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
               <Route
-                // logged in shows InfoPage else shows LoginPage
                 exact
                 path='/userhome'
                 component={UserLandingPage}
               />
 
               <Route
-                // logged in shows InfoPage else shows LoginPage
                 exact
                 path='/submit'
                 component={UserDrawingSubmit}
@@ -98,6 +95,7 @@ class App extends Component {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+              
               <ProtectedRoute
                 // logged in shows UserPage else shows LoginPage
                 exact
@@ -169,15 +167,13 @@ class App extends Component {
               />
               <Route
                 exact
-                path='/home'
+                path='/about'
                 component={LandingPage}
               />
 
               {/* If none of the other routes matched, we will show a 404. */}
-              <Route render={() => <h1>404</h1>} />
+              <Route render={() => <Error404/>} />
             </Switch>
-            </div>
-            <Footer />
           </MuiThemeProvider>
         
       </Router>

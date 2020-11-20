@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 import ImageUpload from '../../ImageUpload/ImageUpload';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Select, MenuItem, InputLabel } from '@material-ui/core';
+import Footer from '../../Footer/Footer';
 
 const theme = createMuiTheme({
   overrides: {
@@ -117,6 +118,7 @@ class UserDrawingSubmit extends Component {
 
   render() {
     return (
+      <div id="app-container">
       <div className='centered'>
         <MuiThemeProvider theme={theme}>
           <HomeIcon
@@ -207,6 +209,8 @@ class UserDrawingSubmit extends Component {
             </div>
           </form>
         </MuiThemeProvider>
+      </div>
+      <Footer/>
       </div>
     );
   }
