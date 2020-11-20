@@ -13,3 +13,20 @@
 #welcome-mail-icon:hover{
     color: #18ffd9
 }
+
+
+.welcome-div{
+    background-image: url("../../Images/RoyaltyFreeColoredPencils2.jpeg");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.transluscent-welcome{
+    background-color: rgba(255, 255, 255, 0.301);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}

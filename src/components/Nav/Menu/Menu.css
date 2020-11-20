@@ -1,0 +1,31 @@
+#nav-menu{
+    margin-top: .5px;
+}
+
+#nav-menu-item{
+    color: #000000ea;
+}
+
+#nav-menu-item:hover {
+    background-color: #db0000d2;
+    color: white
+}
+
+#nav-menu-item-events {
+    color: #000000ea;
+}
+
+#nav-menu-item-events:hover {
+    background-color: #ff2290c4;
+    color: white
+}
+
+#nav-menu-item-user {
+    color: #000000ea;
+}
+
+#nav-menu-item-user:hover {
+    background-color: #229cffc5;
+    color: white
+}
+
