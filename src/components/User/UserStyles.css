@@ -115,3 +115,9 @@ a{
 #landingButton:hover{
     background-color: #277DA1;
 }
+
+.uploadDiv{
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
