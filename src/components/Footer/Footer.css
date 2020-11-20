@@ -4,6 +4,7 @@
   width: 100vw;
   position: fixed;
   height: 7vh;
+  overflow-x: auto;
 }
 
 
