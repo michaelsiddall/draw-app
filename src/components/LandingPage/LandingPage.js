@@ -73,7 +73,10 @@ class LandingPage extends Component {
                         <span><img id="sponsor" src={sponsor5} alt="Sisyohus"/></span>
                         <span><img id="sponsor" src={sponsor6} alt="Urban"/></span>
                   </div>
-                      <p id="attribute">Royalty Free Photo by Lum3n from Pexels</p>  
+
+                    <p id="attribute">Royalty Free Photos by Lum3n, Pavlo, Miguel Á. Padriñán, Sharon McCutcheon from Pexels</p> 
+
+                      
                     </div>
                     
         </div>
