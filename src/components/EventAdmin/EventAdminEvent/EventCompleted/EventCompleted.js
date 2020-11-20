@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import EventCompletedItem from "../EventCompletedItem/EventCompleteItem"
-import { HashRouter, Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Nav from '../../../Nav/Nav';
 
 class EventCompleted extends Component {
@@ -16,10 +14,9 @@ class EventCompleted extends Component {
 
     render() {
         return (
-            <HashRouter>
                 <div>
                     <Nav />
-                    <Button><Link to="/events">Back to Events</Link></Button>
+                   
                     <div>
                         <table>
                             <thead>
@@ -40,7 +37,6 @@ class EventCompleted extends Component {
                         </table>
                     </div>
                 </div>
-            </HashRouter>
         );
     }
 }
