@@ -27,6 +27,7 @@ class AppAdmin extends Component {
     if(this.props.store.user.auth_level==="superAdmin"){
        return (
               <div className="app-main-container">
+                <div id="transluscent-div">
                     <Nav />
                           <div>
                               <div className="h2-div"><h2 id="app-admin-h2">Users and Permissions</h2> </div>
@@ -43,6 +44,7 @@ class AppAdmin extends Component {
                                             </Grid>
                                       
                                     ))}</Grid>
+                                    </div>
                           </div>
               </div>
     );
