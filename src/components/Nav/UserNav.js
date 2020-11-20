@@ -17,9 +17,9 @@ function UserNav(props) {
             return (
                   <HashRouter>
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
-                                  <Tabs id="nav-tab" centered value={false}>
-                                          <Tab id="nav-tab-home" className="nav-tab" label="Home" component={Link} to="/home"/>
-                                          <Tab id="nav-tab-logout" className="nav-tab" label="Logout" component={Link} to="/home" onClick={logout}/>
+                                  <Tabs id="nav-tab" centered={true} centered value={false} selectionFollowsFocus={false}>
+                                          <Tab id="nav-tab-home" label="Home" component={Link} to="/home"/>
+                                          <Tab id="nav-tab-logout" label="Logout" component={Link} to="/home" onClick={logout}/>
                                   </Tabs>
                               </Paper>
                 </HashRouter>
