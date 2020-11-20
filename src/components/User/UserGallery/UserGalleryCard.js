@@ -33,7 +33,7 @@ class EventAdminDrawingsCard extends Component {
 
     Swal.fire({
       title: `drawing by ${this.props.drawing.name}`,
-      text: this.props.drawing.about,
+      text: this.props.drawing.description,
       imageUrl: this.props.drawing.image_url,
       imageAlt: 'drawing',
     });
@@ -44,9 +44,9 @@ class EventAdminDrawingsCard extends Component {
       <div>
         <ImageListItem key={this.props.drawing.id}>
           <img src={this.props.drawing.image_url} alt='drawing' />
-          <ImageListItemBar position="below"
+          <ImageListItemBar id="itembar" position="below"
             title={this.props.drawing.name}
-            subtitle={this.props.drawing.about}
+            subtitle={this.props.drawing.description}
 
 
             actionIcon={
