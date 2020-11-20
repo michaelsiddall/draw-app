@@ -4,7 +4,7 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import QueueItem from './QueueItem/QueueItem';
 
 import Nav from '../../Nav/Nav';
-
+import "./EventAdminQueue.css"
 
 //requests queue by event
 
@@ -21,13 +21,15 @@ class EventAdminQueue extends Component {
 
 
   render() {
-
+    console.log("QUEUE", this.props.store.queueReducer)
     if (this.props.store.queueReducer.length > 0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin") {
       return (
         <div>
           <Nav />
-          <div>
-            <table>
+          <div id="queue-main-container">
+            <div id="white-div">
+          <div id="queue-main">
+            <table id="queue-table">
               <thead>
                 <tr>
                   <th>Table Number</th>
@@ -49,6 +51,8 @@ class EventAdminQueue extends Component {
               </tbody>
             </table>
           </div>
+          </div>
+        </div>
         </div>
       );
 
