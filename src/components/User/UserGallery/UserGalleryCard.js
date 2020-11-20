@@ -44,7 +44,7 @@ class EventAdminDrawingsCard extends Component {
       <div>
         <ImageListItem key={this.props.drawing.id}>
           <img src={this.props.drawing.image_url} alt='drawing' />
-          <ImageListItemBar position="below"
+          <ImageListItemBar id="itembar" position="below"
             title={this.props.drawing.name}
             subtitle={this.props.drawing.description}
 

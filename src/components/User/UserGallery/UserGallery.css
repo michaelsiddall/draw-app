@@ -27,3 +27,8 @@
 .uploadDiv{
     color: #577590;
 }
+
+#itembar{
+    text-overflow: ellipsis;
+
+}
