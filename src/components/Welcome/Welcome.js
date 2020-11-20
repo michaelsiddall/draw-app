@@ -14,7 +14,7 @@ class Welcome extends Component {
   render() {
             if (this.props.store.user.auth_level==="user"){
               return (
-                <div>
+                <div className="welcome-div">
                   <Nav/>
                         <div id="user-page-container">
                                   <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
@@ -29,7 +29,7 @@ class Welcome extends Component {
 
             else if (this.props.store.user.auth_level==="admin"){
               return (
-                <div>
+                <div className="welcome-div">
                   <Nav/>
                         <div id="user-page-container">
                                   <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
@@ -45,7 +45,7 @@ class Welcome extends Component {
 
             else if (this.props.store.user.auth_level==="superAdmin"){
               return (
-                <div>
+                <div className="welcome-div">
                   <Nav/>
                         <div id="user-page-container">
                                   <h1 className="user-page-h1">Welcome, {this.props.store.user.username}!</h1>
