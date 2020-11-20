@@ -23,9 +23,9 @@ class LandingPage extends Component {
     return (
       <div id="landing-page-container">
             <Nav/>
-            <div id="header-draw">
+            {/* <div id="header-draw">
                         <h1 id="draw-h1">Draw</h1>
-            </div>
+            </div> */}
                 <div id="about-div">            
                         <div className="p-div">
                           <h2 id="mission-h2">What is Draw's mission?</h2>

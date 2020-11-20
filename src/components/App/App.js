@@ -169,7 +169,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path='/home'
+                path='/about'
                 component={LandingPage}
               />
 
