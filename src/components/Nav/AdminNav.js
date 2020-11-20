@@ -37,8 +37,19 @@ function AdminNav(props) {
                                           <Tab id="nav-tab-events" label="Events" onClick={handleClick}/>
                                                       <Menu anchorEl={anchorEl}
                                                               keepMounted
+                                                              id="nav-menu"
                                                               open={Boolean(anchorEl)}
-                                                              onClose={handleClose}>
+                                                              onClose={handleClose}
+                                                              anchorOrigin={{
+                                                                  vertical: 'bottom',
+                                                                  horizontal: 'center',
+                                                                }}
+                                                              transformOrigin={{
+                                                                  vertical: 'top',
+                                                                  horizontal: 'center',
+                                                                }}
+                                                              getContentAnchorEl={null}
+                                                              elevation={0}>
                                                           <MenuItem component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
                                                           <MenuItem component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
                                                       </Menu>

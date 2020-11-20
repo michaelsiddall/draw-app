@@ -62,7 +62,7 @@ class AuthEdit extends Component {
   render() {
     return (
       <span className="admin-span">
-        <Button variant='outlined' onClick={this.handleClickOpen}>
+        <Button variant='outlined' id="app-btn" onClick={this.handleClickOpen}>
           <EditIcon />
         </Button>
         <Dialog

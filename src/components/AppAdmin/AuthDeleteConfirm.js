@@ -39,7 +39,7 @@ class AuthDeleteConfirm extends Component {
   render() {
     return (
       <span className="admin-span">
-        <Button variant='outlined' onClick={this.handleClickOpen}>
+        <Button variant='outlined' id="app-btn" onClick={this.handleClickOpen}>
           <DeleteIcon />
         </Button>
         <Dialog open={this.state.open} onClose={this.handleClose}>

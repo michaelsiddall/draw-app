@@ -35,8 +35,19 @@ function SuperAdminNav(props) {
                                           <Tab id="nav-tab-events" label="Events" onClick={handleClick}/>
                                                       <Menu anchorEl={anchorEl}
                                                               keepMounted
+                                                              id="nav-menu"
                                                               open={Boolean(anchorEl)}
-                                                              onClose={handleClose}>
+                                                              onClose={handleClose}
+                                                              anchorOrigin={{
+                                                                  vertical: 'bottom',
+                                                                  horizontal: 'center',
+                                                                }}
+                                                              transformOrigin={{
+                                                                  vertical: 'top',
+                                                                  horizontal: 'center',
+                                                                }}
+                                                              getContentAnchorEl={null}
+                                                              elevation={0}>
                                                           <Link className="nav-link-li" to="/events"><MenuItem onClick={handleClose}>Events</MenuItem></Link>
                                                           <Link className="nav-link-li" to="/allrequests"><MenuItem onClick={handleClose}>All Requests</MenuItem></Link>
                                                       </Menu>

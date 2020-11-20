@@ -11,15 +11,16 @@
 }
 
 #app-user-p {
-    color: rgb(201, 74, 0);
+    color: rgb(255, 107, 21);
     font-size: 20px;
+    font-weight: bolder;
 }
 
 #app-admin-h2{
     font-size: 30px;
     text-align: center;
     padding-top: 10vh;
-    color: rgb(255, 140, 9);
+    color: rgb(238, 127, 0);
     text-decoration: underline;
 }
 
@@ -30,4 +31,13 @@
 
 #app-auth-p{
     font-size: 14px;
+}
+
+#app-btn{
+    color: rgb(255, 166, 0);
+}
+
+#app-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 112, 60);
 }
