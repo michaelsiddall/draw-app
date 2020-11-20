@@ -53,8 +53,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-       
-          <MuiThemeProvider theme={theme}> 
+
+        <MuiThemeProvider theme={theme}>
           <div id="app-container">
             {/* <Nav /> */}
             <Switch>
@@ -176,10 +176,10 @@ class App extends Component {
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
             </Switch>
-            </div>
-            <Footer />
-          </MuiThemeProvider>
-        
+          </div>
+          <Footer />
+        </MuiThemeProvider>
+
       </Router>
     );
   }
