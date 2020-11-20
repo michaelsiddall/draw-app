@@ -197,10 +197,11 @@ class UserDrawingSubmit extends Component {
 
             <br></br>
             <div className='centered'>
+              <div className="uploadDiv"><p>click below to upload your drawing!</p></div>
               <ImageUpload />
             </div>
             <div className='submitBtn'>
-              <Button type='submit' className='buttonCentered'>
+              <Button id="landingButton" type='submit' className='buttonCentered'>
                 Submit Drawing!
               </Button>
             </div>

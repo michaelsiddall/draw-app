@@ -5,7 +5,11 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Swal from 'sweetalert2';
-
+import { ImageListItem } from '@material-ui/core';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
@@ -19,6 +23,15 @@ class EventAdminDrawingsCard extends Component {
         console.log("showing text");
         this.setState({
             isClicked: !this.state.isClicked
+        });
+    }
+    infoClick = () => {
+
+        Swal.fire({
+            title: `drawing by ${this.props.drawing.name}`,
+            text: this.props.drawing.about,
+            imageUrl: this.props.drawing.image_url,
+            imageAlt: 'drawing',
         });
     }
     onApprove = () => {
@@ -62,19 +75,16 @@ class EventAdminDrawingsCard extends Component {
 
     render() {
         return (
-            <div>
-                <Card className="pendingItem" key={this.props.drawing.id}>
-                    <div onClick={this.clickText}>
-                        {this.state.isClicked ?
-                            <img src={this.props.drawing.image_url} alt="image" height="200" /> :
-                            <div className="imageText"><h2>{this.props.drawing.name}</h2></div>
-                        }
-                    </div>
+            <div >
 
-                    <CardActions>
+                <ImageListItem className="pendingItem" key={this.props.drawing.id}>
+                    <img src={this.props.drawing.image_url} alt='drawing' onClick={this.infoClick} />
+                    <div className="actionDiv">
                         {this.props.drawing.approved === null ?
                             <div>
                                 <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
+                                <ThumbUpIcon fontSize='large'
+                                    style={{ color: '#577590' }} />
                                 <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
                             </div> :
                             (this.props.drawing.approved ?
@@ -84,9 +94,11 @@ class EventAdminDrawingsCard extends Component {
                         }
 
                         <Button size="medium" color="primary" onClick={this.onDelete}>delete</Button>
+                    </div>
 
-                    </CardActions>
-                </Card>
+
+                </ImageListItem>
+
             </div>
 
         );

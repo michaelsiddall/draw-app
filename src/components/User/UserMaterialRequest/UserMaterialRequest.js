@@ -159,7 +159,7 @@ class UserMaterialRequest extends Component {
                         ></Input>
                     </div>
                     <div className='submitBtn'>
-                        <Button className='buttonCentered' size="large" onClick={this.onSubmit}>
+                        <Button id="landingButton" size="large" onClick={this.onSubmit}>
                             Request Drawing Materials
                     </Button>
 

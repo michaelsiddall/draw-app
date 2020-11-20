@@ -5,12 +5,21 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
 }
 
-.imageText, .galleryItem img{
-    width: 200px;
-    height: 200px;
-    padding: 20px;
-    object-fit: cover;
+.page{
+    width: 90%;
     margin: auto;
+}
+
+ .galleryItem {
+    width: 300px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.uploadDiv{
+    color: #577590;
 }
