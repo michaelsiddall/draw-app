@@ -1,7 +1,11 @@
 #app-grid-item {
     text-align: center;
-    height: fit-content;
-    width: fit-content;
+    height: 300px;
+    width: 300px;
+    min-width: fit-content;
+    min-height: fit-content;
+    max-width: 300px;
+    max-height: 200px;
     padding: 20px;
     margin: 3%;
     background-color: white;

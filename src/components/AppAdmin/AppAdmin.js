@@ -32,11 +32,11 @@ class AppAdmin extends Component {
                           <div>
                               <div className="h2-div"><h2 id="app-admin-h2">Users and Permissions</h2> </div>
                               <Grid id="app-grid-container" 
-                                        container direction="row" wrap="wrap" spacing={20} justify="center"
+                                        container direction="row" wrap="wrap"
                                         alignItems="center">
                                     {this.props.auth.map((auth) => (
                                      
-                                            <Grid item xs key={auth.id} id="app-grid-item">
+                                            <Grid item xs="auto" key={auth.id} id="app-grid-item">
                                                     <p id="app-user-p">Username: {auth.username}</p>
                                                     <p id="app-auth-p">Authorization Level: {auth.auth_level}</p>
                                                     <AuthEdit user={auth} />
