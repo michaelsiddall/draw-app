@@ -11,6 +11,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Nav from '../../Nav/Nav';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import EmojiNatureIcon from '@material-ui/icons/EmojiNature';
+
+
 class EventAdminDrawings extends Component {
     state = {
         heading: 'Drawings',
@@ -39,22 +42,22 @@ class EventAdminDrawings extends Component {
 
     render() {
         return (
-            <div>
+            <div id="drawings-main-container">
                 <Nav />
+                <div id="draw-h1-div"><h1 id="drawings-h1">{this.state.heading} <EmojiNatureIcon/></h1></div>
                 <div className="page">
-
-
-                    <h2 className="centered smallerTitle">{this.state.heading}</h2>
-                    <p className="centered">click drawing for more information</p>
+                    
                     <div className="centered">
                         <FormControl >
-                            <InputLabel id="drawing-dropdown-label">Select Drawings to View</InputLabel>
+                            <InputLabel id="drawing-dropdown-label">Select to View</InputLabel>
                             <Select
                                 style={{ width: `300px` }}
                                 labelId="drawing-dropdown-label"
                                 id="drawing-dropdown"
                                 onChange={(event) => this.handleChange(event)}
                                 displayEmpty
+                                variant="outlined"
+                                InputLabelProps={{shrink: true}}
                             >
                                 <MenuItem value={"pending"}>Drawings Pending Approval</MenuItem>
                                 <MenuItem value={"approved"}>Approved Drawings</MenuItem>
@@ -63,7 +66,7 @@ class EventAdminDrawings extends Component {
                         </FormControl>
                     </div>
 
-
+                        <p id="click-p-tag">Click Drawing for More Information</p>
                     {/* {JSON.stringify(this.props.store.drawing)} */}
                     <div className="galleryGrid">
                         <ImageList variant="masonry" cols={3} gap={3}>

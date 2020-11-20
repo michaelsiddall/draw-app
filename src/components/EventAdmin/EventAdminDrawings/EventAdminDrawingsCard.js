@@ -82,18 +82,16 @@ class EventAdminDrawingsCard extends Component {
                     <div className="actionDiv">
                         {this.props.drawing.approved === null ?
                             <div>
-                                <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
-                                <ThumbUpIcon fontSize='large'
-                                    style={{ color: '#577590' }} />
-                                <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
+                                <Button id="drawings-btn" size="small" color="primary" onClick={this.onDisapprove}>disapprove</Button>
+                                <Button id="drawings-btn" size="small" color="primary" onClick={this.onApprove}>Approve</Button>
                             </div> :
                             (this.props.drawing.approved ?
-                                <div><Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
-                                    <a href={this.props.drawing.image_url} download> <Button>download</Button> </a></div> :
-                                <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>)
+                                <div><Button id="drawings-btn" size="small" color="primary" onClick={this.onDisapprove}>disapprove</Button>
+                                    <a href={this.props.drawing.image_url} download> <Button id="drawings-btn" size="small" color="primary">Download</Button> </a></div> :
+                                <Button id="drawings-btn" size="small" color="primary" onClick={this.onApprove}>approve</Button>)
                         }
 
-                        <Button size="medium" color="primary" onClick={this.onDelete}>delete</Button>
+                        <Button id="drawings-btn" size="small" color="primary" onClick={this.onDelete}>Delete</Button>
                     </div>
 
 
