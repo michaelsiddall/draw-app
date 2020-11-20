@@ -1,11 +1,9 @@
 #app-grid-item {
     text-align: center;
-    height: 300px;
+    height: 200px;
     width: 300px;
     min-width: fit-content;
     min-height: fit-content;
-    max-width: 300px;
-    max-height: 200px;
     padding: 20px;
     margin: 3%;
     background-color: white;
@@ -50,7 +48,8 @@
       -o-background-size: cover;
       background-size: cover;
       min-width: 100vw;
-      min-height: fit-content;
+      min-height: max-content;
+      width: 100vw;
 }
 
 .h2-div{
@@ -67,6 +66,7 @@
         background-color: rgba(66, 66, 66, 0.199);
         background-repeat: no-repeat, repeat;
         background-size: cover;
-        height: 1000vh;
+        min-height: max-content;
+        height: fit-content;
         width: 100vw;
 }
