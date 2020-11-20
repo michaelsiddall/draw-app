@@ -9,7 +9,7 @@ import "../Nav.css"
 import "./Menu.css"
 
 
-function AboutMenu(props) {
+function ParticipantsMenu(props) {
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -21,28 +21,10 @@ function AboutMenu(props) {
             setAnchorEl(null);
           };
 
-          const facebook = ()=>{
-              setAnchorEl(null);
-              window.open('https://www.facebook.com/drawbyyou','_blank');
-            }
-          const mail = () =>{
-              setAnchorEl(null);
-              window.open('mailto:steve@drawbyyou.com','_blank');
-            }
-
-          const instagram = () =>{
-              setAnchorEl(null);
-              window.open('https://www.instagram.com/draw_by_you/','_blank');
-            }
-
-          const donate = () =>{
-              setAnchorEl(null);
-              window.open('https://www.givemn.org/story/Draw','_blank');
-            }
 
                         return (
                                             <>
-                                                <Tab id="nav-tab-about" label="About" onClick={handleClick}/>
+                                                <Tab id="nav-tab-user" label="Participants View" onClick={handleClick}/>
                                                         <Menu anchorEl={anchorEl}
                                                                         PaperProps={{square:true, style: {backgroundColor: `#e4e4e4ea`}}}
                                                                         keepMounted
@@ -60,15 +42,13 @@ function AboutMenu(props) {
                                                                         getContentAnchorEl={null}
                                                                         elevation={0}>
 
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/about" onClick={handleClose}>About</MenuItem>
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/welcome" onClick={handleClose}>Account</MenuItem>  
-                                                            <MenuItem id="nav-menu-item" onClick={mail}>Contact Admin</MenuItem>
-                                                            <MenuItem id="nav-menu-item" onClick={facebook}>Facebook</MenuItem>
-                                                            <MenuItem id="nav-menu-item" onClick={instagram}>Instagram</MenuItem>
-                                                            <MenuItem id="nav-menu-item" onClick={donate}>Donation Page</MenuItem>
+                                                            <MenuItem id="nav-menu-item" component={Link} to="/userhome" target="_blank" onClick={handleClose}>User Home</MenuItem>
+                                                            <MenuItem id="nav-menu-item" component={Link} to="/submit" target="_blank" onClick={handleClose}>User Submit</MenuItem>
+                                                            <MenuItem id="nav-menu-item" component={Link} to="/request" target="_blank" onClick={handleClose}>User Request</MenuItem> 
+                                                            <MenuItem id="nav-menu-item" component={Link} to="/gallery" target="_blank" onClick={handleClose}>User Gallery</MenuItem>   
                                                       </Menu>
                                             </>
                                     );
 }
 
-export default connect(mapStoreToProps)(AboutMenu);
+export default connect(mapStoreToProps)(ParticipantsMenu);

@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Tab from '@material-ui/core/Tab';
 import { Link} from 'react-router-dom';
 import "../Nav.css"
-
+import "./Menu.css"
 
 function EventsMenu(props) {
 
@@ -25,22 +25,23 @@ function EventsMenu(props) {
                                             <>
                                             <Tab id="nav-tab-events" label="Events" onClick={handleClick}/>
                                                       <Menu anchorEl={anchorEl}
-                                                              keepMounted
-                                                              id="nav-menu"
-                                                              open={Boolean(anchorEl)}
-                                                              onClose={handleClose}
-                                                              anchorOrigin={{
+                                                            PaperProps={{square:true, style: {backgroundColor: `#e4e4e4ea`}}}
+                                                            keepMounted
+                                                            id="nav-menu"
+                                                            open={Boolean(anchorEl)}
+                                                            onClose={handleClose}
+                                                            anchorOrigin={{
                                                                   vertical: 'bottom',
                                                                   horizontal: 'center',
                                                                 }}
-                                                              transformOrigin={{
+                                                            transformOrigin={{
                                                                   vertical: 'top',
                                                                   horizontal: 'center',
                                                                 }}
-                                                              getContentAnchorEl={null}
-                                                              elevation={0}>
-                                                          <MenuItem component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
-                                                          <MenuItem component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
+                                                            getContentAnchorEl={null}
+                                                            elevation={0}>
+                                                          <MenuItem id="nav-menu-item" component={Link} to="/events" onClick={handleClose}>Events</MenuItem> 
+                                                          <MenuItem id="nav-menu-item" component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
                                                       </Menu>
                                             </>
                                     );

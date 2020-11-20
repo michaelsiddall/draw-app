@@ -9,6 +9,7 @@ import Tab from '@material-ui/core/Tab';
 import { withRouter } from "react-router";
 import AboutMenu from './Menu/AboutMenu';
 import EventsMenu from "./Menu/EventsMenu";
+import ParticipantsMenu from './Menu/ParticipantsMenu';
 
 function AdminNav(props) {
           const logout = () =>{
@@ -20,7 +21,7 @@ function AdminNav(props) {
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
                                   <Tabs id="nav-tab" centered={true} value={false} >
                                           <AboutMenu/>
-                                          <Tab id="nav-tab-user" label="Participants View" component={Link} to="/userhome"/>
+                                          <ParticipantsMenu/>
                                           <EventsMenu/>
                                           <Tab id="nav-tab-drawings" label="Drawings" component={Link} to="/drawings" />
                                           <Tab id="nav-tab-logout" label="Logout" onClick={logout}/>

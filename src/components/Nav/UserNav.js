@@ -7,6 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { withRouter } from "react-router";
 import AboutMenu from './Menu/AboutMenu';
+import ParticipantsMenu from './Menu/ParticipantsMenu';
+
 
 function UserNav(props) {
 
@@ -19,6 +21,7 @@ function UserNav(props) {
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
                                   <Tabs id="nav-tab" centered={true} value={false}>
                                           <AboutMenu/>
+                                          <ParticipantsMenu/>
                                           <Tab id="nav-tab-logout" label="Logout" onClick={logout}/>
                                   </Tabs>
                               </Paper>

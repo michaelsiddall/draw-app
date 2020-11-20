@@ -1,0 +1,13 @@
+#nav-menu{
+    margin-top: .5px;
+}
+
+#nav-menu-item{
+    color: #000000ea;
+}
+
+#nav-menu-item:hover {
+    background-color: #56a1b8;
+    color: white
+}
+
