@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import Nav from "../Nav/Nav"
 
 //styling
 import './LandingPage.css';
@@ -22,6 +22,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div id="landing-page-container">
+            <Nav/>
             <div id="header-draw">
                         <h1 id="draw-h1">Draw</h1>
             </div>

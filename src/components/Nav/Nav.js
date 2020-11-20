@@ -17,16 +17,19 @@ function Nav(props) {
                     );
           }
 
-          if (props.store.user.auth_level === "admin"){
+          else if (props.store.user.auth_level === "admin"){
                     return (
                           <AdminNav/>
                     );
           }
 
-          if (props.store.user.auth_level === "superAdmin") {
+          else if (props.store.user.auth_level === "superAdmin") {
                     return (
                           <SuperAdminNav/>
                     );
+          }
+          else if(props.store.user.id === null || props.store.user.id === "" || props.store.user.id === undefined){
+                return null
           }
 }
 

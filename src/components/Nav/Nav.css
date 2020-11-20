@@ -58,3 +58,7 @@
 #nav-tab-admin:hover {
   background-color: rgb(255, 106, 37);
 }
+
+#nav-tab-logout:hover {
+  background-color: rgb(255, 37, 37);
+}
