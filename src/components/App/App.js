@@ -53,129 +53,129 @@ class App extends Component {
   render() {
     return (
       <Router>
-       
-          <MuiThemeProvider theme={theme}> 
-            
-            <Switch>
-              <Redirect exact from='/' to='/userhome' />
-              <Redirect exact from='/home' to='/login' />
 
-              {/* USER ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
-              <Route
-                exact
-                path='/userhome'
-                component={UserLandingPage}
-              />
+        <MuiThemeProvider theme={theme}>
 
-              <Route
-                exact
-                path='/submit'
-                component={UserDrawingSubmit}
-              />
+          <Switch>
+            <Redirect exact from='/' to='/userhome' />
+            <Redirect exact from='/home' to='/login' />
 
-              <Route
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/request'
-                component={UserMaterialRequest}
-              />
+            {/* USER ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+            <Route
+              exact
+              path='/userhome'
+              component={UserLandingPage}
+            />
 
-              <Route
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/gallery'
-                component={UserGallery}
-              />
+            <Route
+              exact
+              path='/submit'
+              component={UserDrawingSubmit}
+            />
 
-              {/* EVENT ADMIN ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
-              {/* Visiting localhost:3000/about will show the about page. */}
+            <Route
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/request'
+              component={UserMaterialRequest}
+            />
 
-              {/* For protected routes, the view could show one of several things on the same route.
+            <Route
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/gallery'
+              component={UserGallery}
+            />
+
+            {/* EVENT ADMIN ROUTES!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
+            {/* Visiting localhost:3000/about will show the about page. */}
+
+            {/* For protected routes, the view could show one of several things on the same route.
 
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-              
-              <ProtectedRoute
-                // logged in shows UserPage else shows LoginPage
-                exact
-                path='/welcome'
-                component={Welcome}
-              />
+
+            <ProtectedRoute
+              // logged in shows UserPage else shows LoginPage
+              exact
+              path='/welcome'
+              component={Welcome}
+            />
 
 
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/events'
-                component={EventAdminEvent}
-              />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/events'
+              component={EventAdminEvent}
+            />
 
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/events/completed'
-                component={EventCompleted}
-              />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/events/completed'
+              component={EventCompleted}
+            />
 
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                path='/event/:id/requests'
-                component={EventAdminQueue}
-              />
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/allrequests'
-                component={EventAdminRequest}
-              />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              path='/event/:id/requests'
+              component={EventAdminQueue}
+            />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/allrequests'
+              component={EventAdminRequest}
+            />
 
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/drawings'
-                component={EventAdminDrawings}
-              />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/drawings'
+              component={EventAdminDrawings}
+            />
 
-              <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
-                exact
-                path='/admin'
-                component={AppAdmin}
-              />
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/admin'
+              component={AppAdmin}
+            />
 
-              {/* When a value is supplied for the authRedirect prop the user will
+            {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
-              <ProtectedRoute
-                // with authRedirect:
-                // - if logged in, redirects to "/user"
-                // - else shows LoginPage at /login
-                exact
-                path='/login'
-                component={LoginPage}
-                authRedirect='/welcome'
-              />
-              <ProtectedRoute
-                // with authRedirect:
-                // - if logged in, redirects to "/user"
-                // - else shows RegisterPage at "/registration"
-                exact
-                path='/registration'
-                component={RegisterPage}
-                authRedirect='/welcome'
-              />
-              <Route
-                exact
-                path='/about'
-                component={LandingPage}
-              />
+            <ProtectedRoute
+              // with authRedirect:
+              // - if logged in, redirects to "/user"
+              // - else shows LoginPage at /login
+              exact
+              path='/login'
+              component={LoginPage}
+              authRedirect='/welcome'
+            />
+            <ProtectedRoute
+              // with authRedirect:
+              // - if logged in, redirects to "/user"
+              // - else shows RegisterPage at "/registration"
+              exact
+              path='/registration'
+              component={RegisterPage}
+              authRedirect='/welcome'
+            />
+            <Route
+              exact
+              path='/about'
+              component={LandingPage}
+            />
 
-              {/* If none of the other routes matched, we will show a 404. */}
-              <Route render={() => <Error404/>} />
-            </Switch>
-          </MuiThemeProvider>
-        
+            {/* If none of the other routes matched, we will show a 404. */}
+            <Route render={() => <Error404 />} />
+          </Switch>
+        </MuiThemeProvider>
+
       </Router>
     );
   }

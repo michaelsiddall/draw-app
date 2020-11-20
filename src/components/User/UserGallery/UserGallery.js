@@ -9,7 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import Footer from '../../Footer/Footer';
-
+import Grid from '@material-ui/core/Grid';
 
 class UserGallery extends Component {
   state = {
@@ -45,51 +45,51 @@ class UserGallery extends Component {
   render() {
     return (
       <div id="app-container">
-      <div className='centered'>
-        <HomeIcon
-          fontSize='large'
-          style={{ color: '#577590' }}
-          onClick={this.goHome}
-        />
-        <h2 className='title'>Gallery</h2>
-        <FormControl>
+        <div className='centered'>
+          <HomeIcon
+            fontSize='large'
+            style={{ color: '#577590' }}
+            onClick={this.goHome}
+          />
+          <h2 className='title'>Gallery</h2>
+          <FormControl>
 
 
-          <InputLabel id="gallery-select">Select Event</InputLabel>
-          <Select
-            required
-            id="gallery-select"
-            style={{ width: 200 }}
-            defaultValue={''}
-            onChange={(event) => this.onChange(event)}
-            placeholder='Select Event'
-          >
-            <MenuItem value='' disabled>
-              Select Event
+            <InputLabel id="gallery-select">Select Event</InputLabel>
+            <Select
+              required
+              id="gallery-select"
+              style={{ width: 200 }}
+              defaultValue={''}
+              onChange={(event) => this.onChange(event)}
+              placeholder='Select Event'
+            >
+              <MenuItem value='' disabled>
+                Select Event
           </MenuItem>
 
-            {this.props.store.eventReducer.map((event) => {
-              return (
-                <MenuItem key={event.id} value={event.id}>
-                  {event.location}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
-        <div className='pendingGrid'>
-          <ImageList variant="masonry" cols={2} gap={3}>
-            {this.state.fetchEventDrawings ?
-              this.props.store.eventDrawingByIdReducer.map((drawing) => {
-                return <UserGalleryCard drawing={drawing} />;
-              }) :
-              this.props.store.approved.map((drawing) => {
-                return <UserGalleryCard drawing={drawing} />;
+              {this.props.store.eventReducer.map((event) => {
+                return (
+                  <MenuItem key={event.id} value={event.id}>
+                    {event.location}
+                  </MenuItem>
+                );
               })}
-          </ImageList>
+            </Select>
+          </FormControl>
+          <Grid container id='pendingGrid'>
+            <ImageList variant="masonry" cols={2} gap={3}>
+              {this.state.fetchEventDrawings ?
+                this.props.store.eventDrawingByIdReducer.map((drawing) => {
+                  return <UserGalleryCard drawing={drawing} />;
+                }) :
+                this.props.store.approved.map((drawing) => {
+                  return <UserGalleryCard drawing={drawing} />;
+                })}
+            </ImageList>
+          </Grid>
         </div>
-      </div>
-      <Footer/>
+        <Footer />
       </div>
     );
   }
