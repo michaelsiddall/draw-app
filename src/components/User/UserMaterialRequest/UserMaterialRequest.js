@@ -12,6 +12,8 @@ import './UserMaterialRequest.css';
 import Swal from 'sweetalert2';
 import '../UserStyles.css';
 import { InputLabel, MenuItem } from '@material-ui/core';
+import Footer from "../../Footer/Footer"
+
 
 const theme = createMuiTheme({
     overrides: {
@@ -106,6 +108,7 @@ class UserMaterialRequest extends Component {
     render() {
         console.log('redux state is', this.props.store);
         return (
+            <div id="app-container">
             <form className="centered">
                 <MuiThemeProvider theme={theme}>
                     <HomeIcon
@@ -167,6 +170,9 @@ class UserMaterialRequest extends Component {
 
                 </MuiThemeProvider>
             </form>
+                       <Footer/>
+            </div>
+
         );
     }
 }
