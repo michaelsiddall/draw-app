@@ -23,6 +23,7 @@ function AdminNav(props) {
 
           const logout = () =>{
               props.dispatch({type:'LOGOUT'})
+              props.history.push("/login")
           }
 
 
@@ -54,7 +55,7 @@ function AdminNav(props) {
                                                           <MenuItem component={Link} to="/allrequests" onClick={handleClose}>All Requests</MenuItem>
                                                       </Menu>
                                           <Tab id="nav-tab-drawings" label="Drawings" component={Link} to="/drawings" />
-                                          <Tab id="nav-tab-logout" label="Logout" component={Link} to="/home" onClick={logout}/>
+                                          <Tab id="nav-tab-logout" label="Logout" onClick={logout}/>
                                   </Tabs>
                               </Paper>
                 </HashRouter>

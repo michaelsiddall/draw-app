@@ -23,7 +23,6 @@ class AppAdmin extends Component {
   };
 
   render() {
-    console.log(this.props.store.user, "APP ADMIN")
 
     if(this.props.store.user.auth_level==="superAdmin"){
        return (

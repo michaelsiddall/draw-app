@@ -12,6 +12,7 @@ function UserNav(props) {
 
             const logout = () =>{
                 props.dispatch({type:'LOGOUT'})
+                props.history.push("/login")
             }
             
             return (
@@ -19,7 +20,7 @@ function UserNav(props) {
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
                                   <Tabs id="nav-tab" centered={true} value={false}>
                                           <Tab id="nav-tab-home" label="Home" component={Link} to="/home"/>
-                                          <Tab id="nav-tab-logout" label="Logout" component={Link} to="/home" onClick={logout}/>
+                                          <Tab id="nav-tab-logout" label="Logout" onClick={logout}/>
                                   </Tabs>
                               </Paper>
                 </HashRouter>
