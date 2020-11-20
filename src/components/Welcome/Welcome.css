@@ -2,17 +2,14 @@
     background-color: rgb(53, 67, 255);
     border-radius: 20px;
     text-align: center;
-    width: 40vw;
-    height: 10vw;
-    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5%;
     margin: auto;
     margin-top: 15vh;
-}
-
-.user-page-h1 {
     color: white;
 }
 
-.user-page-p{
-    color: white;
+#welcome-mail-icon:hover{
+    color: #18ffd9
 }

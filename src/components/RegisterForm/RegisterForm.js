@@ -18,42 +18,25 @@ class RegisterForm extends Component {
         
   state = {
     username: '',
-    password: '',
-    helperText: '',
-    error: false
+    password: ''
   };
 
               registerUser = (event) => {
-                      event.preventDefault();
+                        event.preventDefault();
 
-                      if (this.state.username.length>3 && this.state.password.length>3) {
-                            this.props.dispatch({
-                              type: 'REGISTER',
-                              payload: {
-                                username: this.state.username,
-                                password: this.state.password,
-                              },
-                            });
-                            this.props.dispatch({
-                              type: 'LOGIN',
-                              payload: {
-                                username: this.state.username,
-                                password: this.state.password,
-                              },
-                            });
-                      } else {
-                            this.setState({
-                              helperText: 'Must be 4 characters or more',
-                              error: true
-                            })
-                            this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
-                      }
-            }; // end registerUser
+                        this.props.dispatch({
+                          type: 'REGISTER',
+                          payload: {
+                            username: this.state.username,
+                            password: this.state.password,
+                          },
+                        });
+                      }; // end registerUser
 
               handleInputChangeFor = (propertyName) => (event) => {
-                this.setState({
-                  [propertyName]: event.target.value,
-                });
+                        this.setState({
+                          [propertyName]: event.target.value,
+                        });
               };
 
   render() {
@@ -69,8 +52,6 @@ class RegisterForm extends Component {
             <TextField
               type="text"
               name="username"
-              helperText={this.state.helperText}
-              error={this.state.error}
               variant="filled"
               required={true}
               label="User Name"
@@ -86,8 +67,6 @@ class RegisterForm extends Component {
             <TextField
               type="password"
               name="password"
-              helperText={this.state.helperText}
-              error={this.state.error}
               variant="filled"
               required={true}
               label="Password"

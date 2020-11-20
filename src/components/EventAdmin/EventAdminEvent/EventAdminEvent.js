@@ -78,11 +78,14 @@ class EventAdminEvent extends Component {
 
         else if (this.props.store.user.auth_level !== "superAdmin" || this.props.store.user.auth_level !=="admin"){
             return (
-                <div>
-                    <h2>
-                        Sorry! But you are not authorized to be here!
-                    </h2>
-                </div>
+                    <div >
+                        <Nav />
+                            <div className="unauthorized-h2">
+                                <h2 className="unauthorized-h2">
+                                Sorry! But you are not authorized to be here! 
+                                </h2>
+                            </div>
+                    </div>
             )
         }
         
