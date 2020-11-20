@@ -23,3 +23,9 @@
   color: white;
 }
 
+#footer-container::-webkit-scrollbar-track:horizontal{
+  background-color: transparent;
+  width: 0px;
+  height: 0px;
+  display: none;
+}
