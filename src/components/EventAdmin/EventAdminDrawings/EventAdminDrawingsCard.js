@@ -89,7 +89,7 @@ class EventAdminDrawingsCard extends Component {
                             </div> :
                             (this.props.drawing.approved ?
                                 <div><Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
-                                    <a href={this.props.drawing.image_url} download> download </a></div> :
+                                    <a href={this.props.drawing.image_url} download> <Button>download</Button> </a></div> :
                                 <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>)
                         }
 
