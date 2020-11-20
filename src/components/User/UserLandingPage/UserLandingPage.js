@@ -13,29 +13,7 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 // the component name TemplateClass with the name for the new
 // component.
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiButton: {
-      // Name of the rule
-      text: {
-        // Some CSS
-        background: '#577590',
-        borderRadius: 3,
-        border: 1,
-        borderColor: '#90BE6D',
-        color: 'white',
-        fontFamily: 'Work Sans',
-        textTransform: 'none',
-        height: 48,
-        padding: '0 30px',
-        "&:hover": {
-          backgroundColor: "#277DA1"
-        },
-        //boxShadow: '0 3px 3px 2px #577590',
-      },
-    },
-  },
-});
+
 
 class UserLandingPage extends Component {
   state = {};
@@ -70,31 +48,29 @@ class UserLandingPage extends Component {
         </div>
 
         <div className="centered">
-          <MuiThemeProvider theme={theme}>
-            <div className="buttonDiv">
-              <Button className='buttonCentered' size="large" onClick={this.requestMaterial}>
-                Request Materials
+          <div className="buttonDiv">
+            <Button id="landingButton" size="large" onClick={this.requestMaterial}>
+              Request Materials
            </Button>
-            </div>
+          </div>
 
-            <div className="buttonDiv">
-              <Button className='buttonCentered' size="large" onClick={this.submitDrawing}>
-                Submit Drawing
+          <div className="buttonDiv">
+            <Button id="landingButton" size="large" onClick={this.submitDrawing}>
+              Submit Drawing
           </Button>
-            </div>
+          </div>
 
-            <div className="buttonDiv">
-              <Button className='buttonCentered' size="large" onClick={this.viewDrawing}>
-                View Drawings
+          <div className="buttonDiv">
+            <Button id="landingButton" size="large" onClick={this.viewDrawing}>
+              View Drawings
           </Button>
-            </div>
+          </div>
 
-            <div className="buttonDiv">
-              <a href='https://www.givemn.org/story/Draw' target='_blank'>
-                <Button size="large" >Donate!</Button>
-              </a>
-            </div>
-          </MuiThemeProvider>
+          <div className="buttonDiv">
+            <a href='https://www.givemn.org/story/Draw' target='_blank'>
+              <Button id="landingButton" size="large" >Donate!</Button>
+            </a>
+          </div>
         </div>
       </div >
     );

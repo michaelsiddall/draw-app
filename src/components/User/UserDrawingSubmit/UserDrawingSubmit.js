@@ -200,7 +200,7 @@ class UserDrawingSubmit extends Component {
               <ImageUpload />
             </div>
             <div className='submitBtn'>
-              <Button type='submit' className='buttonCentered'>
+              <Button id="landingButton" type='submit' className='buttonCentered'>
                 Submit Drawing!
               </Button>
             </div>

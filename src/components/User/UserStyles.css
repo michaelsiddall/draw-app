@@ -98,3 +98,20 @@ body{
 a{
     text-decoration: none;
 }
+
+#landingButton{
+    background: #577590;
+    border-radius: 3;
+    border: 1;
+    border-color: #90BE6D;
+    color: white;
+    font-family: 'Work Sans';
+    text-transform: none;
+    height: 48;
+    padding: 10px 30px;
+        
+}
+
+#landingButton:hover{
+    background-color: #277DA1;
+}
