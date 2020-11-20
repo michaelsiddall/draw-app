@@ -29,7 +29,7 @@ class AppAdmin extends Component {
               <div id="app-main-container">
                 <div id="transluscent-div">
                     <Nav />
-                          <div>
+
                               <div className="h2-div"><h2 id="app-admin-h2">Users and Permissions</h2> </div>
                               <Grid id="app-grid-container" 
                                         container direction="row" wrap="wrap"
@@ -44,8 +44,8 @@ class AppAdmin extends Component {
                                             </Grid>
                                       
                                     ))}</Grid>
-                                    </div>
-                          </div>
+
+                    </div>
               </div>
     );
     }

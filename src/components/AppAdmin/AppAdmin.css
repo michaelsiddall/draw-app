@@ -44,15 +44,13 @@
 }
 
 #app-main-container {
-    background: url("../../Images/RoyaltyFreePastels2.jpeg") 100% 100% no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-width: fit-content;
-    min-height: max-content;
-    width: 100vh;
-    height: auto;
+      background: url(../../Images/RoyaltyFreePastels2.jpeg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      min-width: 100vw;
+      min-height: fit-content;
 }
 
 .h2-div{
@@ -66,9 +64,9 @@
 }
 
 #transluscent-div{
-        background-color: rgba(138, 138, 138, 0.3);
+        background-color: rgba(66, 66, 66, 0.199);
         background-repeat: no-repeat, repeat;
         background-size: cover;
-        height: 100vh;
+        height: 1000vh;
         width: 100vw;
 }
