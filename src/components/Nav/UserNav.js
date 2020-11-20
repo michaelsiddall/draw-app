@@ -6,6 +6,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { withRouter } from "react-router";
 
 
 function UserNav(props) {
@@ -27,7 +28,7 @@ function UserNav(props) {
             );
 }
 
-export default connect(mapStoreToProps)(UserNav);
+export default withRouter(connect(mapStoreToProps)(UserNav));
 
 
 //https://reactjs.org/warnings/unknown-prop.html

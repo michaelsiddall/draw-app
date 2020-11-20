@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { withRouter } from "react-router";
 
 
 function SuperAdminNav(props) {
@@ -61,4 +62,4 @@ function SuperAdminNav(props) {
             )
 }
 
-export default connect(mapStoreToProps)(SuperAdminNav);
+export default withRouter(connect(mapStoreToProps)(SuperAdminNav));
