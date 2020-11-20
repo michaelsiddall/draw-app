@@ -11,7 +11,6 @@ import Tab from '@material-ui/core/Tab';
 import { withRouter } from "react-router";
 
 function AdminNav(props) {
-
           const [anchorEl, setAnchorEl] = React.useState(null);
 
           const handleClick = (event) => {
@@ -26,12 +25,13 @@ function AdminNav(props) {
               props.dispatch({type:'LOGOUT'})
           }
 
+
   console.log("PROPS", props)
 
             return (
                   <HashRouter>
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
-                                  <Tabs id="nav-tab" centered={true} value={false} selectionFollowsFocus={false}>
+                                  <Tabs id="nav-tab" centered={true} value={false} >
                                           <Tab id="nav-tab-home" label="Home" component={Link} to="/home"/>
                                           <Tab id="nav-tab-user" label="Participants View" component={Link} to="/userhome"/>
                                           <Tab id="nav-tab-events" label="Events" onClick={handleClick}/>

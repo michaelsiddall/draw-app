@@ -12,6 +12,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import EditIcon from '@material-ui/icons/Edit';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import "./AppAdmin.css"
+
 
 class AuthEdit extends Component {
   state = {
@@ -59,7 +61,7 @@ class AuthEdit extends Component {
 
   render() {
     return (
-      <div>
+      <span className="admin-span">
         <Button variant='outlined' onClick={this.handleClickOpen}>
           <EditIcon />
         </Button>
@@ -104,7 +106,7 @@ class AuthEdit extends Component {
             </Button>
           </DialogActions>
         </Dialog>
-      </div>
+      </span>
     );
   }
 }

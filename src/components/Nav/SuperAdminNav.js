@@ -29,7 +29,7 @@ function SuperAdminNav(props) {
             return (
                   <HashRouter>
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
-                                  <Tabs centered={true} value={false} selectionFollowsFocus={false}>
+                                  <Tabs centered={true} value={false}>
                                           <Tab id="nav-tab-home" label="Home" component={Link} to="/home"/>
                                           <Tab id="nav-tab-user" label="Participants View" component={Link} to="/userhome"/>
                                           <Tab id="nav-tab-events" label="Events" onClick={handleClick}/>
