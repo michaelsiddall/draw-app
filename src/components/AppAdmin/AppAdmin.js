@@ -4,23 +4,20 @@ import AuthDeleteConfirm from './AuthDeleteConfirm';
 import Nav from '../Nav/Nav';
 import AuthEdit from './AuthEdit';
 import mapStateToProps from "../../redux/mapStoreToProps"
-
-
-
 import "./AppAdmin.css"
 import Grid from '@material-ui/core/Grid';
 
 
 class AppAdmin extends Component {
-  state = {
-    heading: 'App Admin',
-  };
+          state = {
+            heading: 'App Admin',
+          };
 
-  componentDidMount = () => {
-    this.props.dispatch({
-      type: 'FETCH_USERS',
-    });
-  };
+          componentDidMount = () => {
+            this.props.dispatch({
+              type: 'FETCH_USERS',
+            });
+          };
 
   render() {
 
