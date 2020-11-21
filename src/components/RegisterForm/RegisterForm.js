@@ -6,7 +6,8 @@ import "./RegisterForm.css"
 import { TextField} from '@material-ui/core';
 
 class RegisterForm extends Component {
-
+  
+        //updates state to make sure username and password are latest state
           componentDidUpdate(prevProps, prevState){
             if (this.state.username !== prevState.username || this.state.password !== prevState.password ){
                   this.setState({
@@ -43,11 +44,13 @@ class RegisterForm extends Component {
     return (
       <div id="register-div">
         <h1 id="register-h1">Register User</h1>
-        {this.props.store.errors.registrationMessage && (
-          <p className="alert" role="alert">
-            {this.props.store.errors.registrationMessage}
-          </p>
-        )}
+                {/* Registration Error Appears if there is an error */}
+                  {this.props.store.errors.registrationMessage && (
+                      <p className="alert" role="alert">
+                            {this.props.store.errors.registrationMessage}
+                      </p>
+                  )}
+
         <div className="textfield-div">
             <TextField
               type="text"
@@ -63,6 +66,7 @@ class RegisterForm extends Component {
               color="primary"
             />
         </div>
+
         <div className="textfield-div">
             <TextField
               type="password"
@@ -78,9 +82,11 @@ class RegisterForm extends Component {
               color="primary"
             />
         </div>
-        <div className="reg-log-btn-div">
-          <Button id="register-btn" onClick={this.registerUser}>Register</Button>
-        </div>
+
+          <div className="reg-log-btn-div">
+            <Button id="register-btn" onClick={this.registerUser}>Register</Button>
+          </div>
+
       </div>
     );
   }

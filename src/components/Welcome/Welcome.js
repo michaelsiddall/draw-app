@@ -4,21 +4,19 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import Nav from '../Nav/Nav';
 import "./Welcome.css"
 import MailIcon from '@material-ui/icons/Mail';
-import {
-  HashRouter,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
+import {Redirect, Switch} from 'react-router-dom';
 
 
 class Welcome extends Component {
 
-    mail = () =>{
-    window.open('mailto:steve@drawbyyou.com','_blank');
-  }
+            //opens in new tab to send mail to steve
+            mail = () =>{
+                  window.open('mailto:steve@drawbyyou.com','_blank');
+            }
 
   render() {
+
+//if user is regular user, they will sent to welcome page to ask for more access
             if (this.props.store.user.auth_level==="user"){
               return (
                 <div className="welcome-div">
@@ -36,15 +34,9 @@ class Welcome extends Component {
               )
             }
 
-            else if (this.props.store.user.auth_level==="admin"){
-              return (
-                <Switch>
-                  <Redirect exact from='/welcome' to='/events' />
-                </Switch>
-              )
-            }
+// if user is admin or superAdmin, they will be redirected to events upon logging in
 
-            else if (this.props.store.user.auth_level==="superAdmin"){
+            else if (this.props.store.user.auth_level==="admin" || this.props.store.user.auth_level==="superAdmin"){
               return (
                 <Switch>
                   <Redirect exact from='/welcome' to='/events' />

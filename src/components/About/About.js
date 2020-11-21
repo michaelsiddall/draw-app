@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import Nav from "../Nav/Nav"
 
 //styling
-import './LandingPage.css';
+import './About.css';
 import sponsor1 from "../../Images/612Brew.jpeg"
 import sponsor2 from "../../Images/FairState.png"
 import sponsor3 from "../../Images/Inbound.png"
@@ -17,15 +17,12 @@ import charity3 from "../../Images/CF.png"
 
 
 
-class LandingPage extends Component {
+class About extends Component {
 
   render() {
     return (
       <div id="landing-page-container">
             <Nav/>
-            {/* <div id="header-draw">
-                        <h1 id="draw-h1">Draw</h1>
-            </div> */}
                 <div id="about-div">            
                         <div className="p-div">
                           <h2 id="mission-h2">What is Draw's mission?</h2>
@@ -77,11 +74,10 @@ class LandingPage extends Component {
                     <p id="attribute">Royalty Free Photos by Lum3n, Alexander Kovalev, Fernando Arcos, Pavlo, Miguel Á. Padriñán, Sharon McCutcheon from Pexels</p> 
 
                       
-                    </div>
-                    
+                  </div>              
         </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(LandingPage);
+export default connect(mapStoreToProps)(About);
