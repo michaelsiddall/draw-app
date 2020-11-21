@@ -199,7 +199,7 @@ class UserDrawingSubmit extends Component {
 
             <br></br>
             <div className='centered'>
-              <div className="uploadDiv"><p>click below to upload your drawing!</p></div>
+              <div className="uploadDiv"><p>Click Below to Upload your Drawing!</p></div>
               <ImageUpload />
             </div>
             <div className='submitBtn'>
