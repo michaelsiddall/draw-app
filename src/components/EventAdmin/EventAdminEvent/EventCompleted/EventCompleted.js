@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import EventCompletedItem from "../EventCompletedItem/EventCompleteItem"
 import Nav from '../../../Nav/Nav';
+import "./EventCompleted.css"
 
 class EventCompleted extends Component {
     componentDidMount = () => {
@@ -13,7 +14,11 @@ class EventCompleted extends Component {
 
 
     render() {
-        return (
+
+        if (this.props.store.eventCompletedReducer.length >0 && 
+            this.props.store.user.auth_level==="superAdmin" || 
+            this.props.store.user.auth_level==="admin"){
+             return (
                 <div>
                     <Nav />
                    
@@ -37,7 +42,38 @@ class EventCompleted extends Component {
                         </table>
                     </div>
                 </div>
-        );
+            );       
+        }
+
+        else if (this.props.store.eventCompletedReducer.length === 0 
+            && this.props.store.user.auth_level==="superAdmin" || 
+            this.props.store.user.auth_level==="admin"){
+            return (
+                    <div>
+                            <Nav />
+                            <div id="events-container">
+                                <div id="all-requests-div">
+                                        <h2 className="all-events-h2">Completed Events</h2>
+                                        <h4 className="all-events-h4">Sorry, there are no completed events! Please complete them!</h4>
+                                </div>
+                            </div>
+                        </div>
+            )
+        }
+
+        else if (this.props.store.user.auth_level !== "superAdmin" || this.props.store.user.auth_level !=="admin"){
+            return (
+                    <div className="app-unauthorized-container">
+                    <Nav />
+                            <div className="unauthorized-h2">
+                                <h2 className="unauthorized-h2">
+                                Sorry! But you are not authorized to be here! 
+                                </h2>
+                            </div>
+                    </div>
+            )
+        }
+        
     }
 }
 
