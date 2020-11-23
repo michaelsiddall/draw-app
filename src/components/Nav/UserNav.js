@@ -19,7 +19,7 @@ function UserNav(props) {
             
             return (
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
-                                  <Tabs id="nav-tab" centered={true} value={false}>
+                                  <Tabs centered={true} value={false}>
                                           <AboutMenu/>
                                           <ParticipantsMenu/>
                                           <Tab id="nav-tab-logout" label="Logout" onClick={logout}/>
@@ -29,6 +29,3 @@ function UserNav(props) {
 }
 
 export default withRouter(connect(mapStoreToProps)(UserNav));
-
-
-//https://reactjs.org/warnings/unknown-prop.html

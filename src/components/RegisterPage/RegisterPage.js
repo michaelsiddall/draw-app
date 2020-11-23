@@ -7,21 +7,20 @@ import Button from '@material-ui/core/Button';
 import "./RegisterPage.css"
 
 class RegisterPage extends Component {
-  state = {
-    username: '',
-    password: '',
-  };
+    //container page for register form
 
   render() {
     return (
       <HashRouter>
         <div id="reg-page-container">
-          <div id="reg-form-div">
-          <RegisterForm />
-            <center>
-                <p>Already a user?</p>
-                    <Link to="/login"><Button id="reg-link-btn">Login</Button></Link>
-            </center></div></div>
+            <div id="reg-form-div">
+              <RegisterForm /> 
+                  <center>
+                      <p>Already a user?</p>
+                          <Link to="/login"><Button id="reg-link-btn">Login</Button></Link>
+                  </center>
+            </div>
+        </div>
       </HashRouter>
     );
   }

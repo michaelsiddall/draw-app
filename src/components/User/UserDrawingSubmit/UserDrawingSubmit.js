@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 import '../UserStyles.css';
 import HomeIcon from '@material-ui/icons/Home';
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-
+import PublishIcon from '@material-ui/icons/Publish';
+import Crayons from "../../../Images/RFreeCrayons.svg"
 import '../UserMaterialRequest/UserMaterialRequest.css';
 import Swal from 'sweetalert2';
 import ImageUpload from '../../ImageUpload/ImageUpload';
@@ -199,11 +199,12 @@ class UserDrawingSubmit extends Component {
 
             <br></br>
             <div className='centered'>
-              <div className="uploadDiv"><p>click below to upload your drawing!</p></div>
+              <div className="uploadDiv"><p>Click Below to Upload your Drawing!</p></div>
               <ImageUpload />
             </div>
             <div className='submitBtn'>
-              <Button id="landingButton" type='submit' className='buttonCentered'>
+              <Button id="landingButton" type='submit' className='buttonCentered'
+              endIcon={<PublishIcon/>}>
                 Submit Drawing!
               </Button>
             </div>

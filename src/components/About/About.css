@@ -27,18 +27,10 @@
   padding-right: 10px;
 }
 
-#draw-h1{
-  font-size: 60px;
-  padding: 0px;
-  margin: 0;
-  color: rgb(255, 255, 255);
-  text-align: center;
-}
 
 .p-tag {
   font-size: 18px;
 }
-
 
 #landing-page-container h2 {
     font-size: 30px;
@@ -78,14 +70,6 @@
   margin-bottom: 70px;
 }
 
-#header-draw {
-  background-image: linear-gradient(50deg, #b65dff, #0061cf);
-  width: auto;
-  margin: auto;
-  position: relative;
-  height: 10vh;
-  color: white;
-}
 
 #attribute{
   font-size: 12px;

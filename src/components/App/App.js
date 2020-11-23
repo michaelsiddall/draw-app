@@ -11,27 +11,35 @@ import { connect } from 'react-redux';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+//unprotected routes
 import Welcome from "../Welcome/Welcome";
-import LandingPage from '../LandingPage/LandingPage';
+import About from '../About/About';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+
+//unprotected routes for participants
 import UserDrawingSubmit from '../User/UserDrawingSubmit/UserDrawingSubmit';
 import UserGallery from '../User/UserGallery/UserGallery';
 import UserLandingPage from '../User/UserLandingPage/UserLandingPage';
 import UserMaterialRequest from '../User/UserMaterialRequest/UserMaterialRequest';
 
+//protect routes
 import EventAdminEvent from '../EventAdmin/EventAdminEvent/EventAdminEvent';
 import EventAdminDrawings from '../EventAdmin/EventAdminDrawings/EventAdminDrawings';
 import EventAdminRequest from '../EventAdmin/EventAdminRequest/EventAdminRequest';
 import EventCompleted from '../EventAdmin/EventAdminEvent/EventCompleted/EventCompleted';
 import EventAdminQueue from '../EventAdmin/EventAdminQueue/EventAdminQueue';
 
+//error 404
 import Error404 from "../Error404/Error404";
+
+//super admin only
 import AppAdmin from '../AppAdmin/AppAdmin';
 
 import './App.css';
 
+//styling for material ui
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
@@ -97,7 +105,7 @@ class App extends Component {
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
 
             <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
+              // users will see this page, admins and superAdmins will redirect to events upon login
               exact
               path='/welcome'
               component={Welcome}
@@ -168,7 +176,7 @@ class App extends Component {
             <Route
               exact
               path='/about'
-              component={LandingPage}
+              component={About}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

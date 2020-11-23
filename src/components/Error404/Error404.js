@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+//this page shows if person is direct to a link that doesn't exist
 
 class Error404 extends Component {
 

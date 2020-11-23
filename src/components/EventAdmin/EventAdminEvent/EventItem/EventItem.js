@@ -16,7 +16,7 @@ class EventItem extends Component {
 
     render() {
             let t = new Date (this.props.item.timestamp)
-            let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: "America/Chicago" })
             let timeForEdit = t.toTimeString().split(' G')[0]
         return (
             <HashRouter>

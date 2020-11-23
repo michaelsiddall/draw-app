@@ -4,32 +4,29 @@ import AuthDeleteConfirm from './AuthDeleteConfirm';
 import Nav from '../Nav/Nav';
 import AuthEdit from './AuthEdit';
 import mapStateToProps from "../../redux/mapStoreToProps"
-
-
-
 import "./AppAdmin.css"
 import Grid from '@material-ui/core/Grid';
 
 
 class AppAdmin extends Component {
-  state = {
-    heading: 'App Admin',
-  };
+          state = {
+            heading: 'App Admin',
+          };
 
-  componentDidMount = () => {
-    this.props.dispatch({
-      type: 'FETCH_USERS',
-    });
-  };
+          componentDidMount = () => {
+            this.props.dispatch({
+              type: 'FETCH_USERS',
+            });
+          };
 
   render() {
 
     if(this.props.store.user.auth_level==="superAdmin"){
        return (
-              <div className="app-main-container">
+              <div id="app-main-container">
                 <div id="transluscent-div">
                     <Nav />
-                          <div>
+
                               <div className="h2-div"><h2 id="app-admin-h2">Users and Permissions</h2> </div>
                               <Grid id="app-grid-container" 
                                         container direction="row" wrap="wrap"
@@ -44,8 +41,8 @@ class AppAdmin extends Component {
                                             </Grid>
                                       
                                     ))}</Grid>
-                                    </div>
-                          </div>
+
+                    </div>
               </div>
     );
     }

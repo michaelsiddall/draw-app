@@ -19,7 +19,7 @@ function AdminNav(props) {
 
             return (
                             <Paper square id="paper-div" variant="outlined" elevation={3}>
-                                  <Tabs id="nav-tab" centered={true} value={false} >
+                                  <Tabs centered={true} value={false}>
                                           <AboutMenu/>
                                           <ParticipantsMenu/>
                                           <EventsMenu/>

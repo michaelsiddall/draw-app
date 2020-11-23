@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-import FormControl from '@material-ui/core/FormControl';
-
+import Crayons from "../../../Images/RFreeCrayons.svg"
+import Icon from '@material-ui/core/Icon';
 import HomeIcon from '@material-ui/icons/Home';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
@@ -162,7 +162,8 @@ class UserMaterialRequest extends Component {
                         ></Input>
                     </div>
                     <div className='submitBtn'>
-                        <Button id="landingButton" size="large" onClick={this.onSubmit}>
+                        <Button id="landingButton" size="large" onClick={this.onSubmit}
+                        endIcon={<Icon><img src={Crayons} id="user-icon"/></Icon>}>
                             Request Drawing Materials
                     </Button>
 
