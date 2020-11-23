@@ -3,6 +3,7 @@
     padding-left: 5vw;
     padding-top: 5vh;
     padding-bottom: 5vh;
+    text-align: center;
 }
 
 #queue-table {
@@ -10,7 +11,7 @@
     margin: auto;
     width: 80vw;
     height: fit-content;
-    margin-top: 8vh;
+    margin-top: 3vh;
     background-color: rgb(255, 255, 255);
 }
 
@@ -51,17 +52,17 @@
     background-color: rgba(255, 255, 255, 0.30);
 }
 
-.req-by-event-container{
-     text-align: center;
-     padding-right: 5vw;
-     padding-left: 5vw;
-     padding-top: 5vh;
-     padding-bottom: 5vh;
-}
 
 .event-queue-h2 {
     color: #ff8800;
     text-decoration: underline;
+    padding: 0;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 15px;
+    text-align: center;
 }
 
 .event-queue-h4 {

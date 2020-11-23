@@ -16,16 +16,16 @@ class EventAdminQueue extends Component {
                       type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
                       payload: this.props.match.params.id
                     });
-                    setInterval(this.refresh, 10000);
+                    // setInterval(this.refresh, 10000);
             }; //end componentDidMount
 
               // Refresh and grab all new data
-            refresh = () => {
-              this.props.dispatch({
-                type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
-                payload: this.props.match.params.id,
-              });
-            };
+            // refresh = () => {
+            //   this.props.dispatch({
+            //     type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
+            //     payload: this.props.match.params.id,
+            //   });
+            // };
 
 
   render() {
@@ -36,6 +36,7 @@ class EventAdminQueue extends Component {
           <div id="queue-main-container">
             <div id="white-div">
                       <div id="queue-main">
+                        <h2 className="event-queue-h2">Material Requests by Event</h2>
                         <table id="queue-table">
                           <thead>
                             <tr>
@@ -69,7 +70,7 @@ class EventAdminQueue extends Component {
       return (
         <div>
           <Nav />
-              <div className="req-by-event-container">
+              <div id="queue-main">
                   <h2 className="event-queue-h2">Material Requests by Event</h2>
                   <h4 className="event-queue-h4">Sorry, there are no requests for this event!</h4>
               </div>
