@@ -22,7 +22,7 @@ class EventItem extends Component {
             <HashRouter>
                     <tr id="event-item-tr"> 
                         <td>{this.props.item.location}</td>
-                        <td>{this.props.item.timestamp.split('T')[0]}</td>
+                        <td>{this.props.item.timestamp.split(' ')[0]}</td>
                         <td>{time}</td>
                         <td><Link to={`event/${this.props.item.id}/requests`}>
                                 <Button id="queue-btn" color="secondary">Queue</Button>
@@ -32,16 +32,16 @@ class EventItem extends Component {
                                 matchID={this.props.item.id}
                                 item={this.props.item}
                                 time={timeForEdit}
-                                date={this.props.item.timestamp.split('T')[0]}
+                                date={this.props.item.timestamp.split(' ')[0]}
                         /></td>
                         <td><EventCompleteConfirm
                                 item={this.props.item}
-                                date={this.props.item.timestamp.split('T')[0]}
+                                date={this.props.item.timestamp.split(' ')[0]}
                                 time={time}
                         /></td>
                         <td><EventDeleteConfirm
                                 item={this.props.item}
-                                date={this.props.item.timestamp.split('T')[0]}
+                                date={this.props.item.timestamp.split(' ')[0]}
                                 time={time}
                         /></td>
                     </tr>
