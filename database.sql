@@ -16,7 +16,7 @@ CREATE TABLE "events"
 (
   "id" SERIAL PRIMARY KEY,
   "location" VARCHAR (500),
-  "timestamp" TIMESTAMP,
+  "timestamp" VARCHAR (500),
   "completed" BOOLEAN DEFAULT FALSE
 );
 
@@ -55,3 +55,8 @@ INSERT INTO "drawings"
   ("name", "email_address", "instagram", "description", "image_url")
 VALUES
   ('John', 'john@drunkdrawing.com', 'myinstagram', 'This is a picture of this thing', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJEIMIbQgXJfvdXkcm8YzC8sbgizJf74_VGg&usqp=CAU' );
+  
+  
+  
+  SELECT * FROM "drawings"
+    WHERE "approved" IS TRUE AND "location" = '19';
