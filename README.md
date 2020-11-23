@@ -18,52 +18,9 @@ This mobile app was created to allow users at a Draw event to scan a QR code pro
 
 ## Create database and table
 
-Create a new database called `draw` and create a the following tables:
+Create a new database called `draw` and create a the following tables from the "database.sql" file:
 
-```CREATE TYPE auth AS ENUM
-('user', 'admin', 'superAdmin');
-CREATE EXTENSION
-IF NOT EXISTS citext;
 
-CREATE TABLE "user"
-(
-  "id" SERIAL PRIMARY KEY,
-  "username" citext UNIQUE NOT NULL,
-  "password" varchar NOT NULL,
-  "auth_level" auth DEFAULT 'user' NOT NULL
-);
-
-CREATE TABLE "events"
-(
-  "id" SERIAL PRIMARY KEY,
-  "location" VARCHAR (500),
-  "timestamp" TIMESTAMP,
-  "completed" BOOLEAN DEFAULT FALSE
-);
-
-CREATE TABLE "requests"
-(
-  "id" SERIAL PRIMARY KEY,
-  "table_number" varchar,
-  "artist_count" numeric,
-  "event_id" INT REFERENCES "events",
-  "completed" BOOLEAN DEFAULT FALSE
-);
-
-CREATE TABLE "drawings"
-(
-  "id" SERIAL PRIMARY KEY,
-  "name" varchar,
-  "email_address" citext,
-  "instagram" varchar,
-  "location" varchar,
-  "description" varchar,
-  "image_url" varchar,
-  "timestamp" timestamp DEFAULT Now(),
-  "approved" BOOLEAN DEFAULT NULL
-);
-
-```
 
 If you would like to name your database something else, you will need to change `draw` to the name of your new database name in `server/modules/pool.js`
 
