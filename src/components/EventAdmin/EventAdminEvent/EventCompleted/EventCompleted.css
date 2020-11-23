@@ -1,0 +1,48 @@
+#completed-main {
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    text-align: center;
+}
+
+#completed-table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 80vw;
+    margin-top: 3vh;
+}
+
+#completed-table th {
+    padding-right: 1.5vw;
+    padding-left: 1.5vw;
+    text-align: center;
+    color: #ffffff;
+}
+
+#completed-table thead {
+    background-image: linear-gradient(240deg, #02cc13, #18afaf);
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 20px;
+}
+
+.event-p {
+    margin: 5px;
+}
+
+.completed-h2 {
+    color: #00bd6e;
+    text-decoration: underline;
+}
+
+.completed-h4 {
+    color: #818181;
+}
+
+#all-requests-div {
+    text-align: center;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}

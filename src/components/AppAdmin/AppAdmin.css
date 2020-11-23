@@ -1,11 +1,9 @@
 #app-grid-item {
     text-align: center;
-    height: 300px;
+    height: 200px;
     width: 300px;
     min-width: fit-content;
     min-height: fit-content;
-    max-width: 300px;
-    max-height: 200px;
     padding: 20px;
     margin: 3%;
     background-color: white;
@@ -43,12 +41,15 @@
     background-color: rgb(255, 112, 60);
 }
 
-.app-main-container {
-    background-image: url("../../Images/RoyaltyFreePastels2.jpeg");
-    background-repeat: no-repeat, repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+#app-main-container {
+      background: url(../../Images/RoyaltyFreePastels2.jpeg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      min-width: 100vw;
+      min-height: max-content;
+      width: 100vw;
 }
 
 .h2-div{
@@ -62,9 +63,10 @@
 }
 
 #transluscent-div{
-        background-color: rgba(138, 138, 138, 0.3);
+        background-color: rgba(66, 66, 66, 0.199);
         background-repeat: no-repeat, repeat;
         background-size: cover;
-        height: 100vh;
+        min-height: max-content;
+        height: fit-content;
         width: 100vw;
 }

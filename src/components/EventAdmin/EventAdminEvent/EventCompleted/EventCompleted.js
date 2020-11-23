@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../../redux/mapStoreToProps';
 import EventCompletedItem from "../EventCompletedItem/EventCompleteItem"
-import { HashRouter, Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Nav from '../../../Nav/Nav';
+import "./EventCompleted.css"
 
 class EventCompleted extends Component {
     componentDidMount = () => {
@@ -15,13 +14,17 @@ class EventCompleted extends Component {
 
 
     render() {
-        return (
-            <HashRouter>
+
+        if (this.props.store.eventCompletedReducer.length >0 && 
+            this.props.store.user.auth_level==="superAdmin" || 
+            this.props.store.user.auth_level==="admin"){
+             return (
                 <div>
                     <Nav />
-                    <Button><Link to="/events">Back to Events</Link></Button>
-                    <div>
-                        <table>
+                  
+                    <div id="completed-main"> 
+                    <h2 className="completed-h2">Completed Events</h2>
+                        <table id="completed-table">
                             <thead>
                                 <tr>
                                     <th>Location</th>
@@ -40,8 +43,36 @@ class EventCompleted extends Component {
                         </table>
                     </div>
                 </div>
-            </HashRouter>
-        );
+            );       
+        }
+
+        else if (this.props.store.eventCompletedReducer.length === 0 
+            && this.props.store.user.auth_level==="superAdmin" || 
+            this.props.store.user.auth_level==="admin"){
+            return (
+                    <div>
+                            <Nav />
+                            <div id="completed-main">
+                                        <h2 className="completed-h2">Completed Events</h2>
+                                        <h4 className="completed-h4">Sorry, there are no completed events! Please complete them!</h4>
+                            </div>
+                        </div>
+            )
+        }
+
+        else if (this.props.store.user.auth_level !== "superAdmin" || this.props.store.user.auth_level !=="admin"){
+            return (
+                    <div className="app-unauthorized-container">
+                    <Nav />
+                            <div className="unauthorized-h2">
+                                <h2 className="unauthorized-h2">
+                                Sorry! But you are not authorized to be here! 
+                                </h2>
+                            </div>
+                    </div>
+            )
+        }
+        
     }
 }
 

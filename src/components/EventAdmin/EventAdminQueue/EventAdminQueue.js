@@ -7,50 +7,58 @@ import Nav from '../../Nav/Nav';
 import "./EventAdminQueue.css"
 
 //requests queue by event
+//on events page, this page will pop up when you click on the queue button
 
 class EventAdminQueue extends Component {
 
+            componentDidMount = () => {
+                    this.props.dispatch({
+                      type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
+                      payload: this.props.match.params.id
+                    });
+                    // setInterval(this.refresh, 10000);
+            }; //end componentDidMount
 
-  componentDidMount = () => {
-    this.props.dispatch({
-      type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
-      payload: this.props.match.params.id
-    });
-
-  }; //end componentDidMount
+              // Refresh and grab all new data
+            // refresh = () => {
+            //   this.props.dispatch({
+            //     type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
+            //     payload: this.props.match.params.id,
+            //   });
+            // };
 
 
   render() {
-    console.log("QUEUE", this.props.store.queueReducer)
     if (this.props.store.queueReducer.length > 0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin") {
       return (
         <div>
           <Nav />
           <div id="queue-main-container">
             <div id="white-div">
-          <div id="queue-main">
-            <table id="queue-table">
-              <thead>
-                <tr>
-                  <th>Table Number</th>
-                  <th>Number of Artists</th>
-                  <th>Request Fulfilled</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
+                      <div id="queue-main">
+                        <h2 className="event-queue-h2">Material Requests by Event</h2>
+                        <table id="queue-table">
+                          <thead>
+                            <tr>
+                              <th>Table Number</th>
+                              <th>Number of Artists</th>
+                              <th>Request Fulfilled</th>
+                              <th>Delete</th>
+                            </tr>
+                          </thead>
+                          <tbody>
 
-                {this.props.store.queueReducer.map((item) => (
-                  <QueueItem
-                    key={item.id}
-                    item={item}
-                    eventID={this.props.match.params.id}
-                  />
+                            {this.props.store.queueReducer.map((item) => (
+                              <QueueItem
+                                key={item.id}
+                                item={item}
+                                eventID={this.props.match.params.id}
+                              />
 
-                ))}
-              </tbody>
-            </table>
-          </div>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
           </div>
         </div>
         </div>
@@ -62,7 +70,10 @@ class EventAdminQueue extends Component {
       return (
         <div>
           <Nav />
-          <h4>Sorry, there are no requests for this event!</h4>
+              <div id="queue-main">
+                  <h2 className="event-queue-h2">Material Requests by Event</h2>
+                  <h4 className="event-queue-h4">Sorry, there are no requests for this event!</h4>
+              </div>
         </div>
       )
     }

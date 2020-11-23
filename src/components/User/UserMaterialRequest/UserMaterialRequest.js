@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-import FormControl from '@material-ui/core/FormControl';
-
+import Crayons from "../../../Images/RFreeCrayons.svg"
+import Icon from '@material-ui/core/Icon';
 import HomeIcon from '@material-ui/icons/Home';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './UserMaterialRequest.css';
@@ -100,70 +100,72 @@ class UserMaterialRequest extends Component {
           });
           this.props.history.push('/userhome');
         }
-      });
-    }
-  };
-  render() {
-    console.log('redux state is', this.props.store);
-    return (
-      <div id='app-container'>
-        <form className='centered'>
-          <MuiThemeProvider theme={theme}>
-            <HomeIcon
-              fontSize='large'
-              style={{ color: '#577590' }}
-              onClick={this.goHome}
-            />
-            <h2 className='title'>Get Drawing Materials!</h2>
-            <div className='centered'>
-              <h5 className='smallerTitle'>Location</h5>
-              <InputLabel id='location'>Where is your event?</InputLabel>
-              <Select
-                required
-                id='location'
-                defaultValue={''}
-                style={{ minWidth: 200 }}
-                onChange={(event) => this.onChange(event, 'location')}
-              >
-                <MenuItem value='' disabled>
-                  Select Event{' '}
-                </MenuItem>
-                {this.props.store.eventReducer.map((event) => {
-                  return (
-                    <MenuItem key={event.id} value={event.id}>
-                      {event.location}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </div>
+    };
+    render() {
+        console.log('redux state is', this.props.store);
+        return (
+            <div id="app-container">
+            <form className="centered">
+                <MuiThemeProvider theme={theme}>
+                    <HomeIcon
+                        fontSize="large"
+                        style={{ color: '#577590' }}
+                        onClick={this.goHome}
+                    />
+                    <h2 className='title'>Get Drawing Materials!</h2>
+                    <div className='centered'>
+                        <h5 className='smallerTitle'>Location</h5>
+                        <InputLabel id="location">Where is your event?</InputLabel>
+                        <Select
+                            required
+                            id="location"
+                            defaultValue={''}
+                            style={{ minWidth: 200 }}
+                            onChange={(event) => this.onChange(event, 'location')}
+                        >
+                            <MenuItem value='' disabled>
+                                Select Event </MenuItem>
+                            {this.props.store.eventReducer.map((event) => {
+                                return (
+                                    <MenuItem key={event.id} value={event.id}>
+                                        {event.location}
+                                    </MenuItem>
+                                );
+                            })}
+                        </Select>
+                    </div>
 
-            <div className='centered'>
-              <h5 className='centered smallerTitle'>Table Number</h5>
-              <Input
-                style={{ minWidth: 200 }}
-                type='number'
-                placeholder='Table Number'
-                onChange={(event) => this.onChange(event, 'tableNumber')}
-                required
-              ></Input>
-            </div>
+                    <div className='centered'>
+                        <h5 className='centered smallerTitle'>Table Number</h5>
+                        <Input
+                            style={{ minWidth: 200 }}
+                            type='number'
+                            placeholder='Table Number'
+                            onChange={(event) => this.onChange(event, 'tableNumber')}
+                            required
+                        ></Input>
+                    </div>
 
-            <div className='centered'>
-              <h5 className='smallerTitle'>Number of Participants</h5>
-              <Input
-                style={{ minWidth: 200 }}
-                type='number'
-                placeholder='Select a Number'
-                onChange={(event) => this.onChange(event, 'artistNumber')}
-                required
-              ></Input>
-            </div>
-            <div className='submitBtn'>
-              <Button id='landingButton' size='large' onClick={this.onSubmit}>
-                Request Drawing Materials
-              </Button>
-            </div>
+                    <div className='centered'>
+                        <h5 className='smallerTitle'>Number of Participants</h5>
+                        <Input
+                            style={{ minWidth: 200 }}
+
+                            type='number'
+                            placeholder='Select a Number'
+                            onChange={(event) => this.onChange(event, 'artistNumber')}
+                            required
+                        ></Input>
+                    </div>
+                    <div className='submitBtn'>
+                        <Button id="landingButton" size="large" onClick={this.onSubmit}
+                        endIcon={<Icon><img src={Crayons} id="user-icon"/></Icon>}>
+                            Request Drawing Materials
+                    </Button>
+
+                    </div>
+
+   
           </MuiThemeProvider>
         </form>
         <Footer />

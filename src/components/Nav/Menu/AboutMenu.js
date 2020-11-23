@@ -61,7 +61,6 @@ function AboutMenu(props) {
                                                                         elevation={0}>
 
                                                             <MenuItem id="nav-menu-item" component={Link} to="/about" onClick={handleClose}>About</MenuItem>
-                                                            <MenuItem id="nav-menu-item" component={Link} to="/welcome" onClick={handleClose}>Account</MenuItem>  
                                                             <MenuItem id="nav-menu-item" onClick={mail}>Contact Admin</MenuItem>
                                                             <MenuItem id="nav-menu-item" onClick={facebook}>Facebook</MenuItem>
                                                             <MenuItem id="nav-menu-item" onClick={instagram}>Instagram</MenuItem>

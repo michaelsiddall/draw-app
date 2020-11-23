@@ -28,7 +28,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //get uncompleted requests BY EVENT ID
 router.get('/event/:id', rejectUnauthenticated, (req, res) => {
-  console.log('REQUEST GET EVENT ID REQ PARAMS', req.params);
   const queryText = `SELECT * FROM "requests" WHERE "completed"='FALSE' AND "event_id"=$1`;
   if (req.user.auth_level === 'superAdmin' || req.user.auth_level === 'admin') {
     pool

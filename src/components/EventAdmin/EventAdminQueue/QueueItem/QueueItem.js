@@ -6,6 +6,7 @@ import QueueDelete from '../QueueConfirm/QueueDelete';
 import './QueueItem.css';
 
 class QueueItem extends Component {
+
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
@@ -58,6 +59,7 @@ class QueueItem extends Component {
               eventID={this.props.eventID}
             />
           </td>
+
         </tr>
       </>
     );
