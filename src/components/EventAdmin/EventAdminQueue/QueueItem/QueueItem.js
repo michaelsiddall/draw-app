@@ -6,34 +6,12 @@ import QueueDelete from '../QueueConfirm/QueueDelete';
 import './QueueItem.css';
 
 class QueueItem extends Component {
-
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_BY_EVENT', //grabs only uncompleted requests by event id
       payload: this.props.eventID,
     });
   }; //end componentDidMount
-
-  componentDidUpdate(prevProps) {
-    if (this.props.store.queueReducer !== prevProps.store.queueReducer) {
-      this.props.dispatch({
-        type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
-        payload: this.props.eventID,
-      });
-
-      // } else if (this.props.store.queueReducer === null) {
-      //   return this.refresh();
-      // }
-    }
-  }
-
-  // Refresh or reload page.
-  refresh = () => {
-    this.props.dispatch({
-      type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
-      payload: this.props.eventID,
-    });
-  };
 
   render() {
     console.log('PROPS', this.props.item);
@@ -59,7 +37,6 @@ class QueueItem extends Component {
               eventID={this.props.eventID}
             />
           </td>
-
         </tr>
       </>
     );

@@ -1,70 +1,74 @@
 #queue-main {
-    padding-right: 5vw;
-    padding-left: 5vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    text-align: center;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  text-align: center;
 }
 
 #queue-table {
-    border-collapse: collapse;
-    margin: auto;
-    width: 80vw;
-    height: fit-content;
-    margin-top: 3vh;
-    background-color: rgb(255, 255, 255);
+  border-collapse: collapse;
+  margin: auto;
+  width: 80vw;
+  height: fit-content;
+  margin-top: 3vh;
+  background-color: rgb(255, 255, 255);
 }
 
 #queue-table th {
-    padding-right: 1.5vw;
-    padding-left: 1.5vw;
-    text-align: center;
-    color: #ffffff;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  text-align: center;
+  color: #ffffff;
 }
 
 #queue-table thead {
-    background-image: linear-gradient(240deg, #868686, #4e4e4e);
-    font-family: 'Cabin Sketch', cursive;
-    font-size: 20px;
+  background-image: linear-gradient(240deg, #868686, #4e4e4e);
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 20px;
 }
 
-#queue-main-container{
-    min-height: 100vh;
-    min-width: 100vw;
-    background-image: url("../../../Images/RoyaltyFreeBrokenCrayons.jpeg");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-width: 100vw;
-    min-height: max-content;
-    width: 100vw;
-    background-repeat: no-repeat,repeat;
-
+#queue-main-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url('../../../Images/RoyaltyFreeBrokenCrayons.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: max-content;
+  width: 100vw;
+  background-repeat: no-repeat, repeat;
 }
 
 #white-div {
-    background-repeat: no-repeat,repeat;
-    background-size: cover;
-    min-height: 100vh;
-    height: max-content;
-    width: 100vw;
-    background-color: rgba(255, 255, 255, 0.30);
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  min-height: 100vh;
+  height: max-content;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-
 .event-queue-h2 {
-    color: #ff8800;
-    text-decoration: underline;
-    padding: 0;
-    margin: auto;
-    background-color: white;
-    border-radius: 10px;
-    width: fit-content;
-    padding: 15px;
-    text-align: center;
+  color: #ff8800;
+  text-decoration: underline;
+  padding: 0;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 15px;
+  text-align: center;
 }
 
 .event-queue-h4 {
-    color: #505050;
+  color: #505050;
+}
+#refreshButton {
+  background-color: #ffffff;
+  margin-top: 15px;
+  border: 1px solid hotpink;
+  text-transform: none;
 }
