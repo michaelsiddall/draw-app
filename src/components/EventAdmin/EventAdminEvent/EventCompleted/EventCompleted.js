@@ -21,9 +21,10 @@ class EventCompleted extends Component {
              return (
                 <div>
                     <Nav />
-                   
-                    <div>
-                        <table>
+                  
+                    <div id="completed-main"> 
+                    <h2 className="completed-h2">Completed Events</h2>
+                        <table id="completed-table">
                             <thead>
                                 <tr>
                                     <th>Location</th>
@@ -51,11 +52,9 @@ class EventCompleted extends Component {
             return (
                     <div>
                             <Nav />
-                            <div id="events-container">
-                                <div id="all-requests-div">
-                                        <h2 className="all-events-h2">Completed Events</h2>
-                                        <h4 className="all-events-h4">Sorry, there are no completed events! Please complete them!</h4>
-                                </div>
+                            <div id="completed-main">
+                                        <h2 className="completed-h2">Completed Events</h2>
+                                        <h4 className="completed-h4">Sorry, there are no completed events! Please complete them!</h4>
                             </div>
                         </div>
             )

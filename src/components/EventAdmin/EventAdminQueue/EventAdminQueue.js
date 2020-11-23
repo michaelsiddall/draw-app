@@ -69,7 +69,10 @@ class EventAdminQueue extends Component {
       return (
         <div>
           <Nav />
-          <h4>Sorry, there are no requests for this event!</h4>
+              <div className="req-by-event-container">
+                  <h2 className="event-queue-h2">Material Requests by Event</h2>
+                  <h4 className="event-queue-h4">Sorry, there are no requests for this event!</h4>
+              </div>
         </div>
       )
     }
