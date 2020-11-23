@@ -12,7 +12,7 @@ class EventCompletedItem extends Component {
             <>
                     <tr id="completed-item-tr"> 
                         <td>{this.props.item.location}</td>
-                        <td>{this.props.item.timestamp.split('T')[0]}</td>
+                        <td>{this.props.item.timestamp.split(' ')[0]}</td>
                         <td>{time}</td>
                         <td>{this.props.item.total_artists}</td>
                     </tr>

@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import EventsCreate from "./EventCreate/EventCreate";
 import EventItem from "./EventItem/EventItem";
-import { HashRouter, Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Nav from '../../Nav/Nav';
 import "./EventAdminEvent.css";
 
@@ -19,7 +17,7 @@ class EventAdminEvent extends Component {
     render() {
         if (this.props.store.eventReducer.length >0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin"){
                     return (
-                        <HashRouter>
+                        <div>
                             <Nav />
 
                             <div id="events-container">
@@ -56,12 +54,12 @@ class EventAdminEvent extends Component {
                                     </table>
                                 </div>
                             </div>
-                        </HashRouter>
+                        </div>
                     );
         }
         else if (this.props.store.eventReducer.length === 0 && this.props.store.user.auth_level==="superAdmin" || this.props.store.user.auth_level==="admin"){
             return (
-                    <HashRouter>
+                    <div>
                             <Nav />
 
                             <div id="events-container">
@@ -71,7 +69,7 @@ class EventAdminEvent extends Component {
                                         <h4 className="all-events-h4">Sorry, there are no events! Please add more!</h4>
                                 </div>
                             </div>
-                        </HashRouter>
+                        </div>
             )
         }
 

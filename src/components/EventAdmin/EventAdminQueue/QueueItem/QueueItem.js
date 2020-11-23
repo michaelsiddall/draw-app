@@ -36,8 +36,6 @@ class QueueItem extends Component {
   };
 
   render() {
-    console.log('PROPS', this.props.item);
-
     return (
       <>
         <tr id='queue-item-tr'>
