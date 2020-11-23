@@ -15,7 +15,11 @@ class QueueItem extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.store.queueReducer !== prevProps.store.queueReducer) {
-      this.refresh(this.props.store.queueReducer);
+      this.props.dispatch({
+        type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
+        payload: this.props.eventID,
+      });
+
       // } else if (this.props.store.queueReducer === null) {
       //   return this.refresh();
       // }
