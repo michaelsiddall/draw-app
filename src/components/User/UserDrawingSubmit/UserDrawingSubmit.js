@@ -5,7 +5,8 @@ import Button from '@material-ui/core/Button';
 import '../UserStyles.css';
 import HomeIcon from '@material-ui/icons/Home';
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
+import ImageIcon from '@material-ui/icons/Image';
+import Icon from '@material-ui/core/Icon';
 
 import '../UserMaterialRequest/UserMaterialRequest.css';
 import Swal from 'sweetalert2';

@@ -4,13 +4,14 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import drawlogo from '../DrawLogo.png';
 import '../UserStyles.css';
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/styles';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Footer from "../../Footer/Footer"
-
-
+import Icon from '@material-ui/core/Icon';
+import PublishIcon from '@material-ui/icons/Publish';
+import ImageIcon from '@material-ui/icons/Image';
+import Crayons from "../../../Images/RFreeCrayons.svg"
+import Donate from "../../../Images/RFreeHeart.svg"
+import "./UserLandingPage.css"
 
 class UserLandingPage extends Component {
   state = {};
@@ -47,26 +48,31 @@ class UserLandingPage extends Component {
 
         <div className="centered">
           <div className="buttonDiv">
-            <Button id="landingButton" size="large" onClick={this.requestMaterial}>
+            <Button id="landingButton" size="large" onClick={this.requestMaterial}
+            endIcon={<Icon><img src={Crayons} id="user-icon"/></Icon>}>
               Request Materials
            </Button>
           </div>
 
           <div className="buttonDiv">
-            <Button id="landingButton" size="large" onClick={this.submitDrawing}>
+            <Button id="landingButton" size="large" onClick={this.submitDrawing}
+            endIcon={<PublishIcon/>}>
               Submit Drawing
           </Button>
           </div>
 
           <div className="buttonDiv">
-            <Button id="landingButton" size="large" onClick={this.viewDrawing}>
+            <Button id="landingButton" size="large" onClick={this.viewDrawing}
+            endIcon={<ImageIcon/>}>
               View Drawings
           </Button>
           </div>
 
           <div className="buttonDiv">
             <a href='https://www.givemn.org/story/Draw' target='_blank'>
-              <Button id="landingButton" size="large" >Donate!</Button>
+              <Button id="landingButton" size="large" 
+              endIcon={<Icon ><img src={Donate} id="user-icon"/></Icon>}
+              >Donate</Button>
             </a>
           </div>
         </div>

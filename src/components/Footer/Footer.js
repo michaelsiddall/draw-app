@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import MailIcon from '@material-ui/icons/Mail';
+import Donate from "../../Images/RFreeHeart.svg"
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import "./Footer.css"
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -10,6 +10,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
+import Icon from '@material-ui/core/Icon';
 
 
 class Footer extends Component {
@@ -35,9 +36,8 @@ class Footer extends Component {
     return (
       <BottomNavigation showLabels={true} id="footer-container">
         <BottomNavigationAction id="bottom-nav" icon={<FacebookIcon id="footer-icon" />} label="Facebook" onClick={this.facebook}></BottomNavigationAction>
-        {/* <BottomNavigationAction id="bottom-nav" icon={<MailIcon id="footer-icon" />} label="Email" onClick={this.mail}></BottomNavigationAction> */}
         <BottomNavigationAction id="bottom-nav" icon={<InstagramIcon id="footer-icon" />} label="Instagram" onClick={this.instagram}></BottomNavigationAction>
-        <BottomNavigationAction id="bottom-nav" icon={<CreditCardIcon id="footer-icon" />} label="Donate" onClick={this.donate}></BottomNavigationAction>
+        <BottomNavigationAction id="bottom-nav" icon={<Icon ><img src={Donate} id="user-icon"/></Icon>} label="Donate" onClick={this.donate}></BottomNavigationAction>
         <BottomNavigationAction id="bottom-nav" icon={<HomeIcon id="footer-icon" />} label="Home" component={Link} to="/userhome"></BottomNavigationAction>
       </BottomNavigation>
     );
