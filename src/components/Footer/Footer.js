@@ -7,7 +7,6 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import "./Footer.css"
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import CreditCardIcon from '@material-ui/icons/CreditCard';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 import Icon from '@material-ui/core/Icon';

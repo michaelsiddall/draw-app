@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import drawlogo from '../DrawLogo.png';
 import '../UserStyles.css';
 import Button from '@material-ui/core/Button';
 
@@ -31,9 +30,6 @@ class UserLandingPage extends Component {
     return (
       <div id="app-container">
       <div className="parentDiv">
-        {/* <div className='drawLogo' maxWidth='med'>
-          <img src={drawlogo} className='logo' alt='draw logo' />
-        </div> */}
         <div >
           <h2 className='centered title'>About Draw</h2>
           <p className='copytext'>
