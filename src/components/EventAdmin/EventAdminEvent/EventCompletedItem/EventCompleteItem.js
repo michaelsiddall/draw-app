@@ -7,7 +7,7 @@ class EventCompletedItem extends Component {
 
     render() {
             let t = new Date (this.props.item.timestamp)
-            let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            let time = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: "America/Chicago" })
         return (
             <>
                     <tr id="completed-item-tr"> 
