@@ -19,13 +19,13 @@ class EventAdminQueue extends Component {
                     // setInterval(this.refresh, 10000);
             }; //end componentDidMount
 
-              // Refresh and grab all new data
-            // refresh = () => {
-            //   this.props.dispatch({
-            //     type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
-            //     payload: this.props.match.params.id,
-            //   });
-            // };
+              
+            refresh = () => {
+              this.props.dispatch({
+                type: 'FETCH_BY_EVENT', //grabs only uncompleted requests
+                payload: this.props.match.params.id,
+              });
+            };
 
 
   render() {

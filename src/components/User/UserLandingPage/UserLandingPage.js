@@ -82,6 +82,7 @@ class UserLandingPage extends Component {
         </div>
         <Footer />
       </div>
+      </div>
     );
   }
 }
