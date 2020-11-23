@@ -4,6 +4,8 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import '../UserStyles.css';
 import Button from '@material-ui/core/Button';
 
+
+
 import Footer from "../../Footer/Footer"
 import Icon from '@material-ui/core/Icon';
 import PublishIcon from '@material-ui/icons/Publish';
@@ -12,16 +14,21 @@ import Crayons from "../../../Images/RFreeCrayons.svg"
 import Donate from "../../../Images/RFreeHeart.svg"
 import "./UserLandingPage.css"
 
+
 class UserLandingPage extends Component {
   state = {};
 
+  // redirects User to Gallery Page displaying all approved images
   viewDrawing = () => {
     this.props.history.push('/gallery');
   };
 
+  // redirects User to Submit Page allowing upload and submission of image for approval
   submitDrawing = () => {
     this.props.history.push('/submit');
   };
+
+  // redirects User to Material Request Page allowing User to submit drawing materials
   requestMaterial = () => {
     this.props.history.push('/request');
   };
@@ -70,10 +77,10 @@ class UserLandingPage extends Component {
               endIcon={<Icon ><img src={Donate} id="user-icon"/></Icon>}
               >Donate</Button>
             </a>
+
           </div>
         </div>
-      </div >
-            <Footer/>
+        <Footer />
       </div>
     );
   }
