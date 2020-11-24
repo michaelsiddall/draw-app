@@ -29,7 +29,7 @@ class EventAdminDrawingsCard extends Component {
 
         Swal.fire({
             title: `drawing by ${this.props.drawing.name}`,
-            text: this.props.drawing.about,
+            text: this.props.drawing.description,
             imageUrl: this.props.drawing.image_url,
             imageAlt: 'drawing',
         });
@@ -82,16 +82,18 @@ class EventAdminDrawingsCard extends Component {
                     <div className="actionDiv">
                         {this.props.drawing.approved === null ?
                             <div>
-                                <Button id="drawings-btn" size="small" color="primary" onClick={this.onDisapprove}>disapprove</Button>
-                                <Button id="drawings-btn" size="small" color="primary" onClick={this.onApprove}>Approve</Button>
+                                <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
+                                <ThumbUpIcon fontSize='large'
+                                    style={{ color: '#577590' }} />
+                                <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
                             </div> :
                             (this.props.drawing.approved ?
-                                <div><Button id="drawings-btn" size="small" color="primary" onClick={this.onDisapprove}>disapprove</Button>
-                                    <a href={this.props.drawing.image_url} download> <Button id="drawings-btn" size="small" color="primary">Download</Button> </a></div> :
-                                <Button id="drawings-btn" size="small" color="primary" onClick={this.onApprove}>approve</Button>)
+                                <div><Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
+                                    <a href={this.props.drawing.image_url} download> download </a></div> :
+                                <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>)
                         }
 
-                        <Button id="drawings-btn" size="small" color="primary" onClick={this.onDelete}>Delete</Button>
+                        <Button size="medium" color="primary" onClick={this.onDelete}>delete</Button>
                     </div>
 
 
