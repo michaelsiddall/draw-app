@@ -14,7 +14,7 @@ class ImageUpload extends Component {
   };
 
   state = {
-    hidden: false
+    content: (<div id="not-hidden">Click To Upload Drawings</div>)
   }
 
   renderImage = ({uploadedFile}) => 
@@ -26,7 +26,7 @@ class ImageUpload extends Component {
 
   hideMe = () =>{
     this.setState({
-      hidden: !this.state.hidden
+      content:null
     })
   }
 
@@ -34,20 +34,17 @@ class ImageUpload extends Component {
   render() {
     const uploadOptions = {};
     const s3Url = process.env.REACT_APP_S3_URL;
-
     return (
       <div>
-        <div id="s3-div">
-         {/* <span id={this.state.hidden ? "hidden-click-me" : "not-hidden-click-me"} onClick={this.hideMe}> */}
-           <span id="not-hidden-click-me">
-            Click To Upload Drawings</span></div>
             <DropzoneS3Uploader
+              onClick={this.hideMe}
               imageComponent={this.renderImage}
               progressComponent={this.renderProgress}
               onFinish={this.handleFinishedUpload}
               s3Url={s3Url}
               maxSize={1024 * 1024 * 5}
               upload={uploadOptions}
+              children={this.state.content}
             />
       </div>
     );

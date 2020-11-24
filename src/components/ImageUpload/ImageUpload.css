@@ -22,33 +22,23 @@
 }
 
 
-#not-hidden-click-me {
-    /* padding-top: 40%;
+#not-hidden{
     position: absolute;
-    width: 100%;
     height: 60%;
+    width: 100%;
     text-align: center;
+    padding-top: 40%;
     visibility: visible;
     font-family: 'Cabin Sketch', cursive;
-    color: rgba(117, 117, 117, 0.664); */
-    background-color: blue;
-    width: 100%;
-    position: relative;
-}
+    color: rgb(148, 148, 148);
+    background-color: rgba(235, 235, 235, 0.87);
+}  
 
-#hidden-click-me {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-}
 
 #s3-div {
-    position: absolute;
-    width: fit-content;
+    position: relative;
     height: 100%;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
     background-color: grey;
 }
 
