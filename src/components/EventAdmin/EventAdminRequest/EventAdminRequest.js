@@ -10,15 +10,7 @@ class EventAdminRequest extends Component {
     this.props.dispatch({
       type: 'FETCH_REQUEST', //grabs only uncompleted requests
     });
-
-    // setInterval(this.refresh, 10000);
-  }; //end componentDidMount
-
-  // refresh = () => {
-  //   this.props.dispatch({
-  //     type: 'FETCH_REQUEST', //grabs only uncompleted requests
-  //   });
-  // };
+  }
 
   render() {
     if (
