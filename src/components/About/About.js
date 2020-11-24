@@ -72,7 +72,7 @@ class About extends Component {
                   </div>
 
                     <p id="attribute">Royalty Free Photos by Lum3n, Alexander Kovalev, Fernando Arcos, Pavlo, Miguel Á. Padriñán, Sharon McCutcheon from Pexels</p> 
-
+                    <p id="attribute">Icons made by Freepik from www.flaticon.com</p>
                       
                   </div>              
         </div>
