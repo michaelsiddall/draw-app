@@ -83,8 +83,6 @@ class EventAdminDrawingsCard extends Component {
                         {this.props.drawing.approved === null ?
                             <div>
                                 <Button size="medium" color="primary" onClick={this.onDisapprove}>disapprove</Button>
-                                <ThumbUpIcon fontSize='large'
-                                    style={{ color: '#577590' }} />
                                 <Button size="medium" color="primary" onClick={this.onApprove}>approve</Button>
                             </div> :
                             (this.props.drawing.approved ?
