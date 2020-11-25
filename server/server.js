@@ -37,6 +37,7 @@ app.use('/api/request', requestRouter);
 //s3 dropzone uploader image upload route
 app.use('/api/imageUrl', imageRouter);
 app.use(
+  //s3 router info, bucket name is below
   '/s3',
   UploaderS3Router({
     bucket: 'drawbyyou', // required
