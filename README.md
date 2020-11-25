@@ -66,13 +66,47 @@ App Admin will have all the page authorization and functionality of Event Admins
 <img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/event_admin_event.png?raw=true height="200" width="400"/>  
 <img src="https://github.com/DrawByYou/draw-app/blob/master/public/wireframes/event_admin_drawing_approval.png?raw=true height="200" width="400"/>                                                                
                                                                                                                                                               
-                                                                                                                                                                                                                                                                                                 
+## Deploying to Heroku & setting up AWS S3 Bucket & storing keys
+For more info on deployment on Heroku, please refer to https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
+For more info on AWS S3 setup on Heroku, please refer to https://devcenter.heroku.com/articles/s3-upload-node
+
+
+
+In terminal 
+**Create App in Heroku
+
+```$ heroku create ```
+
+**Setting up AWS S3 Bucket and storing your AWS keys
+
+In order for your application to access the AWS credentials for signing upload requests, they will need to be added as configuration variables in Heroku:
+
+Use the heroku config:set to set both keys:
+
+```$ heroku config:set AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=yyy```
+
+
+In addition to the AWS access credentials, set your target S3 bucket’s name:
+
+```$ heroku config:set S3_BUCKET=zzz```
+
+**Postgresql in Heroku
+
+in terminal 
+
+```$ heroku addons:create heroku-postgresql:hobby-dev```
+This will set up Postgresql on your Heroku project
+
+```$ heroku pg:push your_database DATABASE_URL```
+This will copy your database contents up to Heroku.  ```your_database``` is the actual name of your database.  ```DATABASE_URL``` is a Heroku config variable created by the ```Add on```.  Do not replace it with something else.  Just type ```DATABASE_URL```
+
+Update or create a module for your pg-pool confirguration to the following code that will convert the Heroku ```DATABASE_URL``` into a pool config object.  The oly line you should have to change is ```database: process.env.DATABASE_NAME || ```'your_database'```.  Change ```your_database``` to the actual name of your database.  
+
+**Update or push changes to Heroku
+
+```git push heroku master```
                                                                              
-                                                                                                            
-
-                                                                                                                               
-                                                                                                                                
-
+                                                                                                                                     
 
 ## Built With
 
