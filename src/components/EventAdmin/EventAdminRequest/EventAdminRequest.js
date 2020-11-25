@@ -24,6 +24,10 @@ class EventAdminRequest extends Component {
 
           <div className='all-requests-container'>
             <h2 className='all-requests-h2'>All Requests for All Events</h2>
+              <p>
+                  Please complete all requests, do NOT delete requests as they are completed. Only delete duplicate or requests mistakes. 
+                  Completed requests lets us know how many artists were at each event in the Completed Events table. 
+                </p>
             <table id='all-requests-table'>
               <thead>
                 <tr>

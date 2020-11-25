@@ -24,6 +24,7 @@ class EventCompleted extends Component {
                   
                     <div id="completed-main"> 
                     <h2 className="completed-h2">Completed Events</h2>
+                    <p>Completed events only appear here when you complete all requests and events to give you total artists and event details.</p>
                         <table id="completed-table">
                             <thead>
                                 <tr>

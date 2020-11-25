@@ -63,6 +63,17 @@
   text-align: center;
 }
 
+.event-queue-p {
+  color: #4e4e4e;
+  padding: 0;
+  margin: auto;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 15px;
+  text-align: center;
+}
 .event-queue-h4 {
   color: #505050;
 }

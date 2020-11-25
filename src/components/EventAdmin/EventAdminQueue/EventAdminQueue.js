@@ -40,6 +40,11 @@ class EventAdminQueue extends Component {
             <div id='white-div'>
               <div id='queue-main'>
                 <h2 className='event-queue-h2'>Material Requests by Event</h2>
+                
+                <p className="event-queue-p">
+                  Please complete all requests, do NOT delete requests as they are completed. Only delete duplicate or requests mistakes. 
+                  Completed requests lets us know how many artists were at each event in the Completed Events table. 
+                </p>
                 <Button id='refreshButton' onClick={this.refresh}>
                   Refresh Material Requests
                 </Button>
