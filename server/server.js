@@ -39,7 +39,7 @@ app.use('/api/imageUrl', imageRouter);
 app.use(
   '/s3',
   UploaderS3Router({
-    bucket: 'drawbyyoubucket', // required
+    bucket: 'drawbyyou', // required
     region: 'us-east-2', // optional
     headers: { 'Access-Control-Allow-Origin': '*' }, // optional
     ACL: 'public-read', // this is the default - set to `public-read` to let anyone view uploads
