@@ -1,7 +1,11 @@
 
 # Description
 
-Duration:  2 week sprint
+Duration:  2 week sprint:  This project was constructed remotely from inital consultation to hand off. 
+
+
+Group Project:  Mike Siddall, Jake Stuckey, Emma Westbrook, Sophie Vaug
+
 
 Draw is a community color therapy initiative inspired by Charles Moertel, who wanted to make a children’s book, but passed away before having the opportunity to achieve his goal. Draw partners with local organizations to host coloring days where people express creativity, share stories, and grow community by adding pages to the ever-growing children’s book.
 
